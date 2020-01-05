@@ -1,44 +1,207 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="6b8b991d-396d-45fd-b86e-a412170e489c" name="Default Changelist" comment="" />
+    <list default="true" id="8663e851-36db-4d57-9a11-e53e6e6700ca" name="Default Changelist" comment="">
+      <change afterPath="$PROJECT_DIR$/src/test/java/runners/POMRunner.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/uiDesigner.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Java_Automation.iml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/pom.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/Base/DriverInstantiation.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Base/DriverInstantiation.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/execution/excutionProperties.properties" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/execution/executionProperties.properties" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/Base/DriverInstantiation.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/Base/DriverInstantiation.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/test-classes/META-INF/Java_Automation.kotlin_module" beforeDir="false" />
+    </list>
+    <ignored path="$PROJECT_DIR$/target/" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
     <option name="LAST_RESOLUTION" value="IGNORE" />
   </component>
+  <component name="FileEditorManager">
+    <leaf>
+      <file pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/src/test/java/runners/POMRunner.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="360">
+              <caret line="26" column="16" lean-forward="true" selection-start-line="26" selection-start-column="16" selection-end-line="26" selection-end-column="16" />
+              <folding>
+                <element signature="imports" expanded="true" />
+                <element signature="e#701#702#0" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+    </leaf>
+  </component>
   <component name="FileTemplateManagerImpl">
     <option name="RECENT_TEMPLATES">
       <list>
-        <option value="RobotTestCaseFile" />
         <option value="Class" />
+      </list>
+    </option>
+  </component>
+  <component name="FindInProjectRecents">
+    <replaceStrings>
+      <replace />
+    </replaceStrings>
+    <dirStrings>
+      <dir>$PROJECT_DIR$/src/test</dir>
+    </dirStrings>
+  </component>
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+  </component>
+  <component name="IdeDocumentHistory">
+    <option name="CHANGED_PATHS">
+      <list>
+        <option value="$PROJECT_DIR$/pom.xml" />
+        <option value="$PROJECT_DIR$/src/test/runner/TestNgRunner.java" />
+        <option value="$PROJECT_DIR$/src/main/java/Base/DriverInstantiation.java" />
+        <option value="$PROJECT_DIR$/src/test/execution/executionProperties.properties" />
+        <option value="$PROJECT_DIR$/src/test/java/runners/POMRunner.java" />
       </list>
     </option>
   </component>
   <component name="MavenImportPreferences">
     <option name="importingSettings">
       <MavenImportingSettings>
+        <option name="downloadDocsAutomatically" value="true" />
+        <option name="downloadSourcesAutomatically" value="true" />
         <option name="importAutomatically" value="true" />
-        <option name="vmOptionsForImporter" value="-Xmx768m" />
       </MavenImportingSettings>
     </option>
   </component>
-  <component name="ProjectId" id="1UE8L3edZB2LRv1fcTyBSi4ktfw" />
+  <component name="MavenProjectNavigator">
+    <treeState>
+      <expand>
+        <path>
+          <item name="" type="16c1761:MavenProjectsStructure$RootNode" />
+          <item name="Java_Automation" type="9519ce18:MavenProjectsStructure$ProjectNode" />
+        </path>
+        <path>
+          <item name="" type="16c1761:MavenProjectsStructure$RootNode" />
+          <item name="Java_Automation" type="9519ce18:MavenProjectsStructure$ProjectNode" />
+          <item name="Lifecycle" type="58874e2:MavenProjectsStructure$LifecycleNode" />
+        </path>
+      </expand>
+      <select />
+    </treeState>
+  </component>
+  <component name="ProjectFrameBounds">
+    <option name="y" value="23" />
+    <option name="width" value="1440" />
+    <option name="height" value="812" />
+  </component>
+  <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
+  <component name="ProjectView">
+    <navigator proportions="" version="1">
+      <foldersAlwaysOnTop value="true" />
+    </navigator>
+    <panes>
+      <pane id="ProjectPane">
+        <subPane>
+          <expand>
+            <path>
+              <item name="Java_Automation" type="b2602c69:ProjectViewProjectNode" />
+              <item name="POM_Framework" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="Java_Automation" type="b2602c69:ProjectViewProjectNode" />
+              <item name="POM_Framework" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="Java_Automation" type="b2602c69:ProjectViewProjectNode" />
+              <item name="POM_Framework" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="main" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="Java_Automation" type="b2602c69:ProjectViewProjectNode" />
+              <item name="POM_Framework" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="main" type="462c0819:PsiDirectoryNode" />
+              <item name="java" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="Java_Automation" type="b2602c69:ProjectViewProjectNode" />
+              <item name="POM_Framework" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="main" type="462c0819:PsiDirectoryNode" />
+              <item name="java" type="462c0819:PsiDirectoryNode" />
+              <item name="Base" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="Java_Automation" type="b2602c69:ProjectViewProjectNode" />
+              <item name="POM_Framework" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="main" type="462c0819:PsiDirectoryNode" />
+              <item name="java" type="462c0819:PsiDirectoryNode" />
+              <item name="Mail" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="Java_Automation" type="b2602c69:ProjectViewProjectNode" />
+              <item name="POM_Framework" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="test" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="Java_Automation" type="b2602c69:ProjectViewProjectNode" />
+              <item name="POM_Framework" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="test" type="462c0819:PsiDirectoryNode" />
+              <item name="config" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="Java_Automation" type="b2602c69:ProjectViewProjectNode" />
+              <item name="POM_Framework" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="test" type="462c0819:PsiDirectoryNode" />
+              <item name="execution" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="Java_Automation" type="b2602c69:ProjectViewProjectNode" />
+              <item name="POM_Framework" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="test" type="462c0819:PsiDirectoryNode" />
+              <item name="java" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="Java_Automation" type="b2602c69:ProjectViewProjectNode" />
+              <item name="POM_Framework" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="test" type="462c0819:PsiDirectoryNode" />
+              <item name="java" type="462c0819:PsiDirectoryNode" />
+              <item name="runners" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="Java_Automation" type="b2602c69:ProjectViewProjectNode" />
+              <item name="POM_Framework" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="test" type="462c0819:PsiDirectoryNode" />
+              <item name="resources" type="462c0819:PsiDirectoryNode" />
+            </path>
+          </expand>
+          <select />
+        </subPane>
+      </pane>
+      <pane id="PackagesPane" />
+      <pane id="Scope" />
+    </panes>
+  </component>
   <component name="PropertiesComponent">
-    <property name="last_opened_file_path" value="$USER_HOME$/Downloads/AutoItX4Java.jar!/" />
-    <property name="project.structure.last.edited" value="Global Libraries" />
-    <property name="project.structure.proportion" value="0.15" />
+    <property name="project.structure.last.edited" value="Problems" />
+    <property name="project.structure.proportion" value="0.0" />
     <property name="project.structure.side.proportion" value="0.2" />
-    <property name="settings.editor.selected.configurable" value="preferences.sourceCode.Java" />
+    <property name="settings.editor.selected.configurable" value="vcs.Git" />
   </component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
-      <recent name="C:\Users\avanamala\IdeaProjects\Java_Automation\src\test" />
-    </key>
-    <key name="MoveFile.RECENT_KEYS">
-      <recent name="C:\Users\avanamala\IdeaProjects\Java_Automation\src\test" />
-      <recent name="C:\Users\avanamala\IdeaProjects\Java_Automation\src\test\resources" />
+      <recent name="$PROJECT_DIR$/src/test" />
     </key>
   </component>
   <component name="RunDashboard">
@@ -53,45 +216,64 @@
       </list>
     </option>
   </component>
-  <component name="RunManager" selected="Application.DriverInstantiation">
-    <configuration name="DriverInstantiation" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
-      <option name="MAIN_CLASS_NAME" value="Base.DriverInstantiation" />
+  <component name="RunManager" selected="TestNG.POMRunner">
+    <configuration name="POMRunner (1)" type="TestNG" temporary="true" nameIsGenerated="true">
       <module name="Java_Automation" />
       <extension name="coverage">
         <pattern>
-          <option name="PATTERN" value="Base.*" />
+          <option name="PATTERN" value="runners.*" />
           <option name="ENABLED" value="true" />
         </pattern>
       </extension>
+      <option name="PACKAGE_NAME" value="runners" />
+      <option name="MAIN_CLASS_NAME" value="runners.POMRunner" />
+      <option name="TEST_OBJECT" value="CLASS" />
+      <properties />
+      <listeners />
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="SendMailviaSMTP" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
-      <option name="MAIN_CLASS_NAME" value="Mail.SendMailviaSMTP" />
+    <configuration name="POMRunner" type="TestNG" temporary="true" nameIsGenerated="true">
       <module name="Java_Automation" />
       <extension name="coverage">
         <pattern>
-          <option name="PATTERN" value="Mail.*" />
+          <option name="PATTERN" value="runners.*" />
           <option name="ENABLED" value="true" />
         </pattern>
       </extension>
+      <option name="PACKAGE_NAME" value="runners" />
+      <option name="MAIN_CLASS_NAME" value="runners.POMRunner" />
+      <option name="TEST_OBJECT" value="CLASS" />
+      <properties />
+      <listeners />
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="uploadfileusingautoitjava" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
-      <option name="MAIN_CLASS_NAME" value="uploadfileusingautoitjava" />
+    <configuration name="POMRunner.navigateToTupaki" type="TestNG" temporary="true" nameIsGenerated="true">
       <module name="Java_Automation" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="runners.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="PACKAGE_NAME" value="runners" />
+      <option name="MAIN_CLASS_NAME" value="runners.POMRunner" />
+      <option name="METHOD_NAME" value="navigateToTupaki" />
+      <option name="TEST_OBJECT" value="METHOD" />
+      <properties />
+      <listeners />
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
     </configuration>
     <recent_temporary>
       <list>
-        <item itemvalue="Application.DriverInstantiation" />
-        <item itemvalue="Application.uploadfileusingautoitjava" />
-        <item itemvalue="Application.SendMailviaSMTP" />
+        <item itemvalue="TestNG.POMRunner" />
+        <item itemvalue="TestNG.POMRunner (1)" />
+        <item itemvalue="TestNG.POMRunner.navigateToTupaki" />
       </list>
     </recent_temporary>
   </component>
@@ -100,12 +282,155 @@
   </component>
   <component name="TaskManager">
     <task active="true" id="Default" summary="Default task">
-      <changelist id="6b8b991d-396d-45fd-b86e-a412170e489c" name="Default Changelist" comment="" />
-      <created>1574910334879</created>
+      <changelist id="8663e851-36db-4d57-9a11-e53e6e6700ca" name="Default Changelist" comment="" />
+      <created>1577979628337</created>
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
-      <updated>1574910334879</updated>
+      <updated>1577979628337</updated>
     </task>
     <servers />
+  </component>
+  <component name="TestHistory">
+    <history-entry file="POMRunner - 2020.01.05 at 19h 30m 02s.xml">
+      <configuration name="POMRunner" configurationId="TestNG" />
+    </history-entry>
+    <history-entry file="POMRunner - 2020.01.05 at 19h 31m 00s.xml">
+      <configuration name="POMRunner" configurationId="TestNG" />
+    </history-entry>
+    <history-entry file="POMRunner - 2020.01.05 at 19h 31m 47s.xml">
+      <configuration name="POMRunner" configurationId="TestNG" />
+    </history-entry>
+    <history-entry file="POMRunner - 2020.01.05 at 19h 32m 17s.xml">
+      <configuration name="POMRunner" configurationId="TestNG" />
+    </history-entry>
+    <history-entry file="POMRunner - 2020.01.05 at 19h 32m 37s.xml">
+      <configuration name="POMRunner" configurationId="TestNG" />
+    </history-entry>
+    <history-entry file="POMRunner - 2020.01.05 at 19h 33m 11s.xml">
+      <configuration name="POMRunner" configurationId="TestNG" />
+    </history-entry>
+    <history-entry file="POMRunner - 2020.01.05 at 19h 34m 05s.xml">
+      <configuration name="POMRunner" configurationId="TestNG" />
+    </history-entry>
+    <history-entry file="POMRunner - 2020.01.05 at 19h 36m 37s.xml">
+      <configuration name="POMRunner" configurationId="TestNG" />
+    </history-entry>
+    <history-entry file="POMRunner - 2020.01.05 at 19h 40m 39s.xml">
+      <configuration name="POMRunner" configurationId="TestNG" />
+    </history-entry>
+    <history-entry file="POMRunner - 2020.01.05 at 19h 40m 55s.xml">
+      <configuration name="POMRunner" configurationId="TestNG" />
+    </history-entry>
+  </component>
+  <component name="ToolWindowManager">
+    <frame x="0" y="23" width="1440" height="812" extended-state="6" />
+    <editor active="true" />
+    <layout>
+      <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.25" />
+      <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
+      <window_info id="Designer" order="2" />
+      <window_info id="Favorites" order="3" side_tool="true" />
+      <window_info anchor="bottom" id="Messages" weight="0.32928476" />
+      <window_info anchor="bottom" id="Message" order="0" />
+      <window_info anchor="bottom" id="Find" order="1" weight="0.32928476" />
+      <window_info active="true" anchor="bottom" id="Run" order="2" visible="true" weight="0.32928476" />
+      <window_info anchor="bottom" id="Debug" order="3" weight="0.4" />
+      <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
+      <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
+      <window_info anchor="bottom" id="TODO" order="6" />
+      <window_info anchor="bottom" id="Version Control" order="7" />
+      <window_info anchor="bottom" id="Terminal" order="8" />
+      <window_info anchor="bottom" id="Event Log" order="9" side_tool="true" />
+      <window_info anchor="right" id="Commander" internal_type="SLIDING" order="0" type="SLIDING" weight="0.4" />
+      <window_info anchor="right" id="Ant Build" order="1" weight="0.25" />
+      <window_info anchor="right" content_ui="combo" id="Hierarchy" order="2" weight="0.25" />
+      <window_info anchor="right" id="Maven" order="3" visible="true" weight="0.11736111" />
+      <window_info anchor="right" id="Palette&#9;" order="4" />
+    </layout>
+  </component>
+  <component name="editorHistoryManager">
+    <entry file="file://$PROJECT_DIR$/src/test/runner/TestNgRunner.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="15">
+          <caret line="1" column="1" lean-forward="true" selection-start-line="1" selection-start-column="1" selection-end-line="1" selection-end-column="1" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/test/java/Base/DriverInstantiation.java">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/test/execution/executionProperties.properties">
+      <provider selected="true" editor-type-id="text-editor">
+        <state>
+          <caret column="11" selection-start-column="11" selection-end-column="11" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/test/config/profiles.xml">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/Base/DriverInstantiation.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="495">
+          <caret line="50" column="56" selection-start-line="50" selection-start-column="56" selection-end-line="50" selection-end-column="56" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/pom.xml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="312">
+          <caret line="48" selection-start-line="48" selection-end-line="48" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/test/java/runners/POMRunner.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="360">
+          <caret line="26" column="16" lean-forward="true" selection-start-line="26" selection-start-column="16" selection-end-line="26" selection-end-column="16" />
+          <folding>
+            <element signature="imports" expanded="true" />
+            <element signature="e#701#702#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+  </component>
+  <component name="masterDetails">
+    <states>
+      <state key="GlobalLibrariesConfigurable.UI">
+        <settings>
+          <splitter-proportions>
+            <option name="proportions">
+              <list>
+                <option value="0.2" />
+              </list>
+            </option>
+          </splitter-proportions>
+        </settings>
+      </state>
+      <state key="JdkListConfigurable.UI">
+        <settings>
+          <last-edited>1.8</last-edited>
+          <splitter-proportions>
+            <option name="proportions">
+              <list>
+                <option value="0.2" />
+              </list>
+            </option>
+          </splitter-proportions>
+        </settings>
+      </state>
+      <state key="ProjectLibrariesConfigurable.UI">
+        <settings>
+          <splitter-proportions>
+            <option name="proportions">
+              <list>
+                <option value="0.2" />
+              </list>
+            </option>
+          </splitter-proportions>
+        </settings>
+      </state>
+    </states>
   </component>
 </project>

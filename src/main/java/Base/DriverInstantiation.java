@@ -23,7 +23,7 @@ public class DriverInstantiation {
     public void setDriver() throws IOException {
         String browser = getBrowserType();
         if (browser.equalsIgnoreCase("Chrome")) {
-            System.setProperty("webdriver.chome", "src\\test\\resources\\chromedriver.exe");
+            System.setProperty("webdriver.chrome.driver", "src/test/resources/chromedriver_mac64");
             WebDriver driver = new ChromeDriver();
             this.driver = driver;
         }
@@ -35,7 +35,7 @@ public class DriverInstantiation {
 
     public String getBrowserType() throws IOException {
         String browserType = "Chrome";
-        File properties = new File("src\\test\\execution\\excutionProperties.properties");
+        File properties = new File("src/test/execution/executionProperties.properties");
         FileInputStream fileInputStream = new FileInputStream(properties);
         Properties prop = new Properties();
         prop.load(fileInputStream);
@@ -48,7 +48,7 @@ public class DriverInstantiation {
         String loginURL = "";
         String profile = getProfile();
         try {
-            File fXmlFile = new File("src\\test\\config\\profiles.xml");
+            File fXmlFile = new File("src/test/config/profiles.xml");
             DocumentBuilderFactory dbFactory = DocumentBuilderFactory.newInstance();
             DocumentBuilder dBuilder = dbFactory.newDocumentBuilder();
             Document doc = dBuilder.parse(fXmlFile);
@@ -73,7 +73,7 @@ public class DriverInstantiation {
 
     public String getProfile() throws IOException {
         String profile = "";
-        File properties = new File("src\\test\\execution\\excutionProperties.properties");
+        File properties = new File("src/test/execution/executionProperties.properties");
         FileInputStream fileInputStream = new FileInputStream(properties);
         Properties prop = new Properties();
         prop.load(fileInputStream);
