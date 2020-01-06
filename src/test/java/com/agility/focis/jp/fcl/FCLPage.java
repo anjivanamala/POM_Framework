@@ -1,6 +1,7 @@
 package com.agility.focis.jp.fcl;
 
 import com.agility.focis.base.BasePage;
+import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
@@ -16,4 +17,14 @@ public class FCLPage extends BasePage {
 
     @FindBy(xpath = "//input[@title = 'Search']")
     public WebElement searchInput;
+    @FindBy(xpath = "Google apps")
+    public WebElement googleApps;
+
+    public WebElement menu(String menuOption) {
+        return this.driver.findElement(By.xpath("//span[text() ='" + menuOption + "']/.."));
+    }
+
+    public WebElement language(String language) {
+        return this.driver.findElement(By.xpath("//*[text() = '" + language + "']"));
+    }
 }

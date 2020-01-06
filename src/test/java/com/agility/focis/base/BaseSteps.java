@@ -10,7 +10,9 @@ public class BaseSteps extends DriverInstantiation {
     public WebDriver driver;
 
     public BaseSteps() throws IOException {
-        setDriver();
+        if (getDriver() == null) {
+            setDriver();
+        }
         this.driver = getDriver();
     }
 }

@@ -21,7 +21,9 @@ public class FCLSteps extends BaseSteps {
         driver.get(loginUrl);
         Thread.sleep(2000);
         driver.navigate().to("https://www.google.com/");
-        fclPage.searchInput.sendKeys("Hello");
+//        fclPage.searchInput.sendKeys("Hello");
+        Thread.sleep(1000);
+        fclPage.language("తెలుగు").click();
         Thread.sleep(1000);
     }
 }

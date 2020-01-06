@@ -18,7 +18,7 @@ import java.io.IOException;
 import java.util.Properties;
 
 public class DriverInstantiation {
-    WebDriver driver;
+    public static WebDriver driver;
 
     public void setDriver() throws IOException {
         String browser = getBrowserType();
@@ -29,8 +29,8 @@ public class DriverInstantiation {
         }
     }
 
-    public WebDriver getDriver() {
-        return this.driver;
+    public static WebDriver getDriver() {
+        return driver;
     }
 
     public String getBrowserType() throws IOException {
@@ -58,8 +58,8 @@ public class DriverInstantiation {
                 Node nNode = nList.item(temp);
                 if (nNode.getNodeType() == Node.ELEMENT_NODE) {
                     Element eElement = (Element) nNode;
-                    if(eElement.getElementsByTagName("Name")
-                            .item(0).getTextContent().equalsIgnoreCase(profile)){
+                    if (eElement.getElementsByTagName("Name")
+                            .item(0).getTextContent().equalsIgnoreCase(profile)) {
                         loginURL = eElement.getElementsByTagName("URL")
                                 .item(0).getTextContent();
                     }
@@ -68,7 +68,7 @@ public class DriverInstantiation {
         } catch (Exception e) {
             e.printStackTrace();
         }
-    return loginURL;
+        return loginURL;
     }
 
     public String getProfile() throws IOException {
