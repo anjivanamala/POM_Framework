@@ -1,5 +1,5 @@
 Feature: JP - FOCiS
-
+@gui
   Scenario Outline: Create a FCL Job
 
     Given User is logged into FOCiS Application
