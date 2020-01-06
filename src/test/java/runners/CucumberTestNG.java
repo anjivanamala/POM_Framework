@@ -6,6 +6,7 @@ import io.cucumber.testng.AbstractTestNGCucumberTests;
 import org.openqa.selenium.WebDriver;
 import org.testng.annotations.AfterMethod;
 import org.testng.annotations.BeforeClass;
+import org.testng.annotations.BeforeMethod;
 
 import java.io.IOException;
 
@@ -18,11 +19,16 @@ import java.io.IOException;
 public class CucumberTestNG extends AbstractTestNGCucumberTests {
     public WebDriver driver;
 
+    @BeforeMethod
+    public void instantiateDriver() throws IOException {
+        DriverInstantiation.setDriver();
+    }
 
     @AfterMethod
     public void killDriver() {
         driver = DriverInstantiation.getDriver();
         driver.quit();
+        System.out.println("I quit the Driver");
     }
 
 }

@@ -20,12 +20,12 @@ import java.util.Properties;
 public class DriverInstantiation {
     public static WebDriver driver;
 
-    public void setDriver() throws IOException {
+    public static void setDriver() throws IOException {
         String browser = getBrowserType();
         if (browser.equalsIgnoreCase("Chrome")) {
             System.setProperty("webdriver.chrome.driver", "src/test/resources/drivers/chromedriver_mac64");
-            WebDriver driver = new ChromeDriver();
-            this.driver = driver;
+            driver = new ChromeDriver();
+
         }
     }
 
@@ -33,7 +33,7 @@ public class DriverInstantiation {
         return driver;
     }
 
-    public String getBrowserType() throws IOException {
+    public static String getBrowserType() throws IOException {
         String browserType = "Chrome";
         File properties = new File("src/test/execution/executionProperties.properties");
         FileInputStream fileInputStream = new FileInputStream(properties);
