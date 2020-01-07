@@ -1,6 +1,7 @@
 package runners;
 
 import Base.DriverInstantiation;
+import com.vimalselvam.cucumber.listener.Reporter;
 import cucumber.api.CucumberOptions;
 import io.cucumber.testng.AbstractTestNGCucumberTests;
 import net.masterthought.cucumber.Configuration;
@@ -20,11 +21,12 @@ import java.util.ArrayList;
 import java.util.Collections;
 import java.util.List;
 
-
-@CucumberOptions(features = "src/test/resources/com/agility/focis/jp/fcl", tags = {"@gui2"}, monochrome = true, plugin = {
+@CucumberOptions(features = "src/test/resources/com/agility/focis/jp/fcl", tags = {"@gui"}, monochrome = true, plugin = {
         "pretty", "html:target/cucumber-report2",
         "json:target/cucumber-report2/cucumber.json",
-        "rerun:target/cucumber-report2/rerun.txt"},
+        "rerun:target/cucumber-report2/rerun.txt",
+        "com.aventstack.extentreports.cucumber.adapter.ExtentCucumberAdapter:target/html/ExtentReport.html "
+},
         glue = "com.agility.focis")
 public class CucumberTestNG extends AbstractTestNGCucumberTests {
     public WebDriver driver;
@@ -41,7 +43,7 @@ public class CucumberTestNG extends AbstractTestNGCucumberTests {
         System.out.println("I quit the Driver");
     }
 
-    @AfterClass
+    //    @AfterClass
     public void generateACucmberReport() {
         File reportOutputDirectory = new File("target");
         List<String> jsonFiles = new ArrayList<String>();
@@ -71,6 +73,12 @@ public class CucumberTestNG extends AbstractTestNGCucumberTests {
         ReportBuilder reportBuilder = new ReportBuilder(jsonFiles, configuration);
         Reportable result = reportBuilder.generateReports();
 
+
+    }
+
+    @AfterClass
+    public static void writeExtentReport() {
+        Reporter.loadXMLConfig(new File("src/test/config/extent-config.xml"));
 
     }
 
