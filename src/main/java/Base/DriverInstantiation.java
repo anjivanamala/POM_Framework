@@ -23,10 +23,11 @@ public class DriverInstantiation {
     public static void setDriver() throws IOException {
         String browser = getBrowserType();
         if (browser.equalsIgnoreCase("Chrome")) {
-            System.setProperty("webdriver.chrome.driver", "src/test/resources/drivers/chromedriver_mac64");
+            System.setProperty("webdriver.chrome.driver", "src/test/resources/drivers/chromedriver.exe");
             driver = new ChromeDriver();
 
         }
+
     }
 
     public static WebDriver getDriver() {
