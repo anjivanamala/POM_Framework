@@ -331,7 +331,14 @@
                 </exclusion>
             </exclusions>
         </dependency>
+        <!--&lt;!&ndash; https://mvnrepository.com/artifact/org.apache.velocity/velocity &ndash;&gt;-->
+        <!--<dependency>-->
+            <!--<groupId>org.apache.velocity</groupId>-->
+            <!--<artifactId>velocity</artifactId>-->
+            <!--<version>1.7</version>-->
+        <!--</dependency>-->
 
+        <!-- https://mvnrepository.com/artifact/net.masterthought/cucumber-reporting -->
         <dependency>
             <groupId>net.masterthought</groupId>
             <artifactId>cucumber-reporting</artifactId>
@@ -357,6 +364,14 @@
                     <groupId>org.slf4j</groupId>
                     <artifactId>slf4j-jdk14</artifactId>
                 </exclusion>
+                <exclusion>
+                    <groupId>org.mock-server</groupId>
+                    <artifactId>mockserver-client-java</artifactId>
+                </exclusion>
+                <exclusion>
+                    <groupId>org.apache.velocity</groupId>
+                    <artifactId>velocity</artifactId>
+                </exclusion>
             </exclusions>
         </dependency>
 
@@ -380,9 +395,9 @@
 
         <!--&lt;!&ndash; https://mvnrepository.com/artifact/com.aventstack/extentreports &ndash;&gt;-->
         <!--<dependency>-->
-            <!--<groupId>com.aventstack</groupId>-->
-            <!--<artifactId>extentreports</artifactId>-->
-            <!--<version>4.1.1</version>-->
+        <!--<groupId>com.aventstack</groupId>-->
+        <!--<artifactId>extentreports</artifactId>-->
+        <!--<version>4.1.1</version>-->
         <!--</dependency>-->
 
         <!-- https://mvnrepository.com/artifact/org.apache.maven.shared/file-management -->
@@ -418,5 +433,6 @@
             <scope>compile</scope>
         </dependency>
     </dependencies>
+
 
 </project>

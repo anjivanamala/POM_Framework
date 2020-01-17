@@ -1,0 +1,408 @@
+[
+    {
+        "line": 3,
+        "elements": [
+            {
+                "line": 6,
+                "name": "Display Checkout Page - OK",
+                "description": "",
+                "id": "checkout-page;display-checkout-page---ok",
+                "type": "scenario",
+                "keyword": "Scenario",
+                "steps": [
+                    {
+                        "result": {
+                            "duration": 116590252,
+                            "status": "passed"
+                        },
+                        "line": 7,
+                        "name": "an authenticated user",
+                        "match": {
+                            "location": "CheckoutPageSteps.an_authenticated_user()"
+                        },
+                        "keyword": "Given "
+                    },
+                    {
+                        "result": {
+                            "duration": 687163,
+                            "status": "passed"
+                        },
+                        "line": 8,
+                        "name": "selects a product",
+                        "match": {
+                            "location": "CheckoutPageSteps.selects_a_product()"
+                        },
+                        "keyword": "When "
+                    },
+                    {
+                        "result": {
+                            "duration": 680226,
+                            "status": "passed"
+                        },
+                        "line": 9,
+                        "name": "the checkout page is displayed",
+                        "match": {
+                            "location": "CheckoutPageSteps.the_checkout_page_is_displayed()"
+                        },
+                        "keyword": "Then "
+                    }
+                ],
+                "tags": [
+                    {
+                        "name": "@CheckoutPage"
+                    },
+                    {
+                        "name": "@Scenario1"
+                    },
+                    {
+                        "name": "@OK"
+                    }
+                ]
+            },
+            {
+                "line": 31,
+                "name": "Checkout Page for Other Users - OK",
+                "description": "",
+                "id": "checkout-page;checkout-page-for-other-users---ok;;2",
+                "type": "scenario",
+                "keyword": "Scenario Outline",
+                "steps": [
+                    {
+                        "result": {
+                            "duration": 341356,
+                            "status": "passed"
+                        },
+                        "line": 24,
+                        "name": "an authenticated user using \"another@user.com\"",
+                        "match": {
+                            "arguments": [
+                                {
+                                    "val": "another@user.com",
+                                    "offset": 29
+                                }
+                            ],
+                            "location": "CheckoutPageSteps.an_authenticated_user_using_another_user_com(String)"
+                        },
+                        "keyword": "Given "
+                    },
+                    {
+                        "result": {
+                            "duration": 356552,
+                            "status": "passed"
+                        },
+                        "line": 25,
+                        "name": "selects a product",
+                        "match": {
+                            "location": "CheckoutPageSteps.selects_a_product()"
+                        },
+                        "keyword": "When "
+                    },
+                    {
+                        "result": {
+                            "duration": 309595,
+                            "status": "passed"
+                        },
+                        "line": 26,
+                        "name": "the checkout page is displayed",
+                        "match": {
+                            "location": "CheckoutPageSteps.the_checkout_page_is_displayed()"
+                        },
+                        "keyword": "Then "
+                    }
+                ],
+                "tags": [
+                    {
+                        "name": "@CheckoutPage"
+                    },
+                    {
+                        "name": "@Scenario3"
+                    },
+                    {
+                        "name": "@OK"
+                    }
+                ]
+            },
+            {
+                "line": 32,
+                "name": "Checkout Page for Other Users - OK",
+                "description": "",
+                "id": "checkout-page;checkout-page-for-other-users---ok;;3",
+                "type": "scenario",
+                "keyword": "Scenario Outline",
+                "steps": [
+                    {
+                        "result": {
+                            "duration": 196754,
+                            "status": "passed"
+                        },
+                        "line": 24,
+                        "name": "an authenticated user using \"someother@user.com\"",
+                        "match": {
+                            "arguments": [
+                                {
+                                    "val": "someother@user.com",
+                                    "offset": 29
+                                }
+                            ],
+                            "location": "CheckoutPageSteps.an_authenticated_user_using_another_user_com(String)"
+                        },
+                        "keyword": "Given "
+                    },
+                    {
+                        "result": {
+                            "duration": 326602,
+                            "status": "passed"
+                        },
+                        "line": 25,
+                        "name": "selects a product",
+                        "match": {
+                            "location": "CheckoutPageSteps.selects_a_product()"
+                        },
+                        "keyword": "When "
+                    },
+                    {
+                        "result": {
+                            "duration": 305609,
+                            "status": "passed"
+                        },
+                        "line": 26,
+                        "name": "the checkout page is displayed",
+                        "match": {
+                            "location": "CheckoutPageSteps.the_checkout_page_is_displayed()"
+                        },
+                        "keyword": "Then "
+                    }
+                ],
+                "tags": [
+                    {
+                        "name": "@CheckoutPage"
+                    },
+                    {
+                        "name": "@Scenario3"
+                    },
+                    {
+                        "name": "@OK"
+                    }
+                ]
+            }
+        ],
+        "name": "Checkout Page",
+        "description": "",
+        "id": "checkout-page",
+        "keyword": "Feature",
+        "uri": "src/test/resources/Features/0001_CheckoutPage.feature",
+        "tags": [
+            {
+                "name": "@CheckoutPage",
+                "type": "Tag",
+                "location": {
+                    "line": 2,
+                    "column": 1
+                }
+            }
+        ]
+    },
+    {
+        "line": 3,
+        "elements": [
+            {
+                "line": 6,
+                "name": "Display Checkout Page 2 - OK",
+                "description": "",
+                "id": "checkout-page-2;display-checkout-page-2---ok",
+                "type": "scenario",
+                "keyword": "Scenario",
+                "steps": [
+                    {
+                        "result": {
+                            "duration": 298926,
+                            "status": "passed"
+                        },
+                        "line": 7,
+                        "name": "an authenticated user",
+                        "match": {
+                            "location": "CheckoutPageSteps.an_authenticated_user()"
+                        },
+                        "keyword": "Given "
+                    },
+                    {
+                        "result": {
+                            "duration": 361143,
+                            "status": "passed"
+                        },
+                        "line": 8,
+                        "name": "selects a product",
+                        "match": {
+                            "location": "CheckoutPageSteps.selects_a_product()"
+                        },
+                        "keyword": "When "
+                    },
+                    {
+                        "result": {
+                            "duration": 351800,
+                            "status": "passed"
+                        },
+                        "line": 9,
+                        "name": "the checkout page is displayed",
+                        "match": {
+                            "location": "CheckoutPageSteps.the_checkout_page_is_displayed()"
+                        },
+                        "keyword": "Then "
+                    }
+                ],
+                "tags": [
+                    {
+                        "name": "@CheckoutPage"
+                    },
+                    {
+                        "name": "@Scenario1"
+                    },
+                    {
+                        "name": "@OK"
+                    }
+                ]
+            },
+            {
+                "line": 30,
+                "name": "Checkout Page 2 for Other Users - OK",
+                "description": "",
+                "id": "checkout-page-2;checkout-page-2-for-other-users---ok;;2",
+                "type": "scenario",
+                "keyword": "Scenario Outline",
+                "steps": [
+                    {
+                        "result": {
+                            "duration": 245184,
+                            "status": "passed"
+                        },
+                        "line": 24,
+                        "name": "selects a product",
+                        "match": {
+                            "location": "CheckoutPageSteps.selects_a_product()"
+                        },
+                        "keyword": "When "
+                    },
+                    {
+                        "result": {
+                            "duration": 267845,
+                            "status": "passed"
+                        },
+                        "line": 25,
+                        "name": "the checkout page is displayed",
+                        "match": {
+                            "location": "CheckoutPageSteps.the_checkout_page_is_displayed()"
+                        },
+                        "keyword": "Then "
+                    },
+                    {
+                        "result": {
+                            "duration": 280217,
+                            "status": "passed"
+                        },
+                        "line": 26,
+                        "name": "an authenticated user using \"another@user.com\"",
+                        "match": {
+                            "arguments": [
+                                {
+                                    "val": "another@user.com",
+                                    "offset": 29
+                                }
+                            ],
+                            "location": "CheckoutPageSteps.an_authenticated_user_using_another_user_com(String)"
+                        },
+                        "keyword": "Given "
+                    }
+                ],
+                "tags": [
+                    {
+                        "name": "@CheckoutPage"
+                    },
+                    {
+                        "name": "@Scenario3"
+                    },
+                    {
+                        "name": "@OK"
+                    }
+                ]
+            },
+            {
+                "line": 31,
+                "name": "Checkout Page 2 for Other Users - OK",
+                "description": "",
+                "id": "checkout-page-2;checkout-page-2-for-other-users---ok;;3",
+                "type": "scenario",
+                "keyword": "Scenario Outline",
+                "steps": [
+                    {
+                        "result": {
+                            "duration": 315671,
+                            "status": "passed"
+                        },
+                        "line": 24,
+                        "name": "selects a product",
+                        "match": {
+                            "location": "CheckoutPageSteps.selects_a_product()"
+                        },
+                        "keyword": "When "
+                    },
+                    {
+                        "result": {
+                            "duration": 269276,
+                            "status": "passed"
+                        },
+                        "line": 25,
+                        "name": "the checkout page is displayed",
+                        "match": {
+                            "location": "CheckoutPageSteps.the_checkout_page_is_displayed()"
+                        },
+                        "keyword": "Then "
+                    },
+                    {
+                        "result": {
+                            "duration": 241838,
+                            "status": "passed"
+                        },
+                        "line": 26,
+                        "name": "an authenticated user using \"someother@user.com\"",
+                        "match": {
+                            "arguments": [
+                                {
+                                    "val": "someother@user.com",
+                                    "offset": 29
+                                }
+                            ],
+                            "location": "CheckoutPageSteps.an_authenticated_user_using_another_user_com(String)"
+                        },
+                        "keyword": "Given "
+                    }
+                ],
+                "tags": [
+                    {
+                        "name": "@CheckoutPage"
+                    },
+                    {
+                        "name": "@Scenario3"
+                    },
+                    {
+                        "name": "@OK"
+                    }
+                ]
+            }
+        ],
+        "name": "Checkout Page 2",
+        "description": "",
+        "id": "checkout-page-2",
+        "keyword": "Feature",
+        "uri": "src/test/resources/Features/0002_CheckoutPage.feature",
+        "tags": [
+            {
+                "name": "@CheckoutPage",
+                "type": "Tag",
+                "location": {
+                    "line": 2,
+                    "column": 1
+                }
+            }
+        ]
+    }
+]

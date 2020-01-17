@@ -1,0 +1,259 @@
+[
+  {
+    "line": 1,
+    "elements": [
+      {
+        "start_timestamp": "2020-01-17T09:59:06.484Z",
+        "line": 13,
+        "name": "Create a FCL Job",
+        "description": "",
+        "id": "jp---focis;create-a-fcl-job;;2",
+        "type": "scenario",
+        "keyword": "Scenario Outline",
+        "steps": [
+          {
+            "result": {
+              "duration": 8947358322,
+              "status": "passed"
+            },
+            "line": 6,
+            "name": "User is logged into FOCiS Application",
+            "match": {
+              "location": "FCLStepDefinitions.user_is_logged_into_FOCiS_Application()"
+            },
+            "keyword": "Given "
+          },
+          {
+            "result": {
+              "duration": 249577,
+              "status": "passed"
+            },
+            "line": 7,
+            "name": "selects \"Job\" from Menu",
+            "match": {
+              "arguments": [
+                {
+                  "val": "\"Job\"",
+                  "offset": 8
+                }
+              ],
+              "location": "FCLStepDefinitions.selects_from_Menu(String)"
+            },
+            "keyword": "When "
+          },
+          {
+            "result": {
+              "duration": 45414,
+              "status": "passed"
+            },
+            "line": 8,
+            "name": "selects \"Job Creation\" from Child Menu",
+            "match": {
+              "arguments": [
+                {
+                  "val": "\"Job Creation\"",
+                  "offset": 8
+                }
+              ],
+              "location": "FCLStepDefinitions.selects_from_Child_Menu(String)"
+            },
+            "keyword": "And "
+          },
+          {
+            "result": {
+              "duration": 39468,
+              "status": "passed"
+            },
+            "line": 9,
+            "name": "\"Job Creation\" Page displays",
+            "match": {
+              "arguments": [
+                {
+                  "val": "\"Job Creation\"",
+                  "offset": 0
+                }
+              ],
+              "location": "FCLStepDefinitions.page_displays(String)"
+            },
+            "keyword": "Then "
+          }
+        ],
+        "tags": [
+          {
+            "name": "@gui"
+          }
+        ]
+      },
+      {
+        "start_timestamp": "2020-01-17T09:59:17.626Z",
+        "line": 14,
+        "name": "Create a FCL Job",
+        "description": "",
+        "id": "jp---focis;create-a-fcl-job;;3",
+        "type": "scenario",
+        "keyword": "Scenario Outline",
+        "steps": [
+          {
+            "result": {
+              "duration": 8259551952,
+              "status": "passed"
+            },
+            "line": 6,
+            "name": "User is logged into FOCiS Application",
+            "match": {
+              "location": "FCLStepDefinitions.user_is_logged_into_FOCiS_Application()"
+            },
+            "keyword": "Given "
+          },
+          {
+            "result": {
+              "duration": 154960,
+              "status": "passed"
+            },
+            "line": 7,
+            "name": "selects \"MDM\" from Menu",
+            "match": {
+              "arguments": [
+                {
+                  "val": "\"MDM\"",
+                  "offset": 8
+                }
+              ],
+              "location": "FCLStepDefinitions.selects_from_Menu(String)"
+            },
+            "keyword": "When "
+          },
+          {
+            "result": {
+              "duration": 72812,
+              "status": "passed"
+            },
+            "line": 8,
+            "name": "selects \"Events\" from Child Menu",
+            "match": {
+              "arguments": [
+                {
+                  "val": "\"Events\"",
+                  "offset": 8
+                }
+              ],
+              "location": "FCLStepDefinitions.selects_from_Child_Menu(String)"
+            },
+            "keyword": "And "
+          },
+          {
+            "result": {
+              "duration": 211090,
+              "status": "passed"
+            },
+            "line": 9,
+            "name": "\"Job Creation\" Page displays",
+            "match": {
+              "arguments": [
+                {
+                  "val": "\"Job Creation\"",
+                  "offset": 0
+                }
+              ],
+              "location": "FCLStepDefinitions.page_displays(String)"
+            },
+            "keyword": "Then "
+          }
+        ],
+        "tags": [
+          {
+            "name": "@gui"
+          }
+        ]
+      },
+      {
+        "start_timestamp": "2020-01-17T09:59:27.836Z",
+        "line": 26,
+        "name": "Create a FCL Job2",
+        "description": "",
+        "id": "jp---focis;create-a-fcl-job2;;2",
+        "type": "scenario",
+        "keyword": "Scenario Outline",
+        "steps": [
+          {
+            "result": {
+              "duration": 8076253442,
+              "status": "passed"
+            },
+            "line": 19,
+            "name": "User is logged into FOCiS Application",
+            "match": {
+              "location": "FCLStepDefinitions.user_is_logged_into_FOCiS_Application()"
+            },
+            "keyword": "Given "
+          },
+          {
+            "result": {
+              "duration": 203755,
+              "status": "passed"
+            },
+            "line": 20,
+            "name": "selects \"Job\" from Menu",
+            "match": {
+              "arguments": [
+                {
+                  "val": "\"Job\"",
+                  "offset": 8
+                }
+              ],
+              "location": "FCLStepDefinitions.selects_from_Menu(String)"
+            },
+            "keyword": "When "
+          },
+          {
+            "result": {
+              "duration": 87777,
+              "status": "passed"
+            },
+            "line": 21,
+            "name": "selects \"Job Creation\" from Child Menu",
+            "match": {
+              "arguments": [
+                {
+                  "val": "\"Job Creation\"",
+                  "offset": 8
+                }
+              ],
+              "location": "FCLStepDefinitions.selects_from_Child_Menu(String)"
+            },
+            "keyword": "And "
+          },
+          {
+            "result": {
+              "duration": 67957,
+              "status": "passed"
+            },
+            "line": 22,
+            "name": "\"Job Creation\" Page displays",
+            "match": {
+              "arguments": [
+                {
+                  "val": "\"Job Creation\"",
+                  "offset": 0
+                }
+              ],
+              "location": "FCLStepDefinitions.page_displays(String)"
+            },
+            "keyword": "Then "
+          }
+        ],
+        "tags": [
+          {
+            "name": "@gui"
+          }
+        ]
+      }
+    ],
+    "name": "JP - FOCiS",
+    "description": "",
+    "id": "jp---focis",
+    "keyword": "Feature",
+    "uri": "file:src/test/resources/com/agility/focis/jp/fcl/fcl.feature",
+    "tags": []
+  }
+]
