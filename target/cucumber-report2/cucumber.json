@@ -3,7 +3,7 @@
     "line": 1,
     "elements": [
       {
-        "start_timestamp": "2020-01-17T09:59:06.484Z",
+        "start_timestamp": "2020-01-17T13:26:38.933Z",
         "line": 13,
         "name": "Create a FCL Job",
         "description": "",
@@ -13,7 +13,7 @@
         "steps": [
           {
             "result": {
-              "duration": 8947358322,
+              "duration": 8967567300,
               "status": "passed"
             },
             "line": 6,
@@ -25,7 +25,7 @@
           },
           {
             "result": {
-              "duration": 249577,
+              "duration": 316200,
               "status": "passed"
             },
             "line": 7,
@@ -43,7 +43,7 @@
           },
           {
             "result": {
-              "duration": 45414,
+              "duration": 130900,
               "status": "passed"
             },
             "line": 8,
@@ -61,7 +61,7 @@
           },
           {
             "result": {
-              "duration": 39468,
+              "duration": 50200,
               "status": "passed"
             },
             "line": 9,
@@ -85,7 +85,7 @@
         ]
       },
       {
-        "start_timestamp": "2020-01-17T09:59:17.626Z",
+        "start_timestamp": "2020-01-17T13:26:53.504Z",
         "line": 14,
         "name": "Create a FCL Job",
         "description": "",
@@ -95,7 +95,7 @@
         "steps": [
           {
             "result": {
-              "duration": 8259551952,
+              "duration": 8992421900,
               "status": "passed"
             },
             "line": 6,
@@ -107,7 +107,7 @@
           },
           {
             "result": {
-              "duration": 154960,
+              "duration": 165900,
               "status": "passed"
             },
             "line": 7,
@@ -125,7 +125,7 @@
           },
           {
             "result": {
-              "duration": 72812,
+              "duration": 84500,
               "status": "passed"
             },
             "line": 8,
@@ -143,7 +143,7 @@
           },
           {
             "result": {
-              "duration": 211090,
+              "duration": 113100,
               "status": "passed"
             },
             "line": 9,
@@ -167,7 +167,7 @@
         ]
       },
       {
-        "start_timestamp": "2020-01-17T09:59:27.836Z",
+        "start_timestamp": "2020-01-17T13:27:08.583Z",
         "line": 26,
         "name": "Create a FCL Job2",
         "description": "",
@@ -177,7 +177,7 @@
         "steps": [
           {
             "result": {
-              "duration": 8076253442,
+              "duration": 21244452400,
               "status": "passed"
             },
             "line": 19,
@@ -189,7 +189,7 @@
           },
           {
             "result": {
-              "duration": 203755,
+              "duration": 416700,
               "status": "passed"
             },
             "line": 20,
@@ -207,7 +207,7 @@
           },
           {
             "result": {
-              "duration": 87777,
+              "duration": 202400,
               "status": "passed"
             },
             "line": 21,
@@ -225,7 +225,7 @@
           },
           {
             "result": {
-              "duration": 67957,
+              "duration": 187100,
               "status": "passed"
             },
             "line": 22,
