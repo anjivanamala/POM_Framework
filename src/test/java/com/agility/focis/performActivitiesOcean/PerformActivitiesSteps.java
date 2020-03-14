@@ -1,9 +1,13 @@
 package com.agility.focis.performActivitiesOcean;
 
+import com.agility.focis.CBR.CBREDI;
+import com.agility.focis.CBR.JOBDETAILS;
 import com.agility.focis.base.BaseSteps;
+import com.agility.focis.globalVariables.GlobalVariables;
 import com.agility.focis.utilities.testObject.DropDownUtils;
 import com.agility.focis.utilities.testObject.SeleniumUtils;
 import com.agility.focis.utilities.testObject.TextBoxUtils;
+import com.fasterxml.jackson.core.JsonProcessingException;
 import org.junit.Assert;
 import org.openqa.selenium.By;
 import org.openqa.selenium.Keys;
@@ -11,6 +15,10 @@ import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.support.ui.Select;
 
 import java.io.IOException;
+import java.util.ArrayList;
+import java.util.HashMap;
+import java.util.List;
+import java.util.Map;
 
 public class PerformActivitiesSteps extends BaseSteps {
     private WebDriver driver;
@@ -27,6 +35,7 @@ public class PerformActivitiesSteps extends BaseSteps {
         clickOnTab("Tasks");
         SeleniumUtils.waitForPageLoad();
         clickOnPerformActivityAndSwithToWindow("Carrier Booking Request");
+        SeleniumUtils.waitForElementToBeClickable(performActivitiesPage.referenceSearchButton("Agility Office (Owner of Activity)"));
         performActivitiesPage.referenceSearchButton("Agility Office (Owner of Activity)").click();
         performActivitiesPage.selectAllReferences.click();
         performActivitiesPage.saveReferences.click();
@@ -46,6 +55,7 @@ public class PerformActivitiesSteps extends BaseSteps {
         performActivitiesPage.alertButtonToPrint.click();
         SeleniumUtils.waitForPageLoad();
         performActivitiesPage.ediButton.click();
+        GlobalVariables.setParties(getPartyInformationCBR());
         SeleniumUtils.switchToParentWindow();
         SeleniumUtils.waitForPageLoad();
 
@@ -54,7 +64,10 @@ public class PerformActivitiesSteps extends BaseSteps {
     public void clickOnPerformActivityAndSwithToWindow(String activity) throws InterruptedException {
 
         performActivitiesPage.performActivity(activity).click();
-        performActivitiesPage.acceptAlrtActivityPerform.click();
+        if (driver.findElements(By.xpath("//div[@aria-describedby ='alrtActivityPerform']//button[text() = 'OK']")).size() > 0) {
+            performActivitiesPage.acceptAlrtActivityPerform.click();
+        }
+
         SeleniumUtils.waitForPageLoad();
         SeleniumUtils.setParentWindow(driver.getWindowHandle());
         for (String winHandle : driver.getWindowHandles()) {
@@ -83,7 +96,7 @@ public class PerformActivitiesSteps extends BaseSteps {
     public void verifyStatusOfActivities() {
     }
 
-    public void verifyXMLData(String activityName) throws InterruptedException {
+    public void readCBRXML() throws InterruptedException {
         performActivitiesPage.moreLinksButton.click();
         SeleniumUtils.waitForPageLoad();
         SeleniumUtils.waitForFrameTobeAvailableAndSwitchToIt(performActivitiesPage.moreLinksIframe);
@@ -94,6 +107,54 @@ public class PerformActivitiesSteps extends BaseSteps {
         performActivitiesPage.fobSearchButton("", "Booking Request").click();
         SeleniumUtils.waitForElementToBeClickable(performActivitiesPage.xmlDataLink("Booking Request"));
         performActivitiesPage.xmlDataLink("Booking Request").click();
-        SeleniumUtils.logInfo(performActivitiesPage.xmlRawData.getAttribute("value"));
+        String xmlRawData = performActivitiesPage.xmlRawData.getAttribute("value");
+        GlobalVariables.setCbrXMLData(xmlRawData);
+    }
+
+    public void verifyCBRXML() throws InterruptedException, JsonProcessingException {
+        this.readCBRXML();
+        JOBDETAILS cbrXMLData = CBREDI.getEDIInfo(GlobalVariables.getCbrXMLData());
+        compareStringsAndLogInfo("Job Number", GlobalVariables.getJobNumber(), cbrXMLData.getJobNumber());
+        compareStringsAndLogInfo("Product", GlobalVariables.getProduct(), cbrXMLData.getProduct());
+        compareStringsAndLogInfo("Product Type", GlobalVariables.getProductType(), cbrXMLData.getProductType());
+        compareStringsAndLogInfo("Job Status", GlobalVariables.getJobStatus(), cbrXMLData.getJobStatus().getStatusDescription());
+        compareStringsAndLogInfo("Incoterm", GlobalVariables.getIncoterm(), cbrXMLData.getIncotermlocation().getINCOTERMTYPE());
+        compareStringsAndLogInfo("Incoterm Location", GlobalVariables.getIncoterm(), cbrXMLData.getIncotermlocation().getLocation());
+        if (!GlobalVariables.getParties().equals(cbrXMLData.getParties().getpartyInformation())) {
+            SeleniumUtils.logInfo("Parties Infrmation Populated Incorrectly\n" + "Expected: \n" + GlobalVariables.getParties() + "Expected: \n" + cbrXMLData.getParties().getpartyInformation());
+        }
+
+        if (!SeleniumUtils.getMessageToPrint().equalsIgnoreCase(""))
+            Assert.fail("CBR EDI Data Populated Incorrectly");
+
+    }
+
+    public void compareStringsAndLogInfo(String fieldName, String expected, String actual) {
+        if (!expected.equalsIgnoreCase(actual))
+            SeleniumUtils.logInfo(fieldName + " populated incorrectly\nExpected: " + expected + "\n Actual : " + actual + "\n");
+
+    }
+
+    public Map<String, Map<String, String>> getPartyInformationCBR() {
+        Map<String, Map<String, String>> parties = new HashMap<>();
+        Map<String, String> partyinfo = new HashMap<>();
+        performActivitiesPage.partyName("Agility Office (Owner of Activity)").getAttribute("value");
+        performActivitiesPage.partyName("Booking Branch (Performer of Activity)").getAttribute("value");
+        partyinfo.put("Name", performActivitiesPage.partyName("Agility Office (Owner of Activity)").getAttribute("value"));
+        partyinfo.put("Address", performActivitiesPage.partyName("Agility Office (Owner of Activity)").getAttribute("value"));
+        parties.put("Agility Office", partyinfo);
+        partyinfo.put("Name", performActivitiesPage.partyName("Booking Branch (Performer of Activity)").getAttribute("value"));
+        partyinfo.put("Address", performActivitiesPage.partyName("Booking Branch (Performer of Activity)").getAttribute("value"));
+        parties.put("BRANCH", partyinfo);
+        partyinfo.put("Name", performActivitiesPage.partyName("Shipper").getAttribute("value"));
+        partyinfo.put("Address", performActivitiesPage.partyName("Shipper").getAttribute("value"));
+        parties.put("Shipper", partyinfo);
+        partyinfo.put("Name", performActivitiesPage.partyName("Consignee").getAttribute("value"));
+        partyinfo.put("Address", performActivitiesPage.partyName("Consignee").getAttribute("value"));
+        parties.put("Consignee", partyinfo);
+        partyinfo.put("Name", performActivitiesPage.partyName("Notify Party").getAttribute("value"));
+        partyinfo.put("Address", performActivitiesPage.partyName("Notify Party").getAttribute("value"));
+        parties.put("Notify Party", partyinfo);
+        return parties;
     }
 }

@@ -1,12 +1,10 @@
 package com.agility.focis.jp.initiateJob;
 
 import com.agility.focis.base.BaseSteps;
-import com.agility.focis.globalVariables.GlobalVaraibles;
+import com.agility.focis.globalVariables.GlobalVariables;
 import com.agility.focis.utilities.testObject.DropDownUtils;
 import com.agility.focis.utilities.testObject.SeleniumUtils;
-import com.agility.focis.utilities.testObject.SpanUtils;
 import com.agility.focis.utilities.testObject.TextBoxUtils;
-import io.cucumber.java.eo.Se;
 import org.junit.Assert;
 import org.openqa.selenium.By;
 import org.openqa.selenium.Keys;
@@ -14,6 +12,7 @@ import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.support.ui.Select;
 
 import java.io.IOException;
+import java.util.HashMap;
 
 public class InitiateJobSteps extends BaseSteps {
     private WebDriver driver;
@@ -75,11 +74,17 @@ public class InitiateJobSteps extends BaseSteps {
     public void selectIncoTerm(String incoTerm, String incoTermLocation) {
         DropDownUtils.selectOptionByVisibleText("Incoterm", incoTerm);
         TextBoxUtils.setText("Incoterm Location", incoTermLocation);
+        GlobalVariables.setIncoterm(incoTerm);
+        GlobalVariables.setIncoTermLocation(incoTermLocation);
     }
 
     public void selectMBL(String mblType, String mblTerms) {
         DropDownUtils.selectOptionByVisibleText("MBL Type", mblType);
         DropDownUtils.selectOptionByVisibleText("MBL Terms", mblTerms);
+        HashMap<String, String> mblinfo = new HashMap<>();
+        mblinfo.put("MBL Type", mblType);
+        mblinfo.put("MBL Terms", mblTerms);
+        GlobalVariables.setMblInformation(mblinfo);
     }
 
     public void selectSLBL(String sequestType) {
@@ -87,6 +92,7 @@ public class InitiateJobSteps extends BaseSteps {
     }
 
     public void selectOffice(String typeOfOffice, String country, String type, String networkComponent, String department, String isLive) throws InterruptedException {
+        initiateJobPage.inlineSearchUsingLabel(typeOfOffice + " Office").clear();
         initiateJobPage.searchIconUsingLable(typeOfOffice + " Office").click();
         searchForOffice(country, type, networkComponent, department, isLive);
     }
@@ -128,5 +134,10 @@ public class InitiateJobSteps extends BaseSteps {
         Assert.assertTrue(jobscopedropdown.getFirstSelectedOption().getText().equalsIgnoreCase(jobScope));
         SeleniumUtils.takeScreenshot();
         SeleniumUtils.logInfo("Job Number is: " + initiateJobPage.jobNumber.getText());
+        GlobalVariables.setJobNumber(initiateJobPage.jobNumber.getText());
+        GlobalVariables.setProduct(initiateJobPage.verifyproduct.getText());
+        GlobalVariables.setProduct(initiateJobPage.verifyProductType.getText());
+        GlobalVariables.setJobScope(jobscopedropdown.getFirstSelectedOption().getText());
+        GlobalVariables.setJobStatus(initiateJobPage.jobStatus.getText());
     }
 }

@@ -1,6 +1,7 @@
 package com.agility.focis.addCarriagesOcean;
 
 import com.agility.focis.base.BaseSteps;
+import com.agility.focis.globalVariables.GlobalVariables;
 import com.agility.focis.utilities.testObject.SeleniumUtils;
 import io.cucumber.core.api.Scenario;
 import io.cucumber.java.en.When;
@@ -41,7 +42,7 @@ public class AddCarriagesOceanStepDefinitions<AddMainCarriage> {
             default:
                 SeleniumUtils.logInfo("You have not Provided any Port of Loading information to Plan Main Carriage");
         }
-
+        GlobalVariables.setJobStatus(addCarriagesOceanSteps.addCarriagesOceanPage.jobStatus.getText());
         SeleniumUtils.takeScreenshot();
     }
 

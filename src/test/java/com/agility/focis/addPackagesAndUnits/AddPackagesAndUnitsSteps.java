@@ -1,11 +1,11 @@
 package com.agility.focis.addPackagesAndUnits;
 
 import com.agility.focis.base.BaseSteps;
+import com.agility.focis.globalVariables.GlobalVariables;
 import com.agility.focis.utilities.testObject.SeleniumUtils;
 import org.openqa.selenium.By;
 import org.openqa.selenium.Keys;
 import org.openqa.selenium.WebDriver;
-import org.openqa.selenium.interactions.Action;
 import org.openqa.selenium.interactions.Actions;
 import org.openqa.selenium.support.ui.Select;
 
@@ -92,6 +92,7 @@ public class AddPackagesAndUnitsSteps extends BaseSteps {
                 addPackagesAndUnitsPage.addRows.click();
             }
         }
+        GlobalVariables.setPackagesInfo(packagesinfo);
 
     }
 
@@ -143,6 +144,7 @@ public class AddPackagesAndUnitsSteps extends BaseSteps {
                 addPackagesAndUnitsPage.addMoreButton.click();
             }
         }
+        GlobalVariables.setUnitsInfo(unitsInfo);
     }
 
     public void allocatePackages() throws InterruptedException {

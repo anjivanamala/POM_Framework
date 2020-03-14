@@ -1,11 +1,10 @@
-package com.agility.focis.utilities.edi;
+package com.agility.focis.CBR;
 
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import com.fasterxml.jackson.dataformat.xml.annotation.JacksonXmlElementWrapper;
 import com.fasterxml.jackson.dataformat.xml.annotation.JacksonXmlProperty;
-import com.fasterxml.jackson.dataformat.xml.annotation.JacksonXmlRootElement;
 
-import java.util.ArrayList;
+import java.util.Map;
 
 
 @JsonIgnoreProperties(ignoreUnknown = true)
@@ -62,9 +61,4 @@ public class Party {
         return nwcCode;
     }
 
-    @Override
-    public String toString() {
-        return "PartyDetails [jobNumber=" + partyType + ", creationDate=" + partyName
-                + ", product=" + partyID + ", productType=" + nwcCode + "]";
-    }
 }

@@ -1,4 +1,4 @@
-package com.agility.focis.utilities.edi;
+package com.agility.focis.CBR;
 
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import com.fasterxml.jackson.dataformat.xml.annotation.JacksonXmlElementWrapper;
@@ -139,16 +139,11 @@ public class ADDRESS {
     }
 
     public String getAddressAsString() {
-        return getAddressLine1() + "\n" +
-                getAddressLine2() + "\n" +
-                getAddressLine3() + "\n" +
-                getAddressLine4() + "\n" +
-                getAddressLine5() + "\n" +
-                getAddressLine6() + "\n" +
-                getCity() + "\n" +
-                getState() + "\n" +
-                getCountryCode() + "\n" +
-                getCountryName() + "\n" +
-                getPostalCode();
+        return getAddressLine1().trim() + "\n" +
+                getAddressLine2().trim() + "\n" +
+                getAddressLine3().trim() + "\n" +
+                getAddressLine4().trim() + "\n" +
+                getAddressLine5().trim() + "\n" +
+                getAddressLine6().trim();
     }
 }

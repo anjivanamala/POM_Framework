@@ -1,14 +1,12 @@
 package com.agility.focis.jp.initiateJob;
 
-import com.agility.focis.base.BasePage;
 import com.agility.focis.base.BaseSteps;
+import com.agility.focis.globalVariables.GlobalVariables;
 import com.agility.focis.utilities.testObject.SeleniumUtils;
-import io.cucumber.datatable.DataTable;
 import io.cucumber.java.en.And;
 import io.cucumber.java.en.Given;
 import io.cucumber.java.en.Then;
 import io.cucumber.java.en.When;
-import javafx.beans.property.MapProperty;
 
 import java.io.IOException;
 import java.util.List;

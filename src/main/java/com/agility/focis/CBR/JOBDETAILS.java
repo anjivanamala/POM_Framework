@@ -1,11 +1,9 @@
-package com.agility.focis.utilities.edi;
+package com.agility.focis.CBR;
 
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import com.fasterxml.jackson.dataformat.xml.annotation.JacksonXmlElementWrapper;
 import com.fasterxml.jackson.dataformat.xml.annotation.JacksonXmlProperty;
 import com.fasterxml.jackson.dataformat.xml.annotation.JacksonXmlRootElement;
-
-import java.util.ArrayList;
 
 @JacksonXmlRootElement(localName = "DETAILS")
 @JsonIgnoreProperties(ignoreUnknown = true)
@@ -21,6 +19,10 @@ public class JOBDETAILS {
 
     @JacksonXmlProperty(localName = "PRODUCTTYPE")
     private String productType;
+
+    @JacksonXmlElementWrapper(localName = "JOBSTATUS", useWrapping = false)
+    @JacksonXmlProperty(localName = "JOBSTATUS")
+    private JOBSTATUS jobStatus;
 
     @JacksonXmlElementWrapper(localName = "INCOTERMLOCATION", useWrapping = false)
     @JacksonXmlProperty(localName = "INCOTERMLOCATION")
@@ -108,6 +110,14 @@ public class JOBDETAILS {
 
     public void setEventdetails(EVENTDETAILS eventdetails) {
         this.eventdetails = eventdetails;
+    }
+
+    public JOBSTATUS getJobStatus() {
+        return jobStatus;
+    }
+
+    public void setJobStatus(JOBSTATUS jobStatus) {
+        this.jobStatus = jobStatus;
     }
 
     @Override

@@ -55,6 +55,15 @@ public class PerformActivitiesPage extends BasePage {
         return driver.findElement(By.xpath("//legend[text()='" + stakeholderType + "']/ancestor::div[1]//span[text()='Reference']/ancestor::div[1]//button"));
     }
 
+    public WebElement partyName(String partyType) {
+        return driver.findElement(By.xpath("//legend[contains(text() , '" + partyType + "')]/ancestor::div[1]//span[text() = 'Name']/ancestor::div[1]//input[@holdername = 'CarierBookingFrHolder']"));
+
+    }
+
+    public WebElement partyAddress(String partyType) {
+        return driver.findElement(By.xpath("//legend[contains(text() , '" + partyType + "')]/ancestor::div[1]//span[text() = 'Address']/ancestor::div[1]//textarea"));
+    }
+
     @FindBy(xpath = "//div[text() = 'Reference Type']/ancestor::tr//input")
     public WebElement selectAllReferences;
     @FindBy(xpath = "//span[@class='ui-icon icon-save purple']")

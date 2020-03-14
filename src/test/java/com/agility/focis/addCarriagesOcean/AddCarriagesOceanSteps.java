@@ -3,6 +3,7 @@ package com.agility.focis.addCarriagesOcean;
 import com.agility.focis.base.BaseSteps;
 import com.agility.focis.utilities.testObject.SeleniumUtils;
 import org.openqa.selenium.By;
+import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.Keys;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.interactions.Actions;
@@ -117,7 +118,9 @@ public class AddCarriagesOceanSteps extends BaseSteps {
 
                 enterVesselDetailsOfALeg(i + 1, portOfLoading, etd, portOfDischarge, eta);
             }
-            addCarriagesOceanPage.saveAndCloseMainCarriageButton.click();
+//            addCarriagesOceanPage.saveAndCloseMainCarriageButton.click();
+            JavascriptExecutor js = (JavascriptExecutor) driver;
+            js.executeScript("arguments[0].click();", addCarriagesOceanPage.saveAndCloseMainCarriageButton);
             SeleniumUtils.waitForPageLoad();
             Thread.sleep(1000);
         } catch (Exception e) {

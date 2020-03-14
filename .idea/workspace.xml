@@ -2,56 +2,51 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="8663e851-36db-4d57-9a11-e53e6e6700ca" name="Default Changelist" comment="">
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/agility/focis/CBR/CBREDI.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/agility/focis/CBR/JOBSTATUS.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/agility/focis/globalVariables/GlobalVariables.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/test/java/com/agility/focis/jp/fcl/FCLPage.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/test/java/com/agility/focis/jp/fcl/FCLStepDefinitions.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/test/java/com/agility/focis/jp/fcl/FCLSteps.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/test/java/runners/POMRunner.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/test/java/runners/TestNgRunner.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/test/resources/classifications/duplicate.properties" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/test/resources/classifications/empty.properties" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/test/resources/classifications/sample_one.properties" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/test/resources/classifications/sample_two.properties" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/test/resources/classifications/special_characters.properties" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/test/resources/com/agility/focis/jp/fcl/fcl.feature" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/footer.vm" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/generators/errorpage.vm" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/generators/overviewFailures.vm" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/generators/overviewFeatures.vm" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/generators/overviewSteps.vm" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/generators/overviewTags.vm" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/generators/overviewTrends.vm" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/generators/reportFeature.vm" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/generators/reportTag.vm" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/head.vm" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/headers.vm" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/js/features-chart.js.vm" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/js/scenarios-chart.js.vm" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/js/steps-chart.js.vm" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/js/tags-chart.js.vm" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/js/trends-chart.js.vm" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/macros/array.js.vm" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/macros/json/brief.vm" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/macros/json/docstring.vm" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/macros/json/duration.vm" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/macros/json/element.vm" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/macros/json/embeddings.vm" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/macros/json/hooks.vm" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/macros/json/message.vm" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/macros/json/output.vm" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/macros/json/stepName.vm" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/macros/json/steps.vm" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/macros/json/tags.vm" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/macros/page/buildinfo.vm" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/macros/page/classifications.vm" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/macros/page/lead.vm" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/macros/page/navigation.vm" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/macros/page/reportInfo.vm" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/macros/page/title.vm" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/macros/report/expandAllButtons.vm" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/macros/report/reportHeader.vm" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/macros/report/reportTable.vm" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/macros/report/statsTable.vm" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/Base/DriverInstantiation.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/agility/focis/globalVariables/GlobalVaraibles.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/agility/focis/globalVariables/Interface.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/agility/focis/globalVariables/agile.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/agility/focis/globalVariables/defaultProfile.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/agility/focis/globalVariables/sit.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/agility/focis/utilities/edi/ADDRESS.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/agility/focis/CBR/ADDRESS.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/agility/focis/utilities/edi/CARRIERCONTRACTNUMBERS.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/agility/focis/CBR/CARRIERCONTRACTNUMBERS.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/agility/focis/utilities/edi/CONVEYANCEINFORMATION.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/agility/focis/CBR/CONVEYANCEINFORMATION.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/agility/focis/utilities/edi/EDIXML.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/agility/focis/utilities/edi/EVENTDETAILS.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/agility/focis/CBR/EVENTDETAILS.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/agility/focis/utilities/edi/EVENTS.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/agility/focis/CBR/EVENTS.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/agility/focis/utilities/edi/INCOTERMLOCATION.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/agility/focis/CBR/INCOTERMLOCATION.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/agility/focis/utilities/edi/JOBDETAILS.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/agility/focis/CBR/JOBDETAILS.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/agility/focis/utilities/edi/JOBREFERENCES.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/agility/focis/CBR/JOBREFERENCES.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/agility/focis/utilities/edi/LOCATION.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/agility/focis/CBR/LOCATION.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/agility/focis/utilities/edi/LOCATIONCODE.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/agility/focis/CBR/LOCATIONCODE.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/agility/focis/utilities/edi/PARTYREFERENCES.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/agility/focis/CBR/PARTYREFERENCES.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/agility/focis/utilities/edi/Parties.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/agility/focis/CBR/Parties.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/agility/focis/utilities/edi/Party.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/agility/focis/CBR/Party.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/agility/focis/utilities/edi/REFERENCES.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/agility/focis/CBR/REFERENCES.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/agility/focis/utilities/edi/TRANSPORT.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/agility/focis/CBR/TRANSPORT.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/agility/focis/utilities/edi/TRANSPORTDETAILS.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/agility/focis/CBR/TRANSPORTDETAILS.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/java/com/agility/focis/addCarriagesOcean/AddCarriagesOceanStepDefinitions.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/com/agility/focis/addCarriagesOcean/AddCarriagesOceanStepDefinitions.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/java/com/agility/focis/addCarriagesOcean/AddCarriagesOceanSteps.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/com/agility/focis/addCarriagesOcean/AddCarriagesOceanSteps.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/java/com/agility/focis/addPackagesAndUnits/AddPackagesAndUnitsSteps.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/com/agility/focis/addPackagesAndUnits/AddPackagesAndUnitsSteps.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/java/com/agility/focis/base/BasePage.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/com/agility/focis/base/BasePage.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/java/com/agility/focis/jp/initiateJob/InitiateJobStepDefinitions.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/com/agility/focis/jp/initiateJob/InitiateJobStepDefinitions.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/java/com/agility/focis/jp/initiateJob/InitiateJobSteps.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/com/agility/focis/jp/initiateJob/InitiateJobSteps.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/java/com/agility/focis/performActivitiesOcean/PerformActivitiesPage.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/com/agility/focis/performActivitiesOcean/PerformActivitiesPage.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/java/com/agility/focis/performActivitiesOcean/PerformActivitiesStepDefinitions.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/com/agility/focis/performActivitiesOcean/PerformActivitiesStepDefinitions.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/java/com/agility/focis/performActivitiesOcean/PerformActivitiesSteps.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/com/agility/focis/performActivitiesOcean/PerformActivitiesSteps.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/java/runners/ActivitiesDashBoard.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/runners/SyntaxChecker.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/java/runners/CucumberTestNG.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/runners/CucumberTestNG.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/java/runners/KarateRunner.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/java/runners/LocationData.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/java/runners/SiteData.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/java/runners/TestClass.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/java/runners/VerticesData.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/java/runners/XTREAM.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/java/runners/xmlTest.java" beforeDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -82,27 +77,29 @@
     <ConfirmationsSetting value="2" id="Add" />
   </component>
   <component name="PropertiesComponent">
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/src/test/java/com/agility/focis/addCarriagesAir" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/src/main/java/com/agility/focis" />
     <property name="project.structure.last.edited" value="Problems" />
     <property name="project.structure.proportion" value="0.0" />
     <property name="project.structure.side.proportion" value="0.2" />
     <property name="settings.editor.selected.configurable" value="configurable.group.appearance" />
   </component>
   <component name="RecentsManager">
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/src/test/resources" />
+    </key>
     <key name="MoveClassesOrPackagesDialog.RECENTS_KEY">
       <recent name="com.agility.focis" />
+      <recent name="com.agility.focis.utilities.edi.CBR" />
+    </key>
+    <key name="CreateClassDialog.RecentsKey">
+      <recent name="com.agility.focis.CBR" />
+      <recent name="com.agility.focis.utilities.edi" />
     </key>
     <key name="CopyFile.RECENT_KEYS">
       <recent name="E:\Java_Se_Framework\src\test\java\com\agility\focis\addCarriagesAir" />
       <recent name="$PROJECT_DIR$/src/main" />
       <recent name="$PROJECT_DIR$/src/test/resources/com/agility/focis/jp/fcl" />
       <recent name="$PROJECT_DIR$/src/main/java" />
-    </key>
-    <key name="CreateClassDialog.RecentsKey">
-      <recent name="com.agility.focis.utilities.edi" />
-    </key>
-    <key name="MoveFile.RECENT_KEYS">
-      <recent name="$PROJECT_DIR$/src/test/resources" />
     </key>
   </component>
   <component name="RunDashboard">
@@ -117,13 +114,13 @@
       </list>
     </option>
   </component>
-  <component name="RunManager" selected="Application.EDIXML">
+  <component name="RunManager" selected="TestNG.CucumberTestNG">
     <configuration name="EDIXML" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
-      <option name="MAIN_CLASS_NAME" value="com.agility.focis.utilities.edi.EDIXML" />
+      <option name="MAIN_CLASS_NAME" value="com.agility.focis.utilities.edi.CBR.EDIXML" />
       <module name="Java_Automation" />
       <extension name="coverage">
         <pattern>
-          <option name="PATTERN" value="com.agility.focis.utilities.edi.*" />
+          <option name="PATTERN" value="com.agility.focis.utilities.edi.CBR.*" />
           <option name="ENABLED" value="true" />
         </pattern>
       </extension>
@@ -136,7 +133,7 @@
       <module name="Java_Automation" />
       <extension name="coverage">
         <pattern>
-          <option name="PATTERN" value="com.agility.focis.utilities.edi.*" />
+          <option name="PATTERN" value="com.agility.focis.utilities.edi.CBR.*" />
           <option name="ENABLED" value="true" />
         </pattern>
       </extension>
@@ -162,7 +159,7 @@
       <module name="Java_Automation" />
       <extension name="coverage">
         <pattern>
-          <option name="PATTERN" value="com.agility.focis.utilities.edi.*" />
+          <option name="PATTERN" value="com.agility.focis.utilities.edi.CBR.*" />
           <option name="ENABLED" value="true" />
         </pattern>
       </extension>
@@ -174,7 +171,7 @@
       <module name="Java_Automation" />
       <extension name="coverage">
         <pattern>
-          <option name="PATTERN" value="com.agility.focis.utilities.edi.*" />
+          <option name="PATTERN" value="com.agility.focis.utilities.edi.CBR.*" />
           <option name="ENABLED" value="true" />
         </pattern>
       </extension>
@@ -189,8 +186,8 @@
     </configuration>
     <recent_temporary>
       <list>
-        <item itemvalue="Application.EDIXML" />
         <item itemvalue="TestNG.CucumberTestNG" />
+        <item itemvalue="Application.EDIXML" />
         <item itemvalue="Application.XTREAM" />
         <item itemvalue="Application.XMLUtils" />
         <item itemvalue="Application.xmlTest" />
@@ -226,15 +223,10 @@
   <component name="XDebuggerManager">
     <breakpoint-manager>
       <breakpoints>
-        <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/src/test/java/runners/TestClass.java</url>
-          <line>117</line>
-          <option name="timeStamp" value="4" />
-        </line-breakpoint>
         <line-breakpoint enabled="true" type="java-method">
-          <url>file://$PROJECT_DIR$/src/main/java/com/agility/focis/utilities/edi/JOBDETAILS.java</url>
+          <url>file://$PROJECT_DIR$/src/main/java/com/agility/focis/CBR/JOBDETAILS.java</url>
           <line>80</line>
-          <properties class="com.agility.focis.utilities.edi.JOBDETAILS">
+          <properties class="com.agility.focis.utilities.edi.CBR.JOBDETAILS">
             <option name="EMULATED" value="true" />
           </properties>
           <option name="timeStamp" value="5" />

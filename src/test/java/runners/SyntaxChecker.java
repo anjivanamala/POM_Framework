@@ -3,7 +3,7 @@ package runners;
 import java.util.HashMap;
 import java.util.Map;
 
-public class ActivitiesDashBoard {
+public class SyntaxChecker {
 
     public static void main(String[] args) {
         Map<String, String> activitiesAndInvoices = new HashMap<>();

@@ -1,7 +1,9 @@
 package com.agility.focis.performActivitiesOcean;
 
 import com.agility.focis.base.BaseSteps;
+import com.agility.focis.globalVariables.GlobalVariables;
 import com.agility.focis.utilities.testObject.SeleniumUtils;
+import com.fasterxml.jackson.core.JsonProcessingException;
 import io.cucumber.java.en.And;
 import io.cucumber.java.en.Given;
 import io.cucumber.java.en.Then;
@@ -56,10 +58,20 @@ public class PerformActivitiesStepDefinitions {
     @Then("Status of Activities should be Completed")
     public void statusOfActivitiesShouldBeCompleted() {
         performActivitiesSteps.verifyStatusOfActivities();
+        GlobalVariables.setJobStatus(performActivitiesSteps.performActivitiesPage.jobStatus.getText());
     }
 
     @And("EDI XML Data should be populated Correctly for {string}")
-    public void ediXMLDataShouldBePopulatedCorrectlyFor(String activityName) throws InterruptedException {
-        performActivitiesSteps.verifyXMLData(activityName);
+    public void ediXMLDataShouldBePopulatedCorrectlyFor(String activityName) throws InterruptedException, JsonProcessingException {
+        switch (activityName) {
+            case "CBR":
+                performActivitiesSteps.verifyCBRXML();
+                break;
+            case "MBL":
+
+            default:
+                SeleniumUtils.logInfo("Invalid Activity i.e " + activityName);
+        }
+
     }
 }

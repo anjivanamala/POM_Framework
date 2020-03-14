@@ -44,6 +44,11 @@ public class BasePage {
         return driver.findElement(By.xpath("//span[text()='" + lable + "']/../following-sibling::div//button"));
     }
 
+    public WebElement inlineSearchUsingLabel(String label) {
+        return driver.findElement(By.xpath("//span[text()='" + label + "']/../following-sibling::div//input[@profiledatamember='DESCRIPTION']"));
+
+    }
+
     public WebElement closePopUpButton(String popUpTitle) {
         return driver.findElement(By.xpath("//span[text() ='" + popUpTitle + "']/../button[@class = 'ui-dialog-titlebar-close']"));
 
@@ -65,6 +70,8 @@ public class BasePage {
     public WebElement verifyjobscope;
     @FindBy(xpath = "//span[contains(@id,'JobNumber')]")
     public WebElement jobNumber;
+    @FindBy(xpath = "//span[contains(@id,'BookingDetailsFr1_BookingDetailsFr1_lblStatusName')]")
+    public WebElement jobStatus;
 
     //    Auto Suggestion from Inline Search Popup
     public WebElement inlineSearchRecommendations(String text) {
