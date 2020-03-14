@@ -35,6 +35,7 @@ public class PerformActivitiesSteps extends BaseSteps {
         clickOnTab("Tasks");
         SeleniumUtils.waitForPageLoad();
         clickOnPerformActivityAndSwithToWindow("Carrier Booking Request");
+        SeleniumUtils.waitForPageLoad();
         SeleniumUtils.waitForElementToBeClickable(performActivitiesPage.referenceSearchButton("Agility Office (Owner of Activity)"));
         performActivitiesPage.referenceSearchButton("Agility Office (Owner of Activity)").click();
         performActivitiesPage.selectAllReferences.click();
@@ -119,9 +120,9 @@ public class PerformActivitiesSteps extends BaseSteps {
         compareStringsAndLogInfo("Product Type", GlobalVariables.getProductType(), cbrXMLData.getProductType());
         compareStringsAndLogInfo("Job Status", GlobalVariables.getJobStatus(), cbrXMLData.getJobStatus().getStatusDescription());
         compareStringsAndLogInfo("Incoterm", GlobalVariables.getIncoterm(), cbrXMLData.getIncotermlocation().getINCOTERMTYPE());
-        compareStringsAndLogInfo("Incoterm Location", GlobalVariables.getIncoterm(), cbrXMLData.getIncotermlocation().getLocation());
+        compareStringsAndLogInfo("Incoterm Location", GlobalVariables.getIncoTermLocation(), cbrXMLData.getIncotermlocation().getLocation());
         if (!GlobalVariables.getParties().equals(cbrXMLData.getParties().getpartyInformation())) {
-            SeleniumUtils.logInfo("Parties Infrmation Populated Incorrectly\n" + "Expected: \n" + GlobalVariables.getParties() + "Expected: \n" + cbrXMLData.getParties().getpartyInformation());
+            SeleniumUtils.logInfo("Parties Information Populated Incorrectly" + "\nExpected: \n" + GlobalVariables.getParties() + "\nActual: \n" + cbrXMLData.getParties().getpartyInformation());
         }
 
         if (!SeleniumUtils.getMessageToPrint().equalsIgnoreCase(""))
@@ -138,22 +139,20 @@ public class PerformActivitiesSteps extends BaseSteps {
     public Map<String, Map<String, String>> getPartyInformationCBR() {
         Map<String, Map<String, String>> parties = new HashMap<>();
         Map<String, String> partyinfo = new HashMap<>();
-        performActivitiesPage.partyName("Agility Office (Owner of Activity)").getAttribute("value");
-        performActivitiesPage.partyName("Booking Branch (Performer of Activity)").getAttribute("value");
         partyinfo.put("Name", performActivitiesPage.partyName("Agility Office (Owner of Activity)").getAttribute("value"));
-        partyinfo.put("Address", performActivitiesPage.partyName("Agility Office (Owner of Activity)").getAttribute("value"));
+        partyinfo.put("Address", performActivitiesPage.partyAddress("Agility Office (Owner of Activity)").getAttribute("value"));
         parties.put("Agility Office", partyinfo);
         partyinfo.put("Name", performActivitiesPage.partyName("Booking Branch (Performer of Activity)").getAttribute("value"));
-        partyinfo.put("Address", performActivitiesPage.partyName("Booking Branch (Performer of Activity)").getAttribute("value"));
+        partyinfo.put("Address", performActivitiesPage.partyAddress("Booking Branch (Performer of Activity)").getAttribute("value"));
         parties.put("BRANCH", partyinfo);
         partyinfo.put("Name", performActivitiesPage.partyName("Shipper").getAttribute("value"));
-        partyinfo.put("Address", performActivitiesPage.partyName("Shipper").getAttribute("value"));
+        partyinfo.put("Address", performActivitiesPage.partyAddress("Shipper").getAttribute("value"));
         parties.put("Shipper", partyinfo);
         partyinfo.put("Name", performActivitiesPage.partyName("Consignee").getAttribute("value"));
-        partyinfo.put("Address", performActivitiesPage.partyName("Consignee").getAttribute("value"));
+        partyinfo.put("Address", performActivitiesPage.partyAddress("Consignee").getAttribute("value"));
         parties.put("Consignee", partyinfo);
         partyinfo.put("Name", performActivitiesPage.partyName("Notify Party").getAttribute("value"));
-        partyinfo.put("Address", performActivitiesPage.partyName("Notify Party").getAttribute("value"));
+        partyinfo.put("Address", performActivitiesPage.partyAddress("Notify Party").getAttribute("value"));
         parties.put("Notify Party", partyinfo);
         return parties;
     }

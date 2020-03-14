@@ -88,9 +88,9 @@ Feature: Initiate Job - Ocean - FCL
     And Adds Pre Carriage with Haulage Arrangement as "Merchant"
       | Haulier Name | Cargo Collection Date | Cargo Delivery Date |
       | <O_Haulier>  | <O_Coll_Date>         | <O_Del_Date>        |
-    And Adds On Carriage with Haulage Arrangement as "Merchant"
-      | Haulier Name | Cargo Collection Date | Cargo Delivery Date |
-      | <D_Haulier>  | <D_Coll_Date>         | <D_Del_Date>        |
+#    And Adds On Carriage with Haulage Arrangement as "Merchant"
+#      | Haulier Name | Cargo Collection Date | Cargo Delivery Date |
+#      | <D_Haulier>  | <D_Coll_Date>         | <D_Del_Date>        |
     And Performs Activities as below
       | Carrier Booking Request | Carrier Booking Confirmation | Booking Confirmation to Customer | Master Bill Of Lading Instructions |
       | <CBR>                   | <CBC>                        | <BCTC>                           | <MBL>                              |

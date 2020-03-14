@@ -61,7 +61,7 @@ public class PerformActivitiesPage extends BasePage {
     }
 
     public WebElement partyAddress(String partyType) {
-        return driver.findElement(By.xpath("//legend[contains(text() , '" + partyType + "')]/ancestor::div[1]//span[text() = 'Address']/ancestor::div[1]//textarea"));
+            return driver.findElement(By.xpath("//legend[contains(text() , '" + partyType + "')]/ancestor::div[1]//span[text() = 'Address']/ancestor::div[1]//textarea"));
     }
 
     @FindBy(xpath = "//div[text() = 'Reference Type']/ancestor::tr//input")

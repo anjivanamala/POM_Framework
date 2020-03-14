@@ -136,7 +136,7 @@ public class InitiateJobSteps extends BaseSteps {
         SeleniumUtils.logInfo("Job Number is: " + initiateJobPage.jobNumber.getText());
         GlobalVariables.setJobNumber(initiateJobPage.jobNumber.getText());
         GlobalVariables.setProduct(initiateJobPage.verifyproduct.getText());
-        GlobalVariables.setProduct(initiateJobPage.verifyProductType.getText());
+        GlobalVariables.setProductType(initiateJobPage.verifyProductType.getText());
         GlobalVariables.setJobScope(jobscopedropdown.getFirstSelectedOption().getText());
         GlobalVariables.setJobStatus(initiateJobPage.jobStatus.getText());
     }
