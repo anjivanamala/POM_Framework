@@ -4,6 +4,8 @@ import com.agility.focis.base.BaseSteps;
 import org.openqa.selenium.WebDriver;
 
 import java.io.IOException;
+import java.text.SimpleDateFormat;
+import java.util.Date;
 
 public class FCLSteps extends BaseSteps {
     public WebDriver driver;
@@ -25,5 +27,6 @@ public class FCLSteps extends BaseSteps {
         Thread.sleep(1000);
         fclPage.language("తెలుగు").click();
         Thread.sleep(1000);
+        String timeStamp = new SimpleDateFormat("yyyy.MM.dd.HH.mm.ss").format(new Date());
     }
 }

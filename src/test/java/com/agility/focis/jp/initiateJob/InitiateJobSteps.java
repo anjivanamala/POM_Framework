@@ -1,0 +1,132 @@
+package com.agility.focis.jp.initiateJob;
+
+import com.agility.focis.base.BaseSteps;
+import com.agility.focis.globalVariables.GlobalVaraibles;
+import com.agility.focis.utilities.testObject.DropDownUtils;
+import com.agility.focis.utilities.testObject.SeleniumUtils;
+import com.agility.focis.utilities.testObject.SpanUtils;
+import com.agility.focis.utilities.testObject.TextBoxUtils;
+import io.cucumber.java.eo.Se;
+import org.junit.Assert;
+import org.openqa.selenium.By;
+import org.openqa.selenium.Keys;
+import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.support.ui.Select;
+
+import java.io.IOException;
+
+public class InitiateJobSteps extends BaseSteps {
+    private WebDriver driver;
+    InitiateJobPage initiateJobPage;
+
+    public InitiateJobSteps() throws IOException {
+        this.driver = getDriver();
+        initiateJobPage = new InitiateJobPage(this.driver);
+
+    }
+
+    public void enterDataOnInitiatePageOne(String product, String productType, String jobScope, String originStakeholder, String destinationStakeholder) throws InterruptedException {
+
+        initiateJobPage.OriginStakeholderInput.sendKeys(originStakeholder);
+        Thread.sleep(1000);
+        initiateJobPage.OriginStakeholderInput.sendKeys(Keys.ENTER);
+        initiateJobPage.DestinationStakeholderInput.sendKeys(destinationStakeholder);
+        Thread.sleep(1000);
+        initiateJobPage.DestinationStakeholderInput.sendKeys(Keys.ENTER);
+        Thread.sleep(5000);
+        clickOnaButton("Next");
+    }
+
+    public void selectJobDistinguishers(String product, String productType, String jobScope) throws InterruptedException {
+        Thread.sleep(1000);
+        DropDownUtils.selectOptionByVisibleText(initiateJobPage.productDropDown, product);
+        DropDownUtils.selectOptionByVisibleText(initiateJobPage.productTypeDropDown, productType);
+        DropDownUtils.selectOptionByVisibleText(initiateJobPage.jobScopeDropDown, jobScope);
+    }
+
+    public void selectStakeholder(String stakeholderType, String stakeholderIdOrName) throws InterruptedException {
+        initiateJobPage.searchIconUsingLable(stakeholderType).click();
+        searchForSTK(stakeholderIdOrName);
+
+    }
+
+    public void searchForSTK(String stkName) throws InterruptedException {
+        boolean IsSTKSelected = false;
+        for (int i = 0; i < 10; i++) {
+            initiateJobPage.stakeHolderNameOrID.sendKeys(stkName + Keys.ENTER);
+            SeleniumUtils.waitForElementToBeClickable(initiateJobPage.refreshIcon);
+            if (driver.findElements(By.xpath("//b[text() = 'No records to view']")).size() > 0) {
+                initiateJobPage.refreshIcon.click();
+                SeleniumUtils.waitForElementToBeClickable(initiateJobPage.refreshIcon);
+                searchForSTK(stkName);
+            } else {
+
+                initiateJobPage.stkBestMatch(stkName).click();
+                IsSTKSelected = true;
+                break;
+            }
+        }
+        if (!IsSTKSelected) {
+            SeleniumUtils.waitForElementToBeClickable(initiateJobPage.closePopUpButton("Stakeholders"));
+            initiateJobPage.closePopUpButton("Stakeholders").click();
+        }
+    }
+
+    public void selectIncoTerm(String incoTerm, String incoTermLocation) {
+        DropDownUtils.selectOptionByVisibleText("Incoterm", incoTerm);
+        TextBoxUtils.setText("Incoterm Location", incoTermLocation);
+    }
+
+    public void selectMBL(String mblType, String mblTerms) {
+        DropDownUtils.selectOptionByVisibleText("MBL Type", mblType);
+        DropDownUtils.selectOptionByVisibleText("MBL Terms", mblTerms);
+    }
+
+    public void selectSLBL(String sequestType) {
+        DropDownUtils.selectOptionByVisibleText("Seaquest Type", sequestType);
+    }
+
+    public void selectOffice(String typeOfOffice, String country, String type, String networkComponent, String department, String isLive) throws InterruptedException {
+        initiateJobPage.searchIconUsingLable(typeOfOffice + " Office").click();
+        searchForOffice(country, type, networkComponent, department, isLive);
+    }
+
+    public void searchForOffice(String country, String type, String networkComponent, String department, String isLive) throws InterruptedException {
+        boolean isOfficeSelected = false;
+        for (int i = 0; i < 10; i++) {
+            SeleniumUtils.waitForElementToVisible(initiateJobPage.isLive);
+            DropDownUtils.selectOptionByVisibleText(initiateJobPage.isLive, isLive);
+            initiateJobPage.countryCode.sendKeys(country);
+            initiateJobPage.networkComponent.sendKeys(networkComponent);
+            initiateJobPage.type.sendKeys(type);
+            initiateJobPage.departmentName.sendKeys(department + Keys.ENTER);
+
+            if (driver.findElements(By.xpath("//b[text() = 'No records to view']")).size() > 0) {
+                initiateJobPage.refreshIcon.click();
+                Thread.sleep(1000);
+                searchForOffice(country, type, networkComponent, department, isLive);
+            } else {
+                Thread.sleep(2000);
+                initiateJobPage.officebestMatch(country).click();
+                isOfficeSelected = true;
+                break;
+            }
+
+        }
+
+        if (!isOfficeSelected) {
+            initiateJobPage.closePopUpButton("Network Components").click();
+        }
+
+    }
+
+    public void verifyJobInformation(String product, String productType, String jobScope) throws InterruptedException {
+        SeleniumUtils.waitForElementToVisible(initiateJobPage.verifyjobscope);
+        Assert.assertTrue(initiateJobPage.verifyproduct.getText().equalsIgnoreCase(product));
+        Assert.assertTrue(initiateJobPage.verifyProductType.getText().equalsIgnoreCase(productType));
+        Select jobscopedropdown = new Select(initiateJobPage.verifyjobscope);
+        Assert.assertTrue(jobscopedropdown.getFirstSelectedOption().getText().equalsIgnoreCase(jobScope));
+        SeleniumUtils.takeScreenshot();
+        SeleniumUtils.logInfo("Job Number is: " + initiateJobPage.jobNumber.getText());
+    }
+}

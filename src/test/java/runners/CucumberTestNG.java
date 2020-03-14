@@ -1,51 +1,44 @@
 package runners;
 
-import Base.DriverInstantiation;
-import com.vimalselvam.cucumber.listener.Reporter;
-import cucumber.api.CucumberOptions;
+import com.agility.focis.base.DriverInstantiation;
+import io.cucumber.testng.CucumberOptions;
+import io.cucumber.core.api.Scenario;
+import io.cucumber.java.After;
 import io.cucumber.testng.AbstractTestNGCucumberTests;
-import net.masterthought.cucumber.Configuration;
-import net.masterthought.cucumber.ReportBuilder;
-import net.masterthought.cucumber.Reportable;
-import net.masterthought.cucumber.json.support.Status;
-import net.masterthought.cucumber.presentation.PresentationMode;
-import net.masterthought.cucumber.sorting.SortingMethod;
+import org.openqa.selenium.OutputType;
+import org.openqa.selenium.TakesScreenshot;
 import org.openqa.selenium.WebDriver;
-import org.testng.annotations.*;
+import org.testng.annotations.AfterMethod;
+import org.testng.annotations.BeforeMethod;
 
-import java.io.File;
 import java.io.IOException;
-import java.util.ArrayList;
-import java.util.Collections;
-import java.util.List;
+import java.util.logging.Logger;
 
-@CucumberOptions(features = "src/test/resources/com/agility/focis/jp/fcl", tags = {"@gui"}, monochrome = true, plugin = {
-        "pretty", "html:target/cucumber-report2",
-        "json:target/cucumber-report2/cucumber.json",
-        "rerun:target/cucumber-report2/rerun.txt"
-//        "com.aventstack.extentreports.cucumber.adapter.ExtentCucumberAdapter:target/html/ExtentReport.html "
-},
-        glue = "com.agility.focis")
+
+@CucumberOptions(features = "src/test/resources/com/agility/focis/jp/initiateJob", tags = {"@Expedited"}, monochrome = true, plugin = {
+        "pretty", "html:target/cucumber-report/runwebat",
+        "json:target/cucumber-report/runwebat/cucumber.json",
+        "rerun:target/cucumber-report/runwebat/rerun.txt"},
+        glue = "com.agility.focis"
+        , dryRun=true
+)
+
+
 public class CucumberTestNG extends AbstractTestNGCucumberTests {
-    public WebDriver driver;
+    private WebDriver driver;
 
     @BeforeMethod
     public void instantiateDriver() throws IOException {
         DriverInstantiation.setDriver();
-    }
-
-    @AfterMethod
-    public void killDriver() {
-        driver = DriverInstantiation.getDriver();
-        driver.quit();
-        System.out.println("I quit the Driver");
-    }
-
-
-    //    @AfterClass
-    public static void writeExtentReport() {
-        Reporter.loadXMLConfig(new File("src/test/config/extent-config.xml"));
 
     }
+
+//        @AfterMethod
+//    public void killDriver() {
+//        driver = DriverInstantiation.getDriver();
+//        driver.quit();
+//        System.out.println("I quit the Driver");
+//    }
+
 
 }
