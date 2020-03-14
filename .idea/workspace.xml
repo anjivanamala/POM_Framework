@@ -1,9 +1,57 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="be773d27-07b1-4091-a736-32a2c8722874" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/compiler.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/compiler.xml" afterDir="false" />
+    <list default="true" id="8663e851-36db-4d57-9a11-e53e6e6700ca" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/java/com/agility/focis/jp/fcl/FCLPage.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/java/com/agility/focis/jp/fcl/FCLStepDefinitions.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/java/com/agility/focis/jp/fcl/FCLSteps.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/java/runners/POMRunner.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/java/runners/TestNgRunner.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/resources/classifications/duplicate.properties" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/resources/classifications/empty.properties" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/resources/classifications/sample_one.properties" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/resources/classifications/sample_two.properties" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/resources/classifications/special_characters.properties" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/resources/com/agility/focis/jp/fcl/fcl.feature" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/footer.vm" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/generators/errorpage.vm" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/generators/overviewFailures.vm" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/generators/overviewFeatures.vm" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/generators/overviewSteps.vm" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/generators/overviewTags.vm" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/generators/overviewTrends.vm" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/generators/reportFeature.vm" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/generators/reportTag.vm" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/head.vm" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/headers.vm" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/js/features-chart.js.vm" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/js/scenarios-chart.js.vm" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/js/steps-chart.js.vm" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/js/tags-chart.js.vm" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/js/trends-chart.js.vm" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/macros/array.js.vm" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/macros/json/brief.vm" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/macros/json/docstring.vm" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/macros/json/duration.vm" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/macros/json/element.vm" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/macros/json/embeddings.vm" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/macros/json/hooks.vm" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/macros/json/message.vm" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/macros/json/output.vm" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/macros/json/stepName.vm" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/macros/json/steps.vm" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/macros/json/tags.vm" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/macros/page/buildinfo.vm" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/macros/page/classifications.vm" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/macros/page/lead.vm" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/macros/page/navigation.vm" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/macros/page/reportInfo.vm" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/macros/page/title.vm" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/macros/report/expandAllButtons.vm" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/macros/report/reportHeader.vm" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/macros/report/reportTable.vm" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/macros/report/statsTable.vm" beforeDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -69,7 +117,7 @@
       </list>
     </option>
   </component>
-  <component name="RunManager" selected="TestNG.CucumberTestNG">
+  <component name="RunManager" selected="Application.EDIXML">
     <configuration name="EDIXML" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
       <option name="MAIN_CLASS_NAME" value="com.agility.focis.utilities.edi.EDIXML" />
       <module name="Java_Automation" />
@@ -141,9 +189,9 @@
     </configuration>
     <recent_temporary>
       <list>
+        <item itemvalue="Application.EDIXML" />
         <item itemvalue="TestNG.CucumberTestNG" />
         <item itemvalue="Application.XTREAM" />
-        <item itemvalue="Application.EDIXML" />
         <item itemvalue="Application.XMLUtils" />
         <item itemvalue="Application.xmlTest" />
       </list>
@@ -167,7 +215,9 @@
       <map>
         <entry key="MAIN">
           <value>
-            <State />
+            <State>
+              <option name="COLUMN_ORDER" />
+            </State>
           </value>
         </entry>
       </map>
@@ -184,7 +234,7 @@
         <line-breakpoint enabled="true" type="java-method">
           <url>file://$PROJECT_DIR$/src/main/java/com/agility/focis/utilities/edi/JOBDETAILS.java</url>
           <line>80</line>
-          <properties class="com.agility.focis.utilities.edi.JOBDETAILS" method="getParties">
+          <properties class="com.agility.focis.utilities.edi.JOBDETAILS">
             <option name="EMULATED" value="true" />
           </properties>
           <option name="timeStamp" value="5" />
