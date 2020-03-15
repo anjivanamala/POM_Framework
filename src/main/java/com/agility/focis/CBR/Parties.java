@@ -3,6 +3,7 @@ package com.agility.focis.CBR;
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import com.fasterxml.jackson.dataformat.xml.annotation.JacksonXmlElementWrapper;
 import com.fasterxml.jackson.dataformat.xml.annotation.JacksonXmlProperty;
+import org.apache.commons.lang.WordUtils;
 
 import java.util.ArrayList;
 import java.util.HashMap;
@@ -31,19 +32,19 @@ public class Parties {
         Map<String, String> notifyParty = new HashMap<>();
         for (int i = 0; i < getParty().size(); i++) {
             if (getParty().get(i).getPartyType().equalsIgnoreCase("Agility Office")) {
-                agilityOffice.put("Name", getParty().get(i).getPartyName());
+                agilityOffice.put("Name", WordUtils.capitalizeFully(getParty().get(i).getPartyName(), new char[]{' '}));
                 agilityOffice.put("Address", getParty().get(i).getAddress().getAddressAsString());
             } else if (getParty().get(i).getPartyType().equalsIgnoreCase("BRANCH")) {
-                branch.put("Name", getParty().get(i).getPartyName());
+                branch.put("Name", WordUtils.capitalizeFully(getParty().get(i).getPartyName(), new char[]{' '}));
                 branch.put("Address", getParty().get(i).getAddress().getAddressAsString());
             } else if (getParty().get(i).getPartyType().equalsIgnoreCase("Shipper")) {
-                shipper.put("Name", getParty().get(i).getPartyName());
+                shipper.put("Name", WordUtils.capitalizeFully(getParty().get(i).getPartyName(), new char[]{' '}));
                 shipper.put("Address", getParty().get(i).getAddress().getAddressAsString());
             } else if (getParty().get(i).getPartyType().equalsIgnoreCase("Consignee")) {
-                consignee.put("Name", getParty().get(i).getPartyName());
+                consignee.put("Name", WordUtils.capitalizeFully(getParty().get(i).getPartyName(), new char[]{' '}));
                 consignee.put("Address", getParty().get(i).getAddress().getAddressAsString());
             } else if (getParty().get(i).getPartyType().equalsIgnoreCase("Notify Party")) {
-                notifyParty.put("Name", getParty().get(i).getPartyName());
+                notifyParty.put("Name", WordUtils.capitalizeFully(getParty().get(i).getPartyName(), new char[]{' '}));
                 notifyParty.put("Address", getParty().get(i).getAddress().getAddressAsString());
             }
         }
