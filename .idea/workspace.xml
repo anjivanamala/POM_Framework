@@ -1,23 +1,33 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="8663e851-36db-4d57-9a11-e53e6e6700ca" name="Default Changelist" comment="">
+    <list default="true" id="c6bb95a2-75d2-4d2e-80c3-b3c9f6e09128" name="Default Changelist" comment="">
+      <change beforePath="$PROJECT_DIR$/.idea/$CACHE_FILE$" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/$PRODUCT_WORKSPACE_FILE$" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/$PRODUCT_WORKSPACE_FILE$" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/.name" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.name" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/compiler.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/dictionaries/AVanamala.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/encodings.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/uiDesigner.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/vcs.xml" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/pom.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/agility/focis/CBR/ADDRESS.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/agility/focis/CBR/ADDRESS.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/agility/focis/CBR/Parties.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/agility/focis/CBR/Parties.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/agility/focis/utilities/testObject/SeleniumUtils.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/agility/focis/utilities/testObject/SeleniumUtils.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/test/java/com/agility/focis/addCarriagesAir/AddCarriagesAirPage.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/com/agility/focis/addCarriagesAir/AddCarriagesAirPage.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/test/java/com/agility/focis/addCarriagesAir/AddCarriagesAirStepDefinitions.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/com/agility/focis/addCarriagesAir/AddCarriagesAirStepDefinitions.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/test/java/com/agility/focis/addCarriagesAir/AddCarriagesAirSteps.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/com/agility/focis/addCarriagesAir/AddCarriagesAirSteps.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/test/java/com/agility/focis/base/BasePage.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/com/agility/focis/base/BasePage.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/test/java/com/agility/focis/base/BaseSteps.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/com/agility/focis/base/BaseSteps.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/test/java/com/agility/focis/jp/initiateJob/InitiateJobPage.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/com/agility/focis/jp/initiateJob/InitiateJobPage.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/test/java/com/agility/focis/jp/initiateJob/InitiateJobSteps.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/com/agility/focis/jp/initiateJob/InitiateJobSteps.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/test/java/com/agility/focis/performActivitiesOcean/PerformActivitiesStepDefinitions.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/com/agility/focis/performActivitiesOcean/PerformActivitiesStepDefinitions.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/test/java/com/agility/focis/performActivitiesOcean/PerformActivitiesSteps.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/com/agility/focis/performActivitiesOcean/PerformActivitiesSteps.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/test/java/runners/CucumberTestNG.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/runners/CucumberTestNG.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/test/resources/com/agility/focis/jp/initiateJob/Expedited.feature" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/resources/com/agility/focis/jp/initiateJob/Expedited.feature" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/config/extent-config.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/config/profiles.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/execution/executionProperties.properties" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/resources/cucumber-trends.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/resources/demo-trends.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/resources/json/empty-file.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/resources/json/empty.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/resources/json/invalid-report.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/resources/json/sample.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/resources/json/sample_failed.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/resources/json/simple.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/resources/json/timestamped/all-last-failed.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/resources/json/timestamped/all-passed.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/resources/json/timestamped/part1.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/resources/json/timestamped/part2-rerun-failed.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/resources/json/timestamped/part2-rerun-passed.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/resources/json/timestamped/part2.json" beforeDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -25,54 +35,21 @@
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
     <option name="LAST_RESOLUTION" value="IGNORE" />
   </component>
-  <component name="FileTemplateManagerImpl">
-    <option name="RECENT_TEMPLATES">
-      <list>
-        <option value="Interface" />
-        <option value="Class" />
-      </list>
-    </option>
-  </component>
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
   </component>
   <component name="MavenImportPreferences">
     <option name="importingSettings">
       <MavenImportingSettings>
+        <option name="downloadDocsAutomatically" value="true" />
+        <option name="downloadSourcesAutomatically" value="true" />
         <option name="importAutomatically" value="true" />
+        <option name="jdkForImporter" value="1.8" />
       </MavenImportingSettings>
     </option>
   </component>
-  <component name="ProjectId" id="1Yw5wfIsSA2LcoGcAoVFRGlY7sM" />
-  <component name="ProjectLevelVcsManager" settingsEditedManually="true">
-    <ConfirmationsSetting value="2" id="Add" />
-  </component>
-  <component name="PropertiesComponent">
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/src/main/java/com/agility/focis" />
-    <property name="project.structure.last.edited" value="Problems" />
-    <property name="project.structure.proportion" value="0.0" />
-    <property name="project.structure.side.proportion" value="0.2" />
-    <property name="settings.editor.selected.configurable" value="configurable.group.appearance" />
-  </component>
-  <component name="RecentsManager">
-    <key name="MoveFile.RECENT_KEYS">
-      <recent name="$PROJECT_DIR$/src/test/resources" />
-    </key>
-    <key name="MoveClassesOrPackagesDialog.RECENTS_KEY">
-      <recent name="com.agility.focis" />
-      <recent name="com.agility.focis.utilities.edi.CBR" />
-    </key>
-    <key name="CreateClassDialog.RecentsKey">
-      <recent name="com.agility.focis.CBR" />
-      <recent name="com.agility.focis.utilities.edi" />
-    </key>
-    <key name="CopyFile.RECENT_KEYS">
-      <recent name="E:\Java_Se_Framework\src\test\java\com\agility\focis\addCarriagesAir" />
-      <recent name="$PROJECT_DIR$/src/main" />
-      <recent name="$PROJECT_DIR$/src/test/resources/com/agility/focis/jp/fcl" />
-      <recent name="$PROJECT_DIR$/src/main/java" />
-    </key>
-  </component>
+  <component name="ProjectId" id="1ZAA5GsWx04o3u8b8G9p1qBjaGv" />
+  <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
   <component name="RunDashboard">
     <option name="ruleStates">
       <list>
@@ -85,96 +62,16 @@
       </list>
     </option>
   </component>
-  <component name="RunManager" selected="TestNG.CucumberTestNG">
-    <configuration name="EDIXML" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
-      <option name="MAIN_CLASS_NAME" value="com.agility.focis.utilities.edi.CBR.EDIXML" />
-      <module name="Java_Automation" />
-      <extension name="coverage">
-        <pattern>
-          <option name="PATTERN" value="com.agility.focis.utilities.edi.CBR.*" />
-          <option name="ENABLED" value="true" />
-        </pattern>
-      </extension>
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
-    </configuration>
-    <configuration name="XMLUtils" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
-      <option name="MAIN_CLASS_NAME" value="com.agility.focis.utilities.edi.XMLUtils" />
-      <module name="Java_Automation" />
-      <extension name="coverage">
-        <pattern>
-          <option name="PATTERN" value="com.agility.focis.utilities.edi.CBR.*" />
-          <option name="ENABLED" value="true" />
-        </pattern>
-      </extension>
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
-    </configuration>
-    <configuration name="XTREAM" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
-      <option name="MAIN_CLASS_NAME" value="runners.XTREAM" />
-      <module name="Java_Automation" />
-      <extension name="coverage">
-        <pattern>
-          <option name="PATTERN" value="runners.*" />
-          <option name="ENABLED" value="true" />
-        </pattern>
-      </extension>
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
-    </configuration>
-    <configuration name="xmlTest" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
-      <option name="MAIN_CLASS_NAME" value="runners.xmlTest" />
-      <module name="Java_Automation" />
-      <extension name="coverage">
-        <pattern>
-          <option name="PATTERN" value="com.agility.focis.utilities.edi.CBR.*" />
-          <option name="ENABLED" value="true" />
-        </pattern>
-      </extension>
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
-    </configuration>
-    <configuration name="CucumberTestNG" type="TestNG" temporary="true" nameIsGenerated="true">
-      <module name="Java_Automation" />
-      <extension name="coverage">
-        <pattern>
-          <option name="PATTERN" value="com.agility.focis.utilities.edi.CBR.*" />
-          <option name="ENABLED" value="true" />
-        </pattern>
-      </extension>
-      <option name="PACKAGE_NAME" value="runners" />
-      <option name="MAIN_CLASS_NAME" value="runners.CucumberTestNG" />
-      <option name="TEST_OBJECT" value="CLASS" />
-      <properties />
-      <listeners />
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
-    </configuration>
-    <recent_temporary>
-      <list>
-        <item itemvalue="TestNG.CucumberTestNG" />
-        <item itemvalue="Application.EDIXML" />
-        <item itemvalue="Application.XTREAM" />
-        <item itemvalue="Application.XMLUtils" />
-        <item itemvalue="Application.xmlTest" />
-      </list>
-    </recent_temporary>
-  </component>
   <component name="SvnConfiguration">
     <configuration />
   </component>
   <component name="TaskManager">
     <task active="true" id="Default" summary="Default task">
-      <changelist id="be773d27-07b1-4091-a736-32a2c8722874" name="Default Changelist" comment="" />
-      <created>1582820055640</created>
+      <changelist id="c6bb95a2-75d2-4d2e-80c3-b3c9f6e09128" name="Default Changelist" comment="" />
+      <created>1584271339976</created>
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
-      <updated>1582820055640</updated>
+      <updated>1584271339976</updated>
     </task>
     <servers />
   </component>
@@ -183,114 +80,10 @@
       <map>
         <entry key="MAIN">
           <value>
-            <State>
-              <option name="COLUMN_ORDER" />
-            </State>
+            <State />
           </value>
         </entry>
       </map>
     </option>
-  </component>
-  <component name="XDebuggerManager">
-    <breakpoint-manager>
-      <breakpoints>
-        <line-breakpoint enabled="true" type="java-method">
-          <url>file://$PROJECT_DIR$/src/main/java/com/agility/focis/CBR/JOBDETAILS.java</url>
-          <line>80</line>
-          <properties class="com.agility.focis.utilities.edi.CBR.JOBDETAILS">
-            <option name="EMULATED" value="true" />
-          </properties>
-          <option name="timeStamp" value="5" />
-        </line-breakpoint>
-      </breakpoints>
-    </breakpoint-manager>
-  </component>
-  <component name="masterDetails">
-    <states>
-      <state key="ArtifactsStructureConfigurable.UI">
-        <settings>
-          <artifact-editor />
-          <splitter-proportions>
-            <option name="proportions">
-              <list>
-                <option value="0.2" />
-              </list>
-            </option>
-          </splitter-proportions>
-        </settings>
-      </state>
-      <state key="FacetStructureConfigurable.UI">
-        <settings>
-          <last-edited>No facets are configured</last-edited>
-          <splitter-proportions>
-            <option name="proportions">
-              <list>
-                <option value="0.2" />
-              </list>
-            </option>
-          </splitter-proportions>
-        </settings>
-      </state>
-      <state key="GlobalLibrariesConfigurable.UI">
-        <settings>
-          <splitter-proportions>
-            <option name="proportions">
-              <list>
-                <option value="0.2" />
-              </list>
-            </option>
-          </splitter-proportions>
-        </settings>
-      </state>
-      <state key="JdkListConfigurable.UI">
-        <settings>
-          <last-edited>1.8</last-edited>
-          <splitter-proportions>
-            <option name="proportions">
-              <list>
-                <option value="0.2" />
-              </list>
-            </option>
-          </splitter-proportions>
-        </settings>
-      </state>
-      <state key="ModuleStructureConfigurable.UI">
-        <settings>
-          <last-edited>Java_Se_Framework</last-edited>
-          <splitter-proportions>
-            <option name="proportions">
-              <list>
-                <option value="0.2" />
-                <option value="0.6" />
-              </list>
-            </option>
-          </splitter-proportions>
-        </settings>
-      </state>
-      <state key="ProjectJDKs.UI">
-        <settings>
-          <last-edited>1.8</last-edited>
-          <splitter-proportions>
-            <option name="proportions">
-              <list>
-                <option value="0.2" />
-              </list>
-            </option>
-          </splitter-proportions>
-        </settings>
-      </state>
-      <state key="ProjectLibrariesConfigurable.UI">
-        <settings>
-          <last-edited>Maven: antlr:antlr:2.7.2</last-edited>
-          <splitter-proportions>
-            <option name="proportions">
-              <list>
-                <option value="0.2" />
-              </list>
-            </option>
-          </splitter-proportions>
-        </settings>
-      </state>
-    </states>
   </component>
 </project>
