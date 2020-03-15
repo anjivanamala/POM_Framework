@@ -28,7 +28,9 @@ Feature: Initiate Job - Air Freight - Expedited
     And Adds Airport To Airport with Carrier As "<Carrier>" along with below details
       | Flight Number  | Airport Of Departure | Airport Of Arrival | ETD   | ETD Time  | ETA   | ETA Time  | Supplier   | Cost   | Revenue   |
       | <FlightNumber> | <AOD>                | <AOA>              | <ETD> | <ETDTime> | <ETA> | <ETATime> | <Supplier> | <Cost> | <Revenue> |
-
+    And Add Origin with Haulage Arrangement as "Agility"
+      | Haulier Name | Cargo Collection Date | Cargo Delivery Date |
+      | <O_Haulier>  | <O_Coll_Date>         | <O_Del_Date>        |
 
     Examples:
       | DataRow | MenuOption | ChildMenuOption | Product     | ProductType | JobScope | OriginStakeholder | DestinationStakeholder | IncoTerm | Origin_Country | Origin_NetworkComponent | Origin_Department | Origin_Type | Origin_IsLive | Destination_Country | Destination_NetworkComponent | Destination_Department | Destination_Type | Destination_IsLive | Carrier | FlightNumber | AOD | AOA | ETD | ETDTime | ETA | ETATime | Supplier          | Cost | Revenue |

@@ -54,11 +54,31 @@ public class AddCarriagesAirPage extends BasePage {
     @FindBy(id = "0_COSTFROMSEARCH")
     public WebElement Supplier;
     @FindBy(xpath = "//input[@id='0_CostQ']")
-    public  WebElement enterCost;
+    public WebElement enterCost;
     @FindBy(xpath = "//input[@id='0_RevQ']")
     public WebElement enterRevenue;
     @FindBy(xpath = "//input[@id='btnSaveNewcharges']")
     public WebElement saveAndCloseButton;
 
+    //---------------Origin---------------------------
+    @FindBy(xpath = "//td[normalize-space(text())='Origin']/span")
+    public WebElement addPreCarriageButton;
+    @FindBy(id = "drpHaulageArrangement")
+    public WebElement haulageArrangementDropdown;
 
+    public WebElement haulierType(String haulierType) {
+        return driver.findElement(By.xpath("//select[@id='drpHaulageArrangement']/option[text()='" + haulierType + "']"));
+    }
+    @FindBy(xpath = "//button[contains(@id,'txtHaulier_btnPopup')]")
+    public WebElement haulierSearchPicker;
+    @FindBy(xpath = "//div[contains(@id,'txtCargoAvailFromDate_divPopup')]")
+    public WebElement originCollectionDate;
+    @FindBy(xpath = "//span[text()='Origin Cargo Collection Date']/../..//input[contains(@name,'CargoAvailFromTime')]")
+    public WebElement originCollectionTime;
+    @FindBy(xpath = "//div[contains(@id,'txtLatestDeliveryDate')]")
+    public WebElement originDeliveryDate;
+    @FindBy(xpath = "//span[text()='Origin Cargo Delivery Date']/../..//input[contains(@name,'LatestDeliveryTime')]")
+    public WebElement originDeliveryTime;
+    @FindBy(xpath = "//input[@title='Save and Close']/following-sibling::input[@title='Delete']")
+    public WebElement saveAndClose;
 }
