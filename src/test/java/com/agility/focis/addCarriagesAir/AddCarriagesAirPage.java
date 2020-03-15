@@ -17,34 +17,42 @@ public class AddCarriagesAirPage extends BasePage {
 
     @FindBy(xpath = "//td[normalize-space(text())='Airport to Airport']/..//a[@title='Add Main Carriage']")
     public WebElement addAirportToAirportButton;
+    @FindBy(xpath = "//iframe[contains(@src,'routesearchafmainfrpg')]")
+    public WebElement addAirportToAirportFrame;
+    @FindBy(id = "drpJobTypes")
+    public WebElement jobTypeDropdown;
     @FindBy(xpath = "//button[@id='drpJobTypes']/..//li[@id='liBackToBack']")
     public WebElement jobTypeBackToBack;
+    @FindBy(xpath = "//div[@id='alertMsgBox']/..//button[text()=' OK ']")
+    public WebElement jobTypeChangeAlert;
     @FindBy(xpath = "//input[contains(@id,'txtCarrierList')]")
-    public WebElement selectCarrier;
+    public WebElement Carrier;
     @FindBy(id = "txtFlightNumber_1")
-    public WebElement enterFlightNumber;
+    public WebElement FlightNumber;
     @FindBy(xpath = "//input[contains(@id,'txtFlSchViaPortAOD_1')]")
-    public WebElement selectAod;
+    public WebElement Aod;
     @FindBy(xpath = "//input[contains(@id,'txtFlSchViaPortAOA_1')]")
-    public WebElement selectAoa;
-    @FindBy(xpath = "//button[contains(@id,'txtFlSchViaPortETD_1')]")
-    public WebElement selectEtdDate;
+    public WebElement Aoa;
+    @FindBy(xpath = "//input[contains(@id,'_txtFlSchViaPortETD_1')]")
+    public WebElement EtdDate;
     @FindBy(xpath = "//input[contains(@id,'txtFlSchViaPortETDTime_1')]")
-    public WebElement selectEtdTime;
-    @FindBy(xpath = "//button[contains(@id,'txtFlSchViaPortETA_1')]")
-    public WebElement selectEtaDate;
+    public WebElement EtdTime;
+    @FindBy(xpath = "//input[contains(@id,'_txtFlSchViaPortETA_1')]")
+    public WebElement EtaDate;
     @FindBy(xpath = "//input[contains(@id,'txtFlSchViaPortETATime_1')]")
-    public WebElement selectEtaTime;
+    public WebElement EtaTime;
     @FindBy(xpath = "//option[@value='Cargo']/../../select[@id='ddlViaPortAircraftType_1']")
     public WebElement selectAirCraftType;
     @FindBy(id = "txtViaPortAirCraft_1_btnPopup")
     public WebElement searchPickerAirtCratType;
-    @FindBy(className = "ui-icon ui-icon ui-icon ui-icon icon-pushpin red")
+    @FindBy(xpath = "//div[@title = 'Pull available MAWB Number']/span")
     public WebElement pullMawbNumberIcon;
     @FindBy(id = "btnSaveDirectAWB")
     public WebElement saveAndCompleteActivityButton;
-    @FindBy(id = "0_COSTFROMDESC")
-    public WebElement selectSupplier;
+    @FindBy(xpath = "//iframe[contains(@src,'estimatesactfrpg.aspx')]")
+    public WebElement iFrameEstimationscreen;
+    @FindBy(id = "0_COSTFROMSEARCH")
+    public WebElement Supplier;
     @FindBy(xpath = "//input[@id='0_CostQ']")
     public  WebElement enterCost;
     @FindBy(xpath = "//input[@id='0_RevQ']")

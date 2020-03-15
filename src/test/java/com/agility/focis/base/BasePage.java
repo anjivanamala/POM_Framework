@@ -1,6 +1,7 @@
 package com.agility.focis.base;
 
 import com.agility.focis.base.DriverInstantiation;
+import com.agility.focis.utilities.testObject.SeleniumUtils;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
@@ -86,6 +87,28 @@ public class BasePage {
     public WebElement searchPickerInputBox(String columnName) {
         columnName = columnName.replaceAll(" ", "");
         return driver.findElement(By.xpath("//input[contains(@id,'" + columnName + "')]"));
+    }
+
+    @FindBy(xpath = "//input[@name= 'STKNAMEANDADDRESS' or @name= 'STKNameAndAddress']")
+    public WebElement stakeHolderNameOrID;
+
+    public WebElement stkBestMatch(String stk) throws InterruptedException {
+        SeleniumUtils.waitForNumberOfElementsToBeMoreThan(By.xpath("//a[contains(text(),'" + stk + "')]"), 0);
+        WebElement element = null;
+        if (driver.findElements(By.xpath("//a[contains(text(), 'Financial details available - Yes') and contains(text(),'Primary')]/../preceding-sibling::td/a[contains(text(),'" + stk + "')]")).size() > 0) {
+            element = driver.findElement(By.xpath("//a[contains(text(), 'Financial details available - Yes') and contains(text(),'Primary')]/../preceding-sibling::td/a[contains(text(),'" + stk + "')]"));
+
+        } else if (driver.findElements(By.xpath("//a[contains(text(), 'Financial details available - Yes') and contains(text(),'Collection')]/../preceding-sibling::td/a[contains(text(),'" + stk + "')]")).size() > 0) {
+            element = driver.findElement(By.xpath("//a[contains(text(), 'Financial details available - Yes') and contains(text(),'Collection')]/../preceding-sibling::td/a[contains(text(),'" + stk + "')]"));
+        } else if (driver.findElements(By.xpath("//a[contains(text(), 'Financial details available - Yes') and contains(text(),'Air WayBill')]/../preceding-sibling::td/a[contains(text(),'" + stk + "')]")).size() > 0) {
+            element = driver.findElement(By.xpath("//a[contains(text(), 'Financial details available - Yes') and contains(text(),'Air WayBill')]/../preceding-sibling::td/a[contains(text(),'" + stk + "')]"));
+        } else if (driver.findElements(By.xpath("//a[contains(text(), 'Financial details available - Yes') and contains(text(),'EDI')]/../preceding-sibling::td/a[contains(text(),'" + stk + "')]")).size() > 0) {
+            element = driver.findElement(By.xpath("//a[contains(text(), 'Financial details available - Yes') and contains(text(),'EDI')]/../preceding-sibling::td/a[contains(text(),'" + stk + "')]"));
+        } else {
+            element = driver.findElement(By.xpath("//a[contains(text(), 'Financial details available - No') and contains(text(),'Primary')]/../preceding-sibling::td/a[contains(text(),'" + stk + "')]"));
+        }
+        return element;
+
     }
 
 }

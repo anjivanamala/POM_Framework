@@ -4,10 +4,13 @@ import com.agility.focis.CBR.CBREDI;
 import com.agility.focis.CBR.JOBDETAILS;
 import com.agility.focis.base.BaseSteps;
 import com.agility.focis.globalVariables.GlobalVariables;
+import com.agility.focis.jp.initiateJob.InitiateJobPage;
 import com.agility.focis.utilities.testObject.DropDownUtils;
 import com.agility.focis.utilities.testObject.SeleniumUtils;
 import com.agility.focis.utilities.testObject.TextBoxUtils;
 import com.fasterxml.jackson.core.JsonProcessingException;
+import org.apache.commons.lang.StringUtils;
+import org.apache.commons.text.WordUtils;
 import org.junit.Assert;
 import org.openqa.selenium.By;
 import org.openqa.selenium.Keys;
@@ -34,6 +37,7 @@ public class PerformActivitiesSteps extends BaseSteps {
     public void completeCBR() throws InterruptedException {
         clickOnTab("Tasks");
         SeleniumUtils.waitForPageLoad();
+        GlobalVariables.setProductType(performActivitiesPage.verifyProductType.getText());
         clickOnPerformActivityAndSwithToWindow("Carrier Booking Request");
         SeleniumUtils.waitForPageLoad();
         SeleniumUtils.waitForElementToBeClickable(performActivitiesPage.referenceSearchButton("Agility Office (Owner of Activity)"));
@@ -138,22 +142,31 @@ public class PerformActivitiesSteps extends BaseSteps {
 
     public Map<String, Map<String, String>> getPartyInformationCBR() {
         Map<String, Map<String, String>> parties = new HashMap<>();
-        Map<String, String> partyinfo = new HashMap<>();
-        partyinfo.put("Name", performActivitiesPage.partyName("Agility Office (Owner of Activity)").getAttribute("value"));
-        partyinfo.put("Address", performActivitiesPage.partyAddress("Agility Office (Owner of Activity)").getAttribute("value"));
-        parties.put("Agility Office", partyinfo);
-        partyinfo.put("Name", performActivitiesPage.partyName("Booking Branch (Performer of Activity)").getAttribute("value"));
-        partyinfo.put("Address", performActivitiesPage.partyAddress("Booking Branch (Performer of Activity)").getAttribute("value"));
-        parties.put("BRANCH", partyinfo);
-        partyinfo.put("Name", performActivitiesPage.partyName("Shipper").getAttribute("value"));
-        partyinfo.put("Address", performActivitiesPage.partyAddress("Shipper").getAttribute("value"));
-        parties.put("Shipper", partyinfo);
-        partyinfo.put("Name", performActivitiesPage.partyName("Consignee").getAttribute("value"));
-        partyinfo.put("Address", performActivitiesPage.partyAddress("Consignee").getAttribute("value"));
-        parties.put("Consignee", partyinfo);
-        partyinfo.put("Name", performActivitiesPage.partyName("Notify Party").getAttribute("value"));
-        partyinfo.put("Address", performActivitiesPage.partyAddress("Notify Party").getAttribute("value"));
-        parties.put("Notify Party", partyinfo);
+        Map<String, String> agilityOffice = new HashMap<>();
+        Map<String, String> branch = new HashMap<>();
+        Map<String, String> shipper = new HashMap<>();
+        Map<String, String> consignee = new HashMap<>();
+        Map<String, String> notifyParty = new HashMap<>();
+
+        agilityOffice.put("Name", WordUtils.capitalizeFully(performActivitiesPage.partyName("Agility Office (Owner of Activity)").getAttribute("value")));
+        agilityOffice.put("Address", performActivitiesPage.partyAddress("Agility Office (Owner of Activity)").getAttribute("value"));
+        parties.put("Agility Office", agilityOffice);
+
+        branch.put("Name", WordUtils.capitalizeFully(performActivitiesPage.partyName("Booking Branch (Performer of Activity)").getAttribute("value")));
+        branch.put("Address", performActivitiesPage.partyAddress("Booking Branch (Performer of Activity)").getAttribute("value"));
+        parties.put("Branch", branch);
+
+        shipper.put("Name", WordUtils.capitalizeFully(performActivitiesPage.partyName("Shipper").getAttribute("value")));
+        shipper.put("Address", performActivitiesPage.partyAddress("Shipper").getAttribute("value"));
+        parties.put("Shipper", shipper);
+
+        consignee.put("Name", WordUtils.capitalizeFully(performActivitiesPage.partyName("Consignee").getAttribute("value")));
+        consignee.put("Address", performActivitiesPage.partyAddress("Consignee").getAttribute("value"));
+        parties.put("Consignee", consignee);
+
+        notifyParty.put("Name", WordUtils.capitalizeFully(performActivitiesPage.partyName("Notify Party").getAttribute("value")));
+        notifyParty.put("Address", performActivitiesPage.partyAddress("Notify Party").getAttribute("value"));
+        parties.put("Notify Party", notifyParty);
         return parties;
     }
 }

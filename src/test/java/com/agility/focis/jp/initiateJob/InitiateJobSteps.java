@@ -49,28 +49,6 @@ public class InitiateJobSteps extends BaseSteps {
 
     }
 
-    public void searchForSTK(String stkName) throws InterruptedException {
-        boolean IsSTKSelected = false;
-        for (int i = 0; i < 10; i++) {
-            initiateJobPage.stakeHolderNameOrID.sendKeys(stkName + Keys.ENTER);
-            SeleniumUtils.waitForElementToBeClickable(initiateJobPage.refreshIcon);
-            if (driver.findElements(By.xpath("//b[text() = 'No records to view']")).size() > 0) {
-                initiateJobPage.refreshIcon.click();
-                SeleniumUtils.waitForElementToBeClickable(initiateJobPage.refreshIcon);
-                searchForSTK(stkName);
-            } else {
-
-                initiateJobPage.stkBestMatch(stkName).click();
-                IsSTKSelected = true;
-                break;
-            }
-        }
-        if (!IsSTKSelected) {
-            SeleniumUtils.waitForElementToBeClickable(initiateJobPage.closePopUpButton("Stakeholders"));
-            initiateJobPage.closePopUpButton("Stakeholders").click();
-        }
-    }
-
     public void selectIncoTerm(String incoTerm, String incoTermLocation) {
         DropDownUtils.selectOptionByVisibleText("Incoterm", incoTerm);
         TextBoxUtils.setText("Incoterm Location", incoTermLocation);

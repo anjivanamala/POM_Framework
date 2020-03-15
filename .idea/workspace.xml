@@ -3,9 +3,21 @@
   <component name="ChangeListManager">
     <list default="true" id="8663e851-36db-4d57-9a11-e53e6e6700ca" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/pom.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/agility/focis/CBR/ADDRESS.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/agility/focis/CBR/ADDRESS.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/agility/focis/CBR/Parties.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/agility/focis/CBR/Parties.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/agility/focis/utilities/testObject/SeleniumUtils.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/agility/focis/utilities/testObject/SeleniumUtils.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/java/com/agility/focis/addCarriagesAir/AddCarriagesAirPage.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/com/agility/focis/addCarriagesAir/AddCarriagesAirPage.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/java/com/agility/focis/addCarriagesAir/AddCarriagesAirStepDefinitions.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/com/agility/focis/addCarriagesAir/AddCarriagesAirStepDefinitions.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/java/com/agility/focis/addCarriagesAir/AddCarriagesAirSteps.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/com/agility/focis/addCarriagesAir/AddCarriagesAirSteps.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/java/com/agility/focis/base/BasePage.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/com/agility/focis/base/BasePage.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/java/com/agility/focis/base/BaseSteps.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/com/agility/focis/base/BaseSteps.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/java/com/agility/focis/jp/initiateJob/InitiateJobPage.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/com/agility/focis/jp/initiateJob/InitiateJobPage.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/test/java/com/agility/focis/jp/initiateJob/InitiateJobSteps.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/com/agility/focis/jp/initiateJob/InitiateJobSteps.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/java/com/agility/focis/performActivitiesOcean/PerformActivitiesStepDefinitions.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/com/agility/focis/performActivitiesOcean/PerformActivitiesStepDefinitions.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/test/java/com/agility/focis/performActivitiesOcean/PerformActivitiesSteps.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/com/agility/focis/performActivitiesOcean/PerformActivitiesSteps.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/test/resources/com/agility/focis/jp/initiateJob/FCL.feature" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/resources/com/agility/focis/jp/initiateJob/FCL.feature" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/java/runners/CucumberTestNG.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/runners/CucumberTestNG.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/resources/com/agility/focis/jp/initiateJob/Expedited.feature" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/resources/com/agility/focis/jp/initiateJob/Expedited.feature" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />

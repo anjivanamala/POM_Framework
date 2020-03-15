@@ -71,4 +71,26 @@ public class BaseSteps extends DriverInstantiation {
             basePage.searchPickerInputBox(key).sendKeys(searchAttributes.get(key) + Keys.ENTER);
         }
     }
+
+    public void searchForSTK(String stkName) throws InterruptedException {
+        boolean IsSTKSelected = false;
+        for (int i = 0; i < 10; i++) {
+            basePage.stakeHolderNameOrID.sendKeys(stkName + Keys.ENTER);
+            SeleniumUtils.waitForElementToBeClickable(basePage.refreshIcon);
+            if (driver.findElements(By.xpath("//b[text() = 'No records to view']")).size() > 0) {
+                basePage.refreshIcon.click();
+                SeleniumUtils.waitForElementToBeClickable(basePage.refreshIcon);
+                searchForSTK(stkName);
+            } else {
+
+                basePage.stkBestMatch(stkName).click();
+                IsSTKSelected = true;
+                break;
+            }
+        }
+        if (!IsSTKSelected) {
+            SeleniumUtils.waitForElementToBeClickable(basePage.closePopUpButton("Stakeholders"));
+            basePage.closePopUpButton("Stakeholders").click();
+        }
+    }
 }

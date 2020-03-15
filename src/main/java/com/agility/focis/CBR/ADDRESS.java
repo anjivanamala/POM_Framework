@@ -3,6 +3,7 @@ package com.agility.focis.CBR;
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import com.fasterxml.jackson.dataformat.xml.annotation.JacksonXmlElementWrapper;
 import com.fasterxml.jackson.dataformat.xml.annotation.JacksonXmlProperty;
+import org.apache.commons.text.WordUtils;
 
 @JsonIgnoreProperties(ignoreUnknown = true)
 public class ADDRESS {
@@ -139,11 +140,25 @@ public class ADDRESS {
     }
 
     public String getAddressAsString() {
-        return getAddressLine1().trim() + "\n" +
-                getAddressLine2().trim() + "\n" +
-                getAddressLine3().trim() + "\n" +
-                getAddressLine4().trim() + "\n" +
-                getAddressLine5().trim() + "\n" +
-                getAddressLine6().trim();
+        String address = "";
+        if (!getAddressLine1().equalsIgnoreCase("")) {
+            address = address + WordUtils.capitalizeFully(getAddressLine1());
+        }
+        if (!getAddressLine2().equalsIgnoreCase("")) {
+            address = address + WordUtils.capitalizeFully(getAddressLine2()) + "\n";
+        }
+        if (!getAddressLine3().equalsIgnoreCase("")) {
+            address = address + WordUtils.capitalizeFully(getAddressLine3()) + "\n";
+        }
+        if (!getAddressLine4().equalsIgnoreCase("")) {
+            address = address + WordUtils.capitalizeFully(getAddressLine4()) + "\n";
+        }
+        if (!getAddressLine5().equalsIgnoreCase("")) {
+            address = address + WordUtils.capitalizeFully(getAddressLine5()) + "\n";
+        }
+        if (!getAddressLine6().equalsIgnoreCase("")) {
+            address = address + WordUtils.capitalizeFully(getAddressLine6()) + "\n";
+        }
+        return address;
     }
 }
