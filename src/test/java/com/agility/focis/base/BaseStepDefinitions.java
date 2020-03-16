@@ -22,7 +22,7 @@ import java.util.Map;
 
 @RunWith(Cucumber.class)
 public class BaseStepDefinitions {
-    BaseSteps baseSteps;
+    private BaseSteps baseSteps;
 
     public BaseStepDefinitions() throws IOException {
 

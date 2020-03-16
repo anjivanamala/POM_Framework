@@ -5,7 +5,7 @@ import io.cucumber.java.en.And;
 import java.io.IOException;
 
 public class ArrivalConfirmationStepDefinitions {
-    ArrivalConfirmationSteps arrivalConfirmationSteps;
+    private ArrivalConfirmationSteps arrivalConfirmationSteps;
 
     public ArrivalConfirmationStepDefinitions() throws IOException {
 

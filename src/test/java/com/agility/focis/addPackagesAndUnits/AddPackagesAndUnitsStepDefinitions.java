@@ -1,6 +1,5 @@
 package com.agility.focis.addPackagesAndUnits;
 
-import com.agility.focis.base.BaseSteps;
 import io.cucumber.java.en.When;
 
 import java.io.IOException;
@@ -9,7 +8,6 @@ import java.util.Map;
 
 public class AddPackagesAndUnitsStepDefinitions {
     private AddPackagesAndUnitsSteps addPackagesAndUnitsSteps;
-    BaseSteps baseSteps;
 
     public AddPackagesAndUnitsStepDefinitions() throws IOException {
 

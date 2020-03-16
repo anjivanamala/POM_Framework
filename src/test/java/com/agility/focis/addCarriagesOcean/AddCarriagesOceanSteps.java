@@ -15,7 +15,7 @@ import java.util.List;
 import java.util.Map;
 
 public class AddCarriagesOceanSteps extends BaseSteps {
-    public WebDriver driver;
+    private WebDriver driver;
     AddCarriagesOceanPage addCarriagesOceanPage;
 
     AddCarriagesOceanSteps() throws IOException {
@@ -26,7 +26,7 @@ public class AddCarriagesOceanSteps extends BaseSteps {
 
     public void clickOnAddMainCarriage() throws InterruptedException {
         clickOnTab("Movement");
-        SeleniumUtils.waitForElementToBeClickable(addCarriagesOceanPage.addMainCarriageButton);
+        SeleniumUtils.waitForElementToBeClickable(addCarriagesOceanPage.tab("Movement"));
         addCarriagesOceanPage.addMainCarriageButton.click();
         SeleniumUtils.waitForElementToBeClickable(addCarriagesOceanPage.tab("Movement"));
     }

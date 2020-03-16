@@ -5,11 +5,11 @@ import io.cucumber.java.en.And;
 import java.io.IOException;
 
 public class MBLIStepDefinitions {
-    MBLISteps MBLISteps;
+    MBLISteps mbliSteps;
 
     public MBLIStepDefinitions() throws IOException {
 
-        MBLISteps = new MBLISteps();
+        mbliSteps = new MBLISteps();
     }
 
     @And("Performs Master Bill of Lading Instructions Activity")

@@ -5,7 +5,7 @@ import io.cucumber.java.en.And;
 import java.io.IOException;
 
 public class BCTCStepDefinitions {
-    BCTCSteps BCTCSteps;
+    private BCTCSteps BCTCSteps;
 
     public BCTCStepDefinitions() throws IOException {
 

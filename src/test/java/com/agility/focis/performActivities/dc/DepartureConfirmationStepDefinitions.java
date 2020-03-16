@@ -5,11 +5,11 @@ import io.cucumber.java.en.And;
 import java.io.IOException;
 
 public class DepartureConfirmationStepDefinitions {
-    DepartureConfirmationSteps DepartureConfirmationSteps;
+    private DepartureConfirmationSteps departureConfirmationSteps;
 
     public DepartureConfirmationStepDefinitions() throws IOException {
 
-        DepartureConfirmationSteps = new DepartureConfirmationSteps();
+        departureConfirmationSteps = new DepartureConfirmationSteps();
     }
 
     @And("Performs Departure Confirmation Activity")

@@ -5,7 +5,7 @@ import io.cucumber.java.en.And;
 import java.io.IOException;
 
 public class CBRStepDefinitions {
-    CBRSteps cbrSteps;
+    private CBRSteps cbrSteps;
 
     public CBRStepDefinitions() throws IOException {
 

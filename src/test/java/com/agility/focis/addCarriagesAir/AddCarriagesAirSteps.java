@@ -8,8 +8,8 @@ import org.openqa.selenium.WebDriver;
 import java.io.IOException;
 
 public class AddCarriagesAirSteps extends BaseSteps {
-    public WebDriver driver;
-    private AddCarriagesAirPage addCarriagesAirPage;
+    private WebDriver driver;
+    AddCarriagesAirPage addCarriagesAirPage;
 
     AddCarriagesAirSteps() throws IOException {
         this.driver = getDriver();

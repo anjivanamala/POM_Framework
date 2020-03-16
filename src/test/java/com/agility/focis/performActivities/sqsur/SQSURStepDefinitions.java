@@ -3,10 +3,10 @@ package com.agility.focis.performActivities.sqsur;
 import java.io.IOException;
 
 public class SQSURStepDefinitions {
-    SQSURSteps SQSURSteps;
+    private SQSURSteps sqsurSteps;
 
     public SQSURStepDefinitions() throws IOException {
 
-        SQSURSteps = new SQSURSteps();
+        sqsurSteps = new SQSURSteps();
     }
 }

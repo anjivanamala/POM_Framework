@@ -5,11 +5,11 @@ import io.cucumber.java.en.And;
 import java.io.IOException;
 
 public class CBCStepDefinitions {
-    CBCSteps CBCSteps;
+    private CBCSteps cbcSteps;
 
     public CBCStepDefinitions() throws IOException {
 
-        CBCSteps = new CBCSteps();
+        cbcSteps = new CBCSteps();
     }
 
     @And("Performs Carrier Booking Confirmation Activity")

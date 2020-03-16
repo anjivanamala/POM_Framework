@@ -14,7 +14,7 @@ import java.util.List;
 import java.util.Map;
 
 public class AddPackagesAndUnitsSteps extends BaseSteps {
-    public WebDriver driver;
+    private WebDriver driver;
     private AddPackagesAndUnitsPage addPackagesAndUnitsPage;
 
     AddPackagesAndUnitsSteps() throws IOException {

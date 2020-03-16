@@ -5,7 +5,7 @@ import io.cucumber.java.en.And;
 import java.io.IOException;
 
 public class SLBOLStepDefinitions {
-    SLBOLSteps slbolSteps;
+    private SLBOLSteps slbolSteps;
 
     public SLBOLStepDefinitions() throws IOException {
 

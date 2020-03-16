@@ -5,7 +5,7 @@ import io.cucumber.java.en.And;
 import java.io.IOException;
 
 public class MBLFStepDefinitions {
-    MBLFSteps mblfSteps;
+    private MBLFSteps mblfSteps;
 
     public MBLFStepDefinitions() throws IOException {
 

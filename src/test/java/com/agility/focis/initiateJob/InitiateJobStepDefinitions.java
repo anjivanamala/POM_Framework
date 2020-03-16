@@ -12,8 +12,7 @@ import java.util.List;
 import java.util.Map;
 
 public class InitiateJobStepDefinitions {
-    InitiateJobSteps initiateJobSteps;
-    BaseSteps baseSteps;
+    private InitiateJobSteps initiateJobSteps;
 
     public InitiateJobStepDefinitions() throws IOException {
 

@@ -18,7 +18,6 @@ import static java.util.concurrent.TimeUnit.SECONDS;
 public class BaseSteps extends DriverInstantiation {
     private WebDriver driver;
     BasePage basePage;
-//    private static Logger log =
 
 
     public BaseSteps() throws IOException {
