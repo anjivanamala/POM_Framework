@@ -1,4 +1,4 @@
-package com.agility.focis.jp.initiateJob;
+package com.agility.focis.initiateJob;
 
 import com.agility.focis.base.BaseSteps;
 import com.agility.focis.globalVariables.GlobalVariables;

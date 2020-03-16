@@ -1,7 +1,6 @@
-package com.agility.focis.jp.initiateJob;
+package com.agility.focis.initiateJob;
 
 import com.agility.focis.base.BaseSteps;
-import com.agility.focis.globalVariables.GlobalVariables;
 import com.agility.focis.utilities.testObject.SeleniumUtils;
 import io.cucumber.java.en.And;
 import io.cucumber.java.en.Given;

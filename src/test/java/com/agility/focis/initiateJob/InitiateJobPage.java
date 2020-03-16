@@ -1,4 +1,4 @@
-package com.agility.focis.jp.initiateJob;
+package com.agility.focis.initiateJob;
 
 import com.agility.focis.base.BasePage;
 import com.agility.focis.utilities.testObject.SeleniumUtils;

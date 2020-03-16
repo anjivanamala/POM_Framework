@@ -1,10 +1,15 @@
 package com.agility.focis.base;
 
+import com.agility.focis.performActivities.cbr.CBRSteps;
+import com.agility.focis.globalVariables.GlobalVariables;
 import com.agility.focis.utilities.testObject.SeleniumUtils;
+import com.fasterxml.jackson.core.JsonProcessingException;
 import io.cucumber.core.api.Scenario;
 import io.cucumber.java.After;
 import io.cucumber.java.AfterStep;
+import io.cucumber.java.en.And;
 import io.cucumber.java.en.Given;
+import io.cucumber.java.en.Then;
 import io.cucumber.java.en.When;
 import io.cucumber.junit.Cucumber;
 import org.junit.runner.RunWith;
@@ -22,6 +27,7 @@ public class BaseStepDefinitions {
     public BaseStepDefinitions() throws IOException {
 
         baseSteps = new BaseSteps();
+
     }
 
     @Given("User is logged into FOCiS Application")

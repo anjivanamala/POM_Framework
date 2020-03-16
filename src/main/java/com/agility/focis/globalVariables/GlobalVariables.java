@@ -18,6 +18,15 @@ public class GlobalVariables {
     private static Map<String, String> mblInformation;
     private static List<Map<String, String>> locationDetails;
     private static String cbrXMLData;
+    private static Map<String, Map<String, String>> yash;
+
+    public static Map<String, Map<String, String>> getYash() {
+        return yash;
+    }
+
+    public static void setYash(Map<String, Map<String, String>> yash) {
+        GlobalVariables.yash = yash;
+    }
 
     public static String getJobNumber() {
         return jobNumber;
