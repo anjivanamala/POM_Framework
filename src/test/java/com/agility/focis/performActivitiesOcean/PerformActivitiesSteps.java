@@ -124,9 +124,8 @@ public class PerformActivitiesSteps extends BaseSteps {
         compareStringsAndLogInfo("Job Status", GlobalVariables.getJobStatus(), cbrXMLData.getJobStatus().getStatusDescription());
         compareStringsAndLogInfo("Incoterm", GlobalVariables.getIncoterm(), cbrXMLData.getIncotermlocation().getINCOTERMTYPE());
         compareStringsAndLogInfo("Incoterm Location", GlobalVariables.getIncoTermLocation(), cbrXMLData.getIncotermlocation().getLocation());
-        if (!GlobalVariables.getParties().equals(cbrXMLData.getParties().getpartyInformation())) {
-            SeleniumUtils.logInfo("Parties Information Populated Incorrectly" + "\nExpected: \n" + GlobalVariables.getParties() + "\nActual: \n" + cbrXMLData.getParties().getpartyInformation());
-        }
+
+        SeleniumUtils.compareMapsAndLogNotMatchingValues(GlobalVariables.getParties(), cbrXMLData.getParties().getpartyInformation());
 
         if (!SeleniumUtils.getMessageToPrint().equalsIgnoreCase(""))
             Assert.fail("CBR EDI Data Populated Incorrectly");

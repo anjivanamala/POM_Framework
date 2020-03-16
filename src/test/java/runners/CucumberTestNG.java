@@ -9,18 +9,19 @@ import org.openqa.selenium.OutputType;
 import org.openqa.selenium.TakesScreenshot;
 import org.openqa.selenium.WebDriver;
 import org.testng.annotations.AfterMethod;
+import org.testng.annotations.AfterSuite;
 import org.testng.annotations.BeforeMethod;
 
 import java.io.IOException;
 import java.util.logging.Logger;
 
 
-@CucumberOptions(features = "src/test/resources/com/agility/focis/jp/initiateJob", tags = {"@MultipleUnits"}, monochrome = true, plugin = {
+@CucumberOptions(features = "src/test/resources/com/agility/focis/jp/EDI", tags = {"@EDI"}, monochrome = true, plugin = {
         "pretty", "html:target/cucumber-report/runwebat",
         "json:target/cucumber-report/runwebat/cucumber.json",
         "rerun:target/cucumber-report/runwebat/rerun.txt"},
         glue = "com.agility.focis"
-    //  , dryRun=true
+        //  , dryRun=true
 )
 
 
@@ -33,12 +34,11 @@ public class CucumberTestNG extends AbstractTestNGCucumberTests {
 
     }
 
-//        @AfterMethod
+    //        @AfterMethod
 //    public void killDriver() {
 //        driver = DriverInstantiation.getDriver();
 //        driver.quit();
 //        System.out.println("I quit the Driver");
 //    }
-
 
 }

@@ -8,6 +8,7 @@ import java.text.DateFormat;
 import java.text.SimpleDateFormat;
 import java.util.Calendar;
 import java.util.Date;
+import java.util.Map;
 import java.util.Set;
 import java.util.concurrent.TimeUnit;
 
@@ -318,5 +319,15 @@ public class SeleniumUtils extends DriverInstantiation {
         driver.close();
         driver.switchTo().window(parentWindow);
         driver.switchTo().defaultContent();
+    }
+
+    public static void compareMapsAndLogNotMatchingValues(Map<String, Map<String, String>> maptoCompareOne, Map<String, Map<String, String>> maptoCompareTwo) {
+        Set<String> set = maptoCompareOne.keySet();
+        for (String key : set) {
+            if (!maptoCompareOne.get(key).equals(maptoCompareTwo.get(key))) {
+                SeleniumUtils.logInfo(key + " details are not matched\nExpected :\n" + maptoCompareOne.get(key) + "\nActual :\n" + maptoCompareTwo.get(key));
+            }
+
+        }
     }
 }
