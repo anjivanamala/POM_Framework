@@ -62,23 +62,53 @@ public class AddCarriagesAirPage extends BasePage {
 
     //---------------Origin---------------------------
     @FindBy(xpath = "//td[normalize-space(text())='Origin']/span")
-    public WebElement addPreCarriageButton;
+    public WebElement addOriginButton;
+    @FindBy(xpath = "//iframe[contains(@src,'routesearchafpreonfrpg')]")
+    public WebElement addOriginFrame;
     @FindBy(id = "drpHaulageArrangement")
-    public WebElement haulageArrangementDropdown;
+    public WebElement originhaulageArrangementDropdown;
 
-    public WebElement haulierType(String haulierType) {
+    public WebElement originHaulierType(String haulierType) {
+        return driver.findElement(By.xpath("//select[@id='drpHaulageArrangement']/option[text()='" + haulierType + "']"));
+    }
+
+    @FindBy(xpath = "//button[contains(@id,'txtHaulier_btnPopup')]")
+    public WebElement originHaulierSearchPicker;
+    @FindBy(xpath = "//div[contains(@id,'txtCargoAvailFromDate_divPopup')]")
+    public WebElement originCargoCollectionDate;
+    @FindBy(xpath = "//span[text()='Origin Cargo Collection Date']/../..//input[contains(@name,'CargoAvailFromTime')]")
+    public WebElement originCargoCollectionTime;
+    @FindBy(xpath = "//div[contains(@id,'txtLatestDeliveryDate')]")
+    public WebElement originCargoDeliveryDate;
+    @FindBy(xpath = "//span[text()='Origin Cargo Delivery Date']/../..//input[contains(@name,'LatestDeliveryTime')]")
+    public WebElement originCargoDeliveryTime;
+    @FindBy(xpath = "//input[@title='Save and Close']/following-sibling::input[@title='Delete']")
+    public WebElement saveAndClose;
+
+    //-----------------------------Destination--------------------------
+    @FindBy(xpath = "//td[normalize-space(text())='Destination']/span")
+    public WebElement addDestinationButton;
+    @FindBy(xpath = "//iframe[contains(@src,'routesearchafpreonfrpg')]")
+    public WebElement addDestinationFrame;
+    @FindBy(id = "drpHaulageArrangement")
+    public WebElement destinationhaulageArrangementDropdown;
+
+    public WebElement destinationHaulierType(String haulierType) {
         return driver.findElement(By.xpath("//select[@id='drpHaulageArrangement']/option[text()='" + haulierType + "']"));
     }
     @FindBy(xpath = "//button[contains(@id,'txtHaulier_btnPopup')]")
-    public WebElement haulierSearchPicker;
+    public WebElement destinationHaulierSearchPicker;
     @FindBy(xpath = "//div[contains(@id,'txtCargoAvailFromDate_divPopup')]")
-    public WebElement originCollectionDate;
+    public WebElement destinationCargoCollectionDate;
     @FindBy(xpath = "//span[text()='Origin Cargo Collection Date']/../..//input[contains(@name,'CargoAvailFromTime')]")
-    public WebElement originCollectionTime;
+    public WebElement destinationCargoCollectionTime;
     @FindBy(xpath = "//div[contains(@id,'txtLatestDeliveryDate')]")
-    public WebElement originDeliveryDate;
+    public WebElement destinationCargoDeliveryDate;
     @FindBy(xpath = "//span[text()='Origin Cargo Delivery Date']/../..//input[contains(@name,'LatestDeliveryTime')]")
-    public WebElement originDeliveryTime;
-    @FindBy(xpath = "//input[@title='Save and Close']/following-sibling::input[@title='Delete']")
-    public WebElement saveAndClose;
+    public WebElement destinationCargoDeliveryTime;
+    @FindBy(xpath = "//input[contains(@name,'btnOnCreateLinehaul')]")
+    public WebElement saveAndCloseDestination;
+
+
+
 }

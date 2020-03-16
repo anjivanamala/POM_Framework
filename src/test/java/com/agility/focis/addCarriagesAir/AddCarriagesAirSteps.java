@@ -68,4 +68,32 @@ public class AddCarriagesAirSteps extends BaseSteps {
 
     }
 
+    public void addOrigin(String haulierType, String haulierName, String originCargoCollectionDate, String originCargoDeliveryDate) throws InterruptedException {
+        addCarriagesAirPage.addOriginButton.click();
+        SeleniumUtils.waitForFrameTobeAvailableAndSwitchToIt(addCarriagesAirPage.addOriginFrame);
+        SeleniumUtils.waitForPageLoad();
+        SeleniumUtils.waitForElementToBeClickable(addCarriagesAirPage.originhaulageArrangementDropdown);
+        addCarriagesAirPage.originHaulierType("Agility").click();
+        addCarriagesAirPage.originHaulierSearchPicker.click();
+        searchForSTK("BESTWAY TRANSPORT");
+        addCarriagesAirPage.originCargoCollectionDate.sendKeys(SeleniumUtils.getEffectiveDateAfterDays(Integer.parseInt(originCargoCollectionDate)) + Keys.TAB);
+        addCarriagesAirPage.originCargoCollectionTime.sendKeys("12");
+        addCarriagesAirPage.originCargoDeliveryDate.sendKeys(SeleniumUtils.getEffectiveDateAfterDays(Integer.parseInt(originCargoDeliveryDate)) + Keys.TAB);
+        addCarriagesAirPage.originCargoDeliveryTime.sendKeys("12");
+        addCarriagesAirPage.saveAndClose.click();
+    }
+    public void addDestination(String haulierType, String haulierName, String destinationCargoCollectionDate, String destinationCargoDeliveryDate) throws InterruptedException {
+        addCarriagesAirPage.addDestinationButton.click();
+        SeleniumUtils.waitForFrameTobeAvailableAndSwitchToIt(addCarriagesAirPage.addDestinationFrame);
+        SeleniumUtils.waitForPageLoad();
+        SeleniumUtils.waitForElementToBeClickable(addCarriagesAirPage.destinationhaulageArrangementDropdown);
+        addCarriagesAirPage.destinationHaulierType("Agility").click();
+        addCarriagesAirPage.destinationHaulierSearchPicker.click();
+        searchForSTK("Garrisons Logistics Pvt Ltd");
+        addCarriagesAirPage.destinationCargoCollectionDate.sendKeys(SeleniumUtils.getEffectiveDateAfterDays(Integer.parseInt(destinationCargoCollectionDate)) + Keys.TAB);
+        addCarriagesAirPage.destinationCargoCollectionTime.sendKeys("12");
+        addCarriagesAirPage.destinationCargoDeliveryDate.sendKeys(SeleniumUtils.getEffectiveDateAfterDays(Integer.parseInt(destinationCargoDeliveryDate)) + Keys.TAB);
+        addCarriagesAirPage.destinationCargoDeliveryTime.sendKeys("12");
+        addCarriagesAirPage.saveAndCloseDestination.click();
+    }
 }
