@@ -26,9 +26,12 @@ public class CommonSteps extends BaseSteps {
 
     }
 
-    public void clickOnPerformActivityAndSwithToWindow(String activity) throws InterruptedException {
-
+    public void clickOnPerformActivityIcon(String activity) {
         commonPage.performActivity(activity).click();
+    }
+
+    public void clickOnPerformActivityAndSwithToWindow(String activity) throws InterruptedException {
+        clickOnPerformActivityIcon(activity);
         if (driver.findElements(By.xpath("//div[@aria-describedby ='alrtActivityPerform']//button[text() = 'OK']")).size() > 0) {
             commonPage.acceptAlrtActivityPerform.click();
         }

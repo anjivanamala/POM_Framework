@@ -60,55 +60,39 @@ public class AddCarriagesAirPage extends BasePage {
     @FindBy(xpath = "//input[@id='btnSaveNewcharges']")
     public WebElement saveAndCloseButton;
 
-    //---------------Origin---------------------------
-    @FindBy(xpath = "//td[normalize-space(text())='Origin']/span")
-    public WebElement addOriginButton;
-    @FindBy(xpath = "//iframe[contains(@src,'routesearchafpreonfrpg')]")
-    public WebElement addOriginFrame;
-    @FindBy(id = "drpHaulageArrangement")
-    public WebElement originhaulageArrangementDropdown;
+//    Common Locators for Origin Or Destination
 
-    public WebElement originHaulierType(String haulierType) {
+    @FindBy(xpath = "//iframe[contains(@src,'routesearchafpreonfrpg')]")
+    public WebElement addOriginOrDestinationFrame;
+    @FindBy(id = "drpHaulageArrangement")
+    public WebElement haulageArrangementDropdown;
+
+    public WebElement haulierType(String haulierType) {
         return driver.findElement(By.xpath("//select[@id='drpHaulageArrangement']/option[text()='" + haulierType + "']"));
     }
 
     @FindBy(xpath = "//button[contains(@id,'txtHaulier_btnPopup')]")
-    public WebElement originHaulierSearchPicker;
-    @FindBy(xpath = "//div[contains(@id,'txtCargoAvailFromDate_divPopup')]")
-    public WebElement originCargoCollectionDate;
+    public WebElement haulierSearchPicker;
+    @FindBy(xpath = "//div[contains(@id,'txtCargoAvailFromDate_divPopup')]/input")
+    public WebElement cargoCollectionDate;
     @FindBy(xpath = "//span[text()='Origin Cargo Collection Date']/../..//input[contains(@name,'CargoAvailFromTime')]")
-    public WebElement originCargoCollectionTime;
-    @FindBy(xpath = "//div[contains(@id,'txtLatestDeliveryDate')]")
-    public WebElement originCargoDeliveryDate;
+    public WebElement cargoCollectionTime;
+    @FindBy(xpath = "//div[contains(@id,'txtLatestDeliveryDate')]/input")
+    public WebElement cargoDeliveryDate;
     @FindBy(xpath = "//span[text()='Origin Cargo Delivery Date']/../..//input[contains(@name,'LatestDeliveryTime')]")
-    public WebElement originCargoDeliveryTime;
-    @FindBy(xpath = "//input[@title='Save and Close']/following-sibling::input[@title='Delete']")
-    public WebElement saveAndClose;
+    public WebElement cargoDeliveryTime;
+
+    //---------------Origin---------------------------
+    @FindBy(xpath = "//td[normalize-space(text())='Origin']/span")
+    public WebElement addOriginButton;
+    @FindBy(xpath = "//input[contains(@id , 'btnRequestLinehaul')]")
+    public WebElement saveAndCloseOriginCarriage;
 
     //-----------------------------Destination--------------------------
     @FindBy(xpath = "//td[normalize-space(text())='Destination']/span")
     public WebElement addDestinationButton;
-    @FindBy(xpath = "//iframe[contains(@src,'routesearchafpreonfrpg')]")
-    public WebElement addDestinationFrame;
-    @FindBy(id = "drpHaulageArrangement")
-    public WebElement destinationhaulageArrangementDropdown;
-
-    public WebElement destinationHaulierType(String haulierType) {
-        return driver.findElement(By.xpath("//select[@id='drpHaulageArrangement']/option[text()='" + haulierType + "']"));
-    }
-    @FindBy(xpath = "//button[contains(@id,'txtHaulier_btnPopup')]")
-    public WebElement destinationHaulierSearchPicker;
-    @FindBy(xpath = "//div[contains(@id,'txtCargoAvailFromDate_divPopup')]")
-    public WebElement destinationCargoCollectionDate;
-    @FindBy(xpath = "//span[text()='Origin Cargo Collection Date']/../..//input[contains(@name,'CargoAvailFromTime')]")
-    public WebElement destinationCargoCollectionTime;
-    @FindBy(xpath = "//div[contains(@id,'txtLatestDeliveryDate')]")
-    public WebElement destinationCargoDeliveryDate;
-    @FindBy(xpath = "//span[text()='Origin Cargo Delivery Date']/../..//input[contains(@name,'LatestDeliveryTime')]")
-    public WebElement destinationCargoDeliveryTime;
     @FindBy(xpath = "//input[contains(@name,'btnOnCreateLinehaul')]")
-    public WebElement saveAndCloseDestination;
-
+    public WebElement saveAndCloseDestinationCarriage;
 
 
 }

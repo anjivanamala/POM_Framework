@@ -2,18 +2,10 @@ package com.agility.focis.addCarriagesAir;
 
 import com.agility.focis.base.BaseSteps;
 import com.agility.focis.utilities.testObject.SeleniumUtils;
-import org.apache.commons.text.WordUtils;
-import org.openqa.selenium.By;
 import org.openqa.selenium.Keys;
 import org.openqa.selenium.WebDriver;
-import org.openqa.selenium.interactions.Actions;
-import org.openqa.selenium.support.ui.Select;
 
 import java.io.IOException;
-import java.security.Key;
-import java.util.HashMap;
-import java.util.List;
-import java.util.Map;
 
 public class AddCarriagesAirSteps extends BaseSteps {
     private WebDriver driver;
@@ -29,7 +21,7 @@ public class AddCarriagesAirSteps extends BaseSteps {
         clickOnTab("Movement");
         SeleniumUtils.waitForElementToBeClickable(addCarriagesAirPage.addAirportToAirportButton);
         addCarriagesAirPage.addAirportToAirportButton.click();
-        SeleniumUtils.waitForElementToBeClickable(addCarriagesAirPage.tab("Movement"));
+        SeleniumUtils.waitForPageLoad();
     }
 
     public void addAirportToAirport(String Carrier, String FlightNumber, String AirportOfDeparture, String AirportOfArrival, String ETD, String ETDTime, String ETA, String ETATime, String Supplier, String Cost, String Revenue) throws InterruptedException {
@@ -69,31 +61,36 @@ public class AddCarriagesAirSteps extends BaseSteps {
     }
 
     public void addOrigin(String haulierType, String haulierName, String originCargoCollectionDate, String originCargoDeliveryDate) throws InterruptedException {
+        SeleniumUtils.waitForElementToBeClickable(addCarriagesAirPage.tab("Movement"));
         addCarriagesAirPage.addOriginButton.click();
-        SeleniumUtils.waitForFrameTobeAvailableAndSwitchToIt(addCarriagesAirPage.addOriginFrame);
+        SeleniumUtils.waitForFrameTobeAvailableAndSwitchToIt(addCarriagesAirPage.addOriginOrDestinationFrame);
         SeleniumUtils.waitForPageLoad();
-        SeleniumUtils.waitForElementToBeClickable(addCarriagesAirPage.originhaulageArrangementDropdown);
-        addCarriagesAirPage.originHaulierType("Agility").click();
-        addCarriagesAirPage.originHaulierSearchPicker.click();
-        searchForSTK("BESTWAY TRANSPORT");
-        addCarriagesAirPage.originCargoCollectionDate.sendKeys(SeleniumUtils.getEffectiveDateAfterDays(Integer.parseInt(originCargoCollectionDate)) + Keys.TAB);
-        addCarriagesAirPage.originCargoCollectionTime.sendKeys("12");
-        addCarriagesAirPage.originCargoDeliveryDate.sendKeys(SeleniumUtils.getEffectiveDateAfterDays(Integer.parseInt(originCargoDeliveryDate)) + Keys.TAB);
-        addCarriagesAirPage.originCargoDeliveryTime.sendKeys("12");
-        addCarriagesAirPage.saveAndClose.click();
+        SeleniumUtils.waitForElementToBeClickable(addCarriagesAirPage.haulageArrangementDropdown);
+        addCarriagesAirPage.haulierType(haulierType).click();
+        addCarriagesAirPage.haulierSearchPicker.click();
+        searchForSTK(haulierName);
+        addCarriagesAirPage.cargoCollectionDate.sendKeys(SeleniumUtils.getEffectiveDateAfterDays(Integer.parseInt(originCargoCollectionDate)) + Keys.TAB);
+        addCarriagesAirPage.cargoCollectionTime.sendKeys("12");
+        addCarriagesAirPage.cargoDeliveryDate.sendKeys(SeleniumUtils.getEffectiveDateAfterDays(Integer.parseInt(originCargoDeliveryDate)) + Keys.TAB);
+        addCarriagesAirPage.cargoDeliveryTime.sendKeys("12");
+        addCarriagesAirPage.saveAndCloseOriginCarriage.click();
+        SeleniumUtils.waitForPageLoad();
     }
+
     public void addDestination(String haulierType, String haulierName, String destinationCargoCollectionDate, String destinationCargoDeliveryDate) throws InterruptedException {
+        SeleniumUtils.waitForElementToBeClickable(addCarriagesAirPage.tab("Movement"));
         addCarriagesAirPage.addDestinationButton.click();
-        SeleniumUtils.waitForFrameTobeAvailableAndSwitchToIt(addCarriagesAirPage.addDestinationFrame);
+        SeleniumUtils.waitForFrameTobeAvailableAndSwitchToIt(addCarriagesAirPage.addOriginOrDestinationFrame);
         SeleniumUtils.waitForPageLoad();
-        SeleniumUtils.waitForElementToBeClickable(addCarriagesAirPage.destinationhaulageArrangementDropdown);
-        addCarriagesAirPage.destinationHaulierType("Agility").click();
-        addCarriagesAirPage.destinationHaulierSearchPicker.click();
-        searchForSTK("Garrisons Logistics Pvt Ltd");
-        addCarriagesAirPage.destinationCargoCollectionDate.sendKeys(SeleniumUtils.getEffectiveDateAfterDays(Integer.parseInt(destinationCargoCollectionDate)) + Keys.TAB);
-        addCarriagesAirPage.destinationCargoCollectionTime.sendKeys("12");
-        addCarriagesAirPage.destinationCargoDeliveryDate.sendKeys(SeleniumUtils.getEffectiveDateAfterDays(Integer.parseInt(destinationCargoDeliveryDate)) + Keys.TAB);
-        addCarriagesAirPage.destinationCargoDeliveryTime.sendKeys("12");
-        addCarriagesAirPage.saveAndCloseDestination.click();
+        SeleniumUtils.waitForElementToBeClickable(addCarriagesAirPage.haulageArrangementDropdown);
+        addCarriagesAirPage.haulierType(haulierType).click();
+        addCarriagesAirPage.haulierSearchPicker.click();
+        searchForSTK(haulierName);
+        addCarriagesAirPage.cargoCollectionDate.sendKeys(SeleniumUtils.getEffectiveDateAfterDays(Integer.parseInt(destinationCargoCollectionDate)) + Keys.TAB);
+        addCarriagesAirPage.cargoCollectionTime.sendKeys("12");
+        addCarriagesAirPage.cargoDeliveryDate.sendKeys(SeleniumUtils.getEffectiveDateAfterDays(Integer.parseInt(destinationCargoDeliveryDate)) + Keys.TAB);
+        addCarriagesAirPage.cargoDeliveryTime.sendKeys("12");
+        addCarriagesAirPage.saveAndCloseDestinationCarriage.click();
+        SeleniumUtils.waitForPageLoad();
     }
 }

@@ -50,9 +50,9 @@ Feature: EDI XML Validations
 #    And Adds On Carriage with Haulage Arrangement as "Merchant"
 #      | Haulier Name | Cargo Collection Date | Cargo Delivery Date |
 #      | <D_Haulier>  | <D_Coll_Date>         | <D_Del_Date>        |
-    And Performs Activities as below
-      | Carrier Booking Request | Carrier Booking Confirmation | Booking Confirmation to Customer | Master Bill Of Lading Instructions |
-      | <CBR>                   | <CBC>                        | <BCTC>                           | <MBL>                              |
+
+    And Performs "Carrier Booking Request" Activity
+    And Performs "Carrier Booking Confirmation" Activity
     Then Status of Activities should be Completed
     And EDI XML Data should be populated Correctly for "CBR"
 

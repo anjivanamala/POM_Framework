@@ -28,7 +28,7 @@ public class CBRSteps extends CommonSteps {
     }
 
 
-    public void completeCBR() throws InterruptedException {
+    public void performCBR() throws InterruptedException {
         clickOnTab("Tasks");
         SeleniumUtils.waitForPageLoad();
         GlobalVariables.setProductType(cbrPage.verifyProductType.getText());

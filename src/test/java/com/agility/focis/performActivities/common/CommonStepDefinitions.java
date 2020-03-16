@@ -65,13 +65,13 @@ public class CommonStepDefinitions {
 //            Perform Activities based on Options
             if (cbr.equalsIgnoreCase("Yes")) {
                 cbrSteps.enterContract("FAK");
-                cbrSteps.completeCBR();
+                cbrSteps.performCBR();
             } else {
                 SeleniumUtils.logInfo("You have provided invalid option for Carrier Booking Request i.e " + cbr);
             }
             if (cbc.equalsIgnoreCase("Yes")) {
 
-                cbcSteps.completeCBC();
+                cbcSteps.performCBC();
             } else {
                 SeleniumUtils.logInfo("You have provided invalid option for Carrier Booking Confirmation i.e " + cbc);
             }
@@ -107,5 +107,20 @@ public class CommonStepDefinitions {
                 SeleniumUtils.logInfo("Invalid Activity i.e " + activityName);
         }
 
+    }
+
+    @And("Performs {string} Activity")
+    public void performsActivity(String activityName) throws JsonProcessingException, InterruptedException {
+        switch (activityName) {
+            case "Carrier Booking Request":
+                cbrSteps.enterContract("FAK");
+                cbrSteps.performCBR();
+                break;
+            case "Carrier Booking Confirmation":
+                cbcSteps.performCBC();
+
+            default:
+                SeleniumUtils.logInfo("Invalid Activity i.e " + activityName);
+        }
     }
 }
