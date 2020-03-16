@@ -15,4 +15,7 @@ public class CRCSteps extends CommonSteps {
         CRCPage = new CRCPage(this.driver);
 
     }
+
+    public void performCRC() {
+    }
 }

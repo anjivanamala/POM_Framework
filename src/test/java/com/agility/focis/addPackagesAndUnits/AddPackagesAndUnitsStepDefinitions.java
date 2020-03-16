@@ -8,7 +8,7 @@ import java.util.List;
 import java.util.Map;
 
 public class AddPackagesAndUnitsStepDefinitions {
-    AddPackagesAndUnitsSteps addPackagesAndUnitsSteps;
+    private AddPackagesAndUnitsSteps addPackagesAndUnitsSteps;
     BaseSteps baseSteps;
 
     public AddPackagesAndUnitsStepDefinitions() throws IOException {

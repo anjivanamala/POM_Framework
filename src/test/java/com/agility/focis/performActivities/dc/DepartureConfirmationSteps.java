@@ -15,4 +15,7 @@ public class DepartureConfirmationSteps extends CommonSteps {
         DepartureConfirmationPage = new DepartureConfirmationPage(this.driver);
 
     }
+
+    public void performDC() {
+    }
 }

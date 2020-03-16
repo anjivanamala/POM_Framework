@@ -15,10 +15,10 @@ import java.util.List;
 import java.util.Map;
 
 public class AddCarriagesOceanSteps extends BaseSteps {
-    private WebDriver driver;
+    public WebDriver driver;
     AddCarriagesOceanPage addCarriagesOceanPage;
 
-    public AddCarriagesOceanSteps() throws IOException {
+    AddCarriagesOceanSteps() throws IOException {
         this.driver = getDriver();
         addCarriagesOceanPage = new AddCarriagesOceanPage(this.driver);
 

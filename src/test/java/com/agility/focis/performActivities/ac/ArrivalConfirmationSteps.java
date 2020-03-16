@@ -26,4 +26,7 @@ public class ArrivalConfirmationSteps extends CommonSteps {
         arrivalConfirmationPage = new ArrivalConfirmationPage(this.driver);
 
     }
+
+    public void performAC() {
+    }
 }

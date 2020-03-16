@@ -15,4 +15,7 @@ public class SLBOLSteps extends CommonSteps {
         SLBOLPage = new SLBOLPage(this.driver);
 
     }
+
+    public void perfomSLBOL() {
+    }
 }

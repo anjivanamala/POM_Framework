@@ -16,6 +16,6 @@ public class MBLISteps extends CommonSteps {
 
     }
 
-    public void completeMBLI() {
+    public void performMBLI() {
     }
 }

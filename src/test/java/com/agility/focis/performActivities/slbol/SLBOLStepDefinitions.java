@@ -1,12 +1,19 @@
 package com.agility.focis.performActivities.slbol;
 
+import io.cucumber.java.en.And;
+
 import java.io.IOException;
 
 public class SLBOLStepDefinitions {
-    SLBOLSteps SLBOLSteps;
+    SLBOLSteps slbolSteps;
 
     public SLBOLStepDefinitions() throws IOException {
 
-        SLBOLSteps = new SLBOLSteps();
+        slbolSteps = new SLBOLSteps();
+    }
+
+
+    @And("Performs Seaquest Line Bill of Lading Activity")
+    public void performsSeaquestLineBillOfLadingActivity() {
     }
 }

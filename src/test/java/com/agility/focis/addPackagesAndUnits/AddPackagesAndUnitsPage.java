@@ -8,7 +8,7 @@ import org.openqa.selenium.support.FindBy;
 
 public class AddPackagesAndUnitsPage extends BasePage {
 
-    public AddPackagesAndUnitsPage(WebDriver driver) {
+    AddPackagesAndUnitsPage(WebDriver driver) {
         super(driver);
     }
 

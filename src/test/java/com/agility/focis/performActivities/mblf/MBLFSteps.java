@@ -15,4 +15,7 @@ public class MBLFSteps extends CommonSteps {
         MBLFPage = new MBLFPage(this.driver);
 
     }
+
+    public void performMBLF() {
+    }
 }

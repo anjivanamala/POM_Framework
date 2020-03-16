@@ -14,10 +14,10 @@ import java.util.List;
 import java.util.Map;
 
 public class AddPackagesAndUnitsSteps extends BaseSteps {
-    private WebDriver driver;
-    AddPackagesAndUnitsPage addPackagesAndUnitsPage;
+    public WebDriver driver;
+    private AddPackagesAndUnitsPage addPackagesAndUnitsPage;
 
-    public AddPackagesAndUnitsSteps() throws IOException {
+    AddPackagesAndUnitsSteps() throws IOException {
         this.driver = getDriver();
         addPackagesAndUnitsPage = new AddPackagesAndUnitsPage(this.driver);
     }

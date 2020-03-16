@@ -17,4 +17,5 @@ public class CBRStepDefinitions {
         cbrSteps.enterContract("FAK");
         cbrSteps.performCBR();
     }
+
 }

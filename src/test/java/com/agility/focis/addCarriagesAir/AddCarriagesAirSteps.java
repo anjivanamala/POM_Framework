@@ -8,16 +8,16 @@ import org.openqa.selenium.WebDriver;
 import java.io.IOException;
 
 public class AddCarriagesAirSteps extends BaseSteps {
-    private WebDriver driver;
-    AddCarriagesAirPage addCarriagesAirPage;
+    public WebDriver driver;
+    private AddCarriagesAirPage addCarriagesAirPage;
 
-    public AddCarriagesAirSteps() throws IOException {
+    AddCarriagesAirSteps() throws IOException {
         this.driver = getDriver();
         addCarriagesAirPage = new AddCarriagesAirPage(this.driver);
 
     }
 
-    public void clickOnAddAirportToAirport() throws InterruptedException {
+    private void clickOnAddAirportToAirport() throws InterruptedException {
         clickOnTab("Movement");
         SeleniumUtils.waitForElementToBeClickable(addCarriagesAirPage.addAirportToAirportButton);
         addCarriagesAirPage.addAirportToAirportButton.click();

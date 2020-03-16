@@ -27,6 +27,6 @@ public class BCTCSteps extends CommonSteps {
 
     }
 
-    public void completeBCTC() {
+    public void performBCTC() {
     }
 }

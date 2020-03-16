@@ -10,9 +10,8 @@ import java.io.IOException;
 import java.util.List;
 import java.util.Map;
 
-public class AddCarriagesOceanStepDefinitions<AddMainCarriage> {
-    AddCarriagesOceanSteps addCarriagesOceanSteps;
-    BaseSteps baseSteps;
+public class AddCarriagesOceanStepDefinitions {
+    private AddCarriagesOceanSteps addCarriagesOceanSteps;
 
     public AddCarriagesOceanStepDefinitions() throws IOException {
 
