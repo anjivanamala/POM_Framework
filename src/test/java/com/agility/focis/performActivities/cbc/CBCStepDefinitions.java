@@ -13,7 +13,8 @@ public class CBCStepDefinitions {
     }
 
     @And("Performs Carrier Booking Confirmation Activity")
-    public void performsCarrierBookingConfirmationActivity() {
+    public void performsCarrierBookingConfirmationActivity() throws InterruptedException {
+        cbcSteps.performCBC();
     }
 
 }

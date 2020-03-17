@@ -59,6 +59,8 @@ public class AddCarriagesAirPage extends BasePage {
     public WebElement enterRevenue;
     @FindBy(xpath = "//input[@id='btnSaveNewcharges']")
     public WebElement saveAndCloseButton;
+    @FindBy(xpath = "//input[contains(@id,'CarrBookingRef')]")
+    public WebElement carrierBookingReference;
 
 //    Common Locators for Origin Or Destination
 

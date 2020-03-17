@@ -77,6 +77,7 @@ public class AddCarriagesOceanPage extends BasePage {
     @FindBy(id = "divProcessingIndicator")
     public WebElement progressIndicator;
 
+
 //    --------------------------- Pre Carriage Locators------------------
 
     @FindBy(xpath = "//span[@id='spnAddPreCarriage']")
@@ -106,7 +107,7 @@ public class AddCarriagesOceanPage extends BasePage {
     @FindBy(id = "btnSave")
     public WebElement savePreCarriage;
 
-//    --------------------------------- On Carriage -------------------------------
+    //    --------------------------------- On Carriage -------------------------------
     @FindBy(id = "spnAddOnCarriage")
     public WebElement addOnCarriageButton;
 

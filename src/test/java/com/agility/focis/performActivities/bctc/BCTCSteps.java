@@ -2,6 +2,7 @@ package com.agility.focis.performActivities.bctc;
 
 import com.agility.focis.CBR.CBREDI;
 import com.agility.focis.CBR.JOBDETAILS;
+import com.agility.focis.addCarriagesOcean.AddCarriagesOceanPage;
 import com.agility.focis.base.BaseSteps;
 import com.agility.focis.globalVariables.GlobalVariables;
 import com.agility.focis.performActivities.common.CommonSteps;
@@ -20,10 +21,12 @@ import java.util.Map;
 public class BCTCSteps extends CommonSteps {
     private WebDriver driver;
     BCTCPage BCTCPage;
+    AddCarriagesOceanPage addCarriagesOceanPage;
 
     public BCTCSteps() throws IOException {
         this.driver = getDriver();
         BCTCPage = new BCTCPage(this.driver);
+        addCarriagesOceanPage = new AddCarriagesOceanPage(this.driver);
 
     }
 

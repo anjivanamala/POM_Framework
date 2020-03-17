@@ -53,6 +53,7 @@ public class BaseSteps extends DriverInstantiation {
     public void clickOnTab(String tabName) throws InterruptedException {
         SeleniumUtils.waitForElementToBeClickable(basePage.tab(tabName));
         basePage.tab(tabName).click();
+        SeleniumUtils.waitForPageLoad();
     }
 
     public void closePopupWindow(String popUPName) {
@@ -91,5 +92,15 @@ public class BaseSteps extends DriverInstantiation {
             SeleniumUtils.waitForElementToBeClickable(basePage.closePopUpButton("Stakeholders"));
             basePage.closePopUpButton("Stakeholders").click();
         }
+    }
+
+    public void acceptWarningIfPopulated(String warningMessage) throws InterruptedException {
+        if (driver.findElements(By.xpath("//p[text() = '" + warningMessage + "']/ancestor::div[@role = 'dialog' and contains(@style,'display: block;')]")).size() > 0) {
+            SeleniumUtils.waitForElementToBeClickable(basePage.okButtonWarning(warningMessage));
+            basePage.okButtonWarning(warningMessage).click();
+//            JavascriptExecutor js = (JavascriptExecutor) driver;
+//            js.executeScript("arguments[0].click();", basePage.okButtonWarning(warningMessage));
+        }
+
     }
 }

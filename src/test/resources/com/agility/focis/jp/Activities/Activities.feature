@@ -52,14 +52,14 @@ Feature: Perform Activities - Ocean
 
     And Performs "Carrier Booking Request" Activity
     And Performs "Carrier Booking Confirmation" Activity
-    And Performs "Booking Confirmation to Customer" Activity
-    And Performs "Master Bill of Lading Instructions" Activity
-    And Performs "Master Bill of Lading Approval" Activity
-    And Performs "Final Master Bill of Lading" Activity
-    And Performs "Seaquest Line Bill of Lading" Activity
-    And Performs "Departure Confirmation" Activity
-    And Performs "Arrival Confirmation" Activity
-    And Performs "Cargo Release to Customer" Activity
+#    And Performs "Booking Confirmation to Customer" Activity
+#    And Performs "Master Bill of Lading Instructions" Activity
+#    And Performs "Master Bill of Lading Approval" Activity
+#    And Performs "Final Master Bill of Lading" Activity
+#    And Performs "Seaquest Line Bill of Lading" Activity
+#    And Performs "Departure Confirmation" Activity
+#    And Performs "Arrival Confirmation" Activity
+#    And Performs "Cargo Release to Customer" Activity
     Then Status of Activities should be Completed
 
     Examples:

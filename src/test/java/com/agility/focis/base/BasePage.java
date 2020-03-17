@@ -111,5 +111,9 @@ public class BasePage {
 
     }
 
+    public WebElement okButtonWarning(String warningMessage) {
+        return driver.findElement(By.xpath("//p[text() = '" + warningMessage + "']/ancestor::div[@role = 'dialog' and contains(@style,'display: block;')]//*[text()='OK']"));
+    }
+
 }
 

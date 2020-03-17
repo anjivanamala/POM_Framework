@@ -13,4 +13,11 @@ public class CBCPage extends CommonPage {
         super(driver);
     }
 
+    @FindBy(xpath = "//b[text() = 'Booking Confirmation Matches Job Data']/preceding-sibling::input[@type = 'radio']")
+    public WebElement confirmCBC;
+    @FindBy(xpath = "(//b[text() = 'Amended Carrier Booking Request Required']/preceding-sibling::input[@type = 'radio'])[1]")
+    public WebElement amendCBC;
+    @FindBy(id = "btnCarrierBkingConfmComplete")
+    public WebElement completeCBCButton;
+
 }

@@ -1,7 +1,9 @@
 package com.agility.focis.performActivities.cbc;
 
 import com.agility.focis.addCarriagesAir.AddCarriagesAirPage;
+import com.agility.focis.addCarriagesOcean.AddCarriagesOceanPage;
 import com.agility.focis.performActivities.common.CommonSteps;
+import com.agility.focis.utilities.testObject.SeleniumUtils;
 import org.openqa.selenium.WebDriver;
 
 import java.io.IOException;
@@ -19,6 +21,35 @@ public class CBCSteps extends CommonSteps {
     }
 
     public void performCBC() throws InterruptedException {
-        clickOnPerformActivityAndSwithToWindow("Carrier Booking Confirmation");
+        fillBookingReferenceIfRequired();
+        clickOnTab("Tasks");
+        SeleniumUtils.waitForPageLoad();
+        clickOnPerformActivityIcon("Carrier Booking Confirmation");
+        SeleniumUtils.waitForPageLoad();
+        SeleniumUtils.waitForFrameTobeAvailableAndSwitchToIt(addCarriagesAirPage.iFrameEstimationscreen);
+        addCarriagesAirPage.saveAndCloseButton.click();
+        SeleniumUtils.waitForPageLoad();
+        cbcPage.confirmCBC.click();
+        cbcPage.completeCBCButton.click();
+        SeleniumUtils.waitForPageLoad();
+
+
+    }
+
+    private void fillBookingReferenceIfRequired() throws InterruptedException {
+        clickOnTab("Movement");
+        SeleniumUtils.waitForPageLoad();
+        if (!addCarriagesAirPage.carrierBookingReference.isEnabled()) {
+            clickOnTab("Tasks");
+            SeleniumUtils.waitForPageLoad();
+            clickOnPerformActivityIcon("Carrier Booking Confirmation");
+            SeleniumUtils.waitForPageLoad();
+            acceptWarningIfPopulated("Booking Reference is required to perform Carrier Booking Confirmation.");
+            SeleniumUtils.waitForPageLoad();
+            fillBookingReferenceIfRequired();
+        } else {
+            addCarriagesAirPage.carrierBookingReference.clear();
+            addCarriagesAirPage.carrierBookingReference.sendKeys("12345678");
+        }
     }
 }
