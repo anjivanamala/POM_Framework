@@ -13,7 +13,9 @@ import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.support.ui.Select;
 
 import java.io.IOException;
+import java.util.ArrayList;
 import java.util.HashMap;
+import java.util.List;
 import java.util.Map;
 
 public class CommonSteps extends BaseSteps {
@@ -58,5 +60,15 @@ public class CommonSteps extends BaseSteps {
     }
 
     public void verifyStatusOfActivities() {
+    }
+
+    public List<String> getNonCompletedActivitiesTasks(List<String> activties) {
+        List<String> noncompletedActivties = new ArrayList<>();
+        return noncompletedActivties;
+    }
+
+    public List<String> getNonCompletedActivitiesDashboard(List<String> activties) {
+        List<String> noncompletedActivties = new ArrayList<>();
+        return noncompletedActivties;
     }
 }

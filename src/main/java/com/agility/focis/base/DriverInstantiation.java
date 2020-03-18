@@ -1,7 +1,9 @@
 package com.agility.focis.base;
 
+import org.openqa.selenium.PageLoadStrategy;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
+import org.openqa.selenium.chrome.ChromeOptions;
 import org.w3c.dom.Document;
 import org.w3c.dom.Element;
 import org.w3c.dom.Node;
@@ -21,10 +23,13 @@ public class DriverInstantiation {
     public static void setDriver() throws IOException {
         String browser = getBrowserType();
         if (browser.equalsIgnoreCase("Chrome")) {
+//            ChromeOptions options = new ChromeOptions();
             if (System.getProperty("os.name").toLowerCase().contains("mac")) {
                 System.setProperty("webdriver.chrome.driver", "src/test/resources/drivers/chromedriver_mac64");
             } else {
                 System.setProperty("webdriver.chrome.driver", "src/test/resources/drivers/chromedriver.exe");
+//                options.setPageLoadStrategy(PageLoadStrategy.EAGER);
+
             }
             driver = new ChromeDriver();
 

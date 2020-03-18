@@ -3,11 +3,14 @@ package com.agility.focis.base;
 import com.agility.focis.globalVariables.GlobalVariables;
 import com.agility.focis.utilities.testObject.DynamicTableUtils;
 import com.agility.focis.utilities.testObject.SeleniumUtils;
+import io.cucumber.java.eo.Se;
 import jdk.nashorn.internal.objects.Global;
 import org.openqa.selenium.*;
 import org.openqa.selenium.support.ui.Select;
 
 import java.io.IOException;
+import java.util.ArrayList;
+import java.util.List;
 import java.util.Map;
 import java.util.Set;
 
@@ -38,6 +41,7 @@ public class BaseSteps extends DriverInstantiation {
         SeleniumUtils.waitForPageLoad();
         basePage.mainMenuOption(mainMenu).click();
         basePage.childMenuOption(mainMenu, childMenu).click();
+        SeleniumUtils.waitForPageLoad();
     }
 
     public void clickOnaButton(String button) throws InterruptedException {
@@ -160,20 +164,25 @@ public class BaseSteps extends DriverInstantiation {
         String currentURL = driver.getCurrentUrl();
         if (currentURL.contains("dashboard")) {
 
-            DynamicTableUtils.typeTextOnSearchPickerPopup("OpJobNumber", GlobalVariables.getJobNumber());
+            DynamicTableUtils.typeTextOnSearchPickerPopup("OpJobNumber", GlobalVariables.getJobNumber() + Keys.ENTER);
             SeleniumUtils.waitForPageLoad();
             SeleniumUtils.waitForElementToBeClickable(basePage.paginationCount);
             Select pagenationDropwDown = new Select(basePage.paginationCount);
             pagenationDropwDown.selectByVisibleText("50");
+            SeleniumUtils.waitForPageLoad();
+            DynamicTableUtils.typeTextOnSearchPickerPopup("OpJobNumber", GlobalVariables.getJobNumber() + Keys.ENTER);
             SeleniumUtils.waitForPageLoad();
         } else if (currentURL.contains("bookingdetailsfrpg") || currentURL.contains("advancedsearchfrpg") || currentURL.contains("stakeholderfrpg")) {
 
             selectMenu("Dashboard", "Job");
-            DynamicTableUtils.setText("JobNumber", GlobalVariables.getJobNumber());
+            SeleniumUtils.waitForPageLoad();
+            DynamicTableUtils.typeTextOnSearchPickerPopup("OpJobNumber", GlobalVariables.getJobNumber() + Keys.ENTER);
             SeleniumUtils.waitForPageLoad();
             SeleniumUtils.waitForElementToBeClickable(basePage.paginationCount);
             Select pagenationDropwDown = new Select(basePage.paginationCount);
             pagenationDropwDown.selectByVisibleText("50");
+            SeleniumUtils.waitForPageLoad();
+            DynamicTableUtils.typeTextOnSearchPickerPopup("OpJobNumber", GlobalVariables.getJobNumber() + Keys.ENTER);
             SeleniumUtils.waitForPageLoad();
         } else {
 
@@ -182,13 +191,14 @@ public class BaseSteps extends DriverInstantiation {
         }
     }
 
-//    public static void validateCompletedTasksOrEvents() {
-//        List<String> nonCompletedActivitiesDashboard = new ArrayList<>();
-//        List<String> nonCompletedActivitiesTasks = new ArrayList<>();
-//        if (DriverFactory.getWebDriver().getCurrentUrl().contains("dashboard")) {
+    public void validateCompletedTasksOrEvents() {
+        List<String> nonCompletedActivitiesDashboard = new ArrayList<>();
+        List<String> nonCompletedActivitiesTasks = new ArrayList<>();
+        if (driver.getCurrentUrl().contains("dashboard")) {
 //            nonCompletedActivitiesDashboard = dashboard.EventsAndActivitiesValidations.getNonCompletedEventsOrActivities(GlobalVariables.getList());
 //            nonCompletedActivitiesTasks = tasks.Activity.getNonCompletedEventsOrActivities(GlobalVariables.getList());
-//        } else {
+        }
+//        else {
 //            nonCompletedActivitiesTasks = tasks.Activity.getNonCompletedEventsOrActivities(GlobalVariables.getList())
 //            nonCompletedActivitiesDashboard = dashboard.EventsAndActivitiesValidations.getNonCompletedEventsOrActivities(GlobalVariables.getList());
 //        }
@@ -213,4 +223,5 @@ public class BaseSteps extends DriverInstantiation {
 //            }
 //        }
 //    }
+    }
 }

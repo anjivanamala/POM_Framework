@@ -30,6 +30,7 @@ public class AddCarriagesAirSteps extends BaseSteps {
         SeleniumUtils.waitForFrameTobeAvailableAndSwitchToIt(addCarriagesAirPage.addAirportToAirportFrame);
         SeleniumUtils.waitForPageLoad();
         SeleniumUtils.waitForElementToBeClickable(addCarriagesAirPage.jobTypeDropdown);
+        Thread.sleep(1000);
         addCarriagesAirPage.jobTypeDropdown.click();
         addCarriagesAirPage.jobTypeBackToBack.click();
         addCarriagesAirPage.jobTypeChangeAlert.click();
@@ -57,6 +58,7 @@ public class AddCarriagesAirSteps extends BaseSteps {
         addCarriagesAirPage.enterRevenue.sendKeys(Revenue);
         addCarriagesAirPage.saveAndCloseButton.click();
         SeleniumUtils.waitForPageLoad();
+        Thread.sleep(1200);
 
 
     }

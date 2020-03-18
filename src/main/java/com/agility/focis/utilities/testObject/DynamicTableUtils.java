@@ -24,11 +24,14 @@ public class DynamicTableUtils extends TextBoxUtils {
 
     public static void typeTextOnSearchPickerPopup(String columnName, String text) {
         columnName = columnName.replaceAll(" ", "");
+        driver.findElement(By.xpath("//table//input[contains(@name , '" + columnName + "')]")).clear();
         driver.findElement(By.xpath("//table//input[contains(@name , '" + columnName + "')]")).sendKeys(text);
 
     }
 
-    public static void se() {
-
+    public static void clickOnIconUsingReferenceData(String referenceColumn, String referenceData, String colour) throws InterruptedException {
+        referenceColumn = referenceColumn.replaceAll(" ", "");
+        driver.findElement(By.xpath("//td[contains(@aria-describedby,'" + referenceColumn + "') and text() = '" + referenceData + "']/..//*[contains(@class,'" + colour + "')]")).click();
+        SeleniumUtils.waitForPageLoad();
     }
 }

@@ -5,6 +5,7 @@ import com.agility.focis.CBR.JOBDETAILS;
 import com.agility.focis.base.BaseSteps;
 import com.agility.focis.globalVariables.GlobalVariables;
 import com.agility.focis.performActivities.common.CommonSteps;
+import com.agility.focis.utilities.testObject.DynamicTableUtils;
 import com.agility.focis.utilities.testObject.SeleniumUtils;
 import com.fasterxml.jackson.core.JsonProcessingException;
 import org.apache.commons.lang.WordUtils;
@@ -29,5 +30,16 @@ public class IssueAWBSteps extends CommonSteps {
 
     public void performAWB() throws InterruptedException {
         navigateToDashboard();
+        if (driver.getCurrentUrl().contains("dashboard")) {
+            DynamicTableUtils.typeTextOnSearchPickerPopup("EventName", "Issue AWB");
+            SeleniumUtils.waitForPageLoad();
+            DynamicTableUtils.clickOnIconUsingReferenceData("EventName", "Issue AWB", "blue");
+            SeleniumUtils.waitForPageLoad();
+            SeleniumUtils.takeScreenshot();
+        }
+        switchToNewWindow();
+        SeleniumUtils.waitForPageLoad();
+
+
     }
 }
