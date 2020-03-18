@@ -205,6 +205,9 @@ public class CommonStepDefinitions {
             case "Cargo Release to Customer":
                 crcSteps.performCRC();
                 break;
+            case "Issue AWB":
+                issueAWBSteps.performAWB();
+                break;
 
             default:
                 SeleniumUtils.logInfo("Invalid Activity i.e " + activityName);

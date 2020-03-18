@@ -14,7 +14,7 @@ public class DynamicTableUtils extends TextBoxUtils {
 
     private static WebElement textBoxInTable(String columnName) {
 
-        return driver.findElement(By.xpath(""));
+        return driver.findElement(By.xpath("//table//input[contains(@name, '" + columnName + "')]"));
     }
 
 
@@ -24,7 +24,11 @@ public class DynamicTableUtils extends TextBoxUtils {
 
     public static void typeTextOnSearchPickerPopup(String columnName, String text) {
         columnName = columnName.replaceAll(" ", "");
-        driver.findElement(By.xpath("//table//input[@name = '" + columnName + "']")).sendKeys(text);
+        driver.findElement(By.xpath("//table//input[contains(@name , '" + columnName + "')]")).sendKeys(text);
+
+    }
+
+    public static void se() {
 
     }
 }

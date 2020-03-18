@@ -48,6 +48,7 @@ public class InitiateJobStepDefinitions {
     public void selectsAsOriginStakeholderAsDestinationStakeholder(String originSTK, String destinationSTK) throws InterruptedException {
         initiateJobSteps.selectStakeholder("Origin Stakeholder", originSTK);
         initiateJobSteps.selectStakeholder("Destination Stakeholder", destinationSTK);
+        initiateJobSteps.slecteReferences();
         SeleniumUtils.takeScreenshot();
     }
 

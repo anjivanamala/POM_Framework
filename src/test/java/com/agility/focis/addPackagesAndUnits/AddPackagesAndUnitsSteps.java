@@ -6,6 +6,7 @@ import com.agility.focis.utilities.testObject.SeleniumUtils;
 import org.openqa.selenium.By;
 import org.openqa.selenium.Keys;
 import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.WebElement;
 import org.openqa.selenium.interactions.Actions;
 import org.openqa.selenium.support.ui.Select;
 
@@ -17,7 +18,7 @@ public class AddPackagesAndUnitsSteps extends BaseSteps {
     private WebDriver driver;
     private AddPackagesAndUnitsPage addPackagesAndUnitsPage;
 
-    AddPackagesAndUnitsSteps() throws IOException {
+    public AddPackagesAndUnitsSteps() throws IOException {
         this.driver = getDriver();
         addPackagesAndUnitsPage = new AddPackagesAndUnitsPage(this.driver);
     }
@@ -171,4 +172,16 @@ public class AddPackagesAndUnitsSteps extends BaseSteps {
         addPackagesAndUnitsPage.saveBookingDetailsButton.click();
     }
 
+    public void updateSealNumber() throws InterruptedException {
+        clickOnTab("Cargo");
+        int counter = 0;
+        for (WebElement unit : addPackagesAndUnitsPage.getUnits()) {
+            unit.click();
+            SeleniumUtils.waitForPageLoad();
+            addPackagesAndUnitsPage.sealNumber.sendKeys("100000" + counter);
+            counter++;
+            addPackagesAndUnitsPage.buttonOnPopupOrDialog("Unit Additional Details", "Save and Close").click();
+            SeleniumUtils.waitForPageLoad();
+        }
+    }
 }

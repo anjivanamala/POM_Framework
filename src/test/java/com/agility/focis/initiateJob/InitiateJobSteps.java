@@ -118,4 +118,15 @@ public class InitiateJobSteps extends BaseSteps {
         GlobalVariables.setJobScope(jobscopedropdown.getFirstSelectedOption().getText());
         GlobalVariables.setJobStatus(initiateJobPage.jobStatus.getText());
     }
+
+    public void slecteReferences() throws InterruptedException {
+        initiateJobPage.shipperReferenceType.sendKeys("Packing List");
+        Thread.sleep(1000);
+        initiateJobPage.shipperReferenceType.sendKeys(Keys.ENTER);
+        initiateJobPage.shipperReference.sendKeys("AutoShipper");
+        initiateJobPage.consigneeReferenceType.sendKeys("Destination Collection");
+        Thread.sleep(1000);
+        initiateJobPage.consigneeReferenceType.sendKeys(Keys.ENTER);
+        initiateJobPage.consigneeReference.sendKeys("AutoConsignee");
+    }
 }

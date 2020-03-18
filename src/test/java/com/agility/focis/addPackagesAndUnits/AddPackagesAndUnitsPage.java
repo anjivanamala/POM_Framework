@@ -6,6 +6,8 @@ import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 
+import java.util.List;
+
 public class AddPackagesAndUnitsPage extends BasePage {
 
     AddPackagesAndUnitsPage(WebDriver driver) {
@@ -134,10 +136,16 @@ public class AddPackagesAndUnitsPage extends BasePage {
     }
 
     public WebElement acceptPackageAllocationWarning(int i) {
-       return driver.findElements(By.xpath("//span[text() = 'Package Allocation Warning']/ancestor::div[@role = 'dialog']//button[text() = 'Yes']")).get(i);
+        return driver.findElements(By.xpath("//span[text() = 'Package Allocation Warning']/ancestor::div[@role = 'dialog']//button[text() = 'Yes']")).get(i);
     }
 
     @FindBy(xpath = "//input[contains(@id ,'BookingDetailsFr1_btnSave') and @value = 'Save']")
     public WebElement saveBookingDetailsButton;
 
+    public List<WebElement> getUnits() {
+        return driver.findElements(By.xpath("//*[@title = 'Edit Unit' and contains(@class,'icon-pencil blue')]"));
+    }
+
+    @FindBy(xpath = "//input[contains(@id,'UnitSealData')]")
+    public WebElement sealNumber;
 }

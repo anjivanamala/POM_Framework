@@ -1,19 +1,15 @@
 package com.agility.focis.base;
 
-import com.agility.focis.base.DriverInstantiation;
+import com.agility.focis.globalVariables.GlobalVariables;
+import com.agility.focis.utilities.testObject.DynamicTableUtils;
 import com.agility.focis.utilities.testObject.SeleniumUtils;
+import jdk.nashorn.internal.objects.Global;
 import org.openqa.selenium.*;
-import org.openqa.selenium.support.ui.ExpectedConditions;
-import org.openqa.selenium.support.ui.FluentWait;
-import org.openqa.selenium.support.ui.Wait;
-import org.slf4j.Logger;
+import org.openqa.selenium.support.ui.Select;
 
 import java.io.IOException;
 import java.util.Map;
 import java.util.Set;
-import java.util.function.Function;
-
-import static java.util.concurrent.TimeUnit.SECONDS;
 
 public class BaseSteps extends DriverInstantiation {
     private WebDriver driver;
@@ -38,7 +34,8 @@ public class BaseSteps extends DriverInstantiation {
         SeleniumUtils.waitForPageLoad();
     }
 
-    public void selectMenu(String childMenu, String mainMenu) {
+    public void selectMenu(String childMenu, String mainMenu) throws InterruptedException {
+        SeleniumUtils.waitForPageLoad();
         basePage.mainMenuOption(mainMenu).click();
         basePage.childMenuOption(mainMenu, childMenu).click();
     }
@@ -103,4 +100,117 @@ public class BaseSteps extends DriverInstantiation {
         }
 
     }
+
+    public boolean isDialogPopulated(String dialog) throws InterruptedException {
+        SeleniumUtils.waitForPageLoad();
+        boolean flag = false;
+        if (driver.findElements(By.xpath("//span[text() ='" + dialog + "']/ancestor::div[@role='dialog' and contains(@style,'display: block;')]")).size() != 0) {
+            flag = true;
+        }
+
+        return flag;
+    }
+
+    public boolean isDialogPopulated(String dialog, String warningMesage) throws InterruptedException {
+        SeleniumUtils.waitForPageLoad();
+        boolean flag = false;
+        if (driver.findElements(By.xpath("//span[text() ='" + dialog + "']/ancestor::div[@role='dialog' and contains(@style,'display: block;')]//p[contains(text(),'" + warningMesage + "')]")).size() != 0) {
+            flag = true;
+        }
+
+        return flag;
+    }
+
+    public void navigateToTasksScreen() throws InterruptedException {
+        String currentURL = driver.getCurrentUrl();
+        if (currentURL.contains("bookingdetailsfrpg")) {
+
+            clickOnTab("Tasks");
+        } else if (currentURL.contains("advancedsearchfrpg")) {
+
+        } else if (currentURL.contains("estimatesfrpg")) {
+
+        } else if (currentURL.contains("stakeholderfrpg")) {
+
+        } else if (currentURL.contains("dashboard")) {
+
+            DynamicTableUtils.setText("JobNumber", GlobalVariables.getJobNumber());
+            SeleniumUtils.waitForPageLoad();
+            SeleniumUtils.waitForElementToBeClickable(basePage.paginationCount);
+            if (driver.findElements(By.xpath("//a[text() = '" + GlobalVariables.getJobNumber() + "']")).size() > 0) {
+
+                driver.findElements(By.xpath("//a[text() = '" + GlobalVariables.getJobNumber() + "']")).get(0).click();
+            } else {
+
+//                fromMenu(GlobalVariable.JobNumber)
+//                clickOnJobDetailsIcon(GlobalVariable.JobNumber)
+//                navigateToTasksScreen()
+            }
+        } else {
+
+            SeleniumUtils.switchToParentWindow();
+            navigateToTasksScreen();
+        }
+        SeleniumUtils.waitForPageLoad();
+
+        clickOnTab("Tasks");
+    }
+
+    public void navigateToDashboard() throws InterruptedException {
+        String currentURL = driver.getCurrentUrl();
+        if (currentURL.contains("dashboard")) {
+
+            DynamicTableUtils.typeTextOnSearchPickerPopup("OpJobNumber", GlobalVariables.getJobNumber());
+            SeleniumUtils.waitForPageLoad();
+            SeleniumUtils.waitForElementToBeClickable(basePage.paginationCount);
+            Select pagenationDropwDown = new Select(basePage.paginationCount);
+            pagenationDropwDown.selectByVisibleText("50");
+            SeleniumUtils.waitForPageLoad();
+        } else if (currentURL.contains("bookingdetailsfrpg") || currentURL.contains("advancedsearchfrpg") || currentURL.contains("stakeholderfrpg")) {
+
+            selectMenu("Dashboard", "Job");
+            DynamicTableUtils.setText("JobNumber", GlobalVariables.getJobNumber());
+            SeleniumUtils.waitForPageLoad();
+            SeleniumUtils.waitForElementToBeClickable(basePage.paginationCount);
+            Select pagenationDropwDown = new Select(basePage.paginationCount);
+            pagenationDropwDown.selectByVisibleText("50");
+            SeleniumUtils.waitForPageLoad();
+        } else {
+
+            SeleniumUtils.switchToParentWindow();
+            navigateToDashboard();
+        }
+    }
+
+//    public static void validateCompletedTasksOrEvents() {
+//        List<String> nonCompletedActivitiesDashboard = new ArrayList<>();
+//        List<String> nonCompletedActivitiesTasks = new ArrayList<>();
+//        if (DriverFactory.getWebDriver().getCurrentUrl().contains("dashboard")) {
+//            nonCompletedActivitiesDashboard = dashboard.EventsAndActivitiesValidations.getNonCompletedEventsOrActivities(GlobalVariables.getList());
+//            nonCompletedActivitiesTasks = tasks.Activity.getNonCompletedEventsOrActivities(GlobalVariables.getList());
+//        } else {
+//            nonCompletedActivitiesTasks = tasks.Activity.getNonCompletedEventsOrActivities(GlobalVariables.getList())
+//            nonCompletedActivitiesDashboard = dashboard.EventsAndActivitiesValidations.getNonCompletedEventsOrActivities(GlobalVariables.getList());
+//        }
+//
+//        if (nonCompletedActivitiesTasks.size() > 0 || nonCompletedActivitiesDashboard.size() > 0) {
+//            KeywordUtil.logInfo("Below Activities are not Completed\n")
+//            KeywordUtil.logInfo("Dashboard: \n")
+//            for (int i = 0; i < nonCompletedActivitiesDashboard.size(); i++) {
+//
+//                KeywordUtil.logInfo(GlobalVariables.getList().get(i))
+//            }
+//            KeywordUtil.logInfo("Tasks Screen: \n")
+//            for (int j = 0; j < nonCompletedActivitiesTasks.size(); j++) {
+//
+//                KeywordUtil.logInfo(GlobalVariables.getList().get(j))
+//            }
+//            KeywordUtil.markFailed("")
+//        } else {
+//            KeywordUtil.logInfo("Below Activities are Completed at both End Points")
+//            for (int i = 0; i < GlobalVariables.getList().size(); i++) {
+//                KeywordUtil.logInfo(GlobalVariables.getList().get(i))
+//            }
+//        }
+//    }
 }

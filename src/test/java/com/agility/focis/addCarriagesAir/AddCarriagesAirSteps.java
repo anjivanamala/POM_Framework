@@ -4,6 +4,7 @@ import com.agility.focis.base.BaseSteps;
 import com.agility.focis.utilities.testObject.SeleniumUtils;
 import org.openqa.selenium.Keys;
 import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.support.ui.Sleeper;
 
 import java.io.IOException;
 
@@ -75,6 +76,7 @@ public class AddCarriagesAirSteps extends BaseSteps {
         addCarriagesAirPage.cargoDeliveryTime.sendKeys("12");
         addCarriagesAirPage.saveAndCloseOriginCarriage.click();
         SeleniumUtils.waitForPageLoad();
+        Thread.sleep(1000);
     }
 
     public void addDestination(String haulierType, String haulierName, String destinationCargoCollectionDate, String destinationCargoDeliveryDate) throws InterruptedException {
@@ -92,5 +94,6 @@ public class AddCarriagesAirSteps extends BaseSteps {
         addCarriagesAirPage.cargoDeliveryTime.sendKeys("12");
         addCarriagesAirPage.saveAndCloseDestinationCarriage.click();
         SeleniumUtils.waitForPageLoad();
+        Thread.sleep(1000);
     }
 }

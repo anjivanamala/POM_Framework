@@ -56,8 +56,6 @@ public class CBRSteps extends CommonSteps {
         cbrPage.ediButton.click();
         GlobalVariables.setParties(getPartyInformationCBR());
         SeleniumUtils.switchToParentWindow();
-        SeleniumUtils.waitForPageLoad();
-
     }
 
     public void readCBRXML() throws InterruptedException {

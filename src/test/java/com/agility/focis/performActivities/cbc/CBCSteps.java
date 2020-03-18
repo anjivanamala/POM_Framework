@@ -29,9 +29,11 @@ public class CBCSteps extends CommonSteps {
         SeleniumUtils.waitForFrameTobeAvailableAndSwitchToIt(addCarriagesAirPage.iFrameEstimationscreen);
         addCarriagesAirPage.saveAndCloseButton.click();
         SeleniumUtils.waitForPageLoad();
-        cbcPage.confirmCBC.click();
-        cbcPage.completeCBCButton.click();
-        SeleniumUtils.waitForPageLoad();
+        if(isDialogPopulated("Carrier Booking Confirmation")){
+            cbcPage.confirmCBC.click();
+            cbcPage.completeCBCButton.click();
+            SeleniumUtils.waitForPageLoad();
+        }
 
 
     }

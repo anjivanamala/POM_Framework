@@ -34,6 +34,8 @@ Feature: Initiate Job - Air Freight - Expedited
     And Add Destination with Haulage Arrangement as "Agility"
       | Haulier Name | Cargo Collection Date | Cargo Delivery Date |
       | <D_Haulier>  | <D_Coll_Date>         | <D_Del_Date>        |
+    And Performs "Booking Confirmation to Customer" Activity
+    And Performs "Issue AWB" Activity
 
     Examples:
       | DataRow | MenuOption | ChildMenuOption | Product     | ProductType | JobScope | OriginStakeholder | DestinationStakeholder | IncoTerm | Origin_Country | Origin_NetworkComponent | Origin_Department | Origin_Type | Origin_IsLive | Destination_Country | Destination_NetworkComponent | Destination_Department | Destination_Type | Destination_IsLive | Carrier | FlightNumber | AOD | AOA | ETD | ETDTime | ETA | ETATime | Supplier          | Cost | Revenue | O_Haulier         | O_Coll_Date | O_Del_Date | D_Haulier                   | D_Coll_Date | D_Del_Date |

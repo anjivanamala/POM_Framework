@@ -25,6 +25,14 @@ public class InitiateJobPage extends BasePage {
     public WebElement DestinationStakeholderInput;
     @FindBy(xpath = "//input[@name= 'STKNAMEANDADDRESS']")
     public WebElement stakeHolderNameOrID;
+    @FindBy(xpath = "//input[contains(@id,'ShipperReftype')]")
+    public WebElement shipperReferenceType;
+    @FindBy(xpath = "//input[contains(@id,'ShipRefValue')]")
+    public WebElement shipperReference;
+    @FindBy(xpath = "//input[contains(@id,'txtConsigneeReftype')]")
+    public WebElement consigneeReferenceType;
+    @FindBy(xpath = "//input[contains(@id,'txtConsigneeRefValue')]")
+    public WebElement consigneeReference;
 
     //    Network Components
     @FindBy(id = "gs_CountryCode")

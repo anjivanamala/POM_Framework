@@ -319,6 +319,7 @@ public class SeleniumUtils extends DriverInstantiation {
         driver.close();
         driver.switchTo().window(parentWindow);
         driver.switchTo().defaultContent();
+        SeleniumUtils.waitForPageLoad();
     }
 
     public static void compareMapsAndLogNotMatchingValues(Map<String, Map<String, String>> maptoCompareOne, Map<String, Map<String, String>> maptoCompareTwo) {

@@ -16,12 +16,12 @@ import java.io.IOException;
 import java.util.logging.Logger;
 
 
-@CucumberOptions(features = "src/test/resources/com/agility/focis", tags = {"@Tasks"}, monochrome = true, plugin = {
+@CucumberOptions(features = "src/test/resources/com/agility/focis", tags = {"@Expedited"}, monochrome = true, plugin = {
         "pretty", "html:target/cucumber-report/runwebat",
         "json:target/cucumber-report/runwebat/cucumber.json",
-        "rerun:target/cucumber-report/runwebat/rerun.txt"},
+        "rerun:target/cucumber-report/runwebat/rerun.txt", "timeline:target/timeline"},
         glue = "com.agility.focis"
-        //  , dryRun=true
+//          , dryRun=true
 )
 
 

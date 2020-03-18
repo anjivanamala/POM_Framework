@@ -46,14 +46,15 @@ Feature: Perform Activities - Ocean
     And Adds Pre Carriage with Haulage Arrangement as "Merchant"
       | Haulier Name | Cargo Collection Date | Cargo Delivery Date |
       | <O_Haulier>  | <O_Coll_Date>         | <O_Del_Date>        |
+
 #    And Adds On Carriage with Haulage Arrangement as "Merchant"
 #      | Haulier Name | Cargo Collection Date | Cargo Delivery Date |
 #      | <D_Haulier>  | <D_Coll_Date>         | <D_Del_Date>        |
 
     And Performs "Carrier Booking Request" Activity
     And Performs "Carrier Booking Confirmation" Activity
-#    And Performs "Booking Confirmation to Customer" Activity
-#    And Performs "Master Bill of Lading Instructions" Activity
+    And Performs "Booking Confirmation to Customer" Activity
+    And Performs "Master Bill of Lading Instructions" Activity
 #    And Performs "Master Bill of Lading Approval" Activity
 #    And Performs "Final Master Bill of Lading" Activity
 #    And Performs "Seaquest Line Bill of Lading" Activity

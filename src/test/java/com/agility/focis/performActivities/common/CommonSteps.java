@@ -26,7 +26,9 @@ public class CommonSteps extends BaseSteps {
 
     }
 
-    public void clickOnPerformActivityIcon(String activity) {
+    public void clickOnPerformActivityIcon(String activity) throws InterruptedException {
+        clickOnTab("Tasks");
+        SeleniumUtils.waitForPageLoad();
         commonPage.performActivity(activity).click();
     }
 
@@ -35,12 +37,16 @@ public class CommonSteps extends BaseSteps {
         if (driver.findElements(By.xpath("//div[@aria-describedby ='alrtActivityPerform']//button[text() = 'OK']")).size() > 0) {
             commonPage.acceptAlrtActivityPerform.click();
         }
-
         SeleniumUtils.waitForPageLoad();
+        this.switchToNewWindow();
+    }
+
+    public void switchToNewWindow() throws InterruptedException {
         SeleniumUtils.setParentWindow(driver.getWindowHandle());
         for (String winHandle : driver.getWindowHandles()) {
             driver.switchTo().window(winHandle);
         }
+        SeleniumUtils.waitForPageLoad();
     }
 
     public void enterContract(String typeOfContract) throws InterruptedException {

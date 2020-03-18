@@ -34,7 +34,7 @@ public class BasePage {
     }
 
     public WebElement buttonTobeClicked(String button) {
-        return driver.findElement(By.xpath("//button[text() = '" + button + "']"));
+        return driver.findElement(By.xpath("//*[text() = '" + button + "' or @title = '" + button + "']"));
     }
 
     public WebElement childMenuOption(String mainMenuOption, String childMenuOption) {
@@ -111,9 +111,24 @@ public class BasePage {
 
     }
 
+    @FindBy(xpath = "//div[@role = 'dialog' and not(@aria-describedby='AutomaticPrealert')]//button[text()= 'Ok']")
+    public WebElement alertButtonToComplete;
+
     public WebElement okButtonWarning(String warningMessage) {
-        return driver.findElement(By.xpath("//p[text() = '" + warningMessage + "']/ancestor::div[@role = 'dialog' and contains(@style,'display: block;')]//*[text()='OK']"));
+        return driver.findElement(By.xpath("//p[text() = '" + warningMessage + "']/ancestor::div[@role = 'dialog' and contains(@style,'display: block;')]//*[normalize-space(text())='OK'or normalize-space(text())='Ok']"));
     }
+
+    //    Dialog
+    public WebElement saveAndCloseOnDialog(String dialog) {
+        return driver.findElement(By.xpath("//span[text() ='" + dialog + "']/ancestor::div[@role='dialog' and contains(@style,'display: block;')]//button[text() = 'Save and Continue']"));
+    }
+
+    public WebElement closeDialogButton(String dialog) {
+        return driver.findElement(By.xpath("//span[text() ='" + dialog + "']/ancestor::div[@role='dialog' and contains(@style,'display: block;')]//button[@class='ui-dialog-titlebar-close']"));
+    }
+
+    @FindBy(xpath = "//select[@class='ui-pg-selbox' and @role = 'listbox']")
+    public WebElement paginationCount;
 
 }
 

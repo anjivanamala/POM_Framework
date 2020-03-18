@@ -36,7 +36,7 @@ public class BaseStepDefinitions {
     }
 
     @When("selects {string} from {string} Menu")
-    public void selectsFromMenu(String childMenu, String mainMenu) {
+    public void selectsFromMenu(String childMenu, String mainMenu) throws InterruptedException {
         baseSteps.selectMenu(childMenu, mainMenu);
     }
 

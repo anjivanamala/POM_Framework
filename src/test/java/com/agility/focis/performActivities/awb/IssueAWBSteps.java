@@ -27,4 +27,7 @@ public class IssueAWBSteps extends CommonSteps {
 
     }
 
+    public void performAWB() throws InterruptedException {
+        navigateToDashboard();
+    }
 }

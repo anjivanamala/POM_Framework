@@ -77,11 +77,11 @@ public class AddCarriagesAirPage extends BasePage {
     public WebElement haulierSearchPicker;
     @FindBy(xpath = "//div[contains(@id,'txtCargoAvailFromDate_divPopup')]/input")
     public WebElement cargoCollectionDate;
-    @FindBy(xpath = "//span[text()='Origin Cargo Collection Date']/../..//input[contains(@name,'CargoAvailFromTime')]")
+    @FindBy(xpath = "//span[contains(text(),'Cargo Collection Date')]/../..//input[contains(@name,'CargoAvailFromTime')]")
     public WebElement cargoCollectionTime;
     @FindBy(xpath = "//div[contains(@id,'txtLatestDeliveryDate')]/input")
     public WebElement cargoDeliveryDate;
-    @FindBy(xpath = "//span[text()='Origin Cargo Delivery Date']/../..//input[contains(@name,'LatestDeliveryTime')]")
+    @FindBy(xpath = "//span[contains(text(),'Cargo Delivery Date')]/../..//input[contains(@name,'LatestDeliveryTime')]")
     public WebElement cargoDeliveryTime;
 
     //---------------Origin---------------------------
