@@ -96,9 +96,15 @@ public class AddPackagesAndUnitsPage extends BasePage {
     public WebElement addOrEditUnits;
 
     @FindBy(id = "btnCargoShipment")
-    public WebElement addUnitsLCL;
+    public WebElement addUnitsLCLOrShipmentAir;
     @FindBy(xpath = "//input[contains(@onclick,'UnitsDetails') and @value = 'Add']")
     public WebElement addUnits;
+    @FindBy(xpath = "//input[contains(@onclick,'LoadShipment') and @value = 'Edit']")
+    public WebElement editShipment;
+    @FindBy(xpath = "//div[@aria-describedby='divCargoShipmentDetails']//textarea[@placeholder='Marks and Numbers']")
+    public WebElement shipmentMarks;
+    @FindBy(xpath = "//div[@aria-describedby='divCargoShipmentDetails']//textarea[@placeholder='Description']")
+    public WebElement shipmentDescription;
 
     public WebElement noOfunits(int i) {
         return driver.findElements(By.xpath("//input[@placeholder='Units']")).get(i);

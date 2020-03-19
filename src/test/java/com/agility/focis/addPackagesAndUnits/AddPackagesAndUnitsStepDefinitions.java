@@ -37,4 +37,9 @@ public class AddPackagesAndUnitsStepDefinitions {
     public void allocates_Packages() throws InterruptedException {
         addPackagesAndUnitsSteps.allocatePackages();
     }
+    @When("Edits Description of Goods")
+    public void edits_Description_of_Goods() throws InterruptedException {
+      addPackagesAndUnitsSteps.editDescriptionOfGoods();
+    }
+
 }

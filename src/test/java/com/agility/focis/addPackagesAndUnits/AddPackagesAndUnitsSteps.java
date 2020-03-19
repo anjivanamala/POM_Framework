@@ -101,8 +101,8 @@ public class AddPackagesAndUnitsSteps extends BaseSteps {
     public void clickOnEditUnits() throws InterruptedException {
         Actions actions = new Actions(driver);
         if (addPackagesAndUnitsPage.productTypeName.getText().equalsIgnoreCase("LCL")) {
-            SeleniumUtils.waitForElementToVisible(addPackagesAndUnitsPage.addUnitsLCL);
-            actions.moveToElement(addPackagesAndUnitsPage.addUnitsLCL).perform();
+            SeleniumUtils.waitForElementToVisible(addPackagesAndUnitsPage.addUnitsLCLOrShipmentAir);
+            actions.moveToElement(addPackagesAndUnitsPage.addUnitsLCLOrShipmentAir).perform();
 //            addPackagesAndUnitsPage.addOrEditPackagesLCL.click();
         } else {
             SeleniumUtils.waitForElementToVisible(addPackagesAndUnitsPage.addOrEditUnits);
@@ -183,5 +183,16 @@ public class AddPackagesAndUnitsSteps extends BaseSteps {
             addPackagesAndUnitsPage.buttonOnPopupOrDialog("Unit Additional Details", "Save and Close").click();
             SeleniumUtils.waitForPageLoad();
         }
+    }
+
+    public void editDescriptionOfGoods() throws InterruptedException {
+        SeleniumUtils.waitForElementToBeClickable(addPackagesAndUnitsPage.addUnitsLCLOrShipmentAir);
+        Actions action = new Actions(driver);
+        action.moveToElement(addPackagesAndUnitsPage.addUnitsLCLOrShipmentAir).build().perform();
+        addPackagesAndUnitsPage.editShipment.click();
+        addPackagesAndUnitsPage.shipmentMarks.sendKeys("Automation Marks");
+        addPackagesAndUnitsPage.shipmentDescription.sendKeys("Automation Description");
+        addPackagesAndUnitsPage.saveAndCloseOnDialog("Edit Shipment").click();
+        SeleniumUtils.waitForPageLoad();
     }
 }

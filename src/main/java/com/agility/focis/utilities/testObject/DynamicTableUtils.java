@@ -2,10 +2,12 @@ package com.agility.focis.utilities.testObject;
 
 import com.agility.focis.base.DriverInstantiation;
 import org.openqa.selenium.By;
+import org.openqa.selenium.Keys;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 
 import java.io.IOException;
+import java.security.Key;
 
 public class DynamicTableUtils extends TextBoxUtils {
     private static WebElement elementToGetTextFrom(String referenceColumnName, String referenceData, String columnToGetTextFrom) {
@@ -22,15 +24,18 @@ public class DynamicTableUtils extends TextBoxUtils {
         return elementToGetTextFrom(referenceColumnName, referenceData, columnToGetTextFrom).getText();
     }
 
-    public static void typeTextOnSearchPickerPopup(String columnName, String text) {
+    public static void typeTextOnSearchPickerPopup(String columnName, String text) throws InterruptedException {
         columnName = columnName.replaceAll(" ", "");
         driver.findElement(By.xpath("//table//input[contains(@name , '" + columnName + "')]")).clear();
-        driver.findElement(By.xpath("//table//input[contains(@name , '" + columnName + "')]")).sendKeys(text);
+        driver.findElement(By.xpath("//table//input[contains(@name , '" + columnName + "')]")).sendKeys(text + Keys.ENTER);
+        SeleniumUtils.waitForPageLoad();
 
     }
 
     public static void clickOnIconUsingReferenceData(String referenceColumn, String referenceData, String colour) throws InterruptedException {
         referenceColumn = referenceColumn.replaceAll(" ", "");
+        SeleniumUtils.waitForPageLoad();
+        SeleniumUtils.waitForElementToBeClickable(driver.findElement(By.xpath("//td[contains(@aria-describedby,'" + referenceColumn + "') and text() = '" + referenceData + "']/..//*[contains(@class,'" + colour + "')]")));
         driver.findElement(By.xpath("//td[contains(@aria-describedby,'" + referenceColumn + "') and text() = '" + referenceData + "']/..//*[contains(@class,'" + colour + "')]")).click();
         SeleniumUtils.waitForPageLoad();
     }

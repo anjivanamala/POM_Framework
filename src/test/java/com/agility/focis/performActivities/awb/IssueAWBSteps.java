@@ -29,9 +29,11 @@ public class IssueAWBSteps extends CommonSteps {
     }
 
     public void performAWB() throws InterruptedException {
+        GlobalVariables.setJobNumber("100138336");
         navigateToDashboard();
         if (driver.getCurrentUrl().contains("dashboard")) {
             DynamicTableUtils.typeTextOnSearchPickerPopup("EventName", "Issue AWB");
+            Thread.sleep(1000);
             SeleniumUtils.waitForPageLoad();
             DynamicTableUtils.clickOnIconUsingReferenceData("EventName", "Issue AWB", "blue");
             SeleniumUtils.waitForPageLoad();
@@ -39,7 +41,8 @@ public class IssueAWBSteps extends CommonSteps {
         }
         switchToNewWindow();
         SeleniumUtils.waitForPageLoad();
-
+//      Complete CSD
+        clickOnTab("CSD");
 
     }
 }

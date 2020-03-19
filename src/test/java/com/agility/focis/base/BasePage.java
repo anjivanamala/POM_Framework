@@ -119,9 +119,14 @@ public class BasePage {
     }
 
     //    Dialog
-    public WebElement saveAndCloseOnDialog(String dialog) {
+    public WebElement saveAndContinueOnDialog(String dialog) {
         return driver.findElement(By.xpath("//span[text() ='" + dialog + "']/ancestor::div[@role='dialog' and contains(@style,'display: block;')]//button[text() = 'Save and Continue']"));
     }
+
+    public WebElement saveAndCloseOnDialog(String dialog) {
+        return driver.findElement(By.xpath("//span[text() ='" + dialog + "']/ancestor::div[@role='dialog' and contains(@style,'display: block;')]//button[text() = 'Save and Close']"));
+    }
+
 
     public WebElement closeDialogButton(String dialog) {
         return driver.findElement(By.xpath("//span[text() ='" + dialog + "']/ancestor::div[@role='dialog' and contains(@style,'display: block;')]//button[@class='ui-dialog-titlebar-close']"));

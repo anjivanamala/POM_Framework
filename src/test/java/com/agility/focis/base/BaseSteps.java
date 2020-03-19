@@ -164,25 +164,25 @@ public class BaseSteps extends DriverInstantiation {
         String currentURL = driver.getCurrentUrl();
         if (currentURL.contains("dashboard")) {
 
-            DynamicTableUtils.typeTextOnSearchPickerPopup("OpJobNumber", GlobalVariables.getJobNumber() + Keys.ENTER);
+            DynamicTableUtils.typeTextOnSearchPickerPopup("OpJobNumber", GlobalVariables.getJobNumber());
             SeleniumUtils.waitForPageLoad();
             SeleniumUtils.waitForElementToBeClickable(basePage.paginationCount);
             Select pagenationDropwDown = new Select(basePage.paginationCount);
             pagenationDropwDown.selectByVisibleText("50");
             SeleniumUtils.waitForPageLoad();
-            DynamicTableUtils.typeTextOnSearchPickerPopup("OpJobNumber", GlobalVariables.getJobNumber() + Keys.ENTER);
+            DynamicTableUtils.typeTextOnSearchPickerPopup("OpJobNumber", GlobalVariables.getJobNumber());
             SeleniumUtils.waitForPageLoad();
-        } else if (currentURL.contains("bookingdetailsfrpg") || currentURL.contains("advancedsearchfrpg") || currentURL.contains("stakeholderfrpg")) {
+        } else if (currentURL.contains("bookingdetailsfrpg") || currentURL.contains("advancedsearchfrpg") || currentURL.contains("stakeholderfrpg") || currentURL.contains("default")) {
 
             selectMenu("Dashboard", "Job");
             SeleniumUtils.waitForPageLoad();
-            DynamicTableUtils.typeTextOnSearchPickerPopup("OpJobNumber", GlobalVariables.getJobNumber() + Keys.ENTER);
+            DynamicTableUtils.typeTextOnSearchPickerPopup("OpJobNumber", GlobalVariables.getJobNumber());
             SeleniumUtils.waitForPageLoad();
             SeleniumUtils.waitForElementToBeClickable(basePage.paginationCount);
             Select pagenationDropwDown = new Select(basePage.paginationCount);
             pagenationDropwDown.selectByVisibleText("50");
             SeleniumUtils.waitForPageLoad();
-            DynamicTableUtils.typeTextOnSearchPickerPopup("OpJobNumber", GlobalVariables.getJobNumber() + Keys.ENTER);
+            DynamicTableUtils.typeTextOnSearchPickerPopup("OpJobNumber", GlobalVariables.getJobNumber());
             SeleniumUtils.waitForPageLoad();
         } else {
 

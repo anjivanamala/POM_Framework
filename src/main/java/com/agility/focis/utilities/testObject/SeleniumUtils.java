@@ -91,8 +91,6 @@ public class SeleniumUtils extends DriverInstantiation {
         waitUntilJSReady();
         waitUntilJQueryReady();
         waitForJQueryLoad();
-
-
     }
 
 
