@@ -2,28 +2,9 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="c6bb95a2-75d2-4d2e-80c3-b3c9f6e09128" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/.idea/POM_Framework.iml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/compiler.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/modules.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/uiDesigner.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/vcs.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/test/java/com/agility/focis/PIV/PIVPage.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/test/java/com/agility/focis/PIV/PIVStepDefinitions.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/test/java/com/agility/focis/PIV/PIVSteps.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/test/resources/com/agility/focis/jp/PIV/PurchaseInvoiceRegression.feature" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/agility/focis/globalVariables/GlobalVariables.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/agility/focis/globalVariables/GlobalVariables.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/agility/focis/utilities/testObject/HyperLinkUtils.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/agility/focis/utilities/testObject/HyperLinkUtils.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/agility/focis/utilities/testObject/SeleniumUtils.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/agility/focis/utilities/testObject/SeleniumUtils.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/test/java/com/agility/focis/addCarriagesAir/AddCarriagesAirPage.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/com/agility/focis/addCarriagesAir/AddCarriagesAirPage.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/test/java/com/agility/focis/base/BasePage.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/com/agility/focis/base/BasePage.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/test/java/com/agility/focis/base/BaseStepDefinitions.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/com/agility/focis/base/BaseStepDefinitions.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/test/java/com/agility/focis/base/BaseSteps.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/com/agility/focis/base/BaseSteps.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/test/java/com/agility/focis/initiateJob/InitiateJobSteps.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/com/agility/focis/initiateJob/InitiateJobSteps.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/test/java/runners/CucumberTestNG.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/runners/CucumberTestNG.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/pom.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/test/java/runners/SyntaxChecker.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/runners/SyntaxChecker.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/test/resources/com/agility/focis/jp/Activities/Activities.feature" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/resources/com/agility/focis/jp/Activities/Activities.feature" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -72,7 +53,7 @@
       <recent name="C:\Users\ddeo\IdeaProjects\POM_Framework\src\test\java\com\agility\focis\PIV" />
     </key>
   </component>
-  <component name="RunManager" selected="TestNG.CucumberTestNG">
+  <component name="RunManager" selected="Application.SyntaxChecker">
     <configuration name="Rough" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
       <option name="MAIN_CLASS_NAME" value="com.agility.focis.Rough" />
       <module name="POM_Framework" />
@@ -127,8 +108,8 @@
     </configuration>
     <recent_temporary>
       <list>
-        <item itemvalue="TestNG.CucumberTestNG" />
         <item itemvalue="Application.SyntaxChecker" />
+        <item itemvalue="TestNG.CucumberTestNG" />
         <item itemvalue="JUnit.FOCiSRunner" />
         <item itemvalue="Application.Rough" />
       </list>
@@ -181,22 +162,22 @@
       <screen x="0" y="0" width="1366" height="728" />
     </state>
     <state x="256" y="0" key="#com.intellij.refactoring.rename.AutomaticRenamingDialog/0.0.1366.728@0.0.1366.728" timestamp="1586951245802" />
-    <state width="1323" height="162" key="GridCell.Tab.0.bottom" timestamp="1587024441663">
+    <state width="1323" height="172" key="GridCell.Tab.0.bottom" timestamp="1587037490579">
       <screen x="0" y="0" width="1366" height="728" />
     </state>
-    <state width="1323" height="162" key="GridCell.Tab.0.bottom/0.0.1366.728@0.0.1366.728" timestamp="1587024441663" />
-    <state width="1323" height="162" key="GridCell.Tab.0.center" timestamp="1587024441662">
+    <state width="1323" height="172" key="GridCell.Tab.0.bottom/0.0.1366.728@0.0.1366.728" timestamp="1587037490579" />
+    <state width="1323" height="172" key="GridCell.Tab.0.center" timestamp="1587037490578">
       <screen x="0" y="0" width="1366" height="728" />
     </state>
-    <state width="1323" height="162" key="GridCell.Tab.0.center/0.0.1366.728@0.0.1366.728" timestamp="1587024441662" />
-    <state width="1323" height="162" key="GridCell.Tab.0.left" timestamp="1587024441661">
+    <state width="1323" height="172" key="GridCell.Tab.0.center/0.0.1366.728@0.0.1366.728" timestamp="1587037490578" />
+    <state width="1323" height="172" key="GridCell.Tab.0.left" timestamp="1587037490578">
       <screen x="0" y="0" width="1366" height="728" />
     </state>
-    <state width="1323" height="162" key="GridCell.Tab.0.left/0.0.1366.728@0.0.1366.728" timestamp="1587024441661" />
-    <state width="1323" height="162" key="GridCell.Tab.0.right" timestamp="1587024441662">
+    <state width="1323" height="172" key="GridCell.Tab.0.left/0.0.1366.728@0.0.1366.728" timestamp="1587037490578" />
+    <state width="1323" height="172" key="GridCell.Tab.0.right" timestamp="1587037490578">
       <screen x="0" y="0" width="1366" height="728" />
     </state>
-    <state width="1323" height="162" key="GridCell.Tab.0.right/0.0.1366.728@0.0.1366.728" timestamp="1587024441662" />
+    <state width="1323" height="172" key="GridCell.Tab.0.right/0.0.1366.728@0.0.1366.728" timestamp="1587037490578" />
     <state x="186" y="9" key="SettingsEditor" timestamp="1584940811742">
       <screen x="0" y="0" width="1366" height="728" />
     </state>
