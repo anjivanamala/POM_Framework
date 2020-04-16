@@ -11,6 +11,7 @@ import com.fasterxml.jackson.core.JsonProcessingException;
 import org.apache.commons.lang.WordUtils;
 import org.junit.Assert;
 import org.openqa.selenium.By;
+import org.openqa.selenium.Keys;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.support.ui.Select;
 
@@ -29,7 +30,6 @@ public class IssueAWBSteps extends CommonSteps {
     }
 
     public void performAWB() throws InterruptedException {
-        GlobalVariables.setJobNumber("100138336");
         navigateToDashboard();
         if (driver.getCurrentUrl().contains("dashboard")) {
             DynamicTableUtils.typeTextOnSearchPickerPopup("EventName", "Issue AWB");
@@ -38,11 +38,64 @@ public class IssueAWBSteps extends CommonSteps {
             DynamicTableUtils.clickOnIconUsingReferenceData("EventName", "Issue AWB", "blue");
             SeleniumUtils.waitForPageLoad();
             SeleniumUtils.takeScreenshot();
+        } else {
+            DynamicTableUtils.clickOnIconUsingReferenceData("ActivityDescription", "Issue AWB", "red");
+            SeleniumUtils.waitForPageLoad();
+            SeleniumUtils.takeScreenshot();
         }
         switchToNewWindow();
         SeleniumUtils.waitForPageLoad();
-//      Complete CSD
+        completeCSD();
+        completeHouseCSD();
+        completeB2BHouse();
+        completeB2BMaster();
+
+
+    }
+
+    private void completeCSD() throws InterruptedException {
+
         clickOnTab("CSD");
+        issueAWBPage.issuingRegulatedEntityCSD.sendKeys("RC");
+        Thread.sleep(1000);
+        issueAWBPage.issuingRegulatedEntityCSD.sendKeys(Keys.ENTER);
+        Select securityStatusCSD = new Select(issueAWBPage.securityStatusCSD);
+        securityStatusCSD.selectByVisibleText("NSC");
+        issueAWBPage.completeCSDButton.click();
+        SeleniumUtils.waitForPageLoad();
+    }
+
+    private void completeHouseCSD() throws InterruptedException {
+
+        clickOnTab("House CSD");
+        issueAWBPage.issuingRegulatedEntityHouseCSD.sendKeys("RC");
+        Thread.sleep(1000);
+        issueAWBPage.issuingRegulatedEntityHouseCSD.sendKeys(Keys.ENTER);
+        Select securityStatusCSD = new Select(issueAWBPage.securityStatusHouseCSD);
+        securityStatusCSD.selectByVisibleText("NSC");
+        issueAWBPage.completeHouseCSDButton.click();
+        SeleniumUtils.waitForPageLoad();
+    }
+
+    private void completeB2BHouse() throws InterruptedException {
+        clickOnTab("B2B House");
+        issueAWBPage.rateClassB2BHouse.sendKeys("R");
+        issueAWBPage.rateOrChargeB2BHouse.sendKeys("10");
+        issueAWBPage.signOfAgentB2BHouse.sendKeys("Automation");
+        issueAWBPage.signOfCarrierAgentB2BHouse.sendKeys("Automation");
+        issueAWBPage.completeButtonB2BHouse.click();
+        SeleniumUtils.waitForPageLoad();
+
+    }
+
+    private void completeB2BMaster() throws InterruptedException {
+        clickOnTab("B2B Master");
+        issueAWBPage.rateClassB2BMaster.sendKeys("B");
+        issueAWBPage.rateOrChargeB2BMaster.sendKeys("10");
+        issueAWBPage.signOfAgentB2BMaster.sendKeys("Automation");
+        issueAWBPage.signOfCarrierAgentB2BMaster.sendKeys("Automation");
+        issueAWBPage.completeButtonB2BMaster.click();
+        SeleniumUtils.waitForPageLoad();
 
     }
 }
