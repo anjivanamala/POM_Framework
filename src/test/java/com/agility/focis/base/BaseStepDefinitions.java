@@ -40,6 +40,11 @@ public class BaseStepDefinitions {
         baseSteps.selectMenu(childMenu, mainMenu);
     }
 
+    @When("selects {string} from {string} from {string} Menu")
+    public void selects_from_from_Menu(String childSubMenu, String childMenu , String mainMenu) throws InterruptedException {
+        baseSteps.selectMenu(childSubMenu,childMenu, mainMenu);
+    }
+
     @When("user clicks on {string} button")
     public void userClicksOnButton(String button) throws InterruptedException {
         baseSteps.clickOnaButton(button);
@@ -73,6 +78,4 @@ public class BaseStepDefinitions {
         }
 
     }
-
-
 }

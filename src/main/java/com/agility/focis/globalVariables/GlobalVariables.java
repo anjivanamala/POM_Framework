@@ -19,6 +19,35 @@ public class GlobalVariables {
     private static List<Map<String, String>> locationDetails;
     private static String cbrXMLData;
     private static Map<String, Map<String, String>> yash;
+    private static String OriginOrgComponent;
+    private static String DestinationOrgComponent;
+
+    public static String getSuppierinvoiceNum() {
+        return SuppierinvoiceNum;
+    }
+
+    public static void setSuppierinvoiceNum(String suppierinvoiceNum) {
+        SuppierinvoiceNum = suppierinvoiceNum;
+    }
+
+    private static String SuppierinvoiceNum;
+
+
+    public static String getDestinationOrgComponent() {
+        return DestinationOrgComponent;
+    }
+
+    public static void setDestinationOrgComponent(String networkComponent, String department) {
+        OriginOrgComponent = networkComponent + " " + department;
+    }
+
+    public static String getOriginOrgComponent() {
+        return OriginOrgComponent;
+    }
+
+    public static void setOriginOrgComponent(String networkComponent, String department) {
+        OriginOrgComponent = networkComponent + " " + department;
+    }
 
     public static Map<String, Map<String, String>> getYash() {
         return yash;

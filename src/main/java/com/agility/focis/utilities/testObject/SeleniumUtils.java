@@ -4,6 +4,7 @@ import com.agility.focis.base.DriverInstantiation;
 import org.openqa.selenium.*;
 import org.openqa.selenium.support.ui.*;
 
+import java.sql.Timestamp;
 import java.text.DateFormat;
 import java.text.SimpleDateFormat;
 import java.util.Calendar;
@@ -328,5 +329,9 @@ public class SeleniumUtils extends DriverInstantiation {
             }
 
         }
+    }
+
+    public static String getCurrentTimeStampAsStrng() {
+        return new SimpleDateFormat("yyyyMMddHHmmss").format(new Date());
     }
 }

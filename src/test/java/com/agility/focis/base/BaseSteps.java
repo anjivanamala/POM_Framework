@@ -4,8 +4,8 @@ import com.agility.focis.globalVariables.GlobalVariables;
 import com.agility.focis.utilities.testObject.DynamicTableUtils;
 import com.agility.focis.utilities.testObject.SeleniumUtils;
 import io.cucumber.java.eo.Se;
-import jdk.nashorn.internal.objects.Global;
 import org.openqa.selenium.*;
+import org.openqa.selenium.interactions.Actions;
 import org.openqa.selenium.support.ui.Select;
 
 import java.io.IOException;
@@ -41,6 +41,15 @@ public class BaseSteps extends DriverInstantiation {
         SeleniumUtils.waitForPageLoad();
         basePage.mainMenuOption(mainMenu).click();
         basePage.childMenuOption(mainMenu, childMenu).click();
+        SeleniumUtils.waitForPageLoad();
+    }
+
+    public void selectMenu(String childSubMenu, String childMenu, String mainMenu) throws InterruptedException {
+        Actions actions = new Actions(driver);
+        SeleniumUtils.waitForPageLoad();
+        basePage.mainMenuOption(mainMenu).click();
+        actions.moveToElement(basePage.childMenuOption(mainMenu, childMenu)).build().perform();
+        basePage.childSubMenuOption(mainMenu, childMenu, childSubMenu).click();
         SeleniumUtils.waitForPageLoad();
     }
 

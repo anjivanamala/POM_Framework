@@ -70,6 +70,11 @@ public class InitiateJobSteps extends BaseSteps {
     }
 
     public void selectOffice(String typeOfOffice, String country, String type, String networkComponent, String department, String isLive) throws InterruptedException {
+        if (typeOfOffice.equalsIgnoreCase("Origin")) {
+            GlobalVariables.setOriginOrgComponent(networkComponent, department);
+        } else {
+            GlobalVariables.setDestinationOrgComponent(networkComponent, department);
+        }
         initiateJobPage.inlineSearchUsingLabel(typeOfOffice + " Office").clear();
         initiateJobPage.searchIconUsingLable(typeOfOffice + " Office").click();
         searchForOffice(country, type, networkComponent, department, isLive);

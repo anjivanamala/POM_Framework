@@ -1,6 +1,7 @@
-@Tasks @Ocean
+@Tasks
 Feature: Perform Activities - Ocean
 
+  @Ocean
   Scenario Outline: Perform all mandatory Activities - Ocean - FCL
 
     Given User is logged into FOCiS Application

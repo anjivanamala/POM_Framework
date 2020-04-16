@@ -135,5 +135,8 @@ public class BasePage {
     @FindBy(xpath = "//select[@class='ui-pg-selbox' and @role = 'listbox']")
     public WebElement paginationCount;
 
+    public WebElement childSubMenuOption(String mainMenu, String childMenu, String childSubMenu) {
+        return driver.findElement(By.xpath("//a/span[text()='"+mainMenu+"']/../following-sibling::ul//span[text()='"+childMenu+"']/../following-sibling::ul/li//span[text()='"+childSubMenu+"']/.."));
+    }
 }
 

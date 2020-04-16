@@ -2,38 +2,40 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="c6bb95a2-75d2-4d2e-80c3-b3c9f6e09128" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/$CACHE_FILE$" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/$PRODUCT_WORKSPACE_FILE$" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/$PRODUCT_WORKSPACE_FILE$" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/.name" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.name" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/compiler.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/dictionaries/AVanamala.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/encodings.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/uiDesigner.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/vcs.xml" beforeDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/POM_Framework.iml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/compiler.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/modules.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/uiDesigner.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/vcs.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/test/java/com/agility/focis/PIV/PIVPage.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/test/java/com/agility/focis/PIV/PIVStepDefinitions.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/test/java/com/agility/focis/PIV/PIVSteps.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/test/resources/com/agility/focis/jp/PIV/PurchaseInvoiceRegression.feature" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/test/config/extent-config.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/test/config/profiles.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/test/execution/executionProperties.properties" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/test/resources/cucumber-trends.json" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/test/resources/demo-trends.json" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/test/resources/json/empty-file.json" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/test/resources/json/empty.json" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/test/resources/json/invalid-report.json" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/test/resources/json/sample.json" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/test/resources/json/sample_failed.json" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/test/resources/json/simple.json" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/test/resources/json/timestamped/all-last-failed.json" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/test/resources/json/timestamped/all-passed.json" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/test/resources/json/timestamped/part1.json" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/test/resources/json/timestamped/part2-rerun-failed.json" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/test/resources/json/timestamped/part2-rerun-passed.json" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/test/resources/json/timestamped/part2.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/agility/focis/globalVariables/GlobalVariables.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/agility/focis/globalVariables/GlobalVariables.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/agility/focis/utilities/testObject/HyperLinkUtils.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/agility/focis/utilities/testObject/HyperLinkUtils.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/agility/focis/utilities/testObject/SeleniumUtils.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/agility/focis/utilities/testObject/SeleniumUtils.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/java/com/agility/focis/addCarriagesAir/AddCarriagesAirPage.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/com/agility/focis/addCarriagesAir/AddCarriagesAirPage.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/java/com/agility/focis/base/BasePage.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/com/agility/focis/base/BasePage.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/java/com/agility/focis/base/BaseStepDefinitions.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/com/agility/focis/base/BaseStepDefinitions.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/java/com/agility/focis/base/BaseSteps.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/com/agility/focis/base/BaseSteps.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/java/com/agility/focis/initiateJob/InitiateJobSteps.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/com/agility/focis/initiateJob/InitiateJobSteps.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/java/runners/CucumberTestNG.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/runners/CucumberTestNG.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/java/runners/SyntaxChecker.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/runners/SyntaxChecker.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/resources/com/agility/focis/jp/Activities/Activities.feature" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/resources/com/agility/focis/jp/Activities/Activities.feature" afterDir="false" />
     </list>
-    <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
     <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="FileTemplateManagerImpl">
+    <option name="RECENT_TEMPLATES">
+      <list>
+        <option value="Class" />
+      </list>
+    </option>
   </component>
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
@@ -50,17 +52,87 @@
   </component>
   <component name="ProjectId" id="1ZAA5GsWx04o3u8b8G9p1qBjaGv" />
   <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
-  <component name="RunDashboard">
-    <option name="ruleStates">
+  <component name="ProjectViewState">
+    <option name="hideEmptyMiddlePackages" value="true" />
+    <option name="showExcludedFiles" value="true" />
+    <option name="showLibraryContents" value="true" />
+  </component>
+  <component name="PropertiesComponent">
+    <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
+    <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/src/test/java/com/agility/focis/PIV" />
+    <property name="settings.editor.selected.configurable" value="preferences.pluginManager" />
+  </component>
+  <component name="RecentsManager">
+    <key name="MoveClassesOrPackagesDialog.RECENTS_KEY">
+      <recent name="com.agility.focis" />
+      <recent name="" />
+    </key>
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="C:\Users\ddeo\IdeaProjects\POM_Framework\src\test\java\com\agility\focis\PIV" />
+    </key>
+  </component>
+  <component name="RunManager" selected="TestNG.CucumberTestNG">
+    <configuration name="Rough" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="com.agility.focis.Rough" />
+      <module name="POM_Framework" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="SyntaxChecker" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="runners.SyntaxChecker" />
+      <module name="POM_Framework" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="runners.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="FOCiSRunner" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="POM_Framework" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="runners.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="PACKAGE_NAME" value="runners" />
+      <option name="MAIN_CLASS_NAME" value="runners.FOCiSRunner" />
+      <option name="TEST_OBJECT" value="class" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="CucumberTestNG" type="TestNG" temporary="true" nameIsGenerated="true">
+      <module name="POM_Framework" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="runners.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="PACKAGE_NAME" value="runners" />
+      <option name="MAIN_CLASS_NAME" value="runners.CucumberTestNG" />
+      <option name="TEST_OBJECT" value="CLASS" />
+      <properties />
+      <listeners />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <recent_temporary>
       <list>
-        <RuleState>
-          <option name="name" value="ConfigurationTypeDashboardGroupingRule" />
-        </RuleState>
-        <RuleState>
-          <option name="name" value="StatusDashboardGroupingRule" />
-        </RuleState>
+        <item itemvalue="TestNG.CucumberTestNG" />
+        <item itemvalue="Application.SyntaxChecker" />
+        <item itemvalue="JUnit.FOCiSRunner" />
+        <item itemvalue="Application.Rough" />
       </list>
-    </option>
+    </recent_temporary>
   </component>
   <component name="SvnConfiguration">
     <configuration />
@@ -80,10 +152,82 @@
       <map>
         <entry key="MAIN">
           <value>
-            <State />
+            <State>
+              <option name="COLUMN_ORDER" />
+            </State>
           </value>
         </entry>
       </map>
     </option>
+  </component>
+  <component name="WindowStateProjectService">
+    <state x="275" y="25" key="#HTTP_Proxy" timestamp="1584940770257">
+      <screen x="0" y="0" width="1366" height="728" />
+    </state>
+    <state x="275" y="25" key="#HTTP_Proxy/0.0.1366.728@0.0.1366.728" timestamp="1584940770257" />
+    <state x="488" y="57" key="#com.intellij.ide.util.MemberChooser" timestamp="1587023685193">
+      <screen x="0" y="0" width="1366" height="728" />
+    </state>
+    <state x="488" y="57" key="#com.intellij.ide.util.MemberChooser/0.0.1366.728@0.0.1366.728" timestamp="1587023685193" />
+    <state x="534" y="256" key="#com.intellij.ide.util.projectWizard.JdkChooserPanel.MyDialog" timestamp="1584939390605">
+      <screen x="0" y="0" width="1366" height="728" />
+    </state>
+    <state x="534" y="256" key="#com.intellij.ide.util.projectWizard.JdkChooserPanel.MyDialog/0.0.1366.728@0.0.1366.728" timestamp="1584939390604" />
+    <state x="484" y="233" width="398" height="266" key="#com.intellij.refactoring.move.moveClassesOrPackages.MoveClassesOrPackagesDialog.classes" timestamp="1584955294390">
+      <screen x="0" y="0" width="1366" height="728" />
+    </state>
+    <state x="484" y="233" width="398" height="266" key="#com.intellij.refactoring.move.moveClassesOrPackages.MoveClassesOrPackagesDialog.classes/0.0.1366.728@0.0.1366.728" timestamp="1584955294390" />
+    <state x="256" y="0" key="#com.intellij.refactoring.rename.AutomaticRenamingDialog" timestamp="1586951245802">
+      <screen x="0" y="0" width="1366" height="728" />
+    </state>
+    <state x="256" y="0" key="#com.intellij.refactoring.rename.AutomaticRenamingDialog/0.0.1366.728@0.0.1366.728" timestamp="1586951245802" />
+    <state width="1323" height="162" key="GridCell.Tab.0.bottom" timestamp="1587024441663">
+      <screen x="0" y="0" width="1366" height="728" />
+    </state>
+    <state width="1323" height="162" key="GridCell.Tab.0.bottom/0.0.1366.728@0.0.1366.728" timestamp="1587024441663" />
+    <state width="1323" height="162" key="GridCell.Tab.0.center" timestamp="1587024441662">
+      <screen x="0" y="0" width="1366" height="728" />
+    </state>
+    <state width="1323" height="162" key="GridCell.Tab.0.center/0.0.1366.728@0.0.1366.728" timestamp="1587024441662" />
+    <state width="1323" height="162" key="GridCell.Tab.0.left" timestamp="1587024441661">
+      <screen x="0" y="0" width="1366" height="728" />
+    </state>
+    <state width="1323" height="162" key="GridCell.Tab.0.left/0.0.1366.728@0.0.1366.728" timestamp="1587024441661" />
+    <state width="1323" height="162" key="GridCell.Tab.0.right" timestamp="1587024441662">
+      <screen x="0" y="0" width="1366" height="728" />
+    </state>
+    <state width="1323" height="162" key="GridCell.Tab.0.right/0.0.1366.728@0.0.1366.728" timestamp="1587024441662" />
+    <state x="186" y="9" key="SettingsEditor" timestamp="1584940811742">
+      <screen x="0" y="0" width="1366" height="728" />
+    </state>
+    <state x="186" y="9" key="SettingsEditor/0.0.1366.728@0.0.1366.728" timestamp="1584940811742" />
+    <state x="275" y="100" key="Vcs.Push.Dialog.v2" timestamp="1587034366837">
+      <screen x="0" y="0" width="1366" height="728" />
+    </state>
+    <state x="275" y="100" key="Vcs.Push.Dialog.v2/0.0.1366.728@0.0.1366.728" timestamp="1587034366837" />
+    <state x="391" y="191" key="com.intellij.ide.util.TipDialog" timestamp="1587009821005">
+      <screen x="0" y="0" width="1366" height="728" />
+    </state>
+    <state x="391" y="191" key="com.intellij.ide.util.TipDialog/0.0.1366.728@0.0.1366.728" timestamp="1587009821005" />
+    <state x="379" y="167" key="git4idea.merge.GitPullDialog" timestamp="1587034321968">
+      <screen x="0" y="0" width="1366" height="728" />
+    </state>
+    <state x="379" y="167" key="git4idea.merge.GitPullDialog/0.0.1366.728@0.0.1366.728" timestamp="1587034321968" />
+    <state x="475" y="273" key="git4idea.ui.GitStashDialog" timestamp="1587034390662">
+      <screen x="0" y="0" width="1366" height="728" />
+    </state>
+    <state x="475" y="273" key="git4idea.ui.GitStashDialog/0.0.1366.728@0.0.1366.728" timestamp="1587034390662" />
+    <state x="65" y="0" key="new project wizard" timestamp="1584955456823">
+      <screen x="0" y="0" width="1366" height="728" />
+    </state>
+    <state x="65" y="0" key="new project wizard/0.0.1366.728@0.0.1366.728" timestamp="1584955456823" />
+    <state x="339" y="162" key="run.anything.popup" timestamp="1586951420933">
+      <screen x="0" y="0" width="1366" height="728" />
+    </state>
+    <state x="339" y="162" key="run.anything.popup/0.0.1366.728@0.0.1366.728" timestamp="1586951420933" />
+    <state x="346" y="49" width="672" height="678" key="search.everywhere.popup" timestamp="1587010008594">
+      <screen x="0" y="0" width="1366" height="728" />
+    </state>
+    <state x="346" y="49" width="672" height="678" key="search.everywhere.popup/0.0.1366.728@0.0.1366.728" timestamp="1587010008594" />
   </component>
 </project>
