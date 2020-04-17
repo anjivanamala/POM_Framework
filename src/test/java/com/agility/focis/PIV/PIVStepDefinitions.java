@@ -1,7 +1,10 @@
 package com.agility.focis.PIV;
 
+import com.agility.focis.utilities.testObject.SeleniumUtils;
 import io.cucumber.java.en.And;
+import io.cucumber.java.en.Then;
 import io.cucumber.java.en.When;
+import org.junit.Assert;
 
 import java.io.IOException;
 import java.util.List;
@@ -21,5 +24,18 @@ public class PIVStepDefinitions {
             pivSteps.createPIVHeader(pivHeaderDetails);
             pivSteps.verifyPIVHeader(pivHeaderDetails);
         }
+    }
+
+    @Then("Supplier Name and Supplier Invoice Number should be populated correctly")
+    public void supplierNameAndSupplierInvoiceNumberShouldBePopulatedCorrectly() {
+        pivSteps.verifySupplierInvoiceNumber();
+        pivSteps.verifySupplierName();
+        if(!SeleniumUtils.getMessageToPrint().equalsIgnoreCase("")){
+            Assert.fail();
+        }
+    }
+
+    @And("PIV Amount Table should be populated correctly")
+    public void pivAmountTableShouldBePopulatedCorrectly() {
     }
 }

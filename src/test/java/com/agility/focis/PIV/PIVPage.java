@@ -68,6 +68,8 @@ public class PIVPage extends BasePage {
     public WebElement allocateToJobsORConsolButton;
     @FindBy(xpath = "//input[@title = 'Save']")
     public WebElement savePIVButton;
+    @FindBy(id = "idSuppNum")
+    public WebElement supplierInvoiceNumAllocatePage;
 
 
 }

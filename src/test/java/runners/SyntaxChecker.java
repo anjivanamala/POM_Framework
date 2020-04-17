@@ -29,7 +29,7 @@ public class SyntaxChecker {
     public static void dbconnection() throws ClassNotFoundException, SQLException {
 
         //Connection URL Syntax: "jdbc:mysql://ipaddress:portnumber/db_name"
-        String dbUrl = "jdbc:oracle://sg1sefcsd01.logistics.intra:1521/fcsagl.logistics.intra";
+        String dbUrl = "jdbc:oracle:thin:@sg1sefcsd01.logistics.intra:1521:fcsagl.logistics.intra";
 
         //Database Username
         String username = "focisread";
@@ -41,7 +41,7 @@ public class SyntaxChecker {
         String query = "select * from focis.X_ENTITY_TAB where financial_entity_code = '5910';";
 
         //Load mysql jdbc driver
-        Class.forName("com.oracle.jdbc.Driver");
+        Class.forName("oracle.jdbc.driver.OracleDriver");
 
         //Create Connection to DB
         Connection con = DriverManager.getConnection(dbUrl,username,password);

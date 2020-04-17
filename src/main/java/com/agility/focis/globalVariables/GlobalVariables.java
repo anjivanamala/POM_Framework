@@ -10,6 +10,15 @@ public class GlobalVariables {
     private static String productType;
     private static String jobScope;
     private static String incoterm;
+
+    public static String getSupplierName() {
+        return SupplierName;
+    }
+
+    public static void setSupplierName(String supplierName) {
+        SupplierName = supplierName;
+    }
+
     private static String incoTermLocation;
     private static List<Map<String, String>> packagesInfo;
     private static List<Map<String, String>> unitsInfo;
@@ -21,6 +30,8 @@ public class GlobalVariables {
     private static Map<String, Map<String, String>> yash;
     private static String OriginOrgComponent;
     private static String DestinationOrgComponent;
+    private static String SupplierName;
+
 
     public static String getSuppierinvoiceNum() {
         return SuppierinvoiceNum;

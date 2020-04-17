@@ -27,6 +27,7 @@ public class PIVSteps extends BaseSteps {
         String invoiceSubType = pivHeaderDetails.get("Invoice SubType");
         String entityCode = pivHeaderDetails.get("Entity Code");
         String supplierName = pivHeaderDetails.get("Supplier Name");
+        GlobalVariables.setSupplierName(supplierName);
         String supplierInvoiceDate = pivHeaderDetails.get("Supplier Invoice Date");
         String pivAmount = pivHeaderDetails.get("PIV Amount");
         String taxAmount = pivHeaderDetails.get("Tax Amount");
@@ -93,5 +94,21 @@ public class PIVSteps extends BaseSteps {
         Assert.assertTrue(orgComp.getFirstSelectedOption().getText().equalsIgnoreCase(GlobalVariables.getOriginOrgComponent()));
         Assert.assertTrue(pivPage.invoiceNum.getAttribute("value").equalsIgnoreCase(GlobalVariables.getSuppierinvoiceNum()));
         Assert.assertTrue(TextBoxUtils.getText("Supplier Name").equalsIgnoreCase(supplierName));
+    }
+
+    public void verifySupplierInvoiceNumber() {
+        if(!pivPage.supplierInvoiceNumAllocatePage.getText().equalsIgnoreCase(GlobalVariables.getSuppierinvoiceNum())){
+
+            SeleniumUtils.logInfo("Supplier Invoice Number is not matched Expected is :"+GlobalVariables.getSuppierinvoiceNum()+"\n Actual is :"+pivPage.supplierInvoiceNumAllocatePage.getText());
+        }
+
+
+    }
+
+    public void verifySupplierName() {
+        if(!SpanUtils.getText("Supplier Name").equalsIgnoreCase(GlobalVariables.getSupplierName())){
+
+            SeleniumUtils.logInfo("Supplier Name is not matched Expected is :"+GlobalVariables.getSupplierName()+"\n Actual is :"+SpanUtils.getText("Supplier Name"));
+        }
     }
 }
