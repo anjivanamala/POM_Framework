@@ -2,6 +2,7 @@ package com.agility.focis.base;
 
 import com.agility.focis.globalVariables.GlobalVariables;
 import com.agility.focis.utilities.testObject.DynamicTableUtils;
+import com.agility.focis.utilities.testObject.HyperLinkUtils;
 import com.agility.focis.utilities.testObject.SeleniumUtils;
 import io.cucumber.java.eo.Se;
 import org.openqa.selenium.*;
@@ -232,5 +233,21 @@ public class BaseSteps extends DriverInstantiation {
 //            }
 //        }
 //    }
+    }
+
+    public void navigateToFinancialScreen() {
+    }
+
+    public void navigateToFinancialScreen(String JobNumber) throws InterruptedException {
+        selectMenu("Advanced Search", "Job");
+        basePage.advancedSearchInputBox.sendKeys(JobNumber + Keys.ENTER);
+        DynamicTableUtils.clickOnIconUsingReferenceData("OperationalJobNumber", JobNumber, "coins");
+        SeleniumUtils.switchToNewWindow();
+    }
+
+    public void selectCurrency(String currency) throws InterruptedException {
+        basePage.currencyCodeInputBox.sendKeys(currency + Keys.ENTER);
+        HyperLinkUtils.clickOnLink(currency);
+        SeleniumUtils.waitForPageLoad();
     }
 }

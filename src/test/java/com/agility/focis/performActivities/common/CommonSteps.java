@@ -40,16 +40,10 @@ public class CommonSteps extends BaseSteps {
             commonPage.acceptAlrtActivityPerform.click();
         }
         SeleniumUtils.waitForPageLoad();
-        this.switchToNewWindow();
+        SeleniumUtils.switchToNewWindow();
     }
 
-    public void switchToNewWindow() throws InterruptedException {
-        SeleniumUtils.setParentWindow(driver.getWindowHandle());
-        for (String winHandle : driver.getWindowHandles()) {
-            driver.switchTo().window(winHandle);
-        }
-        SeleniumUtils.waitForPageLoad();
-    }
+
 
     public void enterContract(String typeOfContract) throws InterruptedException {
         clickOnTab("Movement");

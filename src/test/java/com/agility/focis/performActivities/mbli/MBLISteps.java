@@ -35,7 +35,7 @@ public class MBLISteps extends CommonSteps {
         if (isDialogPopulated("Warning", "A valid Unit number is mandatory to complete the activity")) {
             mbliPage.okButtonWarning("A valid Unit number is mandatory to complete the activity").click();
             SeleniumUtils.waitForPageLoad();
-            switchToNewWindow();
+            SeleniumUtils.switchToNewWindow();
         }
         clickOnaButton("Complete");
         SeleniumUtils.waitForPageLoad();

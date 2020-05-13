@@ -4,6 +4,7 @@ Feature: PIV Regression
   Scenario Outline: Validate all the field in header after Creating the PIV Header
 
     Given User is logged into FOCiS Application
+    And navigates to "Financial" Screen for Job Number "100147680"
 #    When selects "<ChildMenuOption>" from "<MenuOption>" Menu
 #    And user clicks on "Book Without Template" button
 #    And creates  a new "<Product>" - "<ProductType>" - "<JobScope>" Job with following details
@@ -35,16 +36,20 @@ Feature: PIV Regression
 #    And Add Destination with Haulage Arrangement as "Agility"
 #      | Haulier Name | Cargo Collection Date | Cargo Delivery Date |
 #      | <D_Haulier>  | <D_Coll_Date>         | <D_Del_Date>        |
-#    And adds Charges as below
-#      | Charge Name   | Supplier  | Cost | Revenue |
-#      | Documentation | Garissons | 100  | 120     |
-#      | Booking Fee   | Garissons | 100  | 120     |
-    When selects "<ChildSubMenuOption>" from "<ChildMenuOption>" from "<MenuOption>" Menu
-    And Creates PIV Header with below details
-      | Invoice Type | Invoice SubType | Entity Code | Supplier Name | Supplier Invoice Date | PIV Amount  | Tax Amount  | Currency   |
-      | <PIVType>    | <PIVSubType>    | <D_Entity>  | <D_Haulier>   | <PIVInvoiceDate>      | <PIVAmount> | <TaxAmount> | <Currency> |
-    Then Supplier Name and Supplier Invoice Number should be populated correctly
-    And PIV Amount Table should be populated correctly
+    And adds Charges as below
+      | Charge Type   | Charge Name            | Supplier                    | Cost | Cost Currency | Revenue | Revenue Currency |
+      | Origin        | Documentation          | Garrisons Logistics Pvt Ltd | 100  | INR           | 120     | INR              |
+      | Origin        | Booking Fees           | Garrisons Logistics Pvt Ltd | 100  | INR           | 120     | INR              |
+#      | International | Airline Fuel Surcharge | Garrisons Logistics Pvt Ltd | 100  | INR           | 120     | INR              |
+#      | International | Advance fee            | Garrisons Logistics Pvt Ltd | 100  | INR           | 120     | INR              |
+#      | Destination   | Inland Fuel Surcharge  | BESTWAY TRANSPORT           | 100  | USD           | 120     | USD              |
+#      | Destination   | Booking Fees           | BESTWAY TRANSPORT           | 100  | USD           | 120     | USD              |
+#    When selects "<ChildSubMenuOption>" from "<ChildMenuOption>" from "<MenuOption>" Menu
+#    And Creates PIV Header with below details
+#      | Invoice Type | Invoice SubType | Entity Code | Supplier Name | Supplier Invoice Date | PIV Amount  | Tax Amount  | Currency   |
+#      | <PIVType>    | <PIVSubType>    | <D_Entity>  | <D_Haulier>   | <PIVInvoiceDate>      | <PIVAmount> | <TaxAmount> | <Currency> |
+#    Then Supplier Name and Supplier Invoice Number should be populated correctly
+#    And PIV Amount Table should be populated correctly
 
     Examples:
       | DataRow | MenuOption | ChildMenuOption                    | ChildSubMenuOption      | Product     | ProductType | JobScope | OriginStakeholder | DestinationStakeholder | IncoTerm | Origin_Country | Origin_NetworkComponent | Origin_Department | Origin_Type | Origin_IsLive | O_Entity | Destination_Country | Destination_NetworkComponent | Destination_Department | Destination_Type | Destination_IsLive | D_Entity | Carrier | FlightNumber | AOD | AOA | ETD | ETDTime | ETA | ETATime | Supplier          | Cost | Revenue | O_Haulier         | O_Coll_Date | O_Del_Date | D_Haulier                   | D_Coll_Date | D_Del_Date | PIVType          | PIVSubType | PIVInvoiceDate | PIVAmount | TaxAmount | Currency |

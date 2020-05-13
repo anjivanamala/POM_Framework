@@ -24,7 +24,7 @@ public class BCTCSteps extends CommonSteps {
         if (isDialogPopulated("Customer/Cargo Mapping")) {
             bctcPage.buttonOnPopupOrDialog("Customer/Cargo Mapping", "Save and Continue").click();
             SeleniumUtils.waitForPageLoad();
-            switchToNewWindow();
+            SeleniumUtils.switchToNewWindow();
         }
         clickOnaButton("Complete");
         if (isDialogPopulated("Warning","To view the document please click on Print button.")) {

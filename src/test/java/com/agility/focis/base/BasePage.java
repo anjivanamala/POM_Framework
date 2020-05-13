@@ -74,6 +74,9 @@ public class BasePage {
     @FindBy(xpath = "//span[contains(@id,'BookingDetailsFr1_BookingDetailsFr1_lblStatusName')]")
     public WebElement jobStatus;
 
+    @FindBy(id = "MainSearchOrders")
+    public WebElement advancedSearchInputBox;
+
     //    Auto Suggestion from Inline Search Popup
     public WebElement inlineSearchRecommendations(String text) {
         return driver.findElement(By.xpath("//ul/li/a[contains(text(),'" + text + "')]"));
@@ -138,5 +141,8 @@ public class BasePage {
     public WebElement childSubMenuOption(String mainMenu, String childMenu, String childSubMenu) {
         return driver.findElement(By.xpath("//a/span[text()='"+mainMenu+"']/../following-sibling::ul//span[text()='"+childMenu+"']/../following-sibling::ul/li//span[text()='"+childSubMenu+"']/.."));
     }
+
+    @FindBy(id = "gs_CurrencyCode")
+    public WebElement currencyCodeInputBox;
 }
 

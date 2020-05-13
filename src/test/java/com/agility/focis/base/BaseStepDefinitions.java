@@ -41,8 +41,8 @@ public class BaseStepDefinitions {
     }
 
     @When("selects {string} from {string} from {string} Menu")
-    public void selects_from_from_Menu(String childSubMenu, String childMenu , String mainMenu) throws InterruptedException {
-        baseSteps.selectMenu(childSubMenu,childMenu, mainMenu);
+    public void selects_from_from_Menu(String childSubMenu, String childMenu, String mainMenu) throws InterruptedException {
+        baseSteps.selectMenu(childSubMenu, childMenu, mainMenu);
     }
 
     @When("user clicks on {string} button")
@@ -77,5 +77,31 @@ public class BaseStepDefinitions {
             SeleniumUtils.reInitializeCaptureSnapFlag();
         }
 
+    }
+
+    @And("navigates to {string} Screen")
+    public void navigatesToScreen(String stepDefScreenName) throws InterruptedException {
+        if (stepDefScreenName.equalsIgnoreCase("Tasks") || stepDefScreenName.equalsIgnoreCase("Task")) {
+            baseSteps.navigateToTasksScreen();
+        } else if (stepDefScreenName.equalsIgnoreCase("Financial") || stepDefScreenName.equalsIgnoreCase("Estimates")) {
+            baseSteps.navigateToFinancialScreen();
+        } else if (stepDefScreenName.equalsIgnoreCase("Dashboard")) {
+            baseSteps.navigateToDashboard();
+        } else {
+            SeleniumUtils.logInfo("Invalid Option");
+        }
+    }
+
+    @And("navigates to {string} Screen for Job Number {string}")
+    public void navigatesToScreenForJobNumber(String stepDefScreenName, String stepDefJobNumber) throws InterruptedException {
+        if (stepDefScreenName.equalsIgnoreCase("Tasks") || stepDefScreenName.equalsIgnoreCase("Task")) {
+            baseSteps.navigateToTasksScreen();
+        } else if (stepDefScreenName.equalsIgnoreCase("Financial") || stepDefScreenName.equalsIgnoreCase("Estimates")) {
+            baseSteps.navigateToFinancialScreen(stepDefJobNumber);
+        } else if (stepDefScreenName.equalsIgnoreCase("Dashboard")) {
+            baseSteps.navigateToDashboard();
+        } else {
+            SeleniumUtils.logInfo("Invalid Option");
+        }
     }
 }

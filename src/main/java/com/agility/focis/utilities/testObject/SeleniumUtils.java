@@ -313,6 +313,14 @@ public class SeleniumUtils extends DriverInstantiation {
         parentWindow = windowHandle;
     }
 
+    public static void switchToNewWindow() throws InterruptedException {
+        SeleniumUtils.setParentWindow(driver.getWindowHandle());
+        for (String winHandle : driver.getWindowHandles()) {
+            driver.switchTo().window(winHandle);
+        }
+        SeleniumUtils.waitForPageLoad();
+    }
+
     public static void switchToParentWindow() throws InterruptedException {
         SeleniumUtils.waitForPageLoad();
         driver.close();

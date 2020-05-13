@@ -43,7 +43,7 @@ public class IssueAWBSteps extends CommonSteps {
             SeleniumUtils.waitForPageLoad();
             SeleniumUtils.takeScreenshot();
         }
-        switchToNewWindow();
+        SeleniumUtils.switchToNewWindow();
         SeleniumUtils.waitForPageLoad();
         completeCSD();
         completeHouseCSD();
