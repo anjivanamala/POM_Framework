@@ -1,7 +1,7 @@
-package com.agility.focis.PIV;
+package com.agility.focis.purchaseInvoiceAndCredit;
 
 import com.agility.focis.base.BasePage;
-import com.agility.focis.performActivities.common.CommonPage;
+import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
@@ -49,7 +49,7 @@ public class PIVPage extends BasePage {
     @FindBy(xpath = "//input[contains(@id,'ChkTaxAtHeader')]")
     public WebElement taxAtHeader;
     @FindBy(xpath = "//input[contains(@id,'txtPivAmount')]")
-    public  WebElement pivAmount;
+    public WebElement pivAmount;
     @FindBy(xpath = "//input[contains(@id,'txtTaxAmount')]")
     public WebElement taxAmount;
     @FindBy(xpath = "//span[contains(@id,'lblFinNetAmt')]")
@@ -58,6 +58,8 @@ public class PIVPage extends BasePage {
     public WebElement currencyButton;
     @FindBy(id = "gs_CurrencyCode")
     public WebElement currencyCode;
+    @FindBy(xpath = "//input[contains(@id,'txtPivCny')]")
+    public WebElement pivCurrencyTetBox;
     @FindBy(id = "grdAmountInfo")
     public WebElement amountInfoTable;
     @FindBy(xpath = "//input[@title = 'Create']")
@@ -66,10 +68,47 @@ public class PIVPage extends BasePage {
     public WebElement cancelPIVButton;
     @FindBy(xpath = "//input[@title = 'Allocate to Jobs/ Consol']")
     public WebElement allocateToJobsORConsolButton;
-    @FindBy(xpath = "//input[@title = 'Save']")
+    @FindBy(xpath = "//input[contains(@id,'ManagePurchaseInvoiceFrUC_btnSave')]")
     public WebElement savePIVButton;
     @FindBy(id = "idSuppNum")
     public WebElement supplierInvoiceNumAllocatePage;
 
+    @FindBy(id = "grdTagJobsLs")
+    public WebElement JobsList;
 
+    @FindBy(id = "grdAmountInfoPopup")
+    public WebElement amountInfoTableAllocateJobs;
+
+    @FindBy(xpath = "//input[contains(@id,'PIVTagJobsFrUC_btnSavePIVDetails')]")
+    public WebElement allocateButton;
+
+    @FindBy(xpath = "//input[contains(@id,'PIVTagJobsFrUC_txtJobNumber')]")
+    public WebElement jobNumberOrConsolNumberInput;
+
+    @FindBy(xpath = "//input[contains(@id,'ManagePurchaseInvoiceFrUC_btnComplete')]")
+    public WebElement completeInvoiceButton;
+
+    public WebElement generatedPIVNumber(String invoiceNumber) {
+        return driver.findElement(By.xpath("//td[contains(@aria-describedby,'SupplierInvNo')]/span[text()='" + invoiceNumber + "']/ancestor::tr[1]/td[contains(@aria-describedby,'PIVNo')]"));
+    }
+
+    public WebElement generatedPIVTotalAmount(String invoiceNumber) {
+        return driver.findElement(By.xpath("//td[contains(@aria-describedby,'SupplierInvNo')]/span[text()='" + invoiceNumber + "']/ancestor::tr[1]/td[contains(@aria-describedby,'PIVAmount')]"));
+    }
+
+    public WebElement generatedPIVSupplierName(String invoiceNumber) {
+        return driver.findElement(By.xpath("//td[contains(@aria-describedby,'SupplierInvNo')]/span[text()='" + invoiceNumber + "']/ancestor::tr[1]/td[contains(@aria-describedby,'StakeHolderName')]"));
+    }
+
+    public WebElement generatedPIVDate(String invoiceNumber) {
+        return driver.findElement(By.xpath("//td[contains(@aria-describedby,'SupplierInvNo')]/span[text()='" + invoiceNumber + "']/ancestor::tr[1]/td[contains(@aria-describedby,'PIVDateTime')]"));
+    }
+
+    public WebElement generatedPIVDueDate(String invoiceNumber) {
+        return driver.findElement(By.xpath("//td[contains(@aria-describedby,'SupplierInvNo')]/span[text()='" + invoiceNumber + "']/ancestor::tr[1]/td[contains(@aria-describedby,'PIVDueDate')]"));
+    }
+
+    public WebElement generatedPIVStatus(String invoiceNumber) {
+        return driver.findElement(By.xpath("//td[contains(@aria-describedby,'SupplierInvNo')]/span[text()='" + invoiceNumber + "']/ancestor::tr[1]/td[contains(@aria-describedby,'StateName')]"));
+    }
 }

@@ -38,6 +38,16 @@ public class BaseSteps extends DriverInstantiation {
         SeleniumUtils.waitForPageLoad();
     }
 
+    public void loginToApp(String userName, String password) throws IOException, InterruptedException {
+        driver = getDriver();
+        driver.get(loginURL());
+        driver.manage().window().maximize();
+        basePage.userName.sendKeys(userName);
+        basePage.password.sendKeys(password);
+        basePage.signInButton.click();
+        SeleniumUtils.waitForPageLoad();
+    }
+
     public void selectMenu(String childMenu, String mainMenu) throws InterruptedException {
         SeleniumUtils.waitForPageLoad();
         basePage.mainMenuOption(mainMenu).click();
@@ -57,6 +67,7 @@ public class BaseSteps extends DriverInstantiation {
     public void clickOnaButton(String button) throws InterruptedException {
         SeleniumUtils.waitForElementToBeClickable(basePage.buttonTobeClicked(button));
         basePage.buttonTobeClicked(button).click();
+        SeleniumUtils.waitForPageLoad();
 
     }
 
@@ -93,7 +104,6 @@ public class BaseSteps extends DriverInstantiation {
                 SeleniumUtils.waitForElementToBeClickable(basePage.refreshIcon);
                 searchForSTK(stkName);
             } else {
-
                 basePage.stkBestMatch(stkName).click();
                 IsSTKSelected = true;
                 break;
@@ -249,5 +259,16 @@ public class BaseSteps extends DriverInstantiation {
         basePage.currencyCodeInputBox.sendKeys(currency + Keys.ENTER);
         HyperLinkUtils.clickOnLink(currency);
         SeleniumUtils.waitForPageLoad();
+    }
+
+    public void navigateHomePage() throws InterruptedException {
+        if (driver.getCurrentUrl().contains("estimatesfrpg")) {
+            SeleniumUtils.switchToParentWindow();
+            basePage.homeButton.click();
+            SeleniumUtils.waitForPageLoad();
+        } else {
+            basePage.homeButton.click();
+            SeleniumUtils.waitForPageLoad();
+        }
     }
 }

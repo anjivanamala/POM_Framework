@@ -39,4 +39,12 @@ public class DynamicTableUtils extends TextBoxUtils {
         driver.findElement(By.xpath("//td[contains(@aria-describedby,'" + referenceColumn + "') and text() = '" + referenceData + "']/..//*[contains(@class,'" + colour + "')]")).click();
         SeleniumUtils.waitForPageLoad();
     }
+
+    public static void clickOnLinkUsingReferenceData(String referenceColumn, String referenceData) throws InterruptedException {
+        referenceColumn = referenceColumn.replaceAll(" ", "");
+        SeleniumUtils.waitForPageLoad();
+        SeleniumUtils.waitForElementToBeClickable(driver.findElement(By.xpath("//td[contains(@aria-describedby,'" + referenceColumn + "') and text() = '" + referenceData + "']/..//a")));
+        driver.findElement(By.xpath("//td[contains(@aria-describedby,'" + referenceColumn + "') and text() = '" + referenceData + "']/..//a")).click();
+        SeleniumUtils.waitForPageLoad();
+    }
 }

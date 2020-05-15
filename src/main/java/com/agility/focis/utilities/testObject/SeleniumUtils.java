@@ -2,15 +2,13 @@ package com.agility.focis.utilities.testObject;
 
 import com.agility.focis.base.DriverInstantiation;
 import org.openqa.selenium.*;
+import org.openqa.selenium.NoSuchElementException;
 import org.openqa.selenium.support.ui.*;
 
 import java.sql.Timestamp;
 import java.text.DateFormat;
 import java.text.SimpleDateFormat;
-import java.util.Calendar;
-import java.util.Date;
-import java.util.Map;
-import java.util.Set;
+import java.util.*;
 import java.util.concurrent.TimeUnit;
 
 public class SeleniumUtils extends DriverInstantiation {
@@ -341,5 +339,15 @@ public class SeleniumUtils extends DriverInstantiation {
 
     public static String getCurrentTimeStampAsStrng() {
         return new SimpleDateFormat("yyyyMMddHHmmss").format(new Date());
+    }
+
+    public static List<Integer> getDistinctRandomValuesInARage(int min, int max, int numberOfDistinctValues){
+
+        ArrayList<Integer> distinctValues = new ArrayList<Integer>();
+        for (int i=min; i<max; i++) {
+            distinctValues.add(i);
+        }
+        Collections.shuffle(distinctValues);
+        return distinctValues.subList(0, numberOfDistinctValues);
     }
 }

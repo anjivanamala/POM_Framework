@@ -96,6 +96,7 @@ public class BasePage {
     public WebElement stakeHolderNameOrID;
 
     public WebElement stkBestMatch(String stk) throws InterruptedException {
+        SeleniumUtils.waitForPageLoad();
         SeleniumUtils.waitForNumberOfElementsToBeMoreThan(By.xpath("//a[contains(text(),'" + stk + "')]"), 0);
         WebElement element = null;
         if (driver.findElements(By.xpath("//a[contains(text(), 'Financial details available - Yes') and contains(text(),'Primary')]/../preceding-sibling::td/a[contains(text(),'" + stk + "')]")).size() > 0) {
@@ -107,6 +108,8 @@ public class BasePage {
             element = driver.findElement(By.xpath("//a[contains(text(), 'Financial details available - Yes') and contains(text(),'Air WayBill')]/../preceding-sibling::td/a[contains(text(),'" + stk + "')]"));
         } else if (driver.findElements(By.xpath("//a[contains(text(), 'Financial details available - Yes') and contains(text(),'EDI')]/../preceding-sibling::td/a[contains(text(),'" + stk + "')]")).size() > 0) {
             element = driver.findElement(By.xpath("//a[contains(text(), 'Financial details available - Yes') and contains(text(),'EDI')]/../preceding-sibling::td/a[contains(text(),'" + stk + "')]"));
+        } else if (driver.findElements(By.xpath("//a[contains(text(), 'Financial details available - Yes') and contains(text(),'General Supplier')]/../preceding-sibling::td/a[contains(text(),'" + stk + "')]")).size() > 0) {
+            element = driver.findElements(By.xpath("//a[contains(text(), 'Financial details available - Yes') and contains(text(),'General Supplier')]/../preceding-sibling::td/a[contains(text(),'" + stk + "')]")).get(0);
         } else {
             element = driver.findElement(By.xpath("//a[contains(text(), 'Financial details available - No') and contains(text(),'Primary')]/../preceding-sibling::td/a[contains(text(),'" + stk + "')]"));
         }
@@ -139,10 +142,13 @@ public class BasePage {
     public WebElement paginationCount;
 
     public WebElement childSubMenuOption(String mainMenu, String childMenu, String childSubMenu) {
-        return driver.findElement(By.xpath("//a/span[text()='"+mainMenu+"']/../following-sibling::ul//span[text()='"+childMenu+"']/../following-sibling::ul/li//span[text()='"+childSubMenu+"']/.."));
+        return driver.findElement(By.xpath("//a/span[text()='" + mainMenu + "']/../following-sibling::ul//span[text()='" + childMenu + "']/../following-sibling::ul/li//span[text()='" + childSubMenu + "']/.."));
     }
 
     @FindBy(id = "gs_CurrencyCode")
     public WebElement currencyCodeInputBox;
+
+    @FindBy(xpath = "//ul/li//span[text()='Home']/..")
+    public WebElement homeButton;
 }
 

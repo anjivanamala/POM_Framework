@@ -26,17 +26,17 @@ Feature: Initiate Job - Air Freight - Expedited
       | 10       | BOX  | 10           |          | 20     | 15    | 10     |        | Laptops        | HP Laptops   |
       | 50       | BOX  | 5            |          | 20     | 15    | 10     |        | Laptops        | MacBook Pro  |
     And Edits Description of Goods
-#    And Adds Airport To Airport with Carrier As "<Carrier>" along with below details
-#      | Flight Number  | Airport Of Departure | Airport Of Arrival | ETD   | ETD Time  | ETA   | ETA Time  | Supplier   | Cost   | Revenue   |
-#      | <FlightNumber> | <AOD>                | <AOA>              | <ETD> | <ETDTime> | <ETA> | <ETATime> | <Supplier> | <Cost> | <Revenue> |
-#    And Add Origin with Haulage Arrangement as "Agility"
-#      | Haulier Name | Cargo Collection Date | Cargo Delivery Date |
-#      | <O_Haulier>  | <O_Coll_Date>         | <O_Del_Date>        |
-#    And Add Destination with Haulage Arrangement as "Agility"
-#      | Haulier Name | Cargo Collection Date | Cargo Delivery Date |
-#      | <D_Haulier>  | <D_Coll_Date>         | <D_Del_Date>        |
-#    And Performs "Booking Confirmation to Customer" Activity
-#    And Performs "Issue AWB" Activity
+    And Adds Airport To Airport with Carrier As "<Carrier>" along with below details
+      | Flight Number  | Airport Of Departure | Airport Of Arrival | ETD   | ETD Time  | ETA   | ETA Time  | Supplier   | Cost   | Revenue   |
+      | <FlightNumber> | <AOD>                | <AOA>              | <ETD> | <ETDTime> | <ETA> | <ETATime> | <Supplier> | <Cost> | <Revenue> |
+    And Add Origin with Haulage Arrangement as "Agility"
+      | Haulier Name | Cargo Collection Date | Cargo Delivery Date |
+      | <O_Haulier>  | <O_Coll_Date>         | <O_Del_Date>        |
+    And Add Destination with Haulage Arrangement as "Agility"
+      | Haulier Name | Cargo Collection Date | Cargo Delivery Date |
+      | <D_Haulier>  | <D_Coll_Date>         | <D_Del_Date>        |
+    And Performs "Booking Confirmation to Customer" Activity
+    And Performs "Issue AWB" Activity
 
     Examples:
       | DataRow | MenuOption | ChildMenuOption | Product     | ProductType | JobScope | OriginStakeholder | DestinationStakeholder | IncoTerm | Origin_Country | Origin_NetworkComponent | Origin_Department | Origin_Type | Origin_IsLive | Destination_Country | Destination_NetworkComponent | Destination_Department | Destination_Type | Destination_IsLive | Carrier | FlightNumber | AOD | AOA | ETD | ETDTime | ETA | ETATime | Supplier          | Cost | Revenue | O_Haulier         | O_Coll_Date | O_Del_Date | D_Haulier                   | D_Coll_Date | D_Del_Date |
