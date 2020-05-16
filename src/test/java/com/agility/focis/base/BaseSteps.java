@@ -245,7 +245,16 @@ public class BaseSteps extends DriverInstantiation {
 //    }
     }
 
-    public void navigateToFinancialScreen() {
+    public void navigateToFinancialScreen() throws InterruptedException {
+        if (driver.getCurrentUrl().contains("bookingdetailsfrpg")) {
+            basePage.financialIcon.click();
+            SeleniumUtils.waitForPageLoad();
+            SeleniumUtils.switchToNewWindow();
+        } else if (driver.getCurrentUrl().contains("estimatesfrpg")) {
+            System.out.println("Already in Estimates Screen");
+        } else {
+            navigateToFinancialScreen(GlobalVariables.getJobNumber());
+        }
     }
 
     public void navigateToFinancialScreen(String JobNumber) throws InterruptedException {

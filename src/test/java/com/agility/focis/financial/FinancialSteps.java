@@ -28,6 +28,7 @@ public class FinancialSteps extends BaseSteps {
         financialPage.chargeTypeInputBox(chargeType).sendKeys(chargeName + Keys.ENTER);
         SeleniumUtils.waitForPageLoad();
         financialPage.addChargeButton(chargeType, chargeName).click();
+        SeleniumUtils.waitForPageLoad();
         financialPage.addChargeDialogCloseButton.click();
         SeleniumUtils.waitForPageLoad();
     }

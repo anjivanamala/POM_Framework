@@ -154,4 +154,7 @@ public class AddPackagesAndUnitsPage extends BasePage {
 
     @FindBy(xpath = "//input[contains(@id,'UnitSealData')]")
     public WebElement sealNumber;
+
+    @FindBy(xpath = "//*[@id='alertMsgBox']//*[@id='alrtMsg']")
+    public WebElement alertMessage;
 }

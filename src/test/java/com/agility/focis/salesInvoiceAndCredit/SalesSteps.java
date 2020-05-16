@@ -29,7 +29,7 @@ public class SalesSteps extends BaseSteps {
 
     public void processSalesInvoice(Map<String, String> invoiceInfo) throws InterruptedException {
         String billToParty = invoiceInfo.get("Bill To Party ");
-        String numberOfCharges = invoiceInfo.get("Number Charges");
+        String numberOfCharges = invoiceInfo.get("Charges");
         salesPage.billingPartyRadioButton.click();
         salesPage.createNewInvoiceIcon.click();
         SeleniumUtils.waitForPageLoad();

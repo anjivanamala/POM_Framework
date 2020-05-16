@@ -27,12 +27,34 @@ public class InitiateJobPage extends BasePage {
     public WebElement stakeHolderNameOrID;
     @FindBy(xpath = "//input[contains(@id,'ShipperReftype')]")
     public WebElement shipperReferenceType;
+    @FindBy(xpath = "//button[contains(@id,'ShipperReftype_btnPopup')]")
+    public WebElement shipperReferenceTypeButton;
+    @FindBy(xpath = "//button[contains(@id,'ConsigneeReftype_btnPopup')]")
+    public WebElement consigneeReferenceTypeButton;
     @FindBy(xpath = "//input[contains(@id,'ShipRefValue')]")
     public WebElement shipperReference;
     @FindBy(xpath = "//input[contains(@id,'txtConsigneeReftype')]")
     public WebElement consigneeReferenceType;
     @FindBy(xpath = "//input[contains(@id,'txtConsigneeRefValue')]")
     public WebElement consigneeReference;
+    @FindBy(xpath = "//span[text()='References']/ancestor::div[@role='dialog']//input[@id='gs_Name']")
+    public WebElement referenceInputBox;
+
+    //    Origin and Destination Offices
+    @FindBy(xpath = "//input[contains(@id,'txtHAWBAirportofDeparture') or contains(@id,'txtHAWBAirportOfDeparture')]")
+    public WebElement airportOfDeparture;
+    @FindBy(xpath = "//button[contains(@id,'txtHAWBAirportofDeparture_btnPopup') or contains(@id,'txtHAWBAirportOfDeparture_btnPopup')]")
+    public WebElement airportOfDepartureSearchButton;
+    @FindBy(id = "gs_Code")
+    public WebElement airPortCodeInput;
+    @FindBy(xpath = "//input[contains(@id,'txtHAWBAirporttoArrival')]")
+    public WebElement airportOfArrival;
+    @FindBy(xpath = "//button[contains(@id,'txtHAWBAirporttoArrival_btnPopup')]")
+    public WebElement airportOfArrivalSearchButton;
+    @FindBy(xpath = "//input[contains(@id,'txtAgilityPlaceOfReceipt')]")
+    public WebElement portOfLoading;
+    @FindBy(xpath = "//input[contains(@id,'txtAgilityPlaceOfDelivery')]")
+    public WebElement portOfDischarge;
 
     //    Network Components
     @FindBy(id = "gs_CountryCode")
@@ -45,6 +67,12 @@ public class InitiateJobPage extends BasePage {
     public WebElement departmentName;
     @FindBy(id = "gs_IsLive")
     public WebElement isLive;
+
+    //    Ports
+    @FindBy(xpath = "//span[text()='Ports' or text()='IATA Airports List']/ancestor::div[@role='dialog']//input[@name='Name']")
+    public WebElement portName;
+    @FindBy(xpath = "//span[text()='Ports' or text()='IATA Airports List']/ancestor::div[@role='dialog']//input[@name='CountryCode']")
+    public WebElement portCountryCode;
 
 
     public WebElement officebestMatch(String countrycode) {

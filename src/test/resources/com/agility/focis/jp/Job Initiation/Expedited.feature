@@ -37,9 +37,27 @@ Feature: Initiate Job - Air Freight - Expedited
       | <D_Haulier>  | <D_Coll_Date>         | <D_Del_Date>        |
     And Performs "Booking Confirmation to Customer" Activity
     And Performs "Issue AWB" Activity
+    And adds Charges as below
+      | Charge Type   | Charge Name            | Supplier                    | Cost | Cost Currency | Revenue | Revenue Currency |
+      | Origin        | Documentation          | BESTWAY TRANSPORT           | 100  | USD           | 120     | USD              |
+      | Origin        | Booking Fees           | BESTWAY TRANSPORT           | 100  | USD           | 120     | USD              |
+      | International | Airline Fuel Surcharge | BESTWAY TRANSPORT           | 100  | USD           | 120     | USD              |
+      | International | Advance fee            | BESTWAY TRANSPORT           | 100  | USD           | 120     | USD              |
+      | Destination   | Inland Fuel Surcharge  | Garrisons Logistics Pvt Ltd | 100  | INR           | 120     | INR              |
+      | Destination   | Booking Fees           | Garrisons Logistics Pvt Ltd | 100  | INR           | 120     | INR              |
+    And Processes "<PIVType>" with below details
+      | Job Number | Invoice Type     | Invoice SubType | Entity Code | Supplier Name | Supplier Invoice Date |
+      | 100147912  | Purchase Invoice | Freight         | <D_Entity>  | <D_Haulier>   | Today                 |
+      | 100147912  | Purchase Cred    | Freight         | <D_Entity>  | <D_Haulier>   | Today                 |
+    And Processes Sales Invoice with below details
+      | Job Number | Number Charges            | Bill To Party            |
+      | 100148049  | <NumberOfChargesForSales> | <DestinationStakeholder> |
+    And Processes Credit Note against to below details
+      | Job Number | Number Charges            | Legal Entity |
+      | 100145235  | <NumberOfChargesForSales> | <D_Entity>   |
 
     Examples:
-      | DataRow | MenuOption | ChildMenuOption | Product     | ProductType | JobScope | OriginStakeholder | DestinationStakeholder | IncoTerm | Origin_Country | Origin_NetworkComponent | Origin_Department | Origin_Type | Origin_IsLive | Destination_Country | Destination_NetworkComponent | Destination_Department | Destination_Type | Destination_IsLive | Carrier | FlightNumber | AOD | AOA | ETD | ETDTime | ETA | ETATime | Supplier          | Cost | Revenue | O_Haulier         | O_Coll_Date | O_Del_Date | D_Haulier                   | D_Coll_Date | D_Del_Date |
-      | DR1     | Job        | Job Booking     | Air Freight | Expedited   | E2E      | STK20016776       | STK20016775            | DAT      | US             | Chicago                 | Air Export        | Branch      | Yes           | IN                  | Mumbai                       | Air Import             | Branch           | Yes                | EK      | EK123        | ORD | BOM | 7   | 12      | 14  | 12      | BESTWAY TRANSPORT | 1    | 2       | BESTWAY TRANSPORT | 1           | 3          | Garrisons Logistics Pvt Ltd | 15          | 16         |
+      | DataRow | MenuOption | ChildMenuOption | Product     | ProductType | JobScope | OriginStakeholder | DestinationStakeholder | IncoTerm | Origin_Country | Origin_NetworkComponent | Origin_Department | Origin_Type | Origin_IsLive | Destination_Country | Destination_NetworkComponent | Destination_Department | Destination_Type | Destination_IsLive | D_Entity | Carrier | FlightNumber | AOD | AOA | ETD | ETDTime | ETA | ETATime | Supplier          | Cost | Revenue | O_Haulier         | O_Coll_Date | O_Del_Date | D_Haulier                   | D_Coll_Date | D_Del_Date | NumberOfChargesForSales |
+      | DR1     | Job        | Job Booking     | Air Freight | Expedited   | E2E      | STK20016776       | STK20016775            | DAT      | US             | Chicago                 | Air Export        | Branch      | Yes           | IN                  | Mumbai                       | Air Import             | Branch           | Yes                | 5910     | EK      | EK123        | ORD | BOM | 7   | 12      | 14  | 12      | BESTWAY TRANSPORT | 1    | 2       | BESTWAY TRANSPORT | 1           | 3          | Garrisons Logistics Pvt Ltd | 15          | 16         | Random                  |
 #      | DR2     | Job        | Job Booking     | Air Freight | Expedited   | Destination Only | STK20016776       | STK20016775            | DAT      |                |                         |                   |             |               | IN                  | Mumbai                       | Air Import             | Branch           | Yes                |              |     |     |     |         |     |         |          |      |         |
 #      | DR3     | Job        | Job Booking     | Air Freight | Expedited   | Origin Only      | STK20016776       | STK20016775            | DAT      | US             | Chicago                 | Air Export        | Branch      | Yes           |                     |                              |                        |                  |                    |              |     |     |     |         |     |         |          |      |         |

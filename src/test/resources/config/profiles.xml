@@ -11,6 +11,15 @@
     </Profile>
 
     <Profile>
+        <Name>Agile-Shiva</Name>
+        <URL>https://focisagile.agility.com/login.aspx</URL>
+        <UserName>skarre</UserName>
+        <Password>Mozilla@123</Password>
+        <Browser>Chrome</Browser>
+        <Execute>Yes</Execute>
+    </Profile>
+
+    <Profile>
         <Name>SIT</Name>
         <URL>https://focissit.agility.com/login.aspx</URL>
         <UserName>exportjob</UserName>

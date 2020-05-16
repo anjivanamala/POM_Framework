@@ -1,6 +1,9 @@
 package com.agility.focis.addCarriagesAir;
 
 import com.agility.focis.base.BaseSteps;
+import com.agility.focis.initiateJob.InitiateJobPage;
+import com.agility.focis.utilities.testObject.DynamicTableUtils;
+import com.agility.focis.utilities.testObject.HyperLinkUtils;
 import com.agility.focis.utilities.testObject.SeleniumUtils;
 import org.openqa.selenium.Keys;
 import org.openqa.selenium.WebDriver;
@@ -11,11 +14,12 @@ import java.io.IOException;
 public class AddCarriagesAirSteps extends BaseSteps {
     private WebDriver driver;
     AddCarriagesAirPage addCarriagesAirPage;
+    InitiateJobPage initiateJobPage;
 
     AddCarriagesAirSteps() throws IOException {
         this.driver = getDriver();
         addCarriagesAirPage = new AddCarriagesAirPage(this.driver);
-
+        initiateJobPage = new InitiateJobPage(this.driver);
     }
 
     private void clickOnAddAirportToAirport() throws InterruptedException {
@@ -26,6 +30,7 @@ public class AddCarriagesAirSteps extends BaseSteps {
     }
 
     public void addAirportToAirport(String Carrier, String FlightNumber, String AirportOfDeparture, String AirportOfArrival, String ETD, String ETDTime, String ETA, String ETATime, String Supplier, String Cost, String Revenue) throws InterruptedException {
+        checkAgilityAirPortOfDeparture(AirportOfDeparture);
         clickOnAddAirportToAirport();
         SeleniumUtils.waitForFrameTobeAvailableAndSwitchToIt(addCarriagesAirPage.addAirportToAirportFrame);
         SeleniumUtils.waitForPageLoad();
@@ -48,7 +53,12 @@ public class AddCarriagesAirSteps extends BaseSteps {
         addCarriagesAirPage.pullMawbNumberIcon.click();
         addCarriagesAirPage.saveAndCompleteActivityButton.click();
         SeleniumUtils.waitForPageLoad();
+        Thread.sleep(1000);
 //        driver.switchTo().defaultContent();
+
+    }
+
+    public void updateEstimatesMainCarriage(String Supplier, String Cost, String Revenue) throws InterruptedException {
         SeleniumUtils.waitForFrameTobeAvailableAndSwitchToIt(addCarriagesAirPage.iFrameEstimationscreen);
         SeleniumUtils.waitForPageLoad();
         SeleniumUtils.waitForElementToBeClickable(addCarriagesAirPage.Supplier);
@@ -59,11 +69,25 @@ public class AddCarriagesAirSteps extends BaseSteps {
         addCarriagesAirPage.saveAndCloseButton.click();
         SeleniumUtils.waitForPageLoad();
         Thread.sleep(1200);
+    }
 
+    private void checkAgilityAirPortOfDeparture(String airportOfDeparture) throws InterruptedException {
+        clickOnTab("Movement");
+        SeleniumUtils.waitForPageLoad();
+        SeleniumUtils.waitForElementToBeClickable(initiateJobPage.airportOfDeparture);
+        if (initiateJobPage.airportOfDeparture.getAttribute("value").contains("INNSA")) {
+            initiateJobPage.airportOfDepartureSearchButton.click();
+            SeleniumUtils.waitForPageLoad();
+            initiateJobPage.airPortCodeInput.sendKeys(airportOfDeparture + Keys.ENTER);
+            SeleniumUtils.waitForPageLoad();
+            HyperLinkUtils.clickOnLink(airportOfDeparture);
+            SeleniumUtils.waitForPageLoad();
 
+        }
     }
 
     public void addOrigin(String haulierType, String haulierName, String originCargoCollectionDate, String originCargoDeliveryDate) throws InterruptedException {
+        SeleniumUtils.waitForPageLoad();
         SeleniumUtils.waitForElementToBeClickable(addCarriagesAirPage.tab("Movement"));
         addCarriagesAirPage.addOriginButton.click();
         SeleniumUtils.waitForFrameTobeAvailableAndSwitchToIt(addCarriagesAirPage.addOriginOrDestinationFrame);
@@ -82,6 +106,7 @@ public class AddCarriagesAirSteps extends BaseSteps {
     }
 
     public void addDestination(String haulierType, String haulierName, String destinationCargoCollectionDate, String destinationCargoDeliveryDate) throws InterruptedException {
+        SeleniumUtils.waitForPageLoad();
         SeleniumUtils.waitForElementToBeClickable(addCarriagesAirPage.tab("Movement"));
         addCarriagesAirPage.addDestinationButton.click();
         SeleniumUtils.waitForFrameTobeAvailableAndSwitchToIt(addCarriagesAirPage.addOriginOrDestinationFrame);

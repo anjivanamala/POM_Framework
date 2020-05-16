@@ -28,9 +28,13 @@ public class AddCarriagesAirStepDefinitions {
             String etdTime = airportToAirport.get("ETD Time");
             String eta = airportToAirport.get("ETA");
             String etaTime = airportToAirport.get("ETA Time");
-            String supplier = airportToAirport.get("Supplier");
-            String cost = airportToAirport.get("Cost");
-            String revenue = airportToAirport.get("Revenue");
+//            String supplier = airportToAirport.get("Supplier");
+//            String cost = airportToAirport.get("Cost");
+//            String revenue = airportToAirport.get("Revenue");
+            String supplier = "";
+            String cost = "";
+            String revenue = "";
+
             addCarriagesAirSteps.addAirportToAirport(carrier, flightNumber, airportOfDeparture, airportOfArrival, etd, etdTime, eta, etaTime, supplier, cost, revenue);
         }
 

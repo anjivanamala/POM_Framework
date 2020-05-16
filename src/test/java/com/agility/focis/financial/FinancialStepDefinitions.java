@@ -21,6 +21,7 @@ public class FinancialStepDefinitions {
 
     @Given("adds Charges as below")
     public void adds_Charges_as_below(List<Map<String, String>> charges) throws InterruptedException {
+        financialSteps.navigateToFinancialScreen();
         for (Map<String, String> charge : charges) {
             String chargeType = charge.get("Charge Type");
             String chargeName = charge.get("Charge Name");

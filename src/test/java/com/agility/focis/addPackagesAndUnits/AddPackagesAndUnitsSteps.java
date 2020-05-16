@@ -3,6 +3,7 @@ package com.agility.focis.addPackagesAndUnits;
 import com.agility.focis.base.BaseSteps;
 import com.agility.focis.globalVariables.GlobalVariables;
 import com.agility.focis.utilities.testObject.SeleniumUtils;
+import org.junit.Assert;
 import org.openqa.selenium.By;
 import org.openqa.selenium.Keys;
 import org.openqa.selenium.WebDriver;
@@ -194,5 +195,54 @@ public class AddPackagesAndUnitsSteps extends BaseSteps {
         addPackagesAndUnitsPage.shipmentDescription.sendKeys("Automation Description");
         addPackagesAndUnitsPage.saveAndCloseOnDialog("Edit Shipment").click();
         SeleniumUtils.waitForPageLoad();
+    }
+
+    public void checkForWarningAndCorrect(List<Map<String, String>> packagesinfo) throws InterruptedException {
+
+        if (driver.findElements(By.xpath("//*[@id='alertMsgBox' and contains(@style,'display: block;')]")).size() > 0) {
+            String alertMessage = addPackagesAndUnitsPage.alertMessage.getText();
+            addPackagesAndUnitsPage.okButtonWarning(alertMessage).click();
+            if (alertMessage.equalsIgnoreCase("No.Packages should not be empty")) {
+                updateNoOfPackages(packagesinfo);
+            } else if (alertMessage.equalsIgnoreCase("Type should not be empty")) {
+                updateTypeOfPackages(packagesinfo);
+            }
+            clickOnaButton("Save and Close");
+            checkForWarningAndCorrect(packagesinfo);
+        }
+    }
+
+    public void updateNoOfPackages(List<Map<String, String>> packagesinfo) {
+        for (int i = 0; i < packagesinfo.size(); i++) {
+
+            String noOfPackages = packagesinfo.get(i).get("Packages");
+            if (!noOfPackages.equalsIgnoreCase("")) {
+                if (addPackagesAndUnitsPage.noOfPackages(i).getAttribute("value").equalsIgnoreCase("")) {
+                    addPackagesAndUnitsPage.noOfPackages(i).sendKeys(noOfPackages);
+                }
+
+            } else {
+                Assert.fail("You have provided invalid No Of Packages");
+            }
+
+        }
+    }
+
+    public void updateTypeOfPackages(List<Map<String, String>> packagesinfo) throws InterruptedException {
+        for (int i = 0; i < packagesinfo.size(); i++) {
+
+            String typeOfPackages = packagesinfo.get(i).get("Type");
+            if (!typeOfPackages.equalsIgnoreCase("")) {
+                if (addPackagesAndUnitsPage.type(i).getAttribute("value").equalsIgnoreCase("")) {
+                    addPackagesAndUnitsPage.type(i).sendKeys(typeOfPackages);
+                    Thread.sleep(1000);
+                    addPackagesAndUnitsPage.type(i).sendKeys(Keys.ENTER);
+                }
+
+            } else {
+                Assert.fail("You have provided invalid type Of Package");
+            }
+
+        }
     }
 }

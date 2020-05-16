@@ -44,7 +44,7 @@ public class SalesStepDefinitions {
                 jobNumber = GlobalVariables.getJobNumber();
             }
             GlobalVariables.setJobNumber(jobNumber);
-            String numberOfCharges = creditNoteDetails.get("Number Charges");
+            String numberOfCharges = creditNoteDetails.get("Charges");
             String legalEntity = creditNoteDetails.get("Legal Entity");
             salesSteps.selectMenu("Manage Invoice", "Invoice/Credit", "Job");
             salesSteps.generateCreditNote(jobNumber, legalEntity, numberOfCharges);

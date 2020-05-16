@@ -150,5 +150,8 @@ public class BasePage {
 
     @FindBy(xpath = "//ul/li//span[text()='Home']/..")
     public WebElement homeButton;
+
+    @FindBy(xpath = "//span[@class='ui-icon sp-JobIcon icon-coins_transparent']")
+    public WebElement financialIcon;
 }
 

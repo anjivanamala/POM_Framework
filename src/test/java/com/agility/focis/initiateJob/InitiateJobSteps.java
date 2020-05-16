@@ -2,9 +2,7 @@ package com.agility.focis.initiateJob;
 
 import com.agility.focis.base.BaseSteps;
 import com.agility.focis.globalVariables.GlobalVariables;
-import com.agility.focis.utilities.testObject.DropDownUtils;
-import com.agility.focis.utilities.testObject.SeleniumUtils;
-import com.agility.focis.utilities.testObject.TextBoxUtils;
+import com.agility.focis.utilities.testObject.*;
 import org.junit.Assert;
 import org.openqa.selenium.By;
 import org.openqa.selenium.Keys;
@@ -38,6 +36,9 @@ public class InitiateJobSteps extends BaseSteps {
 
     public void selectJobDistinguishers(String product, String productType, String jobScope) throws InterruptedException {
         Thread.sleep(1000);
+        GlobalVariables.setProduct(product);
+        GlobalVariables.setProductType(productType);
+        GlobalVariables.setJobScope(jobScope);
         DropDownUtils.selectOptionByVisibleText(initiateJobPage.productDropDown, product);
         DropDownUtils.selectOptionByVisibleText(initiateJobPage.productTypeDropDown, productType);
         DropDownUtils.selectOptionByVisibleText(initiateJobPage.jobScopeDropDown, jobScope);
@@ -72,12 +73,31 @@ public class InitiateJobSteps extends BaseSteps {
     public void selectOffice(String typeOfOffice, String country, String type, String networkComponent, String department, String isLive) throws InterruptedException {
         if (typeOfOffice.equalsIgnoreCase("Origin")) {
             GlobalVariables.setOriginOrgComponent(networkComponent, department);
+            if (GlobalVariables.getProduct().equalsIgnoreCase("Air Freight")) {
+                initiateJobPage.airportOfDeparture.clear();
+                SeleniumUtils.waitForPageLoad();
+            } else {
+                initiateJobPage.portOfLoading.clear();
+                SeleniumUtils.waitForPageLoad();
+            }
         } else {
             GlobalVariables.setDestinationOrgComponent(networkComponent, department);
+            if (GlobalVariables.getProduct().equalsIgnoreCase("Air Freight")) {
+                initiateJobPage.airportOfArrival.clear();
+                SeleniumUtils.waitForPageLoad();
+            } else {
+                initiateJobPage.portOfDischarge.clear();
+                SeleniumUtils.waitForPageLoad();
+            }
         }
         initiateJobPage.inlineSearchUsingLabel(typeOfOffice + " Office").clear();
         initiateJobPage.searchIconUsingLable(typeOfOffice + " Office").click();
         searchForOffice(country, type, networkComponent, department, isLive);
+    }
+
+    public void searchForPort(String country, String networkComponent) {
+
+
     }
 
     public void searchForOffice(String country, String type, String networkComponent, String department, String isLive) throws InterruptedException {
@@ -125,13 +145,21 @@ public class InitiateJobSteps extends BaseSteps {
     }
 
     public void slecteReferences() throws InterruptedException {
-        initiateJobPage.shipperReferenceType.sendKeys("Packing List");
-        Thread.sleep(1000);
-        initiateJobPage.shipperReferenceType.sendKeys(Keys.ENTER);
+        SeleniumUtils.waitForElementToBeClickable(initiateJobPage.shipperReferenceTypeButton);
+        initiateJobPage.shipperReferenceTypeButton.click();
+        SeleniumUtils.waitForPageLoad();
+        initiateJobPage.referenceInputBox.sendKeys("Packing List" + Keys.ENTER);
+        SeleniumUtils.waitForPageLoad();
+        HyperLinkUtils.clickOnLink("Packing List");
+        SeleniumUtils.waitForPageLoad();
         initiateJobPage.shipperReference.sendKeys("AutoShipper");
-        initiateJobPage.consigneeReferenceType.sendKeys("Destination Collection");
-        Thread.sleep(1000);
-        initiateJobPage.consigneeReferenceType.sendKeys(Keys.ENTER);
+        SeleniumUtils.waitForElementToBeClickable(initiateJobPage.consigneeReferenceTypeButton);
+        initiateJobPage.consigneeReferenceTypeButton.click();
+        SeleniumUtils.waitForPageLoad();
+        initiateJobPage.referenceInputBox.sendKeys("Destination Collection" + Keys.ENTER);
+        SeleniumUtils.waitForPageLoad();
+        HyperLinkUtils.clickOnLink("Destination Collection");
+        SeleniumUtils.waitForPageLoad();
         initiateJobPage.consigneeReference.sendKeys("AutoConsignee");
     }
 }
