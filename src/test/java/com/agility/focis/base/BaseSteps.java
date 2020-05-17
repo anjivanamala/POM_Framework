@@ -51,17 +51,33 @@ public class BaseSteps extends DriverInstantiation {
     public void selectMenu(String childMenu, String mainMenu) throws InterruptedException {
         SeleniumUtils.waitForPageLoad();
         basePage.mainMenuOption(mainMenu).click();
-        basePage.childMenuOption(mainMenu, childMenu).click();
-        SeleniumUtils.waitForPageLoad();
+        if (basePage.childMenuOption(mainMenu, childMenu).isDisplayed()) {
+            basePage.childMenuOption(mainMenu, childMenu).click();
+            SeleniumUtils.waitForPageLoad();
+        } else {
+            selectMenu(childMenu, mainMenu);
+        }
+
     }
 
     public void selectMenu(String childSubMenu, String childMenu, String mainMenu) throws InterruptedException {
         Actions actions = new Actions(driver);
         SeleniumUtils.waitForPageLoad();
         basePage.mainMenuOption(mainMenu).click();
-        actions.moveToElement(basePage.childMenuOption(mainMenu, childMenu)).build().perform();
-        basePage.childSubMenuOption(mainMenu, childMenu, childSubMenu).click();
-        SeleniumUtils.waitForPageLoad();
+        if (basePage.childMenuOption(mainMenu, childMenu).isDisplayed()) {
+            actions.moveToElement(basePage.childMenuOption(mainMenu, childMenu)).build().perform();
+        } else {
+            selectMenu(childSubMenu, childMenu, mainMenu);
+        }
+
+        if (basePage.childSubMenuOption(mainMenu, childMenu, childSubMenu).isDisplayed()) {
+            basePage.childSubMenuOption(mainMenu, childMenu, childSubMenu).click();
+            SeleniumUtils.waitForPageLoad();
+        } else {
+            selectMenu(childSubMenu, childMenu, mainMenu);
+        }
+
+
     }
 
     public void clickOnaButton(String button) throws InterruptedException {
@@ -247,6 +263,7 @@ public class BaseSteps extends DriverInstantiation {
 
     public void navigateToFinancialScreen() throws InterruptedException {
         if (driver.getCurrentUrl().contains("bookingdetailsfrpg")) {
+            SeleniumUtils.waitForElementToBeClickable(basePage.financialIcon);
             basePage.financialIcon.click();
             SeleniumUtils.waitForPageLoad();
             SeleniumUtils.switchToNewWindow();

@@ -49,7 +49,7 @@ public class GlobalVariables {
     }
 
     public static void setDestinationOrgComponent(String networkComponent, String department) {
-        OriginOrgComponent = networkComponent + " " + department;
+        DestinationOrgComponent = networkComponent + " " + department;
     }
 
     public static String getOriginOrgComponent() {

@@ -59,6 +59,7 @@ public class PIVSteps extends BaseSteps {
         pivPage.supplierNameSearchButton.click();
         searchForSTK(supplierName);
         GlobalVariables.setSuppierinvoiceNum(SeleniumUtils.getCurrentTimeStampAsStrng());
+       SeleniumUtils.waitForElementToBeClickable(pivPage.invoiceNum);
         pivPage.invoiceNum.sendKeys(GlobalVariables.getSuppierinvoiceNum());
 
         Select invoiceTypeDropDown = new Select(pivPage.invoiceType);
@@ -85,7 +86,7 @@ public class PIVSteps extends BaseSteps {
     }
 
     public void verifyPIVHeader(Map<String, String> pivHeaderDetails) {
-        GlobalVariables.setOriginOrgComponent("Mumbai", "Ocean Export");
+//        GlobalVariables.setOriginOrgComponent("Mumbai", "Ocean Export");
         String invoiceType = pivHeaderDetails.get("Invoice Type");
         String invoiceSubType = pivHeaderDetails.get("Invoice SubType");
         String entityCode = pivHeaderDetails.get("Entity Code");
@@ -236,4 +237,5 @@ public class PIVSteps extends BaseSteps {
         }
         return listToReturn;
     }
+
 }

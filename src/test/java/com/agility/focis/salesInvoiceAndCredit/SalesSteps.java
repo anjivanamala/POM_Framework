@@ -40,7 +40,9 @@ public class SalesSteps extends BaseSteps {
 //        driver.findElement(By.xpath("//input[@title='Generate Invoice']")).click();
         JavascriptExecutor jsExec = (JavascriptExecutor) driver;
         jsExec.executeScript("(document.getElementById('ObjNewCharge').contentDocument).getElementById('PWCMasterPage_PWCWebPartManager_gwpSalesInvoiceInfoFrUc_SalesInvoiceInfoFrUc_btnSaveNGen').click()");
-
+        SeleniumUtils.waitForPageLoad();
+        Thread.sleep(20000);
+        SeleniumUtils.switchToParentWindow();
     }
 
     public void generateCreditNote(String jobNumber, String legalEntity, String numberOfCharges) throws InterruptedException {

@@ -30,7 +30,6 @@ public class SalesStepDefinitions {
             GlobalVariables.setJobNumber(jobNumber);
             salesSteps.navigateToFinancialScreen(jobNumber);
             salesSteps.processSalesInvoice(invoiceInfo);
-            SeleniumUtils.switchToParentWindow();
         }
 
     }

@@ -16,7 +16,7 @@ import java.io.IOException;
 import java.util.logging.Logger;
 
 
-@CucumberOptions(features = "src/test/resources/com/agility/focis/jp", tags = {"@GenerateInvoices"}, monochrome = true, plugin = {
+@CucumberOptions(features = "src/test/resources/com/agility/focis/jp", tags = {"@GenerateSales"}, monochrome = true, plugin = {
         "pretty", "html:target/cucumber-report/runwebat",
         "json:target/cucumber-report/runwebat/cucumber.json",
         "rerun:target/cucumber-report/runwebat/rerun.txt", "timeline:target/timeline"},

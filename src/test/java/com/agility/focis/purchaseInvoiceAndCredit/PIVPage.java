@@ -6,6 +6,8 @@ import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 
+import java.util.List;
+
 public class PIVPage extends BasePage {
 
     public PIVPage(WebDriver driver) {
@@ -24,6 +26,7 @@ public class PIVPage extends BasePage {
     public WebElement orgComponent;
     @FindBy(xpath = "//span[contains(@id,'lblPivNo')]")
     public WebElement pivNo;
+//    public List<WebElement> pivNums;
     @FindBy(xpath = "//button[contains(@id,'txtPlaceOfSupply_btnPopup')]")
     public WebElement placeOfSupplySearchButton;
     @FindBy(xpath = "//button[contains(@id,'txtSupplier_btnPopup')]")

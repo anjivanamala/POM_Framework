@@ -41,25 +41,25 @@ Feature: PIV Regression
       | Charge Type   | Charge Name            | Supplier                    | Cost | Cost Currency | Revenue | Revenue Currency |
       | Origin        | Documentation          | Garrisons Logistics Pvt Ltd | 100  | INR           | 120     | INR              |
       | Origin        | Booking Fees           | Garrisons Logistics Pvt Ltd | 100  | INR           | 120     | INR              |
-      | International | Airline Fuel Surcharge | Garrisons Logistics Pvt Ltd | 100  | INR           | 120     | INR              |
-      | International | Advance fee            | Garrisons Logistics Pvt Ltd | 100  | INR           | 120     | INR              |
+      | International | Airline Fuel Surcharge | Garrisons Logistics Pvt Ltd | -80  | INR           | -60     | INR              |
+      | International | Advance fee            | Garrisons Logistics Pvt Ltd | -70  | INR           | -50     | INR              |
       | Destination   | Inland Fuel Surcharge  | BESTWAY TRANSPORT           | 100  | USD           | 120     | USD              |
       | Destination   | Booking Fees           | BESTWAY TRANSPORT           | 100  | USD           | 120     | USD              |
 #    And Creates PIV Header with below details
 #      | Invoice Type | Invoice SubType | Entity Code | Supplier Name | Supplier Invoice Date | PIV Amount  | Tax Amount  | Currency   |
 #      | <PIVType>    | <PIVSubType>    | <D_Entity>  | <D_Haulier>   | <PIVInvoiceDate>      | <PIVAmount> | <TaxAmount> | <Currency> |
     And Processes "<PIVType>" with below details
-      | Invoice Type | Invoice SubType | Entity Code | Supplier Name | Supplier Invoice Date |
-      | <PIVType>    | <PIVSubType>    | <O_Entity>  | <O_Haulier>   | <PIVInvoiceDate>      |
+      | Job Number  | Invoice Type | Invoice SubType | Entity Code | Supplier Name | Supplier Invoice Date |
+      | Current Job | <PIVType>    | <PIVSubType>    | <O_Entity>  | <O_Haulier>   | <PIVInvoiceDate>      |
     And Processes "<PIVType2>" with below details
-      | Invoice Type | Invoice SubType | Entity Code | Supplier Name | Supplier Invoice Date |
-      | <PIVType2>   | <PIVSubType>    | <O_Entity>  | <O_Haulier>   | <PIVInvoiceDate>      |
+      | Job Number  | Invoice Type | Invoice SubType | Entity Code | Supplier Name | Supplier Invoice Date |
+      | Current Job | <PIVType2>   | <PIVSubType>    | <O_Entity>  | <O_Haulier>   | <PIVInvoiceDate>      |
 #    When user clicks on "Allocate to Jobs/ Consol" button
 #    Then Supplier Name and Supplier Invoice Number should be populated correctly
 #    And PIV Amount Table should be populated correctly
     And Processes Sales Invoice with below details
-      | Job Number  | Charges                   | Bill To Party            |
-      | Current Job | <NumberOfChargesForSales> | <DestinationStakeholder> |
+      | Job Number  | Charges                   | Bill To Party       |
+      | Current Job | <NumberOfChargesForSales> | <OriginStakeholder> |
     And Processes Credit Note against to below details
       | Job Number  | Charges                   | Legal Entity |
       | Current Job | <NumberOfChargesForSales> | <O_Entity>   |
@@ -105,12 +105,12 @@ Feature: PIV Regression
 #      | International | Advance fee            | Garrisons Logistics Pvt Ltd | 100  | INR           | 120     | INR              |
 #      | Destination   | Inland Fuel Surcharge  | BESTWAY TRANSPORT           | 100  | USD           | 120     | USD              |
 #      | Destination   | Booking Fees           | BESTWAY TRANSPORT           | 100  | USD           | 120     | USD              |
-#    And Processes Sales Invoice with below details
-#      | Job Number | Number Charges            | Bill To Party            |
-#      | 100148049  | <NumberOfChargesForSales> | <DestinationStakeholder> |
+    And Processes Sales Invoice with below details
+      | Job Number | Number Charges            | Bill To Party            |
+      | 100148317  | <NumberOfChargesForSales> | <DestinationStakeholder> |
     And Processes Credit Note against to below details
       | Job Number | Number Charges            | Legal Entity |
-      | 100145235  | <NumberOfChargesForSales> | <D_Entity>   |
+      | 100148317  | <NumberOfChargesForSales> | <D_Entity>   |
     Examples:
       | DataRow | MenuOption | ChildMenuOption | ChildSubMenuOption | Product     | ProductType | JobScope | OriginStakeholder | DestinationStakeholder | IncoTerm | Origin_Country | Origin_NetworkComponent | Origin_Department | Origin_Type | Origin_IsLive | O_Entity | Destination_Country | Destination_NetworkComponent | Destination_Department | Destination_Type | Destination_IsLive | D_Entity | Carrier | FlightNumber | AOD | AOA | ETD | ETDTime | ETA | ETATime | Supplier          | Cost | Revenue | O_Haulier         | O_Coll_Date | O_Del_Date | D_Haulier                   | D_Coll_Date | D_Del_Date | PIVType          | PIVSubType | PIVInvoiceDate | PIVAmount | TaxAmount | Currency | NumberOfChargesForSales |
       | DR1     | Job        | Job Booking     |                    | Air Freight | Expedited   | E2E      | Smatbot- US       | STK20016775            | DAT      | US             | Chicago                 | Air Export        | Branch      | Yes           | 1200     | IN                  | Mumbai                       | Air Import             | Branch           | Yes                | 5910     | EK      | EK123        | ORD | BOM | 7   | 12      | 14  | 12      | BESTWAY TRANSPORT | 1    | 2       | BESTWAY TRANSPORT | 1           | 3          | Garrisons Logistics Pvt Ltd | 15          | 16         | Purchase Invoice | Freight    | Today          | 150.00    | 0.00      | INR      | Random                  |
