@@ -27,7 +27,7 @@ public class PIVSteps extends BaseSteps {
     }
 
     public void createPIVHeader(Map<String, String> pivHeaderDetails) throws InterruptedException {
-//        GlobalVariables.setOriginOrgComponent("Mumbai", "Ocean Export");
+//        GlobalVariables.setOriginOrgComponent("Mumbai", "Air Export");
         String invoiceType = pivHeaderDetails.get("Invoice Type");
         String invoiceSubType = pivHeaderDetails.get("Invoice SubType");
         String entityCode = pivHeaderDetails.get("Entity Code");
@@ -59,7 +59,7 @@ public class PIVSteps extends BaseSteps {
         pivPage.supplierNameSearchButton.click();
         searchForSTK(supplierName);
         GlobalVariables.setSuppierinvoiceNum(SeleniumUtils.getCurrentTimeStampAsStrng());
-       SeleniumUtils.waitForElementToBeClickable(pivPage.invoiceNum);
+        SeleniumUtils.waitForElementToBeClickable(pivPage.invoiceNum);
         pivPage.invoiceNum.sendKeys(GlobalVariables.getSuppierinvoiceNum());
 
         Select invoiceTypeDropDown = new Select(pivPage.invoiceType);
@@ -133,12 +133,9 @@ public class PIVSteps extends BaseSteps {
             taxAmount = getAmountsFromChargesToBeAllocated("Negative").get("Tax Amount");
         }
         pivPage.closeDialogButton("Allocate Jobs for Supplier Invoice number : ").click();
-        pivPage.pivAmount.sendKeys(Keys.CONTROL + Keys.chord("a"));
-        pivPage.pivAmount.sendKeys(Keys.DELETE);
+        SeleniumUtils.clearText(pivPage.pivAmount);
         pivPage.pivAmount.sendKeys(PIVAmount);
-
-        pivPage.taxAmount.sendKeys(Keys.CONTROL + Keys.chord("a"));
-        pivPage.taxAmount.sendKeys(Keys.DELETE);
+        SeleniumUtils.clearText(pivPage.taxAmount);
         pivPage.taxAmount.sendKeys(taxAmount);
 
         pivPage.savePIVButton.click();

@@ -341,13 +341,28 @@ public class SeleniumUtils extends DriverInstantiation {
         return new SimpleDateFormat("yyyyMMddHHmmss").format(new Date());
     }
 
-    public static List<Integer> getDistinctRandomValuesInARage(int min, int max, int numberOfDistinctValues){
+    public static List<Integer> getDistinctRandomValuesInARage(int min, int max, int numberOfDistinctValues) {
 
         ArrayList<Integer> distinctValues = new ArrayList<Integer>();
-        for (int i=min; i<max; i++) {
+        for (int i = min; i < max; i++) {
             distinctValues.add(i);
         }
         Collections.shuffle(distinctValues);
         return distinctValues.subList(0, numberOfDistinctValues);
     }
+
+    public static void clearText(WebElement element) {
+        if (System.getProperty("os.name").toLowerCase().contains("mac")) {
+            String text = element.getAttribute("value");
+            element.click();
+            for (int i = 0; i < text.length(); i++) {
+
+                element.sendKeys(Keys.DELETE);
+            }
+        } else {
+            element.sendKeys(Keys.CONTROL + Keys.chord("a"));
+            element.sendKeys(Keys.DELETE);
+        }
+    }
+
 }

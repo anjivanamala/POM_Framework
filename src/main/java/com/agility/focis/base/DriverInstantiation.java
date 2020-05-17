@@ -25,7 +25,7 @@ public class DriverInstantiation {
         if (browser.equalsIgnoreCase("Chrome")) {
 //            ChromeOptions options = new ChromeOptions();
             if (System.getProperty("os.name").toLowerCase().contains("mac")) {
-                System.setProperty("webdriver.chrome.driver", "src/test/resources/drivers/chromedriver_mac64");
+                System.setProperty("webdriver.chrome.driver", "src/test/resources/drivers/chromedriver");
             } else {
                 System.setProperty("webdriver.chrome.driver", "src/test/resources/drivers/chromedriver.exe");
 //                options.setPageLoadStrategy(PageLoadStrategy.EAGER);
