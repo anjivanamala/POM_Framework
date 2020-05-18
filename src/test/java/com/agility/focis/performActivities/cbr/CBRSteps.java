@@ -51,8 +51,10 @@ public class CBRSteps extends CommonSteps {
         SeleniumUtils.waitForPageLoad();
         cbrPage.alertButtonToComplete.click();
         SeleniumUtils.waitForPageLoad();
-        cbrPage.alertButtonToPrint.click();
+        cbrPage.alertButtonToView.click();
         SeleniumUtils.waitForPageLoad();
+//        cbrPage.alertButtonToPrint.click();
+//        SeleniumUtils.waitForPageLoad();
         cbrPage.ediButton.click();
         GlobalVariables.setParties(getPartyInformationCBR());
         SeleniumUtils.switchToParentWindow();

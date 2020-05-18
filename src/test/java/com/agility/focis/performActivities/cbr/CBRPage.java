@@ -37,6 +37,8 @@ public class CBRPage extends CommonPage {
     public WebElement completeButton;
     @FindBy(xpath = "//p[text() = 'To view the document, please click on Print button.']/../../..//button[contains(text() , 'OK')]")
     public WebElement alertButtonToPrint;
+    @FindBy(xpath = "//p[text() = 'To view the document, please click on View button.']/../../..//button[contains(text() , 'OK')]")
+    public WebElement alertButtonToView;
     @FindBy(xpath = "//input[@id='btnEDI']")
     public WebElement ediButton;
     @FindBy(xpath = "//div[@role = 'dialog' and @aria-describedby='alrtdialog']//button[text()=' OK ']")
