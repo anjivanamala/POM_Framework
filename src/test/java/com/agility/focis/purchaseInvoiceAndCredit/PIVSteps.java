@@ -49,7 +49,14 @@ public class PIVSteps extends BaseSteps {
         HyperLinkUtils.clickOnLink(entityCode);
 
         Select orgComponentDropDown = new Select(pivPage.orgComponent);
-        orgComponentDropDown.selectByVisibleText(GlobalVariables.getOriginOrgComponent());
+        if (!GlobalVariables.getJobScope().contains("Origin")) {
+
+            orgComponentDropDown.selectByVisibleText(GlobalVariables.getDestinationOrgComponent());
+        } else {
+
+            orgComponentDropDown.selectByVisibleText(GlobalVariables.getOriginOrgComponent());
+        }
+
         if (entityCode.equalsIgnoreCase("5910")) {
             pivPage.placeOfSupplySearchButton.click();
             DynamicTableUtils.typeTextOnSearchPickerPopup("DataCode", "AP");

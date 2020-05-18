@@ -1,6 +1,7 @@
 package com.agility.focis.addCarriagesAir;
 
 import com.agility.focis.base.BaseSteps;
+import com.agility.focis.globalVariables.GlobalVariables;
 import com.agility.focis.initiateJob.InitiateJobPage;
 import com.agility.focis.utilities.testObject.DynamicTableUtils;
 import com.agility.focis.utilities.testObject.HyperLinkUtils;
@@ -31,14 +32,22 @@ public class AddCarriagesAirSteps extends BaseSteps {
 
     public void addAirportToAirport(String Carrier, String FlightNumber, String AirportOfDeparture, String AirportOfArrival, String ETD, String ETDTime, String ETA, String ETATime, String Supplier, String Cost, String Revenue) throws InterruptedException {
         checkAgilityAirPortOfDeparture(AirportOfDeparture);
+        checkAgilityAirPortOfArrival(AirportOfArrival);
         clickOnAddAirportToAirport();
         SeleniumUtils.waitForFrameTobeAvailableAndSwitchToIt(addCarriagesAirPage.addAirportToAirportFrame);
         SeleniumUtils.waitForPageLoad();
-        SeleniumUtils.waitForElementToBeClickable(addCarriagesAirPage.jobTypeDropdown);
+
+        if (GlobalVariables.getJobScope().equalsIgnoreCase("E2E")) {
+            SeleniumUtils.waitForElementToBeClickable(addCarriagesAirPage.jobTypeDropdown);
+            Thread.sleep(1000);
+            addCarriagesAirPage.jobTypeDropdown.click();
+            addCarriagesAirPage.jobTypeBackToBack.click();
+            addCarriagesAirPage.jobTypeChangeAlert.click();
+        }
+
+        SeleniumUtils.waitForElementToBeClickable(addCarriagesAirPage.Carrier);
         Thread.sleep(1000);
-        addCarriagesAirPage.jobTypeDropdown.click();
-        addCarriagesAirPage.jobTypeBackToBack.click();
-        addCarriagesAirPage.jobTypeChangeAlert.click();
+
         addCarriagesAirPage.Carrier.sendKeys(Carrier);
         addCarriagesAirPage.Carrier.sendKeys(Keys.TAB);
         addCarriagesAirPage.FlightNumber.sendKeys(FlightNumber);
@@ -50,13 +59,17 @@ public class AddCarriagesAirSteps extends BaseSteps {
         addCarriagesAirPage.EtdTime.sendKeys(ETDTime);
         addCarriagesAirPage.EtaDate.sendKeys(SeleniumUtils.getEffectiveDateAfterDays(Integer.parseInt(ETA)) + Keys.TAB);
         addCarriagesAirPage.EtaTime.sendKeys(ETATime);
-        addCarriagesAirPage.pullMawbNumberIcon.click();
+        if (GlobalVariables.getJobScope().equalsIgnoreCase("E2E")) {
+            addCarriagesAirPage.pullMawbNumberIcon.click();
+        }
+
         addCarriagesAirPage.saveAndCompleteActivityButton.click();
         SeleniumUtils.waitForPageLoad();
         Thread.sleep(1000);
 //        driver.switchTo().defaultContent();
 
     }
+
 
     public void updateEstimatesMainCarriage(String Supplier, String Cost, String Revenue) throws InterruptedException {
         SeleniumUtils.waitForFrameTobeAvailableAndSwitchToIt(addCarriagesAirPage.iFrameEstimationscreen);
@@ -75,12 +88,27 @@ public class AddCarriagesAirSteps extends BaseSteps {
         clickOnTab("Movement");
         SeleniumUtils.waitForPageLoad();
         SeleniumUtils.waitForElementToBeClickable(initiateJobPage.airportOfDeparture);
-        if (initiateJobPage.airportOfDeparture.getAttribute("value").contains("INNSA")) {
+        if (initiateJobPage.airportOfDeparture.getAttribute("value").contains("INNSA") || initiateJobPage.airportOfDeparture.getAttribute("value").equalsIgnoreCase("")) {
             initiateJobPage.airportOfDepartureSearchButton.click();
             SeleniumUtils.waitForPageLoad();
             initiateJobPage.airPortCodeInput.sendKeys(airportOfDeparture + Keys.ENTER);
             SeleniumUtils.waitForPageLoad();
             HyperLinkUtils.clickOnLink(airportOfDeparture);
+            SeleniumUtils.waitForPageLoad();
+
+        }
+    }
+
+    public void checkAgilityAirPortOfArrival(String airportOfArrival) throws InterruptedException {
+        clickOnTab("Movement");
+        SeleniumUtils.waitForPageLoad();
+        SeleniumUtils.waitForElementToBeClickable(initiateJobPage.airportOfArrival);
+        if (initiateJobPage.airportOfArrival.getAttribute("value").equalsIgnoreCase("")) {
+            initiateJobPage.airportOfArrivalSearchButton.click();
+            SeleniumUtils.waitForPageLoad();
+            initiateJobPage.airPortCodeInput.sendKeys(airportOfArrival + Keys.ENTER);
+            SeleniumUtils.waitForPageLoad();
+            HyperLinkUtils.clickOnLink(airportOfArrival);
             SeleniumUtils.waitForPageLoad();
 
         }

@@ -47,9 +47,9 @@ public class InitiateJobPage extends BasePage {
     public WebElement airportOfDepartureSearchButton;
     @FindBy(id = "gs_Code")
     public WebElement airPortCodeInput;
-    @FindBy(xpath = "//input[contains(@id,'txtHAWBAirporttoArrival')]")
+    @FindBy(xpath = "//input[contains(@id,'txtHAWBAirporttoArrival') or contains(@id,'txtHAWBAirportOfArrival')]")
     public WebElement airportOfArrival;
-    @FindBy(xpath = "//button[contains(@id,'txtHAWBAirporttoArrival_btnPopup')]")
+    @FindBy(xpath = "//button[contains(@id,'txtHAWBAirporttoArrival_btnPopup') or contains(@id,'txtHAWBAirportOfArrival_btnPopup')]")
     public WebElement airportOfArrivalSearchButton;
     @FindBy(xpath = "//input[contains(@id,'txtAgilityPlaceOfReceipt')]")
     public WebElement portOfLoading;

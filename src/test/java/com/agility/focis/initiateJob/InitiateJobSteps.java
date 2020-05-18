@@ -117,6 +117,7 @@ public class InitiateJobSteps extends BaseSteps {
             } else {
                 Thread.sleep(2000);
                 initiateJobPage.officebestMatch(country).click();
+                SeleniumUtils.waitForPageLoad();
                 isOfficeSelected = true;
                 break;
             }

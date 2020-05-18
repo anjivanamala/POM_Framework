@@ -1,6 +1,7 @@
 package com.agility.focis.addCarriagesAir;
 
 import com.agility.focis.base.BaseSteps;
+import com.agility.focis.globalVariables.GlobalVariables;
 import com.agility.focis.utilities.testObject.SeleniumUtils;
 import io.cucumber.java.en.When;
 import org.openqa.selenium.WebElement;
@@ -46,7 +47,11 @@ public class AddCarriagesAirStepDefinitions {
             String haulierName = originInfo.get(0).get("Haulier Name");
             String originCargoCollectionDate = originInfo.get(0).get("Cargo Collection Date");
             String originCargoDeliveryDate = originInfo.get(0).get("Cargo Delivery Date");
-            addCarriagesAirSteps.addOrigin(haulierType, haulierName, originCargoCollectionDate, originCargoDeliveryDate);
+            if (!GlobalVariables.getJobScope().equalsIgnoreCase("Destination Only")) {
+                addCarriagesAirSteps.addOrigin(haulierType, haulierName, originCargoCollectionDate, originCargoDeliveryDate);
+            }
+
+
         }
     }
 
@@ -56,7 +61,10 @@ public class AddCarriagesAirStepDefinitions {
             String haulierName = destinationInfo.get(0).get("Haulier Name");
             String destinationCargoCollectionDate = destinationInfo.get(0).get("Cargo Collection Date");
             String destinationCargoDeliveryDate = destinationInfo.get(0).get("Cargo Delivery Date");
-            addCarriagesAirSteps.addDestination(haulierType, haulierName, destinationCargoCollectionDate, destinationCargoDeliveryDate);
+            if (!GlobalVariables.getJobScope().equalsIgnoreCase("Origin Only")) {
+                addCarriagesAirSteps.addDestination(haulierType, haulierName, destinationCargoCollectionDate, destinationCargoDeliveryDate);
+            }
+
 
         }
     }

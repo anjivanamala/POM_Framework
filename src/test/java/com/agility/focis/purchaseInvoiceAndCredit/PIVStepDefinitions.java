@@ -56,7 +56,12 @@ public class PIVStepDefinitions {
                 mapToPass.put("PIV Amount", "-100.00");
             }
             mapToPass.put("Tax Amount", "0.00");
-            mapToPass.put("Currency", "INR");
+            if (pivHeaderDetails.get("Entity Code").equalsIgnoreCase("1200")) {
+                mapToPass.put("Currency", "USD");
+            } else {
+                mapToPass.put("Currency", "INR");
+            }
+
             pivSteps.createPIVHeader(mapToPass);
             String jobNumber;
             if (pivHeaderDetails.get("Job Number").equalsIgnoreCase("Current Job")) {
