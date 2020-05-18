@@ -1,6 +1,7 @@
 package com.agility.focis.addCarriagesOcean;
 
 import com.agility.focis.base.BaseSteps;
+import com.agility.focis.globalVariables.GlobalVariables;
 import com.agility.focis.utilities.testObject.SeleniumUtils;
 import org.openqa.selenium.By;
 import org.openqa.selenium.JavascriptExecutor;
@@ -46,9 +47,12 @@ public class AddCarriagesOceanSteps extends BaseSteps {
         addCarriagesOceanPage.carrierInput.sendKeys(carrier);
         SeleniumUtils.waitForNumberOfElementsToBeMoreThan(By.xpath("//ul/li/a[contains(text(),'" + carrier + "')]"), 0);
         addCarriagesOceanPage.inlineSearchRecommendations(carrier).click();
-        SeleniumUtils.waitForElementToBeClickable(addCarriagesOceanPage.jobType);
-        Select jobTypeDropdown = new Select(addCarriagesOceanPage.jobType);
-        jobTypeDropdown.selectByVisibleText(jobType);
+        if (GlobalVariables.getJobScope().contains("E2E")) {
+            SeleniumUtils.waitForElementToBeClickable(addCarriagesOceanPage.jobType);
+            Select jobTypeDropdown = new Select(addCarriagesOceanPage.jobType);
+            jobTypeDropdown.selectByVisibleText(jobType);
+        }
+
     }
 
 
@@ -56,13 +60,13 @@ public class AddCarriagesOceanSteps extends BaseSteps {
         updateMainCarriageHeader(carrier, jobType);
         try {
             for (int i = 0; i < mainCarriageInfo.size(); i++) {
-
+                String mode = mainCarriageInfo.get(i).get("Mode");
                 String portOfLoading = mainCarriageInfo.get(i).get("Port of Loading");
                 String etd = mainCarriageInfo.get(i).get("ETD");
                 String portOfDischarge = mainCarriageInfo.get(i).get("Port of Discharge");
                 String eta = mainCarriageInfo.get(i).get("ETA");
                 if (!portOfLoading.equalsIgnoreCase("")) {
-                    enterVesselDetailsOfALeg(2, portOfLoading, etd, portOfDischarge, eta);
+                    enterVesselDetailsOfALeg(2, mode, portOfLoading, etd, portOfDischarge, eta);
                     addCarriagesOceanPage.saveAndCloseMainCarriageButton.click();
                     driver.switchTo().defaultContent();
                     SeleniumUtils.waitForElementToBeClickable(addCarriagesOceanPage.tab("Movement"));
@@ -84,13 +88,13 @@ public class AddCarriagesOceanSteps extends BaseSteps {
         addCarriagesOceanPage.destinationMainCheckBox(2).click();
         try {
             for (int i = 0; i < mainCarriageInfo.size(); i++) {
-
+                String mode = mainCarriageInfo.get(i).get("Mode");
                 String portOfLoading = mainCarriageInfo.get(i).get("Port of Loading");
                 String etd = mainCarriageInfo.get(i).get("ETD");
                 String portOfDischarge = mainCarriageInfo.get(i).get("Port of Discharge");
                 String eta = mainCarriageInfo.get(i).get("ETA");
                 if (!portOfLoading.equalsIgnoreCase("")) {
-                    enterVesselDetailsOfALeg(2, portOfLoading, etd, portOfDischarge, eta);
+                    enterVesselDetailsOfALeg(i + 1, mode, portOfLoading, etd, portOfDischarge, eta);
                 }
 
             }
@@ -111,12 +115,13 @@ public class AddCarriagesOceanSteps extends BaseSteps {
         try {
             for (int i = 0; i < mainCarriageInfo.size(); i++) {
 
+                String mode = mainCarriageInfo.get(i).get("Mode");
                 String portOfLoading = mainCarriageInfo.get(i).get("Port of Loading");
                 String etd = mainCarriageInfo.get(i).get("ETD");
                 String portOfDischarge = mainCarriageInfo.get(i).get("Port of Discharge");
                 String eta = mainCarriageInfo.get(i).get("ETA");
 
-                enterVesselDetailsOfALeg(i + 1, portOfLoading, etd, portOfDischarge, eta);
+                enterVesselDetailsOfALeg(i + 1, mode, portOfLoading, etd, portOfDischarge, eta);
             }
 //            addCarriagesOceanPage.saveAndCloseMainCarriageButton.click();
             JavascriptExecutor js = (JavascriptExecutor) driver;
@@ -132,8 +137,10 @@ public class AddCarriagesOceanSteps extends BaseSteps {
 
     }
 
-    public void enterVesselDetailsOfALeg(int i, String portOfLoading, String etd, String portOfDischarge, String eta) throws InterruptedException {
+    public void enterVesselDetailsOfALeg(int i, String mode, String portOfLoading, String etd, String portOfDischarge, String eta) throws InterruptedException {
         SeleniumUtils.waitForElementToBeClickable(addCarriagesOceanPage.vessel(i));
+        Select transportMode = new Select(addCarriagesOceanPage.mode.get(i - 1));
+        transportMode.selectByVisibleText(mode);
         addCarriagesOceanPage.vessel(i).sendKeys("Single Leg Vessel");
         addCarriagesOceanPage.voyage(i).sendKeys("Single Leg Voyage");
         addCarriagesOceanPage.portOFLoading(i).sendKeys(portOfLoading);

@@ -6,6 +6,8 @@ import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 
+import java.util.List;
+
 public class AddCarriagesOceanPage extends BasePage {
 
     public AddCarriagesOceanPage(WebDriver driver) {
@@ -31,6 +33,9 @@ public class AddCarriagesOceanPage extends BasePage {
     public WebElement vessel(int i) {
         return driver.findElement(By.xpath("//*[@id = 'txtVsVessel_" + i + "']"));
     }
+
+    @FindBy(xpath = "//select[contains(@id,'RouteSearchFr1_ddlTransportMode')]")
+    List<WebElement> mode;
 
     public WebElement voyage(int i) {
         return driver.findElement(By.xpath("//*[@id = 'txtVsVoyage_" + i + "']"));

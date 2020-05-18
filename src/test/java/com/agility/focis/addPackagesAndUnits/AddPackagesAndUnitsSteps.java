@@ -170,6 +170,8 @@ public class AddPackagesAndUnitsSteps extends BaseSteps {
                 SeleniumUtils.waitForElementToBeClickable(addPackagesAndUnitsPage.saveBookingDetailsButton);
             }
         }
+        SeleniumUtils.waitForPageLoad();
+        SeleniumUtils.waitForElementToBeClickable(addPackagesAndUnitsPage.saveBookingDetailsButton);
         addPackagesAndUnitsPage.saveBookingDetailsButton.click();
     }
 
