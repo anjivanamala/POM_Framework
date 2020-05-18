@@ -66,10 +66,14 @@ public class CBRSteps extends CommonSteps {
         SeleniumUtils.waitForElementToPresent(By.xpath("//ul[@id = 'ulSideMenuBar']//a[text() = 'Intg.. Audit']"));
         SeleniumUtils.waitForElementToBeClickable(cbrPage.moreLinks_linkToBeClicked("Intg.. Audit"));
         cbrPage.moreLinks_linkToBeClicked("Intg.. Audit").click();
+        SeleniumUtils.waitForPageLoad();
         cbrPage.fobSearchButton("", "Booking Request").click();
         SeleniumUtils.waitForElementToBeClickable(cbrPage.xmlDataLink("Booking Request"));
         cbrPage.xmlDataLink("Booking Request").click();
+        SeleniumUtils.waitForPageLoad();
+        SeleniumUtils.waitForElementToVisible(cbrPage.xmlRawData);
         String xmlRawData = cbrPage.xmlRawData.getAttribute("value");
+//        System.out.println(xmlRawData);
         GlobalVariables.setCbrXMLData(xmlRawData);
     }
 

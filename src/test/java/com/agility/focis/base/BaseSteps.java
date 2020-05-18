@@ -120,7 +120,6 @@ public class BaseSteps extends DriverInstantiation {
                 SeleniumUtils.waitForElementToBeClickable(basePage.refreshIcon);
                 searchForSTK(stkName);
             } else {
-                basePage.stakeHolderNameOrID.sendKeys(Keys.ENTER);
                 SeleniumUtils.waitForPageLoad();
                 basePage.stkBestMatch(stkName).click();
                 IsSTKSelected = true;

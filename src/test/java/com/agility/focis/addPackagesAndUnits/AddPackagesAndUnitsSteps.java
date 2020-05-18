@@ -173,6 +173,7 @@ public class AddPackagesAndUnitsSteps extends BaseSteps {
         SeleniumUtils.waitForPageLoad();
         SeleniumUtils.waitForElementToBeClickable(addPackagesAndUnitsPage.saveBookingDetailsButton);
         addPackagesAndUnitsPage.saveBookingDetailsButton.click();
+        SeleniumUtils.waitForPageLoad();
     }
 
     public void updateSealNumber() throws InterruptedException {

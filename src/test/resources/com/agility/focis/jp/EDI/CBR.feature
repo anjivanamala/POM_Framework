@@ -39,10 +39,10 @@ Feature: EDI XML Validations
     And Allocates Packages
 
     And Adds Main Carriage with Carrier - "<Carrier>", Job Type - "<JobType>" along with below details
-      | Port of Loading    | ETD      | Port of Discharge    | ETA      |
-      | <PortOfLoading_L1> | <ETD_L1> | <PortOfDischarge_L1> | <ETA_L1> |
-      | <PortOfLoading_L2> | <ETD_L2> | <PortOfDischarge_L2> | <ETA_L2> |
-      | <PortOfLoading_L3> | <ETD_L3> | <PortOfDischarge_L3> | <ETA_L3> |
+      | Mode   | Port of Loading    | ETD      | Port of Discharge    | ETA      |
+      | Vessel | <PortOfLoading_L1> | <ETD_L1> | <PortOfDischarge_L1> | <ETA_L1> |
+      | Vessel | <PortOfLoading_L2> | <ETD_L2> | <PortOfDischarge_L2> | <ETA_L2> |
+      | Vessel | <PortOfLoading_L3> | <ETD_L3> | <PortOfDischarge_L3> | <ETA_L3> |
 
     And Adds Pre Carriage with Haulage Arrangement as "Merchant"
       | Haulier Name | Cargo Collection Date | Cargo Delivery Date |
