@@ -74,6 +74,7 @@ public class CBRSteps extends CommonSteps {
         cbrPage.xmlDataLink("Booking Request").click();
         SeleniumUtils.waitForPageLoad();
         SeleniumUtils.waitForElementToVisible(cbrPage.xmlRawData);
+        Thread.sleep(5000);
         String xmlRawData = cbrPage.xmlRawData.getAttribute("value");
 //        System.out.println(xmlRawData);
         GlobalVariables.setCbrXMLData(xmlRawData);

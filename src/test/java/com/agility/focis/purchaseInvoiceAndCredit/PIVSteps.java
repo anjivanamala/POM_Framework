@@ -52,7 +52,7 @@ public class PIVSteps extends BaseSteps {
         HyperLinkUtils.clickOnLink(entityCode);
 
         Select orgComponentDropDown = new Select(pivPage.orgComponent);
-        if (!GlobalVariables.getJobScope().contains("Origin")) {
+        if (GlobalVariables.getJobScope().contains("Destination")) {
 
             orgComponentDropDown.selectByVisibleText(GlobalVariables.getDestinationOrgComponent());
         } else {
@@ -205,12 +205,14 @@ public class PIVSteps extends BaseSteps {
         double totalAmount = 0.00;
         List<WebElement> charges = getPositiveOrNegativeCharges(typeOfCharges);
         for (WebElement charge : charges) {
-            cost = cost + Double.parseDouble(charge.findElement(By.xpath(".//td[contains(@aria-describedby,'t_AmountB')]")).getText());
-            pivAmount = pivAmount + Double.parseDouble(charge.findElement(By.xpath(".//td[contains(@aria-describedby,'t_NetAmountB')]")).getText());
-            taxAmount = taxAmount + Double.parseDouble(charge.findElement(By.xpath(".//td[contains(@aria-describedby,'t_VatAmountB')]")).getText());
-            supplierTaxAmount = supplierTaxAmount + Double.parseDouble(charge.findElement(By.xpath(".//td[contains(@aria-describedby,'t_SuppVatAmountB')]/input")).getAttribute("value"));
-            totalAmount = totalAmount + Double.parseDouble(charge.findElement(By.xpath(".//td[contains(@aria-describedby,'t_NetAmountB')]")).getText());
+            cost = cost + Double.parseDouble(charge.findElement(By.xpath(".//td[contains(@aria-describedby,'t_AmountB')]")).getText().replaceAll(",", ""));
+            pivAmount = pivAmount + Double.parseDouble(charge.findElement(By.xpath(".//td[contains(@aria-describedby,'t_NetAmountB')]")).getText().replaceAll(",", ""));
+            taxAmount = taxAmount + Double.parseDouble(charge.findElement(By.xpath(".//td[contains(@aria-describedby,'t_VatAmountB')]")).getText().replaceAll(",", ""));
+            supplierTaxAmount = supplierTaxAmount + Double.parseDouble(charge.findElement(By.xpath(".//td[contains(@aria-describedby,'t_SuppVatAmountB')]/input")).getAttribute("value").replaceAll(",", ""));
+            totalAmount = totalAmount + Double.parseDouble(charge.findElement(By.xpath(".//td[contains(@aria-describedby,'t_NetAmountB')]")).getText().replaceAll(",", "")
+            );
         }
+//        Put all amounts to map
         amounts.put("Cost", String.format("%.2f", cost));
         amounts.put("Net PIV Amount", String.format("%.2f", pivAmount));
         amounts.put("Tax Amount", String.format("%.2f", taxAmount));

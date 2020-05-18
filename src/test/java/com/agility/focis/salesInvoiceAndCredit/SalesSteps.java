@@ -36,7 +36,7 @@ public class SalesSteps extends BaseSteps {
 
         salesPage.createNewInvoiceIcon.click();
         SeleniumUtils.waitForPageLoad();
-        Thread.sleep(20000);
+        Thread.sleep(25000);
         SeleniumUtils.waitForPageLoad();
         SeleniumUtils.waitForElementToVisible(salesPage.salesInvoiceObject);
 //        salesPage.generateInvoiceButton().click();

@@ -32,10 +32,14 @@ public class BaseSteps extends DriverInstantiation {
         driver = getDriver();
         driver.get(loginURL());
         driver.manage().window().maximize();
-        basePage.userName.sendKeys(getUserName());
-        basePage.password.sendKeys(getPassword());
-        basePage.signInButton.click();
-        SeleniumUtils.waitForPageLoad();
+        if (driver.findElements(By.id("Login1_UserName")).size() > 0) {
+            basePage.userName.sendKeys(getUserName());
+            basePage.password.sendKeys(getPassword());
+            basePage.signInButton.click();
+            SeleniumUtils.waitForPageLoad();
+        } else {
+            loginToApp();
+        }
     }
 
     public void loginToApp(String userName, String password) throws IOException, InterruptedException {
