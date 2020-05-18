@@ -29,8 +29,11 @@ public class PIVSteps extends BaseSteps {
     public void createPIVHeader(Map<String, String> pivHeaderDetails) throws InterruptedException {
 //        GlobalVariables.setOriginOrgComponent("Mumbai", "Air Export");
         String invoiceType = pivHeaderDetails.get("Invoice Type");
+        GlobalVariables.setInvoiceType(invoiceType);
         String invoiceSubType = pivHeaderDetails.get("Invoice SubType");
+        GlobalVariables.setInvoiceSubType(invoiceSubType);
         String entityCode = pivHeaderDetails.get("Entity Code");
+        GlobalVariables.setSetEntityCode(entityCode);
         String supplierName = pivHeaderDetails.get("Supplier Name");
         GlobalVariables.setSupplierName(supplierName);
         String supplierInvoiceDate = pivHeaderDetails.get("Supplier Invoice Date");
@@ -163,8 +166,10 @@ public class PIVSteps extends BaseSteps {
         }
         pivPage.allocateButton.click();
         SeleniumUtils.waitForPageLoad();
+        SeleniumUtils.waitForElementToBeClickable(pivPage.completeInvoiceButton);
         pivPage.completeInvoiceButton.click();
         SeleniumUtils.waitForPageLoad();
+        searchForPurchaseInvoice(GlobalVariables.getSupplierName(), GlobalVariables.getInvoiceType(), GlobalVariables.getInvoiceSubType(), GlobalVariables.getSuppierinvoiceNum(), GlobalVariables.getSetEntityCode());
         String pivNumber = pivPage.generatedPIVNumber(GlobalVariables.getSuppierinvoiceNum()).getText();
         String supplierName = pivPage.generatedPIVSupplierName(GlobalVariables.getSuppierinvoiceNum()).getText();
         String pivTotalAmount = pivPage.generatedPIVTotalAmount(GlobalVariables.getSuppierinvoiceNum()).getText();
@@ -240,6 +245,30 @@ public class PIVSteps extends BaseSteps {
             listToReturn = negativeCharges;
         }
         return listToReturn;
+    }
+
+    public void searchForPurchaseInvoice(String supplierName, String pivType, String pivSubType, String supplierInvoiceNumber, String entityCode) throws InterruptedException {
+        expandPanel("Search Companion");
+//        pivPage.supplierNameSearchButton.click();
+//        SeleniumUtils.waitForPageLoad();
+//        searchForSTK(supplierName);
+        SeleniumUtils.clearText(pivPage.supplierInvoiceNumberSearchCompanion);
+        pivPage.supplierInvoiceNumberSearchCompanion.sendKeys(supplierInvoiceNumber);
+        Select pivTypeDropDown = new Select(pivPage.pivTypeSearchCompanion);
+        pivTypeDropDown.selectByVisibleText(pivType);
+        Select pivSubTypeDropDown = new Select(pivPage.pivSubtypeSearchCompanion);
+        pivSubTypeDropDown.selectByVisibleText(pivSubType);
+        pivPage.legalEntitySearchButton.click();
+        SeleniumUtils.waitForPageLoad();
+        pivPage.entityCodeSearchBox.sendKeys(entityCode);
+        Thread.sleep(1000);
+        pivPage.entityCodeSearchBox.sendKeys(Keys.ENTER);
+        SeleniumUtils.waitForPageLoad();
+        HyperLinkUtils.clickOnLink(entityCode);
+        SeleniumUtils.waitForPageLoad();
+        pivPage.searchButtonManagePIV.click();
+        SeleniumUtils.waitForPageLoad();
+
     }
 
 }

@@ -153,5 +153,17 @@ public class BasePage {
 
     @FindBy(xpath = "//span[@class='ui-icon sp-JobIcon icon-coins_transparent']")
     public WebElement financialIcon;
+
+    //Expand or Collapse Panel
+
+    public WebElement expandOrCollapsePanelBody(String panelName) {
+        return driver.findElement(By.xpath("//td[text()='" + panelName + "']/ancestor::table[1]//tr[@class='PWCTitledPanelBody']"));
+
+    }
+
+    public WebElement expandOrCollapsePanelIcon(String panelName) {
+        return driver.findElement(By.xpath("//td[text()='" + panelName + "']/ancestor::table[1]//img"));
+    }
+
 }
 

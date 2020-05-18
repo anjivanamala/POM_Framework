@@ -120,6 +120,8 @@ public class BaseSteps extends DriverInstantiation {
                 SeleniumUtils.waitForElementToBeClickable(basePage.refreshIcon);
                 searchForSTK(stkName);
             } else {
+                basePage.stakeHolderNameOrID.sendKeys(Keys.ENTER);
+                SeleniumUtils.waitForPageLoad();
                 basePage.stkBestMatch(stkName).click();
                 IsSTKSelected = true;
                 break;
@@ -263,6 +265,7 @@ public class BaseSteps extends DriverInstantiation {
 
     public void navigateToFinancialScreen() throws InterruptedException {
         if (driver.getCurrentUrl().contains("bookingdetailsfrpg")) {
+            SeleniumUtils.waitForPageLoad();
             SeleniumUtils.waitForElementToBeClickable(basePage.financialIcon);
             basePage.financialIcon.click();
             SeleniumUtils.waitForPageLoad();
@@ -295,6 +298,22 @@ public class BaseSteps extends DriverInstantiation {
         } else {
             basePage.homeButton.click();
             SeleniumUtils.waitForPageLoad();
+        }
+    }
+
+    public void expandPanel(String panelName) throws InterruptedException {
+        if (basePage.expandOrCollapsePanelBody(panelName).getAttribute("style").contains("none")) {
+            basePage.expandOrCollapsePanelIcon(panelName).click();
+            SeleniumUtils.waitForPageLoad();
+
+        }
+    }
+
+    public void collapsePane(String panelName) throws InterruptedException {
+        if (basePage.expandOrCollapsePanelBody(panelName).getAttribute("style").contains("display: table-row;")) {
+            basePage.expandOrCollapsePanelIcon(panelName).click();
+            SeleniumUtils.waitForPageLoad();
+
         }
     }
 }

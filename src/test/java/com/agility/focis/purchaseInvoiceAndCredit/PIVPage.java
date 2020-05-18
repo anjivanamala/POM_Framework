@@ -26,7 +26,7 @@ public class PIVPage extends BasePage {
     public WebElement orgComponent;
     @FindBy(xpath = "//span[contains(@id,'lblPivNo')]")
     public WebElement pivNo;
-//    public List<WebElement> pivNums;
+    //    public List<WebElement> pivNums;
     @FindBy(xpath = "//button[contains(@id,'txtPlaceOfSupply_btnPopup')]")
     public WebElement placeOfSupplySearchButton;
     @FindBy(xpath = "//button[contains(@id,'txtSupplier_btnPopup')]")
@@ -114,4 +114,19 @@ public class PIVPage extends BasePage {
     public WebElement generatedPIVStatus(String invoiceNumber) {
         return driver.findElement(By.xpath("//td[contains(@aria-describedby,'SupplierInvNo')]/span[text()='" + invoiceNumber + "']/ancestor::tr[1]/td[contains(@aria-describedby,'StateName')]"));
     }
+
+
+//    Search Companion - PIV
+
+    @FindBy(xpath = "//input[contains(@id,'txtSupplierInvNo')]")
+    public WebElement supplierInvoiceNumberSearchCompanion;
+
+    @FindBy(xpath = "//select[contains(@id,'ManagePIVLsUc_ddlPIVType')]")
+    public WebElement pivTypeSearchCompanion;
+
+    @FindBy(xpath = "//select[contains(@id,'ManagePIVLsUc_ddlPivSubType')]")
+    public WebElement pivSubtypeSearchCompanion;
+
+    @FindBy(xpath = "//input[contains(@id,'ManagePIVLsUc_btnSearch')]")
+    public WebElement searchButtonManagePIV;
 }

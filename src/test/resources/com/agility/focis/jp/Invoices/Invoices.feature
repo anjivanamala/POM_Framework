@@ -122,7 +122,7 @@ Feature: Invoices Generation
       | DataRow | MenuOption | ChildMenuOption | Product     | ProductType | JobScope    | OriginStakeholder    | DestinationStakeholder | IncoTerm | Origin_Country | Origin_NetworkComponent | Origin_Department | Origin_Type | Origin_IsLive | O_Entity | Destination_Country | Destination_NetworkComponent | Destination_Department | Destination_Type | Destination_IsLive | D_Entity | Carrier | FlightNumber | AOD | AOA | ETD | ETDTime | ETA | ETATime | O_Haulier                   | O_Coll_Date | O_Del_Date | PIVType          | PIVSubType | PIVInvoiceDate | PIVType2        | NumberOfChargesForSales |
       | DR3     | Job        | Job Booking     | Air Freight | Expedited   | Origin Only | Flyjac Logistics- IN | Smatbot- US            | DAT      | IN             | Mumbai                  | Air Export        | Branch      | Yes           | 5910     |                     |                              |                        |                  |                    | 1200     | EK      | EK123        | BOM | ORD | 7   | 12      | 14  | 12      | Garrisons Logistics Pvt Ltd | 1           | 3          | Purchase Invoice | Freight    | Today          | Purchase Credit | All                     |
 
-  @GenerateInvoices @DestinationOnly @AirFreight
+  @GenerateInvoices @DestinationOnly @AirFreight @AirDestinationOnly
   Scenario Outline: Create Air Freight - Destination Only Job and Process Invoices
 
     Given User is logged into FOCiS Application
@@ -245,8 +245,8 @@ Feature: Invoices Generation
       | Job Number  | Charges                   | Legal Entity |
       | Current Job | <NumberOfChargesForSales> | <O_Entity>   |
     Examples:
-      | DataRow | MenuOption | ChildMenuOption | Product       | ProductType | JobScope | JobType      | OriginStakeholder    | DestinationStakeholder | IncoTerm | MBLType | MBLTerms | SequestType | Origin_Country | Origin_NetworkComponent | Origin_Department | Origin_Type | Origin_IsLive | Destination_Country | Destination_NetworkComponent | Destination_Department | Destination_Type | Destination_IsLive | Carrier | PortOfLoading_L1 | ETD_L1 | PortOfDischarge_L1 | ETA_L1 | PortOfLoading_L2 | ETD_L2 | PortOfDischarge_L2 | ETA_L2 | PortOfLoading_L3 | ETD_L3 | PortOfDischarge_L3 | ETA_L3 | O_Haulier                   | O_Coll_Date | O_Del_Date | D_Haulier         | D_Coll_Date | D_Del_Date | CBR | CBC | BCTC | MBL | PIVType          | PIVSubType | PIVInvoiceDate | PIVType2        | NumberOfChargesForSales |
-      | DR1     | Job        | Job Booking     | Ocean Freight | FCL         | E2E      | Back To Back | Flyjac Logistics- IN | Smatbot- US            | DAT      | Express | Prepaid  | Original    | IN             | Mumbai                  | Ocean Export      | Branch      | Yes           | US                  | Chicago                      | Ocean Import           | Branch           | Yes                | MAEU    | INNSA            | 7      | INMAA              | 8      | INMAA            | 9      | AEDXB              | 10     | AEDXB            | 11     | USCHI              | 14     | Garrisons Logistics Pvt Ltd | 1           | 5          | BESTWAY TRANSPORT | 15          | 16         | Yes | No  | No   | No  | Purchase Invoice | Freight    | Today          | Purchase Credit | All                     |
+      | DataRow | MenuOption | ChildMenuOption | Product       | ProductType | JobScope | JobType      | OriginStakeholder    | DestinationStakeholder | IncoTerm | MBLType | MBLTerms | SequestType | Origin_Country | Origin_NetworkComponent | Origin_Department | Origin_Type | Origin_IsLive | O_Entity | Destination_Country | Destination_NetworkComponent | Destination_Department | Destination_Type | Destination_IsLive | D_Entity | Carrier | PortOfLoading_L1 | ETD_L1 | PortOfDischarge_L1 | ETA_L1 | PortOfLoading_L2 | ETD_L2 | PortOfDischarge_L2 | ETA_L2 | PortOfLoading_L3 | ETD_L3 | PortOfDischarge_L3 | ETA_L3 | O_Haulier                   | O_Coll_Date | O_Del_Date | D_Haulier         | D_Coll_Date | D_Del_Date | CBR | CBC | BCTC | MBL | PIVType          | PIVSubType | PIVInvoiceDate | PIVType2        | NumberOfChargesForSales |
+      | DR1     | Job        | Job Booking     | Ocean Freight | FCL         | E2E      | Back To Back | Flyjac Logistics- IN | Smatbot- US            | DAT      | Express | Prepaid  | Original    | IN             | Mumbai                  | Ocean Export      | Branch      | Yes           | 5910     | US                  | Chicago                      | Ocean Import           | Branch           | Yes                | 1200     | MAEU    | INNSA            | 7      | INMAA              | 8      | INMAA            | 9      | AEDXB              | 10     | AEDXB            | 11     | USCHI              | 14     | Garrisons Logistics Pvt Ltd | 1           | 5          | BESTWAY TRANSPORT | 15          | 16         | Yes | No  | No   | No  | Purchase Invoice | Freight    | Today          | Purchase Credit | All                     |
 
   @OceanFreight @GenerateInvoices @OriginOnly @OceanOriginOnly
   Scenario Outline: Create Ocean Freight FCL- Origin Only Job and Process Invoices
@@ -290,11 +290,10 @@ Feature: Invoices Generation
       | <O_Haulier>  | <O_Coll_Date>         | <O_Del_Date>        |
 
     And adds Charges as below
-      | Charge Type   | Charge Name      | Supplier                    | Cost | Cost Currency | Revenue | Revenue Currency |
-      | Origin        | Documentation    | Garrisons Logistics Pvt Ltd | 100  | INR           | 120     | INR              |
-      | Origin        | Pick-Up Charges  | Garrisons Logistics Pvt Ltd | -70  | INR           | 50      | INR              |
-      | International | Inland Transport | Garrisons Logistics Pvt Ltd | 120  | INR           | 150     | INR              |
-      | International | Advance fee      | Garrisons Logistics Pvt Ltd | -70  | INR           | 50      | INR              |
+      | Charge Type | Charge Name     | Supplier                    | Cost | Cost Currency | Revenue | Revenue Currency |
+      | Origin      | Booking Fees    | Garrisons Logistics Pvt Ltd | 100  | INR           | 120     | INR              |
+      | Origin      | Pick-Up Charges | Garrisons Logistics Pvt Ltd | -70  | INR           | 50      | INR              |
+      | Origin      | BAF             | Garrisons Logistics Pvt Ltd | 120  | INR           | 150     | INR              |
     And Processes "<PIVType>" with below details
       | Job Number  | Invoice Type | Invoice SubType | Entity Code | Supplier Name | Supplier Invoice Date |
       | Current Job | <PIVType>    | <PIVSubType>    | <O_Entity>  | <O_Haulier>   | <PIVInvoiceDate>      |
@@ -308,8 +307,8 @@ Feature: Invoices Generation
       | Job Number  | Charges                   | Legal Entity |
       | Current Job | <NumberOfChargesForSales> | <O_Entity>   |
     Examples:
-      | DataRow | MenuOption | ChildMenuOption | Product       | ProductType | JobScope    | JobType      | OriginStakeholder    | DestinationStakeholder | IncoTerm | MBLType | MBLTerms | SequestType | Origin_Country | Origin_NetworkComponent | Origin_Department | Origin_Type | Origin_IsLive | Carrier | PortOfLoading_L1 | ETD_L1 | PortOfDischarge_L1 | ETA_L1 | PortOfLoading_L2 | ETD_L2 | PortOfDischarge_L2 | ETA_L2 | PortOfLoading_L3 | ETD_L3 | PortOfDischarge_L3 | ETA_L3 | O_Haulier                   | O_Coll_Date | O_Del_Date | PIVType          | PIVSubType | PIVInvoiceDate | PIVType2        | NumberOfChargesForSales |
-      | DR1     | Job        | Job Booking     | Ocean Freight | FCL         | Origin Only | Back To Back | Flyjac Logistics- IN | Smatbot- US            | DAT      | Express | Prepaid  | Original    | IN             | Mumbai                  | Ocean Export      | Branch      | Yes           | MAEU    | INNSA            | 7      | INMAA              | 8      | INMAA            | 9      | AEDXB              | 10     | AEDXB            | 11     | USCHI              | 14     | Garrisons Logistics Pvt Ltd | 1           | 5          | Purchase Invoice | Freight    | Today          | Purchase Credit | All                     |
+      | DataRow | MenuOption | ChildMenuOption | Product       | ProductType | JobScope    | JobType      | OriginStakeholder    | DestinationStakeholder | O_Entity | IncoTerm | MBLType | MBLTerms | SequestType | Origin_Country | Origin_NetworkComponent | Origin_Department | Origin_Type | Origin_IsLive | Carrier | PortOfLoading_L1 | ETD_L1 | PortOfDischarge_L1 | ETA_L1 | PortOfLoading_L2 | ETD_L2 | PortOfDischarge_L2 | ETA_L2 | PortOfLoading_L3 | ETD_L3 | PortOfDischarge_L3 | ETA_L3 | O_Haulier                   | O_Coll_Date | O_Del_Date | PIVType          | PIVSubType | PIVInvoiceDate | PIVType2        | NumberOfChargesForSales |
+      | DR1     | Job        | Job Booking     | Ocean Freight | FCL         | Origin Only | Back To Back | Flyjac Logistics- IN | Smatbot- US            | 5910     | DAT      | Express | Prepaid  | Original    | IN             | Mumbai                  | Ocean Export      | Branch      | Yes           | MAEU    | INNSA            | 7      | INMAA              | 8      | INMAA            | 9      | AEDXB              | 10     | AEDXB            | 11     | USCHI              | 14     | Garrisons Logistics Pvt Ltd | 1           | 5          | Purchase Invoice | Freight    | Today          | Purchase Credit | All                     |
 
   @OceanFreight @GenerateInvoices @DestinationOnly @OceanDestinationOnly
   Scenario Outline: Create Ocean Freight FCL- Destination Only Job and Process Invoices
@@ -321,9 +320,6 @@ Feature: Invoices Generation
     And selects "<OriginStakeholder>" as Origin Stakeholder & "<DestinationStakeholder>" as Destination Stakeholder
     And Clicks on "Next" button
 
-    And selects Incoterm, Master Bill Of Lading & Sequest Line Of Billing details as below
-      | IncoTerm   | MBLType   | MBLTerms   | SequestType   |
-      | <IncoTerm> | <MBLType> | <MBLTerms> | <SequestType> |
     And selects "Destination" Office as below
       | Country               | Type               | NetworkComponent               | Department               | IsLive               |
       | <Destination_Country> | <Destination_Type> | <Destination_NetworkComponent> | <Destination_Department> | <Destination_IsLive> |
@@ -357,7 +353,7 @@ Feature: Invoices Generation
 
     And adds Charges as below
       | Charge Type | Charge Name           | Supplier          | Cost | Cost Currency | Revenue | Revenue Currency |
-      | Destination | Advance fee           | BESTWAY TRANSPORT | 70   | USD           | 50      | USD              |
+      | Destination | Advance fee           | BESTWAY TRANSPORT | 70   | USD           | 150      | USD              |
       | Destination | Inland Fuel Surcharge | BESTWAY TRANSPORT | -100 | USD           | 120     | USD              |
       | Destination | Booking Fees          | BESTWAY TRANSPORT | 100  | USD           | 120     | USD              |
     And Processes "<PIVType>" with below details
@@ -374,5 +370,5 @@ Feature: Invoices Generation
       | Current Job | <NumberOfChargesForSales> | <D_Entity>   |
 
     Examples:
-      | DataRow | MenuOption | ChildMenuOption | Product       | ProductType | JobScope         | JobType      | OriginStakeholder    | DestinationStakeholder | IncoTerm | MBLType | MBLTerms | SequestType | Destination_Country | Destination_NetworkComponent | Destination_Department | Destination_Type | Destination_IsLive | Carrier | PortOfLoading_L1 | ETD_L1 | PortOfDischarge_L1 | ETA_L1 | PortOfLoading_L2 | ETD_L2 | PortOfDischarge_L2 | ETA_L2 | PortOfLoading_L3 | ETD_L3 | PortOfDischarge_L3 | ETA_L3 | D_Haulier         | D_Coll_Date | D_Del_Date | PIVType          | PIVSubType | PIVInvoiceDate | PIVType2        | NumberOfChargesForSales |
-      | DR1     | Job        | Job Booking     | Ocean Freight | FCL         | Destination Only | Back To Back | Flyjac Logistics- IN | Smatbot- US            | DAT      | Express | Prepaid  | Original    | US                  | Chicago                      | Ocean Import           | Branch           | Yes                | MAEU    | INNSA            | 7      | INMAA              | 8      | INMAA            | 9      | AEDXB              | 10     | AEDXB            | 11     | USCHI              | 14     | BESTWAY TRANSPORT | 15          | 16         | Purchase Invoice | Freight    | Today          | Purchase Credit | All                     |
+      | DataRow | MenuOption | ChildMenuOption | Product       | ProductType | JobScope         | JobType      | OriginStakeholder    | DestinationStakeholder | D_Entity | IncoTerm | MBLType | MBLTerms | SequestType | Destination_Country | Destination_NetworkComponent | Destination_Department | Destination_Type | Destination_IsLive | Carrier | PortOfLoading_L1 | ETD_L1 | PortOfDischarge_L1 | ETA_L1 | PortOfLoading_L2 | ETD_L2 | PortOfDischarge_L2 | ETA_L2 | PortOfLoading_L3 | ETD_L3 | PortOfDischarge_L3 | ETA_L3 | D_Haulier         | D_Coll_Date | D_Del_Date | PIVType          | PIVSubType | PIVInvoiceDate | PIVType2        | NumberOfChargesForSales |
+      | DR1     | Job        | Job Booking     | Ocean Freight | FCL         | Destination Only | Back To Back | Flyjac Logistics- IN | Smatbot- US            | 1200     | DAT      | Express | Prepaid  | Original    | US                  | Chicago                      | Ocean Import           | Branch           | Yes                | MAEU    | INNSA            | 7      | INMAA              | 8      | INMAA            | 9      | AEDXB              | 10     | AEDXB            | 11     | USCHI              | 14     | BESTWAY TRANSPORT | 15          | 16         | Purchase Invoice | Freight    | Today          | Purchase Credit | All                     |

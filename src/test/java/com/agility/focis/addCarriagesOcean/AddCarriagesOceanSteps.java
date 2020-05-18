@@ -2,6 +2,8 @@ package com.agility.focis.addCarriagesOcean;
 
 import com.agility.focis.base.BaseSteps;
 import com.agility.focis.globalVariables.GlobalVariables;
+import com.agility.focis.initiateJob.InitiateJobPage;
+import com.agility.focis.utilities.testObject.HyperLinkUtils;
 import com.agility.focis.utilities.testObject.SeleniumUtils;
 import org.openqa.selenium.By;
 import org.openqa.selenium.JavascriptExecutor;
@@ -18,10 +20,12 @@ import java.util.Map;
 public class AddCarriagesOceanSteps extends BaseSteps {
     private WebDriver driver;
     AddCarriagesOceanPage addCarriagesOceanPage;
+    InitiateJobPage initiateJobPage;
 
     AddCarriagesOceanSteps() throws IOException {
         this.driver = getDriver();
         addCarriagesOceanPage = new AddCarriagesOceanPage(this.driver);
+        initiateJobPage = new InitiateJobPage(this.driver);
 
     }
 
@@ -143,13 +147,20 @@ public class AddCarriagesOceanSteps extends BaseSteps {
         transportMode.selectByVisibleText(mode);
         addCarriagesOceanPage.vessel(i).sendKeys("Single Leg Vessel");
         addCarriagesOceanPage.voyage(i).sendKeys("Single Leg Voyage");
-        addCarriagesOceanPage.portOFLoading(i).sendKeys(portOfLoading);
-        Thread.sleep(1000);
-        addCarriagesOceanPage.portOFLoading(i).sendKeys(Keys.ENTER);
-        SeleniumUtils.waitForElementToBeClickable(addCarriagesOceanPage.portOfDischarge(i));
-        addCarriagesOceanPage.portOfDischarge(i).sendKeys(portOfDischarge);
-        Thread.sleep(1000);
-        addCarriagesOceanPage.portOfDischarge(i).sendKeys(Keys.ENTER);
+        addCarriagesOceanPage.portOfLoadingSearchButton.get(i - 1).click();
+        SeleniumUtils.waitForPageLoad();
+        initiateJobPage.airPortCodeInput.sendKeys(portOfLoading + Keys.ENTER);
+        SeleniumUtils.waitForPageLoad();
+        HyperLinkUtils.clickOnLink(portOfLoading);
+        SeleniumUtils.waitForPageLoad();
+
+        addCarriagesOceanPage.portOfDischargeSearchButton.get(i - 1).click();
+        SeleniumUtils.waitForPageLoad();
+        initiateJobPage.airPortCodeInput.sendKeys(portOfDischarge + Keys.ENTER);
+        SeleniumUtils.waitForPageLoad();
+        HyperLinkUtils.clickOnLink(portOfDischarge);
+        SeleniumUtils.waitForPageLoad();
+
         SeleniumUtils.selectDate(addCarriagesOceanPage.etd(i), Integer.parseInt(etd));
         addCarriagesOceanPage.etdTime(i).sendKeys("12" + Keys.TAB);
         SeleniumUtils.selectDate(addCarriagesOceanPage.eta(i), Integer.parseInt(eta));
@@ -157,6 +168,7 @@ public class AddCarriagesOceanSteps extends BaseSteps {
     }
 
     public void addPreCarriage(String haulierType, String haulierName, String originCargoCollectionDate, String originCargoDeliveryDate) throws InterruptedException {
+        SeleniumUtils.waitForPageLoad();
         addCarriagesOceanPage.addPreCarriageButton.click();
         SeleniumUtils.waitForElementToVisible(addCarriagesOceanPage.closeIframeButton);
         SeleniumUtils.waitForFrameTobeAvailableAndSwitchToIt(addCarriagesOceanPage.preOrOnCarriageFrame);
@@ -175,6 +187,8 @@ public class AddCarriagesOceanSteps extends BaseSteps {
     }
 
     public void addOnCarriage(String haulierType, String haulierName, String destinationCargoCollectionDate, String destinationCargoDeliveryDate) throws InterruptedException {
+        SeleniumUtils.waitForPageLoad();
+        SeleniumUtils.waitForElementToBeClickable(addCarriagesOceanPage.addOnCarriageButton);
         Actions actions = new Actions(driver);
         actions.moveToElement(addCarriagesOceanPage.addOnCarriageButton).build().perform();
         addCarriagesOceanPage.addOnCarriageButton.click();

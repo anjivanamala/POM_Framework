@@ -31,6 +31,27 @@ public class GlobalVariables {
     private static String OriginOrgComponent;
     private static String DestinationOrgComponent;
     private static String SupplierName;
+    private static String invoiceType;
+
+    public static String getSetEntityCode() {
+        return setEntityCode;
+    }
+
+    public static void setSetEntityCode(String setEntityCode) {
+        GlobalVariables.setEntityCode = setEntityCode;
+    }
+
+    private static String setEntityCode;
+
+    public static String getInvoiceSubType() {
+        return invoiceSubType;
+    }
+
+    public static void setInvoiceSubType(String invoiceSubType) {
+        GlobalVariables.invoiceSubType = invoiceSubType;
+    }
+
+    private static String invoiceSubType;
 
 
     public static String getSuppierinvoiceNum() {
@@ -178,5 +199,13 @@ public class GlobalVariables {
 
     public static void setParties(Map<String, Map<String, String>> parties) {
         GlobalVariables.parties = parties;
+    }
+
+    public static void setInvoiceType(String invoiceType) {
+        GlobalVariables.invoiceType = invoiceType;
+    }
+
+    public static String getInvoiceType() {
+        return invoiceType;
     }
 }

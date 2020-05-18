@@ -45,9 +45,15 @@ public class AddCarriagesOceanPage extends BasePage {
         return driver.findElement(By.xpath("//input[contains(@id,'PortOfLoading_" + i + "')]"));
     }
 
+    @FindBy(xpath = "//button[contains(@id,'txtVsPortOfLoading')]")
+    public List<WebElement> portOfLoadingSearchButton;
+
     public WebElement portOfDischarge(int i) {
         return driver.findElement(By.xpath("//input[contains(@id,'PortOfDischarge_" + i + "')]"));
     }
+
+    @FindBy(xpath = "//button[contains(@id,'hdnVsPortOfDischargeId')]")
+    List<WebElement> portOfDischargeSearchButton;
 
     public WebElement etd(int i) {
         return driver.findElement(By.xpath("//input[contains(@id,'ETDDate_" + i + "')]"));
