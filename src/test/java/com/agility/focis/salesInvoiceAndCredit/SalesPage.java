@@ -1,7 +1,6 @@
 package com.agility.focis.salesInvoiceAndCredit;
 
 import com.agility.focis.base.BasePage;
-import com.sun.tracing.dtrace.FunctionName;
 import org.openqa.selenium.By;
 import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.WebDriver;

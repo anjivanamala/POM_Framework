@@ -86,7 +86,7 @@ public class SalesSteps extends BaseSteps {
     public static void updateCreditAmount(List<WebElement> charges) {
 
         for (WebElement charge : charges) {
-            double invoicedAmount = Double.parseDouble(charge.findElement(By.xpath(".//td[@aria-describedby='grdChargeCodeDetailsLs_AmountInvoicedB']")).getText());
+            double invoicedAmount = Double.parseDouble(charge.findElement(By.xpath(".//td[@aria-describedby='grdChargeCodeDetailsLs_AmountInvoicedB']")).getText().replaceAll(",",""));
             double creditAmount = ThreadLocalRandom.current().nextDouble(1.00, invoicedAmount - 0.5);
             System.out.println(String.format("%.2f", creditAmount) + " is Credit amount");
             charge.findElement(By.xpath(".//input[@name='CreditAmount']")).sendKeys(String.format("%.2f", creditAmount));
