@@ -47,6 +47,7 @@ public class InitiateJobSteps extends BaseSteps {
     public void selectStakeholder(String stakeholderType, String stakeholderIdOrName) throws InterruptedException {
         initiateJobPage.searchIconUsingLable(stakeholderType).click();
         searchForSTK(stakeholderIdOrName);
+        SeleniumUtils.waitForPageLoad();
 
     }
 

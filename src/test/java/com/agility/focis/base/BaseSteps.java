@@ -126,6 +126,7 @@ public class BaseSteps extends DriverInstantiation {
             } else {
                 SeleniumUtils.waitForPageLoad();
                 basePage.stkBestMatch(stkName).click();
+                SeleniumUtils.waitForPageLoad();
                 IsSTKSelected = true;
                 break;
             }
@@ -133,6 +134,7 @@ public class BaseSteps extends DriverInstantiation {
         if (!IsSTKSelected) {
             SeleniumUtils.waitForElementToBeClickable(basePage.closePopUpButton("Stakeholders"));
             basePage.closePopUpButton("Stakeholders").click();
+            SeleniumUtils.waitForPageLoad();
         }
     }
 
