@@ -12,6 +12,7 @@ import io.cucumber.java.en.Given;
 import io.cucumber.java.en.Then;
 import io.cucumber.java.en.When;
 import io.cucumber.junit.Cucumber;
+import net.sourceforge.tess4j.TesseractException;
 import org.junit.runner.RunWith;
 import org.openqa.selenium.OutputType;
 import org.openqa.selenium.TakesScreenshot;
@@ -103,5 +104,10 @@ public class BaseStepDefinitions {
         } else {
             SeleniumUtils.logInfo("Invalid Option");
         }
+    }
+
+    @Then("user should be able to read Captcha")
+    public void userShouldBeAbleToReadCaptcha() throws TesseractException, IOException {
+        baseSteps.readCaptcha();
     }
 }

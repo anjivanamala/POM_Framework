@@ -165,5 +165,8 @@ public class BasePage {
         return driver.findElement(By.xpath("//td[text()='" + panelName + "']/ancestor::table[1]//img"));
     }
 
+    @FindBy(xpath = "//img[@class='BDC_CaptchaImage']")
+    public WebElement captchaImage;
+
 }
 

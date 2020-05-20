@@ -5,11 +5,17 @@ import com.agility.focis.utilities.testObject.DynamicTableUtils;
 import com.agility.focis.utilities.testObject.HyperLinkUtils;
 import com.agility.focis.utilities.testObject.SeleniumUtils;
 import io.cucumber.java.eo.Se;
+import net.sourceforge.tess4j.Tesseract;
+import net.sourceforge.tess4j.TesseractException;
 import org.openqa.selenium.*;
 import org.openqa.selenium.interactions.Actions;
 import org.openqa.selenium.support.ui.Select;
 
+import javax.imageio.ImageIO;
+import java.awt.image.BufferedImage;
+import java.io.File;
 import java.io.IOException;
+import java.net.URL;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Map;
@@ -320,5 +326,22 @@ public class BaseSteps extends DriverInstantiation {
             SeleniumUtils.waitForPageLoad();
 
         }
+    }
+
+    public void readCaptcha() throws TesseractException, IOException {
+        String src = basePage.captchaImage.getAttribute("src");
+        BufferedImage bufferedImage = ImageIO.read(new URL(src));
+        File outputfile = new File("saved.png");
+        ImageIO.write(bufferedImage, "png", outputfile);
+
+        // get the Tesseract direct interace
+        Tesseract instance = new Tesseract();
+
+        // the doOCR method of Tesseract will retrive the text
+        // from image captured by Selenium
+        String result = instance.doOCR(outputfile);
+        System.out.println(result);
+
+
     }
 }

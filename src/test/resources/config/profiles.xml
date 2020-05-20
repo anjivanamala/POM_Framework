@@ -28,4 +28,12 @@
         <Execute>No</Execute>
     </Profile>
 
+    <Profile>
+        <Name>SIT-Darji</Name>
+        <URL>https://focissit.agility.com/login.aspx</URL>
+        <UserName>sdarji</UserName>
+        <Password>a</Password>
+        <Browser>Chrome</Browser>
+        <Execute>No</Execute>
+    </Profile>
 </profiles>
