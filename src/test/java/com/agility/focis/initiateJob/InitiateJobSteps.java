@@ -111,7 +111,7 @@ public class InitiateJobSteps extends BaseSteps {
             initiateJobPage.type.sendKeys(type);
             initiateJobPage.departmentName.sendKeys(department + Keys.ENTER);
             SeleniumUtils.waitForPageLoad();
-            if (Integer.parseInt(initiateJobPage.pagesCount.getText()) > 5) {
+            if (Integer.parseInt(initiateJobPage.networkComponentPageCount.getText()) > 5) {
                 initiateJobPage.departmentName.sendKeys(Keys.ENTER);
                 SeleniumUtils.waitForPageLoad();
             }
