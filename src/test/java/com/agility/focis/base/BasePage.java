@@ -117,6 +117,8 @@ public class BasePage {
 
     }
 
+    @FindBy(xpath = "//span[text()='Stakeholders']/ancestor::div[@role='dialog' and contains(@style,'display: block;')]//span[contains(@id,'pnlPopupGridPager')]")
+    public WebElement pagesCount;
     @FindBy(xpath = "//div[@role = 'dialog' and not(@aria-describedby='AutomaticPrealert')]//button[text()= 'Ok']")
     public WebElement alertButtonToComplete;
 

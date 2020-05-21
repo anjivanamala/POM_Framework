@@ -110,7 +110,11 @@ public class InitiateJobSteps extends BaseSteps {
             initiateJobPage.networkComponent.sendKeys(networkComponent);
             initiateJobPage.type.sendKeys(type);
             initiateJobPage.departmentName.sendKeys(department + Keys.ENTER);
-
+            SeleniumUtils.waitForPageLoad();
+            if (Integer.parseInt(initiateJobPage.pagesCount.getText()) > 5) {
+                initiateJobPage.departmentName.sendKeys(Keys.ENTER);
+                SeleniumUtils.waitForPageLoad();
+            }
             if (driver.findElements(By.xpath("//b[text() = 'No records to view']")).size() > 0) {
                 initiateJobPage.refreshIcon.click();
                 Thread.sleep(1000);

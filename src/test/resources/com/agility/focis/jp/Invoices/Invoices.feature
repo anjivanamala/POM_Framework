@@ -70,7 +70,7 @@ Feature: Invoices Generation
 #      | DR3     | Job        | Job Booking     | Purchase Invoice/Credit | Air Freight | Expedited   | Origin Only      | Flyjac Logistics- IN | Smatbot- US            | DAT      | IN             | Mumbai                  | Air Export        | Branch      | Yes           | 5910     |                     |                              |                        |                  |                    | 1200     | EK      | EK123        | BOM | ORD | 7   | 12      | 14  | 12      | Garrisons Logistics Pvt Ltd | 1    | 2       | Garrisons Logistics Pvt Ltd | 1           | 3          |                   |             |            | Purchase Invoice | Freight    | Today          | Purchase Credit | All                     |
 #      | DR4     | Job        | Job Booking     | Purchase Invoice/Credit | Air Freight | Expedited   | Destination Only | Flyjac Logistics- IN | Smatbot- US            | DAT      |                |                         |                   |             |               | 5910     | US                  | Chicago                      | Air Import             | Branch           | Yes                | 1200     | EK      | EK123        | BOM | ORD | 7   | 12      | 14  | 12      | Garrisons Logistics Pvt Ltd | 1    | 2       |           |             |            | BESTWAY TRANSPORT | 15          | 16         | Purchase Invoice | Freight    | Today          | Purchase Credit | All                     |
 
-  @GenerateInvoices @OriginOnly @AirFreight @@AirOriginOnly
+  @GenerateInvoices @OriginOnly @AirFreight @AirOriginOnly
   Scenario Outline: Create Air Freight - Origin Only Job and Process Invoices
 
     Given User is logged into FOCiS Application

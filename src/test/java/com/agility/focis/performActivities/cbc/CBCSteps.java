@@ -25,12 +25,8 @@ public class CBCSteps extends CommonSteps {
         clickOnTab("Tasks");
         SeleniumUtils.waitForPageLoad();
         clickOnPerformActivityIcon("Carrier Booking Confirmation");
-        SeleniumUtils.waitForPageLoad();
-        SeleniumUtils.waitForFrameTobeAvailableAndSwitchToIt(addCarriagesAirPage.iFrameEstimationscreen);
-        addCarriagesAirPage.saveAndCloseButton.click();
-        SeleniumUtils.waitForPageLoad();
-        SeleniumUtils.waitForPageLoad();
         if (isDialogPopulated("Carrier Booking Confirmation")) {
+            SeleniumUtils.waitForElementToBeClickable(cbcPage.confirmCBC);
             cbcPage.confirmCBC.click();
             cbcPage.completeCBCButton.click();
             SeleniumUtils.waitForPageLoad();

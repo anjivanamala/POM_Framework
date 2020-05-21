@@ -124,7 +124,12 @@ public class BaseSteps extends DriverInstantiation {
         boolean IsSTKSelected = false;
         for (int i = 0; i < 10; i++) {
             basePage.stakeHolderNameOrID.sendKeys(stkName + Keys.ENTER);
+            SeleniumUtils.waitForPageLoad();
             SeleniumUtils.waitForElementToBeClickable(basePage.refreshIcon);
+            if (Integer.parseInt(basePage.pagesCount.getText()) > 5) {
+                basePage.stakeHolderNameOrID.sendKeys(Keys.ENTER);
+                SeleniumUtils.waitForPageLoad();
+            }
             if (driver.findElements(By.xpath("//b[text() = 'No records to view']")).size() > 0) {
                 basePage.refreshIcon.click();
                 SeleniumUtils.waitForElementToBeClickable(basePage.refreshIcon);
@@ -331,7 +336,7 @@ public class BaseSteps extends DriverInstantiation {
     public void readCaptcha() throws TesseractException, IOException {
         String src = basePage.captchaImage.getAttribute("src");
         BufferedImage bufferedImage = ImageIO.read(new URL(src));
-        File outputfile = new File("saved.png");
+        File outputfile = new File("src/test/resources/drivers/saved.png");
         ImageIO.write(bufferedImage, "png", outputfile);
 
         // get the Tesseract direct interace
@@ -341,7 +346,6 @@ public class BaseSteps extends DriverInstantiation {
         // from image captured by Selenium
         String result = instance.doOCR(outputfile);
         System.out.println(result);
-
 
     }
 }
