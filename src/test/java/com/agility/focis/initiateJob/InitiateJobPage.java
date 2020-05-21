@@ -62,7 +62,7 @@ public class InitiateJobPage extends BasePage {
     @FindBy(id = "gs_LocationName")
     public WebElement networkComponent;
 
-    @FindBy(xpath = "//span[text()='Network Components']/ancestor::div[@role='dialog' and contains(@style,'display: block;')]//span[contains(@id,'pnlPopupGridPager')]")
+    @FindBy(xpath = "//div[@role='dialog' and contains(@style,'display: block;')]//span[contains(@id,'pnlPopupGridPager')]")
     public WebElement networkComponentPageCount;
     @FindBy(id = "gs_NetworkFunctionName")
     public WebElement type;
