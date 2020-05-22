@@ -24,8 +24,8 @@ public class PIVSteps extends BaseSteps {
     }
 
     public void createPIVHeader(Map<String, String> pivHeaderDetails) throws InterruptedException {
-//        GlobalVariables.setOriginOrgComponent("Mumbai", "Air Export");
-//        GlobalVariables.setJobScope("Origin");
+        GlobalVariables.setOriginOrgComponent("Mumbai", "Air Export");
+        GlobalVariables.setJobScope("Origin");
         String invoiceType = pivHeaderDetails.get("Invoice Type");
         GlobalVariables.setInvoiceType(invoiceType);
         String invoiceSubType = pivHeaderDetails.get("Invoice SubType");
@@ -88,7 +88,7 @@ public class PIVSteps extends BaseSteps {
             pivPage.prevMonth.click();
             SeleniumUtils.waitForPageLoad();
             int IntSupplierInvoiceDate = Integer.parseInt(supplierInvoiceDate.split("-")[1].replaceAll(" ", ""));
-            String pivDateToSelect = String.valueOf(Integer.parseInt(pivDate) - IntSupplierInvoiceDate);
+            String pivDateToSelect = String.valueOf(Integer.parseInt(pivDate) - IntSupplierInvoiceDate + 30);
             pivPage.supplierInvoiceDate(pivDateToSelect).click();
         } else {
             int IntSupplierInvoiceDate = Integer.parseInt(supplierInvoiceDate.split("-")[1].replaceAll(" ", ""));
