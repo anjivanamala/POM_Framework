@@ -24,8 +24,7 @@ public class PIVSteps extends BaseSteps {
     }
 
     public void createPIVHeader(Map<String, String> pivHeaderDetails) throws InterruptedException {
-        GlobalVariables.setOriginOrgComponent("Mumbai", "Air Export");
-        GlobalVariables.setJobScope("Origin");
+
         String invoiceType = pivHeaderDetails.get("Invoice Type");
         GlobalVariables.setInvoiceType(invoiceType);
         String invoiceSubType = pivHeaderDetails.get("Invoice SubType");
