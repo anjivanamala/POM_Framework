@@ -1,7 +1,7 @@
 @Invoices
 Feature: Invoices Generation
 
-  @GenerateInvoices @E2E @AirFreight @AirE2E
+  @GenerateInvoices @E2E @AirFreight
   Scenario Outline: Create Air Freight - E2E Job and Process Invoices
 #  Scenario Outline: Validate all the field in header after Creating the PIV Header
 
@@ -70,7 +70,7 @@ Feature: Invoices Generation
 #      | DR3     | Job        | Job Booking     | Purchase Invoice/Credit | Air Freight | Expedited   | Origin Only      | Flyjac Logistics- IN | Smatbot- US            | DAT      | IN             | Mumbai                  | Air Export        | Branch      | Yes           | 5910     |                     |                              |                        |                  |                    | 1200     | EK      | EK123        | BOM | ORD | 7   | 12      | 14  | 12      | Garrisons Logistics Pvt Ltd | 1    | 2       | Garrisons Logistics Pvt Ltd | 1           | 3          |                   |             |            | Purchase Invoice | Freight    | Today          | Purchase Credit | All                     |
 #      | DR4     | Job        | Job Booking     | Purchase Invoice/Credit | Air Freight | Expedited   | Destination Only | Flyjac Logistics- IN | Smatbot- US            | DAT      |                |                         |                   |             |               | 5910     | US                  | Chicago                      | Air Import             | Branch           | Yes                | 1200     | EK      | EK123        | BOM | ORD | 7   | 12      | 14  | 12      | Garrisons Logistics Pvt Ltd | 1    | 2       |           |             |            | BESTWAY TRANSPORT | 15          | 16         | Purchase Invoice | Freight    | Today          | Purchase Credit | All                     |
 
-  @GenerateInvoices @OriginOnly @AirFreight @AirOriginOnly
+  @GenerateInvoices @OriginOnly @AirFreight
   Scenario Outline: Create Air Freight - Origin Only Job and Process Invoices
 
     Given User is logged into FOCiS Application
@@ -121,7 +121,7 @@ Feature: Invoices Generation
       | DataRow | MenuOption | ChildMenuOption | Product     | ProductType | JobScope    | OriginStakeholder    | DestinationStakeholder | IncoTerm | Origin_Country | Origin_NetworkComponent | Origin_Department | Origin_Type | Origin_IsLive | O_Entity | Destination_Country | Destination_NetworkComponent | Destination_Department | Destination_Type | Destination_IsLive | D_Entity | Carrier | FlightNumber | AOD | AOA | ETD | ETDTime | ETA | ETATime | O_Haulier                   | O_Coll_Date | O_Del_Date | PIVType          | PIVSubType | PIVInvoiceDate | PIVType2        | NumberOfChargesForSales |
       | DR3     | Job        | Job Booking     | Air Freight | Expedited   | Origin Only | Flyjac Logistics- IN | Smatbot- US            | DAT      | IN             | Mumbai                  | Air Export        | Branch      | Yes           | 5910     |                     |                              |                        |                  |                    | 1200     | EK      | EK123        | BOM | ORD | 7   | 12      | 14  | 12      | Garrisons Logistics Pvt Ltd | 1           | 3          | Purchase Invoice | Freight    | Today          | Purchase Credit | All                     |
 
-  @GenerateInvoices @DestinationOnly @AirFreight @AirDestinationOnly
+  @GenerateInvoices @DestinationOnly @AirFreight
   Scenario Outline: Create Air Freight - Destination Only Job and Process Invoices
 
     Given User is logged into FOCiS Application
@@ -171,7 +171,7 @@ Feature: Invoices Generation
       | DataRow | MenuOption | ChildMenuOption | Product     | ProductType | JobScope         | OriginStakeholder    | DestinationStakeholder | IncoTerm | Destination_Country | Destination_NetworkComponent | Destination_Department | Destination_Type | Destination_IsLive | D_Entity | Carrier | FlightNumber | AOD | AOA | ETD | ETDTime | ETA | ETATime | D_Haulier         | D_Coll_Date | D_Del_Date | PIVType          | PIVSubType | PIVInvoiceDate | PIVType2        | NumberOfChargesForSales |
       | DR4     | Job        | Job Booking     | Air Freight | Expedited   | Destination Only | Flyjac Logistics- IN | Smatbot- US            | DAT      | US                  | Chicago                      | Air Import             | Branch           | Yes                | 1200     | EK      | EK123        | BOM | ORD | 7   | 12      | 14  | 12      | BESTWAY TRANSPORT | 15          | 16         | Purchase Invoice | Freight    | Today          | Purchase Credit | All                     |
 
-  @OceanFreight @GenerateInvoices @E2E @OceanE2E
+  @OceanFreight @GenerateInvoices @E2E
   Scenario Outline: Create Ocean Freight FCL- E2E Job and Process Invoices
 
     Given User is logged into FOCiS Application
@@ -247,7 +247,7 @@ Feature: Invoices Generation
       | DataRow | MenuOption | ChildMenuOption | Product       | ProductType | JobScope | JobType      | OriginStakeholder    | DestinationStakeholder | IncoTerm | MBLType | MBLTerms | SequestType | Origin_Country | Origin_NetworkComponent | Origin_Department | Origin_Type | Origin_IsLive | O_Entity | Destination_Country | Destination_NetworkComponent | Destination_Department | Destination_Type | Destination_IsLive | D_Entity | Carrier | PortOfLoading_L1 | ETD_L1 | PortOfDischarge_L1 | ETA_L1 | PortOfLoading_L2 | ETD_L2 | PortOfDischarge_L2 | ETA_L2 | PortOfLoading_L3 | ETD_L3 | PortOfDischarge_L3 | ETA_L3 | O_Haulier                   | O_Coll_Date | O_Del_Date | D_Haulier         | D_Coll_Date | D_Del_Date | CBR | CBC | BCTC | MBL | PIVType          | PIVSubType | PIVInvoiceDate | PIVType2        | NumberOfChargesForSales |
       | DR1     | Job        | Job Booking     | Ocean Freight | FCL         | E2E      | Back To Back | Flyjac Logistics- IN | Smatbot- US            | DAT      | Express | Prepaid  | Original    | IN             | Mumbai                  | Ocean Export      | Branch      | Yes           | 5910     | US                  | Chicago                      | Ocean Import           | Branch           | Yes                | 1200     | MAEU    | INNSA            | 7      | INMAA              | 8      | INMAA            | 9      | AEDXB              | 10     | AEDXB            | 11     | USCHI              | 14     | Garrisons Logistics Pvt Ltd | 1           | 5          | BESTWAY TRANSPORT | 15          | 16         | Yes | No  | No   | No  | Purchase Invoice | Freight    | Today          | Purchase Credit | All                     |
 
-  @OceanFreight @GenerateInvoices @OriginOnly @OceanOriginOnly
+  @OceanFreight @GenerateInvoices @OriginOnly
   Scenario Outline: Create Ocean Freight FCL- Origin Only Job and Process Invoices
 
     Given User is logged into FOCiS Application
@@ -309,7 +309,7 @@ Feature: Invoices Generation
       | DataRow | MenuOption | ChildMenuOption | Product       | ProductType | JobScope    | JobType      | OriginStakeholder    | DestinationStakeholder | O_Entity | IncoTerm | MBLType | MBLTerms | SequestType | Origin_Country | Origin_NetworkComponent | Origin_Department | Origin_Type | Origin_IsLive | Carrier | PortOfLoading_L1 | ETD_L1 | PortOfDischarge_L1 | ETA_L1 | PortOfLoading_L2 | ETD_L2 | PortOfDischarge_L2 | ETA_L2 | PortOfLoading_L3 | ETD_L3 | PortOfDischarge_L3 | ETA_L3 | O_Haulier                   | O_Coll_Date | O_Del_Date | PIVType          | PIVSubType | PIVInvoiceDate | PIVType2        | NumberOfChargesForSales |
       | DR1     | Job        | Job Booking     | Ocean Freight | FCL         | Origin Only | Back To Back | Flyjac Logistics- IN | Smatbot- US            | 5910     | DAT      | Express | Prepaid  | Original    | IN             | Mumbai                  | Ocean Export      | Branch      | Yes           | MAEU    | INNSA            | 7      | INMAA              | 8      | INMAA            | 9      | AEDXB              | 10     | AEDXB            | 11     | USCHI              | 14     | Garrisons Logistics Pvt Ltd | 1           | 5          | Purchase Invoice | Freight    | Today          | Purchase Credit | All                     |
 
-  @OceanFreight @GenerateInvoices @DestinationOnly @OceanDestinationOnly
+  @OceanFreight @GenerateInvoices @DestinationOnly
   Scenario Outline: Create Ocean Freight FCL- Destination Only Job and Process Invoices
 
     Given User is logged into FOCiS Application

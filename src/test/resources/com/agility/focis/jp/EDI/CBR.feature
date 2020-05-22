@@ -1,7 +1,7 @@
 @CBR @EDI
 Feature: EDI XML Validations
 
-  @XMLValidations
+  @XMLValidations @OceanFreight
   Scenario Outline: Create an  Ocean Freight - FCL Job without Template
 
     Given User is logged into FOCiS Application
