@@ -1,12 +1,16 @@
 package com.agility.focis.purchaseInvoiceAndCredit;
 
 import com.agility.focis.base.BasePage;
+import com.agility.focis.utilities.testObject.SeleniumUtils;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 
+import java.util.Calendar;
+import java.util.Date;
 import java.util.List;
+import java.util.TimeZone;
 
 public class PIVPage extends BasePage {
 
@@ -39,6 +43,26 @@ public class PIVPage extends BasePage {
     public WebElement invoiceDateButton;
     @FindBy(xpath = "//div[contains(@class,'dropdown-menu datepicker') and contains(@style , 'display: block;')]//td[@class = 'day active']")
     public WebElement currentDateAsInvoiceDate;
+    @FindBy(xpath = "//div[contains(@class,'dropdown-menu datepicker') and contains(@style , 'display: block;')]//div[@class='datepicker-days']//th[@class='prev']")
+    public WebElement prevMonth;
+
+    public WebElement supplierInvoiceDate(String invoiceDate) {
+        WebElement element = null;
+        Calendar calendar = Calendar.getInstance(TimeZone.getDefault());
+        int currentDay = calendar.get(Calendar.DATE);
+        if (currentDay - Integer.parseInt(invoiceDate) <= 31) {
+            if (driver.findElements(By.xpath("//div[contains(@class,'dropdown-menu datepicker') and contains(@style , 'display: block;')]//td[not(@class='old day') and text()='" + invoiceDate + "']")).size() > 0) {
+                element = driver.findElement(By.xpath("//div[contains(@class,'dropdown-menu datepicker') and contains(@style , 'display: block;')]//td[not(@class='old day') and text()='" + invoiceDate + "']"));
+            }
+        } else {
+
+            element = driver.findElement(By.xpath("//div[contains(@class,'dropdown-menu datepicker') and contains(@style , 'display: block;')]//td[@class='old day' and text()='" + invoiceDate + "']"));
+        }
+
+        return element;
+    }
+
+
     @FindBy(xpath = "//span[contains(@id,'lblPivDateTime')]")
     public WebElement pivDate;
     @FindBy(xpath = "//span[contains(@id,'lblPivDueDate')]")

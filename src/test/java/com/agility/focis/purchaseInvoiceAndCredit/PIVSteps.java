@@ -11,10 +11,7 @@ import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.ui.Select;
 
 import java.io.IOException;
-import java.util.ArrayList;
-import java.util.HashMap;
-import java.util.List;
-import java.util.Map;
+import java.util.*;
 
 public class PIVSteps extends BaseSteps {
     private WebDriver driver;
@@ -28,6 +25,7 @@ public class PIVSteps extends BaseSteps {
 
     public void createPIVHeader(Map<String, String> pivHeaderDetails) throws InterruptedException {
 //        GlobalVariables.setOriginOrgComponent("Mumbai", "Air Export");
+//        GlobalVariables.setJobScope("Origin");
         String invoiceType = pivHeaderDetails.get("Invoice Type");
         GlobalVariables.setInvoiceType(invoiceType);
         String invoiceSubType = pivHeaderDetails.get("Invoice SubType");
@@ -40,6 +38,9 @@ public class PIVSteps extends BaseSteps {
         String pivAmount = pivHeaderDetails.get("PIV Amount");
         String taxAmount = pivHeaderDetails.get("Tax Amount");
         String currency = pivHeaderDetails.get("Currency");
+        Calendar calendar = Calendar.getInstance(TimeZone.getDefault());
+        int currentDay = calendar.get(Calendar.DATE);
+
         SeleniumUtils.waitForElementToBeClickable(pivPage.createNewPIVButton);
         pivPage.createNewPIVButton.click();
         SeleniumUtils.waitForElementToBeClickable(pivPage.legalEntitySearchButton);
@@ -79,7 +80,21 @@ public class PIVSteps extends BaseSteps {
         invoiceSubTypeDropDown.selectByVisibleText(invoiceSubType);
 
         pivPage.invoiceDateButton.click();
-        pivPage.currentDateAsInvoiceDate.click();
+        String pivDate = pivPage.pivDate.getText().split("-")[0];
+
+        if (supplierInvoiceDate.equalsIgnoreCase("Current Date") || supplierInvoiceDate.equalsIgnoreCase("Today")) {
+            pivPage.supplierInvoiceDate(pivDate).click();
+        } else if (Integer.parseInt(supplierInvoiceDate.split("-")[1].replaceAll(" ", "")) > currentDay) {
+            pivPage.prevMonth.click();
+            SeleniumUtils.waitForPageLoad();
+            int IntSupplierInvoiceDate = Integer.parseInt(supplierInvoiceDate.split("-")[1].replaceAll(" ", ""));
+            String pivDateToSelect = String.valueOf(Integer.parseInt(pivDate) - IntSupplierInvoiceDate);
+            pivPage.supplierInvoiceDate(pivDateToSelect).click();
+        } else {
+            int IntSupplierInvoiceDate = Integer.parseInt(supplierInvoiceDate.split("-")[1].replaceAll(" ", ""));
+            String pivDateToSelect = String.valueOf(Integer.parseInt(pivDate) - IntSupplierInvoiceDate);
+            pivPage.supplierInvoiceDate(pivDateToSelect).click();
+        }
 
         pivPage.pivAmount.sendKeys(pivAmount);
         pivPage.taxAmount.sendKeys(taxAmount);

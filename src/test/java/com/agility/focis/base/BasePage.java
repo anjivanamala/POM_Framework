@@ -170,5 +170,9 @@ public class BasePage {
     @FindBy(xpath = "//img[@class='BDC_CaptchaImage']")
     public WebElement captchaImage;
 
+    public WebElement buttonWithID(String id) {
+        return driver.findElement(By.xpath("//input[contains(@id,'" + id + "')]"));
+    }
+
 }
 

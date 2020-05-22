@@ -6,7 +6,7 @@ Feature: Invoices Generation
 
     Given User is logged into FOCiS Application
     When selects "<ChildSubMenu>" from "<ChildMenu>" from "<Menu>" Menu
-    And user clicks on "Upload" button
+    And clicks on "Upload" button
     Then user should be able to read Captcha
 
     Examples:

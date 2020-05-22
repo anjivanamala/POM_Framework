@@ -110,4 +110,9 @@ public class BaseStepDefinitions {
     public void userShouldBeAbleToReadCaptcha() throws TesseractException, IOException {
         baseSteps.readCaptcha();
     }
+
+    @And("clicks on {string} button")
+    public void clicksOnButton(String button) throws InterruptedException {
+        baseSteps.clickOnButtonWithID(button);
+    }
 }

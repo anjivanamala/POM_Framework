@@ -192,7 +192,7 @@ public class BaseSteps extends DriverInstantiation {
 
         } else if (currentURL.contains("dashboard")) {
 
-            DynamicTableUtils.setText("JobNumber", GlobalVariables.getJobNumber());
+            DynamicTableUtils.setText("JobNumber", "@Job Number:" + GlobalVariables.getJobNumber());
             SeleniumUtils.waitForPageLoad();
             SeleniumUtils.waitForElementToBeClickable(basePage.paginationCount);
             if (driver.findElements(By.xpath("//a[text() = '" + GlobalVariables.getJobNumber() + "']")).size() > 0) {
@@ -334,9 +334,9 @@ public class BaseSteps extends DriverInstantiation {
     }
 
     public void readCaptcha() throws TesseractException, IOException {
-        String src = basePage.captchaImage.getAttribute("src");
+        String src = "http://focissit.agility.com" + basePage.captchaImage.getAttribute("src");
         BufferedImage bufferedImage = ImageIO.read(new URL(src));
-        File outputfile = new File("src/test/resources/drivers/saved.png");
+        File outputfile = new File("saved.png");
         ImageIO.write(bufferedImage, "png", outputfile);
 
         // get the Tesseract direct interace
@@ -347,5 +347,11 @@ public class BaseSteps extends DriverInstantiation {
         String result = instance.doOCR(outputfile);
         System.out.println(result);
 
+
+    }
+
+    public void clickOnButtonWithID(String id) throws InterruptedException {
+        basePage.buttonWithID(id).click();
+        SeleniumUtils.waitForPageLoad();
     }
 }
