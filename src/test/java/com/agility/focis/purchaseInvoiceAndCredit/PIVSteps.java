@@ -775,7 +775,7 @@ public class PIVSteps extends FinancialSteps {
 
     public List<WebElement> getCharges() throws InterruptedException {
         List<WebElement> listToReturn;
-        if (isDialogPopulated("Allocate Jobs for Supplier Invoice number :")) {
+        if (isDialogPopulated("Allocate Jobs for Supplier Invoice number : ")) {
             List<WebElement> jobs = pivPage.jobsListAllocateJobs.findElements(By.xpath(".//table[contains(@id,'grdTagJobsLs')]"));
             listToReturn = jobs.get(0).findElements(By.xpath(".//tr[not(@class='jqgfirstrow')]"));
         } else {

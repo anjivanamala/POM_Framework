@@ -221,7 +221,7 @@ public class PIVStepDefinitions {
 
     @Then("Tagged jobs details should be populated correctly")
     public void taggedJobsDetailsShouldBePopulatedCorrectly() {
-        pivSteps.verifyTaggedJobDetails(GlobalVariables.getJobNumber(), GlobalVariables.getOriginSTKName(), GlobalVariables.getDestinationSTKName(), GlobalVariables.getJobStatus());
+        pivSteps.verifyTaggedJobDetails(GlobalVariables.getJobNumber(), GlobalVariables.getOriginSTKName(), GlobalVariables.getDestinationSTKName(), "Partially Accrued");
     }
 
     @And("selects charges")
