@@ -103,10 +103,11 @@ public class PIVSteps extends FinancialSteps {
             }
 
         } else {
-            pivPage.supplierInvoiceDate(pivDate).click();
+            pivPage.currentDateAsInvoiceDate.click();
         }
 
     }
+
 
     public void enterPIVAmount(String pivAmount) {
         SeleniumUtils.clearText(pivPage.pivAmount);
