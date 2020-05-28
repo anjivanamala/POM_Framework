@@ -7,6 +7,7 @@ import com.agility.focis.utilities.testObject.SeleniumUtils;
 import io.cucumber.java.eo.Se;
 import net.sourceforge.tess4j.Tesseract;
 import net.sourceforge.tess4j.TesseractException;
+import org.junit.Assert;
 import org.openqa.selenium.*;
 import org.openqa.selenium.interactions.Actions;
 import org.openqa.selenium.support.ui.Select;
@@ -43,6 +44,9 @@ public class BaseSteps extends DriverInstantiation {
             basePage.password.sendKeys(getPassword());
             basePage.signInButton.click();
             SeleniumUtils.waitForPageLoad();
+            if (!basePage.homeButton.isDisplayed()) {
+                loginToApp();
+            }
         } else {
             loginToApp();
         }
@@ -136,6 +140,7 @@ public class BaseSteps extends DriverInstantiation {
                 searchForSTK(stkName);
             } else {
                 SeleniumUtils.waitForPageLoad();
+                GlobalVariables.setSupplierAddress(basePage.stkBestMatch(stkName).getText());
                 basePage.stkBestMatch(stkName).click();
                 SeleniumUtils.waitForPageLoad();
                 IsSTKSelected = true;
@@ -302,6 +307,11 @@ public class BaseSteps extends DriverInstantiation {
 
     public void selectCurrency(String currency) throws InterruptedException {
         basePage.currencyCodeInputBox.sendKeys(currency + Keys.ENTER);
+        SeleniumUtils.waitForPageLoad();
+        if (Integer.parseInt(basePage.pagesCount.getText()) > 1) {
+            basePage.currencyCodeInputBox.sendKeys(Keys.ENTER);
+            SeleniumUtils.waitForPageLoad();
+        }
         HyperLinkUtils.clickOnLink(currency);
         SeleniumUtils.waitForPageLoad();
     }
@@ -334,10 +344,10 @@ public class BaseSteps extends DriverInstantiation {
     }
 
     public void readCaptcha() throws TesseractException, IOException {
-        String src = "http://focissit.agility.com" + basePage.captchaImage.getAttribute("src");
-        BufferedImage bufferedImage = ImageIO.read(new URL(src));
-        File outputfile = new File("saved.png");
-        ImageIO.write(bufferedImage, "png", outputfile);
+//        String src =  basePage.captchaImage.getAttribute("src");
+//        BufferedImage bufferedImage = ImageIO.read(new URL(src));
+        File outputfile = new File("src/test/resources/drivers/BotDetectCaptcha.jpeg");
+//        ImageIO.write(bufferedImage, "png", outputfile);
 
         // get the Tesseract direct interace
         Tesseract instance = new Tesseract();
@@ -353,5 +363,23 @@ public class BaseSteps extends DriverInstantiation {
     public void clickOnButtonWithID(String id) throws InterruptedException {
         basePage.buttonWithID(id).click();
         SeleniumUtils.waitForPageLoad();
+    }
+
+    public void navigateToManagePIVPage() throws InterruptedException {
+        if (driver.getCurrentUrl().contains("managepivlspg")) {
+            System.out.println("Already On Manage PIV Page");
+        } else {
+            navigateHomePage();
+            selectMenu("Purchase Invoice/Credit", "Purchase Invoice/Credit/Fast Check", "Job");
+        }
+    }
+
+    public void verifyErrorMessage(String errorMessage) {
+        Assert.assertTrue("Expected :" + errorMessage + "\nActual :" + basePage.errorMessage.getText(), errorMessage.equalsIgnoreCase(basePage.errorMessage.getText()));
+        SeleniumUtils.takeScreenshot();
+    }
+
+    public void verifyButtonIsDisplayed(String button) {
+        Assert.assertTrue(basePage.buttonTobeClicked(button).isDisplayed());
     }
 }

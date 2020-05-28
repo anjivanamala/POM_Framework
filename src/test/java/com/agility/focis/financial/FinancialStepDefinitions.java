@@ -1,5 +1,6 @@
 package com.agility.focis.financial;
 
+import com.agility.focis.globalVariables.GlobalVariables;
 import com.agility.focis.utilities.testObject.SeleniumUtils;
 import io.cucumber.java.en.And;
 import io.cucumber.java.en.Given;
@@ -33,11 +34,11 @@ public class FinancialStepDefinitions {
             financialSteps.addCharge(chargeType, chargeName);
             financialSteps.updateSupplier(chargeName, supplier);
             financialSteps.updateCost(chargeName, cost);
-//            financialSteps.updateCostCurrency(chargeName, costCurrency);
+            financialSteps.updateCostCurrency(chargeName, costCurrency);
             financialSteps.updateRevenue(chargeName, revenue);
-//            financialSteps.updateCostCurrency(revenue, revenueCurrency);
+            financialSteps.updateRevenueCurrency(chargeName, revenueCurrency);
             financialSteps.saveFinancials();
         }
-
+        GlobalVariables.setCharges(charges);
     }
 }

@@ -3,7 +3,7 @@
 
     <Profile>
         <Name>Agile</Name>
-        <URL>https://focisagile.agility.com/login.aspx</URL>
+        <URL>http://focisagile.agility.com/login.aspx</URL>
         <UserName>exportjob</UserName>
         <Password>Test@123</Password>
         <Browser>Chrome</Browser>
@@ -30,7 +30,7 @@
 
     <Profile>
         <Name>SIT-Darji</Name>
-        <URL>https://focissit.agility.com/login.aspx</URL>
+        <URL>http://focissit.agility.com/login.aspx</URL>
         <UserName>sdarji</UserName>
         <Password>a</Password>
         <Browser>Chrome</Browser>

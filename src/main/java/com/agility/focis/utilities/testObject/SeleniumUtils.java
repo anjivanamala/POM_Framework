@@ -221,6 +221,26 @@ public class SeleniumUtils extends DriverInstantiation {
         }
     }
 
+    public static void checkForAlertAndAccept() {
+
+        try {
+            Wait<WebDriver> fluentWait = new FluentWait<>(driver)
+                    .pollingEvery(1, TimeUnit.SECONDS)
+                    .withTimeout(60, TimeUnit.SECONDS)
+                    .ignoring(StaleElementReferenceException.class)
+                    .ignoring(NoSuchElementException.class);
+
+            fluentWait.until(ExpectedConditions.alertIsPresent());
+            Alert alert = driver.switchTo().alert();
+            alert.accept();
+        } catch (TimeoutException toe) {
+            toe.printStackTrace();
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+    }
+
+
     public static void waitForNumberOfElementsToBeMoreThan(By locator, int number) {
         try {
             Wait<WebDriver> fluentWait = new FluentWait<>(driver)

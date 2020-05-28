@@ -66,13 +66,14 @@
             <artifactId>cucumber-testng</artifactId>
             <version>4.8.0</version>
         </dependency>
-        <dependency>
-            <groupId>net.masterthought</groupId>
-            <artifactId>maven-cucumber-reporting</artifactId>
-            <version>5.0.0</version>
-            <type>maven-plugin</type>
-        </dependency>
-        <!-- https://mvnrepository.com/artifact/org.apache.poi/poi -->
+
+                <dependency>
+                    <groupId>net.masterthought</groupId>
+                    <artifactId>maven-cucumber-reporting</artifactId>
+                    <version>5.0.0</version>
+                    <type>maven-plugin</type>
+                </dependency>
+<!--         https://mvnrepository.com/artifact/org.apache.poi/poi-->
         <dependency>
             <groupId>org.apache.poi</groupId>
             <artifactId>poi</artifactId>
@@ -132,17 +133,19 @@
         <!--        </dependency>-->
 
         <!-- https://mvnrepository.com/artifact/com.oracle/ojdbc14 -->
-<!--        <dependency>-->
-<!--            <groupId>com.oracle</groupId>-->
-<!--            <artifactId>ojdbc14</artifactId>-->
-<!--            <version>10.2.0.4.0</version>-->
-<!--        </dependency>-->
+        <!--        <dependency>-->
+        <!--            <groupId>com.oracle</groupId>-->
+        <!--            <artifactId>ojdbc14</artifactId>-->
+        <!--            <version>10.2.0.4.0</version>-->
+        <!--        </dependency>-->
         <dependency>
             <groupId>net.sourceforge.tess4j</groupId>
             <artifactId>tess4j</artifactId>
             <version>2.0.0</version>
-            <scope>test</scope>
         </dependency>
+        <!-- https://mvnrepository.com/artifact/io.skullabs.stalkr/stalkr-death-by-captcha -->
+        <!-- https://mvnrepository.com/artifact/io.skullabs.stalkr/stalkr-death-by-captcha -->
+
 
     </dependencies>
     <build>
@@ -164,7 +167,7 @@
             </plugin>
             <plugin>
                 <groupId>net.masterthought</groupId>
-                <artifactId>maven-cucumber-reporting</artifactId>
+                <artifactId>cucumber-reporting</artifactId>
                 <version>5.0.0</version>
                 <executions>
                     <execution>

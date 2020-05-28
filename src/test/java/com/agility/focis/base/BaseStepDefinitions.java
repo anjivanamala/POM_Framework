@@ -115,4 +115,14 @@ public class BaseStepDefinitions {
     public void clicksOnButton(String button) throws InterruptedException {
         baseSteps.clickOnButtonWithID(button);
     }
+
+    @Then("application should throw {string} Error Message")
+    public void applicationShouldThrowErrorMessage(String errorMessage) {
+        baseSteps.verifyErrorMessage(errorMessage);
+    }
+
+    @Then("{string} button should be displayed")
+    public void buttonShouldBeDisplayed(String button) {
+        baseSteps.verifyButtonIsDisplayed(button);
+    }
 }

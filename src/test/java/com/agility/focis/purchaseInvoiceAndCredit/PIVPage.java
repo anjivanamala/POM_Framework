@@ -26,6 +26,8 @@ public class PIVPage extends BasePage {
     public WebElement legalEntitySearchButton;
     @FindBy(id = "gs_OrganizationCode")
     public WebElement entityCodeSearchBox;
+    @FindBy(xpath = "//input[contains(@id,'txtLegalEntity')]")
+    public WebElement entityName;
     @FindBy(id = "ddlBranch")
     public WebElement orgComponent;
     @FindBy(xpath = "//span[contains(@id,'lblPivNo')]")
@@ -35,16 +37,22 @@ public class PIVPage extends BasePage {
     public WebElement placeOfSupplySearchButton;
     @FindBy(xpath = "//button[contains(@id,'txtSupplier_btnPopup')]")
     public WebElement supplierNameSearchButton;
+    @FindBy(xpath = "//input[contains(@id,'txtSupplier')]")
+    public WebElement supplier;
     @FindBy(xpath = "//span[contains(@id,'lblInvoiceFromadd')]")
     public WebElement supplierAddress;
     @FindBy(xpath = "//input[contains(@id,'SupplierInvNo')]")
     public WebElement invoiceNum;
     @FindBy(xpath = "//button[contains(@id,'txtSupplierInvoiceDate_btnPopup')]")
     public WebElement invoiceDateButton;
+    @FindBy(xpath = "//input[contains(@id,'txtSupplierInvoiceDate')]")
+    public WebElement invoiceDate;
     @FindBy(xpath = "//div[contains(@class,'dropdown-menu datepicker') and contains(@style , 'display: block;')]//td[@class = 'day active']")
     public WebElement currentDateAsInvoiceDate;
     @FindBy(xpath = "//div[contains(@class,'dropdown-menu datepicker') and contains(@style , 'display: block;')]//div[@class='datepicker-days']//th[@class='prev']")
     public WebElement prevMonth;
+    @FindBy(xpath = "//div[contains(@class,'dropdown-menu datepicker') and contains(@style , 'display: block;')]//div[@class='datepicker-days']//th[@class='next']")
+    public WebElement nextMonth;
 
     public WebElement supplierInvoiceDate(String invoiceDate) {
         WebElement element = null;
@@ -60,6 +68,12 @@ public class PIVPage extends BasePage {
         }
 
         return element;
+    }
+
+    public WebElement futureSupplierInvoiceDate(String invoiceDate) {
+
+        return driver.findElement(By.xpath("//div[contains(@class,'dropdown-menu datepicker') and contains(@style , 'display: block;')]//td[@class='day new' and text()='" + invoiceDate + "']"));
+
     }
 
 
@@ -101,7 +115,7 @@ public class PIVPage extends BasePage {
     public WebElement supplierInvoiceNumAllocatePage;
 
     @FindBy(id = "grdTagJobsLs")
-    public WebElement JobsList;
+    public WebElement jobsListAllocateJobs;
 
     @FindBy(id = "grdAmountInfoPopup")
     public WebElement amountInfoTableAllocateJobs;
@@ -153,4 +167,25 @@ public class PIVPage extends BasePage {
 
     @FindBy(xpath = "//input[contains(@id,'ManagePIVLsUc_btnSearch')]")
     public WebElement searchButtonManagePIV;
+
+    @FindBy(id = "DIVOrgCompState")
+    public WebElement orgStateComponent;
+
+    @FindBy(id = "DIVPOS")
+    public WebElement placeOfSupplyDiv;
+
+    @FindBy(xpath = "//input[contains(@id,'txtRate')]")
+    public WebElement costWriteOffDialog;
+
+    @FindBy(xpath = "//input[contains(@id,'txtTobeAmount')]")
+    public WebElement tobePIVedAmount;
+
+    @FindBy(xpath = "//select[contains(@id,'drpreason')]")
+    public WebElement writeOffReasonCode;
+
+    @FindBy(xpath = "//span[text() = 'Charge Code Details']/ancestor::div[@role = 'dialog']//input[@title = 'Save']")
+    public WebElement saveButtonWriteOff;
+
+    @FindBy(id = "grdSavedPIVDetails")
+    public WebElement jobsList;
 }

@@ -10,6 +10,9 @@ import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.support.ui.Select;
 
 import java.io.IOException;
+import java.util.ArrayList;
+import java.util.HashMap;
+import java.util.List;
 import java.util.Map;
 
 public class FinancialSteps extends BaseSteps {
@@ -64,6 +67,21 @@ public class FinancialSteps extends BaseSteps {
         financialPage.revenueQuoationCurrencySearchButton(chargeName).click();
         SeleniumUtils.waitForPageLoad();
         selectCurrency(currency);
+    }
+
+    public Map<String, String> getChargesOfASupplier(String stepSupplier) {
+        List<Map<String, String>> charges = GlobalVariables.getCharges();
+        Map<String, String> mapToReturn = new HashMap<>();
+        for (Map<String, String> charge : charges) {
+            String chargeName = charge.get("Charge Name");
+            String supplier = charge.get("Supplier");
+            String cost = charge.get("Cost");
+            if (supplier.equalsIgnoreCase(stepSupplier)) {
+                mapToReturn.put(chargeName, String.format("%.2f", Double.parseDouble(cost)));
+            }
+
+        }
+        return mapToReturn;
     }
 
 

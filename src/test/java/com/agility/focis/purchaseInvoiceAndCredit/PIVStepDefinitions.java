@@ -22,11 +22,10 @@ public class PIVStepDefinitions {
 
     @When("Creates PIV Header with below details")
     public void creates_PIV_Header_with_below_details(List<Map<String, String>> pivHeaderInfo) throws InterruptedException {
-        pivSteps.navigateHomePage();
-        pivSteps.selectMenu("Purchase Invoice/Credit", "Purchase Invoice/Credit/Fast Check", "Job");
+        pivSteps.navigateToManagePIVPage();
+//        GlobalVariables.setJobNumber("100149975");
         for (Map<String, String> pivHeaderDetails : pivHeaderInfo) {
             pivSteps.createPIVHeader(pivHeaderDetails);
-            pivSteps.verifyPIVHeader(pivHeaderDetails);
         }
     }
 
@@ -72,5 +71,217 @@ public class PIVStepDefinitions {
             pivSteps.processPIV(jobNumber, pivType);
         }
 
+    }
+
+    @And("clicks on {string} Icon")
+    public void clicksOnIcon(String Icon) throws InterruptedException {
+        pivSteps.clickOnCreateNewPIVIcon();
+    }
+
+    @Then("PIV Header details should be populated as below")
+    public void pivHeaderDetailsShouldBePopulatedAsBelow(List<Map<String, String>> pivHeaderInfo) {
+        for (Map<String, String> pivHeaderDetails : pivHeaderInfo) {
+            pivSteps.verifyPIVHeader(pivHeaderDetails);
+            if (SeleniumUtils.getMessageToPrint().length() > 0) {
+                Assert.fail("PIV Header Detials didn't match");
+            }
+        }
+    }
+
+    @And("Invoice Status should be {string}")
+    public void invoiceStatusShouldBe(String invoiceStatus) {
+        pivSteps.verifyInvoiceStatus(invoiceStatus);
+        if (SeleniumUtils.getMessageToPrint().length() > 0) {
+            Assert.fail();
+        }
+        SeleniumUtils.takeScreenshot();
+    }
+
+    @When("enters Supplier Invoice Date as {string}")
+    public void entersSupplierInvoiceDateAs(String stepDefInvoiceDate) throws InterruptedException {
+        pivSteps.selectInvoiceDate(stepDefInvoiceDate);
+
+    }
+
+    @When("selects Entity Code as {string}")
+    public void selectsEntityCodeAs(String stepDefEntityCode) throws InterruptedException {
+        pivSteps.selectEntityCode(stepDefEntityCode);
+
+    }
+
+    @And("selects Org Component as {string}")
+    public void selectsOrgComponentAs(String stepdefOrgComponent) throws InterruptedException {
+        pivSteps.selectOrgComponent(stepdefOrgComponent);
+
+    }
+
+    @And("selects Supplier as {string}")
+    public void selectsSupplierAs(String stepDefSupplier) throws InterruptedException {
+        pivSteps.selectSupplier(stepDefSupplier);
+    }
+
+    @Then("Org Component State and Place Of Supply should be populated")
+    public void orgComponentStateAndPlaceOfSupplyShouldBePopulated() {
+        pivSteps.verifyStateAndPlaceOfSupplyArePopulated();
+    }
+
+    @Then("Bank Reference textbox will be enabled")
+    public void bankReferenceTextboxWillBeEnabled() {
+        pivSteps.verifyBankReferenceStatus("Enabled");
+    }
+
+    @Then("PIV Due Date should be populated as {string}")
+    public void pivDueDateShouldBePopulatedAs(String stepDefPiVDueDate) {
+        pivSteps.verifypivDueDate(stepDefPiVDueDate);
+    }
+
+    @And("selects Invoice Type as {string}")
+    public void selectsInvoiceTypeAs(String stepDefPIVType) {
+        pivSteps.selectInvoiceType(stepDefPIVType);
+    }
+
+    @And("selects Invoice Sub Type as {string}")
+    public void selectsInvoiceSubTypeAs(String stepDefInvoiceSubType) {
+        pivSteps.selectInvoiceSubType(stepDefInvoiceSubType);
+    }
+
+    @Then("Tax Amount field should be disabled")
+    public void taxAmountFieldShouldBeDisabled() {
+        pivSteps.verifyTaxAmountStatus("Disabled");
+    }
+
+    @And("enters PIV Amount as {string}")
+    public void entersPIVAmountAs(String stepDefPIVAmount) {
+        pivSteps.enterPIVAmount(stepDefPIVAmount);
+    }
+
+    @And("enters Tax Amount as {string}")
+    public void entersTaxAmountAs(String stepDefTaxAmount) {
+        pivSteps.enterTaxAmount(stepDefTaxAmount);
+    }
+
+    @Then("Total Amount should be populated as {string}")
+    public void totalAmountShouldBePopulatedAs(String stepDefTotalAmount) {
+        pivSteps.verifyTotalAmount(stepDefTotalAmount);
+    }
+
+    @Then("Supplier Address should be populated as Primary Address")
+    public void supplierAddressShouldBePopulatedAsPrimaryAddress() {
+        pivSteps.verifySupplierAddress();
+    }
+
+    @And("selects Tax At Header CheckBox")
+    public void selectsTaxAtHeaderCheckBox() {
+        pivSteps.selectTaxAtHeader();
+    }
+
+    @Then("PIV Amount field should be disabled")
+    public void pivAmountFieldShouldBeDisabled() {
+        pivSteps.verifyPIVAmountStatus("Disabled");
+    }
+
+    @And("selects Currency as {string}")
+    public void selectsCurrencyAs(String stepDefCurrency) throws InterruptedException {
+        pivSteps.selectInvoiceCurrency(stepDefCurrency);
+
+    }
+
+    @Then("Currency should populated as {string}")
+    public void currencyShouldPopulatedAs(String stepDefCurrency) {
+        pivSteps.verifyCurrencyInAmountInfoTable(stepDefCurrency);
+    }
+
+
+    @Then("PIV Amount and Tax Amount should be displayed as Zero in {string} Row")
+    public void pivAmountAndTaxAmountShouldBeDisplayedAsZeroInRow(String row) {
+        pivSteps.verifyRowDataAmountInfoTable(row, "0.00", "0.00", "0.00", "");
+    }
+
+    @Then("{string} Dialog should be populated")
+    public void dialogShouldBePopulated(String stepDefDiogLogName) throws InterruptedException {
+        Assert.assertTrue(pivSteps.isDialogPopulated(stepDefDiogLogName));
+    }
+
+    @Then("PIV Amount, Tax Amount and Currency should be displayed as {string} , {string} ,{string} in {string} Row on Allocate Jobs dialog")
+    public void pivAmountTaxAmountAndCurrencyShouldBeDisplayedAsInRowOnAllocateJobsDialog(String pivAmount, String taxAmount, String currency, String row) throws InterruptedException {
+
+        pivSteps.verifyRowDataAmountInfoTableAllocatePage(row, pivAmount, taxAmount, currency);
+
+    }
+
+    @Then("Charges belong to Supplier {string} only listed")
+    public void chargesBelongToSupplierOnlyListed(String supplier) {
+        pivSteps.verifyListedChargesforSupplier(supplier);
+    }
+
+    @And("Enters Current Number in to allocate Charges")
+    public void entersCurrentNumberInToAllocateCharges() throws InterruptedException {
+        pivSteps.enterJobNumber(GlobalVariables.getJobNumber());
+    }
+
+    @Then("Tagged jobs details should be populated correctly")
+    public void taggedJobsDetailsShouldBePopulatedCorrectly() {
+        pivSteps.verifyTaggedJobDetails(GlobalVariables.getJobNumber(), GlobalVariables.getOriginSTKName(), GlobalVariables.getDestinationSTKName(), GlobalVariables.getJobStatus());
+    }
+
+    @And("selects charges")
+    public void selectsCharges() {
+        pivSteps.selectCharges();
+    }
+
+    @And("modifies Tax Code for a Charge")
+    public void modifiesTaxCodeForACharge() throws InterruptedException {
+        pivSteps.modifyTaxCodeForACharge();
+    }
+
+    @Then("Tax Amount and Total Amount should be populated correctly for modified Charge")
+    public void taxAmountAndTotalAmountShouldBePopulatedCorrectlyForModifiedCharge() throws InterruptedException {
+        pivSteps.verifyAmountsOfTaxModifiedCharge();
+    }
+
+    @Then("User is able to modify Supplier Tax Amount")
+    public void userIsAbleToModifySupplierTaxAmount() {
+        pivSteps.modifySupplierTaxAmountForACharge();
+
+    }
+
+    @Then("Total Amount should be populated correctly after modifying Supplier Tax Amount")
+    public void totalAmountShouldBePopulatedCorrectlyAfterModifyingSupplierTaxAmount() {
+        pivSteps.verifyTotalAmountAfterModifyinSupplierTaxAmount();
+    }
+
+    @Then("difference between Tax Amount and Supplier Tax Amount should be populated correctly")
+    public void differenceBetweenTaxAmountAndSupplierTaxAmountShouldBePopulatedCorrectly() {
+        pivSteps.verifytaxAmtDiffAfterSuppTaxModification();
+    }
+
+    @And("applies Write Off for a Charge")
+    public void appliesWriteOffForACharge() throws InterruptedException {
+        pivSteps.applyWriteOffForACharge();
+    }
+
+    @Then("Total Amount should be populated correctly after Write Off for Wrote Off Charge")
+    public void totalAmountShouldBePopulatedCorrectlyAfterWriteOffForWroteOffCharge() {
+        pivSteps.verifyTotalAmountAfterWriteOff();
+    }
+
+    @And("Allocates Charges")
+    public void allocatesCharges() throws InterruptedException {
+        pivSteps.clickOnaButton("Allocate to Jobs/ Consol");
+        pivSteps.enterJobNumber(GlobalVariables.getJobNumber());
+        pivSteps.updatedPIVAmountAndTaxAmount();
+        pivSteps.clickOnaButton("Allocate to Jobs/ Consol");
+        pivSteps.enterJobNumber(GlobalVariables.getJobNumber());
+        pivSteps.selectCharges();
+        pivSteps.clickOnaButton("Allocate");
+    }
+
+    @And("PIV Amount, Tax Amount and Currency should be displayed as {string} , {string} ,{string} in {string} Row")
+    public void pivAmountTaxAmountAndCurrencyShouldBeDisplayedAsInRow(String pivAmount, String taxAmount, String currency, String row) throws InterruptedException {
+        pivSteps.verifyRowDataAmountInfoTableAllocatePage(row, pivAmount, taxAmount, currency);
+    }
+
+    @And("Updates PIV Amount and Tax Amount as per Tax Code modification")
+    public void updatesPIVAmountAndTaxAmountAsPerTaxCodeModification() {
     }
 }

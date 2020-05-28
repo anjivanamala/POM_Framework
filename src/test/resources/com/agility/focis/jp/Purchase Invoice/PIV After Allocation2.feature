@@ -1,5 +1,5 @@
-Feature: PIV Regression
-
+@PIVRegression @Regression @PIV
+Feature: Purchase Invoice - Header
 
   Scenario Outline: Process Purchase Invoice Or Purchase Credit
 

@@ -151,7 +151,7 @@ public class AddPackagesAndUnitsSteps extends BaseSteps {
 
     public void allocatePackages() throws InterruptedException {
         SeleniumUtils.waitForElementToVisible(addPackagesAndUnitsPage.productTypeName);
-        Thread.sleep(1000);
+        Thread.sleep(5000);
         Actions actions = new Actions(driver);
         int noOfUnallocatedUnits = driver.findElements(By.xpath("//div[@id ='Package_div']//tr//span[contains(@data-bind , 'DisplayNoOfPkgs')]")).size();
         int noOfUnallocatedPackages = driver.findElements(By.xpath("//div[contains(@data-bind , 'AllocatedPackages') and contains(@id,'Unit')]")).size();

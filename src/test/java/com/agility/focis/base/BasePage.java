@@ -174,5 +174,8 @@ public class BasePage {
         return driver.findElement(By.xpath("//input[contains(@id,'" + id + "')]"));
     }
 
+    @FindBy(xpath = "//span[text() ='Error']/ancestor::div[@role='dialog' and contains(@style,'block')]//p")
+    public WebElement errorMessage;
+
 }
 

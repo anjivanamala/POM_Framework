@@ -1,6 +1,7 @@
 package com.agility.focis.initiateJob;
 
 import com.agility.focis.base.BaseSteps;
+import com.agility.focis.globalVariables.GlobalVariables;
 import com.agility.focis.utilities.testObject.SeleniumUtils;
 import io.cucumber.java.en.And;
 import io.cucumber.java.en.Given;
@@ -47,7 +48,9 @@ public class InitiateJobStepDefinitions {
     @And("selects {string} as Origin Stakeholder & {string} as Destination Stakeholder")
     public void selectsAsOriginStakeholderAsDestinationStakeholder(String originSTK, String destinationSTK) throws InterruptedException {
         initiateJobSteps.selectStakeholder("Origin Stakeholder", originSTK);
+        GlobalVariables.setOriginSTKName(originSTK);
         initiateJobSteps.selectStakeholder("Destination Stakeholder", destinationSTK);
+        GlobalVariables.setDestinationSTKName(destinationSTK);
         initiateJobSteps.slecteReferences();
         SeleniumUtils.takeScreenshot();
     }

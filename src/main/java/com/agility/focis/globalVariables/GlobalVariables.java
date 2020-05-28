@@ -10,6 +10,52 @@ public class GlobalVariables {
     private static String productType;
     private static String jobScope;
     private static String incoterm;
+    private static String OriginSTKName;
+    private static String DestinationSTKName;
+    private static String incoTermLocation;
+    private static List<Map<String, String>> packagesInfo;
+    private static List<Map<String, String>> unitsInfo;
+    private static Map<String, Map<String, String>> parties;
+    private static Map<String, String> jobReferences;
+    private static Map<String, String> mblInformation;
+    private static List<Map<String, String>> locationDetails;
+    private static String cbrXMLData;
+    private static String OriginOrgComponent;
+    private static String DestinationOrgComponent;
+    private static String SupplierName;
+    private static String invoiceType;
+    private static String entityName;
+    private static List<Map<String, String>> charges;
+    private static String supplierAddress;
+    private static String entityCode;
+    private static String invoiceSubType;
+    private static String SuppierinvoiceNum;
+    private static Map<String, String> randomChargeDetails;
+
+    public static Map<String, String> getRandomChargeDetails() {
+        return randomChargeDetails;
+    }
+
+    public static void setRandomChargeDetails(Map<String, String> randomChargeDetails) {
+        GlobalVariables.randomChargeDetails = randomChargeDetails;
+    }
+
+    public static String getOriginSTKName() {
+        return OriginSTKName;
+    }
+
+    public static void setOriginSTKName(String originSTKName) {
+        OriginSTKName = originSTKName;
+    }
+
+    public static String getDestinationSTKName() {
+        return DestinationSTKName;
+    }
+
+    public static void setDestinationSTKName(String destinationSTKName) {
+        DestinationSTKName = destinationSTKName;
+    }
+
 
     public static String getSupplierName() {
         return SupplierName;
@@ -19,29 +65,32 @@ public class GlobalVariables {
         SupplierName = supplierName;
     }
 
-    private static String incoTermLocation;
-    private static List<Map<String, String>> packagesInfo;
-    private static List<Map<String, String>> unitsInfo;
-    private static Map<String, Map<String, String>> parties;
-    private static Map<String, String> jobReferences;
-    private static Map<String, String> mblInformation;
-    private static List<Map<String, String>> locationDetails;
-    private static String cbrXMLData;
-    private static Map<String, Map<String, String>> yash;
-    private static String OriginOrgComponent;
-    private static String DestinationOrgComponent;
-    private static String SupplierName;
-    private static String invoiceType;
 
-    public static String getSetEntityCode() {
-        return setEntityCode;
+    public static List<Map<String, String>> getCharges() {
+        return charges;
     }
 
-    public static void setSetEntityCode(String setEntityCode) {
-        GlobalVariables.setEntityCode = setEntityCode;
+    public static void setCharges(List<Map<String, String>> charges) {
+        GlobalVariables.charges = charges;
     }
 
-    private static String setEntityCode;
+    public static String getSupplierAddress() {
+        return supplierAddress;
+    }
+
+    public static void setSupplierAddress(String supplierAddress) {
+        GlobalVariables.supplierAddress = supplierAddress;
+    }
+
+
+    public static String getEntityCode() {
+        return entityCode;
+    }
+
+    public static void setEntityCode(String entityCode) {
+        GlobalVariables.entityCode = entityCode;
+    }
+
 
     public static String getInvoiceSubType() {
         return invoiceSubType;
@@ -51,8 +100,6 @@ public class GlobalVariables {
         GlobalVariables.invoiceSubType = invoiceSubType;
     }
 
-    private static String invoiceSubType;
-
 
     public static String getSuppierinvoiceNum() {
         return SuppierinvoiceNum;
@@ -61,8 +108,6 @@ public class GlobalVariables {
     public static void setSuppierinvoiceNum(String suppierinvoiceNum) {
         SuppierinvoiceNum = suppierinvoiceNum;
     }
-
-    private static String SuppierinvoiceNum;
 
 
     public static String getDestinationOrgComponent() {
@@ -79,14 +124,6 @@ public class GlobalVariables {
 
     public static void setOriginOrgComponent(String networkComponent, String department) {
         OriginOrgComponent = networkComponent + " " + department;
-    }
-
-    public static Map<String, Map<String, String>> getYash() {
-        return yash;
-    }
-
-    public static void setYash(Map<String, Map<String, String>> yash) {
-        GlobalVariables.yash = yash;
     }
 
     public static String getJobNumber() {
@@ -207,5 +244,13 @@ public class GlobalVariables {
 
     public static String getInvoiceType() {
         return invoiceType;
+    }
+
+    public static String getEntityName() {
+        return entityName;
+    }
+
+    public static void setEntityName(String entityName) {
+        GlobalVariables.entityName = entityName;
     }
 }
