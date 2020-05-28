@@ -151,10 +151,10 @@ Feature: Invoices Generation
       | Haulier Name | Cargo Collection Date | Cargo Delivery Date |
       | <D_Haulier>  | <D_Coll_Date>         | <D_Del_Date>        |
     And adds Charges as below
-      | Charge Type | Charge Name           | Supplier          | Cost | Cost Currency | Revenue | Revenue Currency |
-      | Destination | Advance fee           | BESTWAY TRANSPORT | -70  | USD           | 50      | USD              |
-      | Destination | Inland Fuel Surcharge | BESTWAY TRANSPORT | 100  | USD           | 120     | USD              |
-      | Destination | Booking Fees          | BESTWAY TRANSPORT | 100  | USD           | 120     | USD              |
+      | Charge Type | Charge Name           | Supplier                    | Cost | Cost Currency | Revenue | Revenue Currency |
+      | Destination | Advance fee           | Garrisons Logistics Pvt Ltd | -70  | INR           | 50      | INR              |
+      | Destination | Inland Fuel Surcharge | Garrisons Logistics Pvt Ltd | 100  | INR           | 120     | INR              |
+      | Destination | Booking Fees          | Garrisons Logistics Pvt Ltd | 100  | INR           | 120     | INR              |
     And Processes "<PIVType>" with below details
       | Job Number  | Invoice Type | Invoice SubType | Entity Code | Supplier Name | Supplier Invoice Date |
       | Current Job | <PIVType>    | <PIVSubType>    | <D_Entity>  | <D_Haulier>   | <PIVInvoiceDate>      |
@@ -352,10 +352,10 @@ Feature: Invoices Generation
       | <D_Haulier>  | <D_Coll_Date>         | <D_Del_Date>        |
 
     And adds Charges as below
-      | Charge Type | Charge Name           | Supplier          | Cost | Cost Currency | Revenue | Revenue Currency |
-      | Destination | Advance fee           | BESTWAY TRANSPORT | 70   | USD           | 150     | USD              |
-      | Destination | Inland Fuel Surcharge | BESTWAY TRANSPORT | -100 | USD           | 120     | USD              |
-      | Destination | Booking Fees          | BESTWAY TRANSPORT | 100  | USD           | 120     | USD              |
+      | Charge Type | Charge Name           | Supplier                    | Cost | Cost Currency | Revenue | Revenue Currency |
+      | Destination | Advance fee           | Garrisons Logistics Pvt Ltd | 70   | INR           | 150     | INR              |
+      | Destination | Inland Fuel Surcharge | Garrisons Logistics Pvt Ltd | -100 | INR           | 120     | INR              |
+      | Destination | Booking Fees          | Garrisons Logistics Pvt Ltd | 100  | INR           | 120     | INR              |
     And Processes "<PIVType>" with below details
       | Job Number  | Invoice Type | Invoice SubType | Entity Code | Supplier Name | Supplier Invoice Date |
       | Current Job | <PIVType>    | <PIVSubType>    | <D_Entity>  | <D_Haulier>   | <PIVInvoiceDate>      |
@@ -370,6 +370,6 @@ Feature: Invoices Generation
       | Current Job | <NumberOfChargesForSales> | <D_Entity>   |
 
     Examples:
-      | DataRow | MenuOption | ChildMenuOption | Product       | ProductType | JobScope         | JobType      | OriginStakeholder    | DestinationStakeholder | D_Entity | IncoTerm | MBLType | MBLTerms | SequestType | Destination_Country | Destination_NetworkComponent | Destination_Department | Destination_Type | Destination_IsLive | Carrier | PortOfLoading_L1 | ETD_L1 | PortOfDischarge_L1 | ETA_L1 | PortOfLoading_L2 | ETD_L2 | PortOfDischarge_L2 | ETA_L2 | PortOfLoading_L3 | ETD_L3 | PortOfDischarge_L3 | ETA_L3 | D_Haulier                   | D_Coll_Date | D_Del_Date | PIVType          | PIVSubType | PIVInvoiceDate | PIVType2        | NumberOfChargesForSales |
+      | DataRow | MenuOption | ChildMenuOption | Product       | ProductType | JobScope         | JobType      | OriginStakeholder | DestinationStakeholder | D_Entity | IncoTerm | MBLType | MBLTerms | SequestType | Destination_Country | Destination_NetworkComponent | Destination_Department | Destination_Type | Destination_IsLive | Carrier | PortOfLoading_L1 | ETD_L1 | PortOfDischarge_L1 | ETA_L1 | PortOfLoading_L2 | ETD_L2 | PortOfDischarge_L2 | ETA_L2 | PortOfLoading_L3 | ETD_L3 | PortOfDischarge_L3 | ETA_L3 | D_Haulier                   | D_Coll_Date | D_Del_Date | PIVType          | PIVSubType | PIVInvoiceDate | PIVType2        | NumberOfChargesForSales |
 #      | DR1     | Job        | Job Booking     | Ocean Freight | FCL         | Destination Only | Back To Back | Flyjac Logistics- IN | Smatbot- US            | 1200     | DAT      | Express | Prepaid  | Original    | US                  | Chicago                      | Ocean Import           | Branch           | Yes                | MAEU    | INNSA            | 7      | INMAA              | 8      | INMAA            | 9      | AEDXB              | 10     | AEDXB            | 11     | USCHI              | 14     | BESTWAY TRANSPORT           | 15          | 16         | Purchase Invoice | Freight    | Today          | Purchase Credit | All                     |
-      | DR1     | Job        | Job Booking     | Ocean Freight | FCL         | Destination Only | Back To Back | Smatbot- US          | Flyjac Logistics- IN   | 5910     | DAT      | Express | Prepaid  | Original    | US                  | Mumbai                       | Ocean Import           | Branch           | Yes                | MAEU    | USCHI            | 7      | INMAA              | 8      | INMAA            | 9      | AEDXB              | 10     | AEDXB            | 11     | INNSA              | 14     | Garrisons Logistics Pvt Ltd | 15          | 16         | Purchase Invoice | Freight    | Today          | Purchase Credit | All                     |
+      | DR1     | Job        | Job Booking     | Ocean Freight | FCL         | Destination Only | Back To Back | Smatbot- US       | Flyjac Logistics- IN   | 5910     | DAT      | Express | Prepaid  | Original    | IN                  | Mumbai                       | Ocean Import           | Branch           | Yes                | MAEU    | USCHI            | 7      | INMAA              | 8      | INMAA            | 9      | AEDXB              | 10     | AEDXB            | 11     | INNSA              | 14     | Garrisons Logistics Pvt Ltd | 15          | 16         | Purchase Invoice | Freight    | Today          | Purchase Credit | All                     |
