@@ -443,8 +443,8 @@ public class PIVSteps extends FinancialSteps {
     }
 
     public void verifyInvoiceStatus(String invoiceStatus) {
-        if (!invoiceStatus.equalsIgnoreCase(pivPage.invoiceStatus.getText())) {
-            SeleniumUtils.logInfo("\nInvoice Status Populated Incorrectly\nExpected :" + invoiceStatus + "\n Actual :" + pivPage.invoiceStatus.getText());
+        if (!invoiceStatus.equalsIgnoreCase(pivPage.invoiceStatus.getText().trim())) {
+            SeleniumUtils.logInfo("\nInvoice Status Populated Incorrectly\nExpected :" + invoiceStatus + "\nActual :" + pivPage.invoiceStatus.getText());
         }
     }
 

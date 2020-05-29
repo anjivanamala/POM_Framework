@@ -3,7 +3,7 @@ Feature: Purchase Invoice - After Allocation Of Charges
 #100149975
   Background: Login
     Given User is logged into FOCiS Application
-
+  @PIVAllocateToJobTesting
   Scenario Outline: (Pre Condition Scenario) - Create Air Freight - E2E Job and Add Estimates
 
     When selects "<ChildMenuOption>" from "<MenuOption>" Menu
@@ -49,6 +49,7 @@ Feature: Purchase Invoice - After Allocation Of Charges
       | DataRow | MenuOption | ChildMenuOption | Product     | ProductType | JobScope | OriginStakeholder    | DestinationStakeholder | IncoTerm | Origin_Country | Origin_NetworkComponent | Origin_Department | Origin_Type | Origin_IsLive | O_Entity | Destination_Country | Destination_NetworkComponent | Destination_Department | Destination_Type | Destination_IsLive | D_Entity | Carrier | FlightNumber | AOD | AOA | ETD | ETDTime | ETA | ETATime | O_Haulier                   | O_Coll_Date | O_Del_Date | D_Haulier         | D_Coll_Date | D_Del_Date |
       | DR1     | Job        | Job Booking     | Air Freight | Expedited   | E2E      | Flyjac Logistics- IN | Smatbot- US            | DAT      | IN             | Mumbai                  | Air Export        | Branch      | Yes           | 5910     | US                  | Chicago                      | Air Import             | Branch           | Yes                | 1200     | EK      | EK123        | BOM | ORD | 7   | 12      | 14  | 12      | Garrisons Logistics Pvt Ltd | 1           | 3          | BESTWAY TRANSPORT | 15          | 16         |
 
+  @PIVAllocateToJobTesting
   Scenario Outline: Validate the displaying of status as "Fully Allocated" when "To Be Allocated" amount row is Zero in PIV Screen
     When Creates PIV Header with below details
       | Invoice Type | Invoice SubType | Entity Code | Org Component  | Supplier Name | Supplier Invoice Date | PIV Amount  | Tax Amount  | Currency   |
@@ -74,7 +75,6 @@ Feature: Purchase Invoice - After Allocation Of Charges
       | DataRow | PIVType          | PIVSubType | Entity | OrgComponent      | Haulier                     | PIVInvoiceDate | PIVAmount | TaxAmount | Currency |
       | DR1     | Purchase Invoice | Freight    | 5910   | Mumbai Air Export | Garrisons Logistics Pvt Ltd | Today          | 100       | 0.00      | INR      |
 
-  @PIVAllocateToJobTesting
   Scenario Outline: Validate the generating of Purchase Invoice after modifying the tax code after Allocation of charges to the header
 #  100150184
     When selects "<ChildMenuOption>" from "<MenuOption>" Menu
