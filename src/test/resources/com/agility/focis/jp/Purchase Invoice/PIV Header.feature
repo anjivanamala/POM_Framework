@@ -165,5 +165,5 @@ Feature: Purchase Invoice - Header
     And selects Currency as "<Currency>"
     Then PIV Amount and Tax Amount should be displayed as Zero in "Total Amount" Row
     Examples:
-      | DataRow | EntityCode | OrgComponent        | Supplier                    |
-      | DR1     | 5910       | Mumbai Ocean Export | Garrisons Logistics Pvt Ltd |
+      | DataRow | EntityCode | OrgComponent        | Supplier                    | Currency |
+      | DR1     | 5910       | Mumbai Ocean Export | Garrisons Logistics Pvt Ltd | INR      |
