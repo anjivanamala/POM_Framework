@@ -180,6 +180,9 @@ public class PIVPage extends BasePage {
     @FindBy(xpath = "//input[contains(@id,'txtTobeAmount')]")
     public WebElement tobePIVedAmount;
 
+    @FindBy(xpath = "//input[contains(@id,'PIVTagJobsFrUC_txtAmount')]")
+    public WebElement writeOffAmount;
+
     @FindBy(xpath = "//select[contains(@id,'drpreason')]")
     public WebElement writeOffReasonCode;
 
@@ -213,4 +216,10 @@ public class PIVPage extends BasePage {
     public WebElement editPIVICon(String invoiceNumber) {
         return driver.findElement(By.xpath("//*[text()='" + invoiceNumber + "']/ancestor::tr[1]//*[@title='Edit PIV']"));
     }
+
+    @FindBy(xpath = "//td[@aria-describedby='grdTotalSummaryLs_TotalAmount']")
+    public WebElement totalNetAmountTotalSummaryTable;
+
+    @FindBy(xpath = "//td[@aria-describedby='grdTotalSummaryLs_Currency']")
+    public WebElement currencyTotalSummaryTable;
 }

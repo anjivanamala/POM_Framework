@@ -159,39 +159,22 @@ Feature: Purchase Invoice - After Allocation Of Charges
       | DataRow | PIVType          | PIVSubType | Entity | OrgComponent      | Haulier                     | PIVInvoiceDate | PIVAmount | TaxAmount | Currency |
       | DR1     | Purchase Invoice | Freight    | 5910   | Mumbai Air Export | Garrisons Logistics Pvt Ltd | Today          | 100       | 0.00      | INR      |
 
-  Scenario Outline: Validate the Tax Summary Table Amounts after allocation of charges to PIV header
-    When Creates PIV Header with below details
-      | Invoice Type | Invoice SubType | Entity Code | Org Component  | Supplier Name | Supplier Invoice Date | PIV Amount  | Tax Amount  | Currency   |
-      | <PIVType>    | <PIVSubType>    | <Entity>    | <OrgComponent> | <Haulier>     | <PIVInvoiceDate>      | <PIVAmount> | <TaxAmount> | <Currency> |
-    And Partially Allocates Charges
-    Then Total PIV Amount of PIV Summary Table should be populated as "Sum of Net PIVed Amounts"
-    And Discount Value of PIV Summary Table should be populated as "0.00"
-    And Write of Amount of PIV Summary Table should be populated as "0.00"
-    And Total Net Amount of PIV Summary Table should be populated as "PIV Amount - (Discount  Value + Write Off Amount)"
-    And Currency of PIV Summary Table should populated as "<Currency>"
-
-
-    Examples:
-      | DataRow | PIVType          | PIVSubType | Entity | OrgComponent      | Haulier                     | PIVInvoiceDate | PIVAmount | TaxAmount | Currency |
-      | DR1     | Purchase Invoice | Freight    | 5910   | Mumbai Air Export | Garrisons Logistics Pvt Ltd | Today          | 100       | 0.00      | INR      |
-
   Scenario Outline: Validate the PIV Summary Table Amounts after allocation of charges to PIV header
     When Creates PIV Header with below details
       | Invoice Type | Invoice SubType | Entity Code | Org Component  | Supplier Name | Supplier Invoice Date | PIV Amount  | Tax Amount  | Currency   |
       | <PIVType>    | <PIVSubType>    | <Entity>    | <OrgComponent> | <Haulier>     | <PIVInvoiceDate>      | <PIVAmount> | <TaxAmount> | <Currency> |
-    And Allocates Charges
-    Then Total Charge Amount of Tax Summary Table for a Tax Code should be populated as "Sum of Corresponding Net PIVed Amounts"
-    And Tax Rate of Tax Summary Table should be populated correctly
-    And Total Tax Amount of Tax Summary Table should be populated as "Sum of Corresponding Tax Amounts"
-    And Supplier Total Tax Amount of Tax Summary Table should be populated as "Sum of Corresponding Supplier Tax Amounts"
-    And Currency of PIV Summary Table should populated as "<Currency>"
+    And Partially Allocates Charges
+    Then Total PIV Amount of PIV Summary Table should be populated as "Sum of Cots"
+    And Discount Value of PIV Summary Table should be populated as "0.00"
+    And Write of Amount of PIV Summary Table should be populated as "0.00"
+    And Total Net Amount of PIV Summary Table should be populated as "Sum Of Net PIV Amounts"
+
 
     Examples:
       | DataRow | PIVType          | PIVSubType | Entity | OrgComponent      | Haulier                     | PIVInvoiceDate | PIVAmount | TaxAmount | Currency |
       | DR1     | Purchase Invoice | Freight    | 5910   | Mumbai Air Export | Garrisons Logistics Pvt Ltd | Today          | 100       | 0.00      | INR      |
 
-  @PIVAllocateToJobTesting
-  Scenario Outline: Validate the Total Summary Table Amounts after Allocation of Charges to PIV header
+  Scenario Outline: Validate the Tax Summary Table Amounts after allocation of charges to PIV header
 #    When Creates PIV Header with below details
 #      | Invoice Type | Invoice SubType | Entity Code | Org Component  | Supplier Name | Supplier Invoice Date | PIV Amount  | Tax Amount  | Currency   |
 #      | <PIVType>    | <PIVSubType>    | <Entity>    | <OrgComponent> | <Haulier>     | <PIVInvoiceDate>      | <PIVAmount> | <TaxAmount> | <Currency> |
@@ -202,7 +185,129 @@ Feature: Purchase Invoice - After Allocation Of Charges
     And Tax Rate of Tax Summary Table should be populated correctly
     And Total Tax Amount of Tax Summary Table should be populated as "Sum of Corresponding Tax Amounts"
     And Supplier Total Tax Amount of Tax Summary Table should be populated as "Sum of Corresponding Supplier Tax Amounts"
+    And Currency of Tax Summary Table should populated as "<Currency>"
+
+    Examples:
+      | DataRow | PIVType          | PIVSubType | Entity | OrgComponent      | Haulier                     | PIVInvoiceDate | PIVAmount | TaxAmount | Currency |
+      | DR1     | Purchase Invoice | Freight    | 5910   | Mumbai Air Export | Garrisons Logistics Pvt Ltd | Today          | 100       | 0.00      | INR      |
+
+  Scenario Outline: Validate the Total Summary Table Amounts after Allocation of Charges to PIV header
+#    When Creates PIV Header with below details
+#      | Invoice Type | Invoice SubType | Entity Code | Org Component  | Supplier Name | Supplier Invoice Date | PIV Amount  | Tax Amount  | Currency   |
+#      | <PIVType>    | <PIVSubType>    | <Entity>    | <OrgComponent> | <Haulier>     | <PIVInvoiceDate>      | <PIVAmount> | <TaxAmount> | <Currency> |
+#    And Allocates Charges
+    When selects "Purchase Invoice/Credit" from "Purchase Invoice/Credit/Fast Check" from "Job" Menu
+    And Edits PIV with Supplier Invoice Number "20200530162956"
+    Then Net Amount of Total Summary Table should be populated as "Sum of Total Amounts"
+    And Currency of Total Summary Table should populated as "<Currency>"
+
+    Examples:
+      | DataRow | PIVType          | PIVSubType | Entity | OrgComponent      | Haulier                     | PIVInvoiceDate | PIVAmount | TaxAmount | Currency |
+      | DR1     | Purchase Invoice | Freight    | 5910   | Mumbai Air Export | Garrisons Logistics Pvt Ltd | Today          | 100       | 0.00      | INR      |
+
+  Scenario Outline: Validate the Total Amount after applying Write Off at charge grid level
+#    When Creates PIV Header with below details
+#      | Invoice Type | Invoice SubType | Entity Code | Org Component  | Supplier Name | Supplier Invoice Date | PIV Amount  | Tax Amount  | Currency   |
+#      | <PIVType>    | <PIVSubType>    | <Entity>    | <OrgComponent> | <Haulier>     | <PIVInvoiceDate>      | <PIVAmount> | <TaxAmount> | <Currency> |
+#    And Allocates Charges
+    When selects "Purchase Invoice/Credit" from "Purchase Invoice/Credit/Fast Check" from "Job" Menu
+    And Edits PIV with Supplier Invoice Number "20200530162956"
+    And applies Write Off for a Charge
+    Then Total Amount should be populated correctly after Write Off for Wrote Off Charge
+
+    Examples:
+      | DataRow | PIVType          | PIVSubType | Entity | OrgComponent      | Haulier                     | PIVInvoiceDate | PIVAmount | TaxAmount | Currency |
+      | DR1     | Purchase Invoice | Freight    | 5910   | Mumbai Air Export | Garrisons Logistics Pvt Ltd | Today          | 100       | 0.00      | INR      |
+
+  Scenario Outline: Validate the PIV Summary Table Amounts after applying Write Off in Allocate Job Page
+    When Creates PIV Header with below details
+      | Invoice Type | Invoice SubType | Entity Code | Org Component  | Supplier Name | Supplier Invoice Date | PIV Amount  | Tax Amount  | Currency   |
+      | <PIVType>    | <PIVSubType>    | <Entity>    | <OrgComponent> | <Haulier>     | <PIVInvoiceDate>      | <PIVAmount> | <TaxAmount> | <Currency> |
+    And Updates PIV Amount and Tax Amount
+    And Clicks on "Allocate to Jobs/ Consol" button
+    And Enters Current Number in to allocate Charges
+    And applies Write Off for a Charge
+    And Allocates Charges
+    Then Total PIV Amount of PIV Summary Table should be populated as "Sum of Cots"
+    And Discount Value of PIV Summary Table should be populated as "0.00"
+    And Write of Amount of PIV Summary Table should be populated as "Written off Amount"
+    And Total Net Amount of PIV Summary Table should be populated as "Sum Of Net PIV Amounts"
     And Currency of PIV Summary Table should populated as "<Currency>"
+
+    Examples:
+      | DataRow | PIVType          | PIVSubType | Entity | OrgComponent      | Haulier                     | PIVInvoiceDate | PIVAmount | TaxAmount | Currency |
+      | DR1     | Purchase Invoice | Freight    | 5910   | Mumbai Air Export | Garrisons Logistics Pvt Ltd | Today          | 100       | 0.00      | INR      |
+
+  Scenario Outline: Validate the Tax Summary Table Amounts after applying Write Off in Allocate Job Page
+    When Creates PIV Header with below details
+      | Invoice Type | Invoice SubType | Entity Code | Org Component  | Supplier Name | Supplier Invoice Date | PIV Amount  | Tax Amount  | Currency   |
+      | <PIVType>    | <PIVSubType>    | <Entity>    | <OrgComponent> | <Haulier>     | <PIVInvoiceDate>      | <PIVAmount> | <TaxAmount> | <Currency> |
+    And Updates PIV Amount and Tax Amount
+    And Clicks on "Allocate to Jobs/ Consol" button
+    And Enters Current Number in to allocate Charges
+    And applies Write Off for a Charge
+    And Allocates Charges
+    Then Total Charge Amount of Tax Summary Table for a Tax Code should be populated as "Sum of Corresponding Net PIVed Amounts"
+    And Tax Rate of Tax Summary Table should be populated correctly
+    And Total Tax Amount of Tax Summary Table should be populated as "Sum of Corresponding Tax Amounts"
+    And Supplier Total Tax Amount of Tax Summary Table should be populated as "Sum of Corresponding Supplier Tax Amounts"
+    And Currency of Tax Summary Table should populated as "<Currency>"
+
+    Examples:
+      | DataRow | PIVType          | PIVSubType | Entity | OrgComponent      | Haulier                     | PIVInvoiceDate | PIVAmount | TaxAmount | Currency |
+      | DR1     | Purchase Invoice | Freight    | 5910   | Mumbai Air Export | Garrisons Logistics Pvt Ltd | Today          | 100       | 0.00      | INR      |
+
+  Scenario Outline: Validate the Total Summary Table Amounts after applying Write Off in Allocate Job Page
+    When Creates PIV Header with below details
+      | Invoice Type | Invoice SubType | Entity Code | Org Component  | Supplier Name | Supplier Invoice Date | PIV Amount  | Tax Amount  | Currency   |
+      | <PIVType>    | <PIVSubType>    | <Entity>    | <OrgComponent> | <Haulier>     | <PIVInvoiceDate>      | <PIVAmount> | <TaxAmount> | <Currency> |
+    And Updates PIV Amount and Tax Amount
+    And Clicks on "Allocate to Jobs/ Consol" button
+    And Enters Current Number in to allocate Charges
+    And applies Write Off for a Charge
+    And Allocates Charges
+    Then Net Amount of Total Summary Table should be populated as "Sum of Total Amounts"
+    And Currency of Total Summary Table should populated as "<Currency>"
+
+    Examples:
+      | DataRow | PIVType          | PIVSubType | Entity | OrgComponent      | Haulier                     | PIVInvoiceDate | PIVAmount | TaxAmount | Currency |
+      | DR1     | Purchase Invoice | Freight    | 5910   | Mumbai Air Export | Garrisons Logistics Pvt Ltd | Today          | 100       | 0.00      | INR      |
+
+
+  Scenario Outline: Validate the PIV Summary Table Amounts after modifying the tax code in Allocate Job Page
+    When Creates PIV Header with below details
+      | Invoice Type | Invoice SubType | Entity Code | Org Component  | Supplier Name | Supplier Invoice Date | PIV Amount  | Tax Amount  | Currency   |
+      | <PIVType>    | <PIVSubType>    | <Entity>    | <OrgComponent> | <Haulier>     | <PIVInvoiceDate>      | <PIVAmount> | <TaxAmount> | <Currency> |
+    And Updates PIV Amount and Tax Amount
+    And Clicks on "Allocate to Jobs/ Consol" button
+    And Enters Current Number in to allocate Charges
+    And modifies Tax Code for a Charge
+    And Allocates Charges
+    Then Total PIV Amount of PIV Summary Table should be populated as "Sum of Cots"
+    And Discount Value of PIV Summary Table should be populated as "0.00"
+    And Write of Amount of PIV Summary Table should be populated as "0.00"
+    And Total Net Amount of PIV Summary Table should be populated as "Sum Of Net PIV Amounts"
+    And Currency of PIV Summary Table should populated as "<Currency>"
+
+    Examples:
+      | DataRow | PIVType          | PIVSubType | Entity | OrgComponent      | Haulier                     | PIVInvoiceDate | PIVAmount | TaxAmount | Currency |
+      | DR1     | Purchase Invoice | Freight    | 5910   | Mumbai Air Export | Garrisons Logistics Pvt Ltd | Today          | 100       | 0.00      | INR      |
+
+  @PIVAllocateToJobTesting
+  Scenario Outline: Validate the Tax Summary Table Amounts after modifying the tax code in Allocate Job page
+    When Creates PIV Header with below details
+      | Invoice Type | Invoice SubType | Entity Code | Org Component  | Supplier Name | Supplier Invoice Date | PIV Amount  | Tax Amount  | Currency   |
+      | <PIVType>    | <PIVSubType>    | <Entity>    | <OrgComponent> | <Haulier>     | <PIVInvoiceDate>      | <PIVAmount> | <TaxAmount> | <Currency> |
+    And Updates PIV Amount and Tax Amount
+    And Clicks on "Allocate to Jobs/ Consol" button
+    And Enters Current Number in to allocate Charges
+    And modifies Tax Code for a Charge
+    And Allocates Charges
+    Then Total Charge Amount of Tax Summary Table for a Tax Code should be populated as "Sum of Corresponding Net PIVed Amounts"
+    And Tax Rate of Tax Summary Table should be populated correctly
+    And Total Tax Amount of Tax Summary Table should be populated as "Sum of Corresponding Tax Amounts"
+    And Supplier Total Tax Amount of Tax Summary Table should be populated as "Sum of Corresponding Supplier Tax Amounts"
+    And Currency of Tax Summary Table should populated as "<Currency>"
 
     Examples:
       | DataRow | PIVType          | PIVSubType | Entity | OrgComponent      | Haulier                     | PIVInvoiceDate | PIVAmount | TaxAmount | Currency |

@@ -23,7 +23,7 @@ public class PIVStepDefinitions {
     @When("Creates PIV Header with below details")
     public void creates_PIV_Header_with_below_details(List<Map<String, String>> pivHeaderInfo) throws InterruptedException {
         pivSteps.navigateToManagePIVPage();
-        GlobalVariables.setJobNumber("100151340");
+        GlobalVariables.setJobNumber("100151429");
         for (Map<String, String> pivHeaderDetails : pivHeaderInfo) {
             pivSteps.createPIVHeader(pivHeaderDetails);
         }
@@ -261,19 +261,14 @@ public class PIVStepDefinitions {
     }
 
     @Then("Total Amount should be populated correctly after Write Off for Wrote Off Charge")
-    public void totalAmountShouldBePopulatedCorrectlyAfterWriteOffForWroteOffCharge() {
+    public void totalAmountShouldBePopulatedCorrectlyAfterWriteOffForWroteOffCharge() throws InterruptedException {
         pivSteps.verifyTotalAmountAfterWriteOff();
     }
 
     @And("Allocates Charges")
     public void allocatesCharges() throws InterruptedException {
-        pivSteps.clickOnaButton("Allocate to Jobs/ Consol");
-        pivSteps.enterJobNumber(GlobalVariables.getJobNumber());
-        pivSteps.updatedPIVAmountAndTaxAmount();
-        pivSteps.clickOnaButton("Allocate to Jobs/ Consol");
-        pivSteps.enterJobNumber(GlobalVariables.getJobNumber());
-        pivSteps.selectCharges();
-        pivSteps.clickOnaButton("Allocate");
+        pivSteps.allocateCharges();
+
     }
 
     @And("PIV Amount, Tax Amount and Currency should be displayed as {string} , {string} ,{string} in {string} Row")
@@ -287,13 +282,7 @@ public class PIVStepDefinitions {
 
     @And("Partially Allocates Charges")
     public void partiallyAllocatesCharges() throws InterruptedException {
-        pivSteps.clickOnaButton("Allocate to Jobs/ Consol");
-        pivSteps.enterJobNumber(GlobalVariables.getJobNumber());
-        pivSteps.updatedPIVAmountAndTaxAmount();
-        pivSteps.clickOnaButton("Allocate to Jobs/ Consol");
-        pivSteps.enterJobNumber(GlobalVariables.getJobNumber());
-        pivSteps.selectChargesLessThanPIVAmount();
-        pivSteps.clickOnaButton("Allocate");
+        pivSteps.partiallyAllocateCharges();
 
     }
 
@@ -389,5 +378,39 @@ public class PIVStepDefinitions {
     @And("Edits PIV with Supplier Invoice Number {string}")
     public void editsPIVWithSupplierInvoiceNumber(String invoiceNum) throws InterruptedException {
         pivSteps.editPIV("", "", "", invoiceNum, "");
+    }
+
+    @And("Currency of Total Summary Table should populated as {string}")
+    public void currencyOfTotalSummaryTableShouldPopulatedAs(String stepDefCurrency) throws InterruptedException {
+        pivSteps.verifyCurrencyTotalSummaryTable(stepDefCurrency);
+        if (SeleniumUtils.getMessageToPrint().length() > 0) {
+            Assert.fail("Total Summary Details Populated Incorrectly");
+        }
+        SeleniumUtils.takeScreenshot();
+    }
+
+    @Then("Net Amount of Total Summary Table should be populated as {string}")
+    public void netAmountOfTotalSummaryTableShouldBePopulatedAs(String stepDefNetAmount) throws InterruptedException {
+        pivSteps.verifyNetAmountTotalSummaryTable(stepDefNetAmount);
+        if (SeleniumUtils.getMessageToPrint().length() > 0) {
+            Assert.fail("Total Summary Details Populated Incorrectly");
+        }
+    }
+
+    @And("Currency of Tax Summary Table should populated as {string}")
+    public void currencyOfTaxSummaryTableShouldPopulatedAs(String stepDefCurrency) throws InterruptedException {
+        pivSteps.verifyCurrencyOfTaxSummaryTable(stepDefCurrency);
+        if (SeleniumUtils.getMessageToPrint().length() > 0) {
+            Assert.fail("Tax Summary Details Populated Incorrectly");
+        }
+        SeleniumUtils.takeScreenshot();
+
+    }
+
+    @And("Updates PIV Amount and Tax Amount")
+    public void updatesPIVAmountAndTaxAmount() throws InterruptedException {
+        pivSteps.clickOnaButton("Allocate to Jobs/ Consol");
+        pivSteps.enterJobNumber(GlobalVariables.getJobNumber());
+        pivSteps.updatedPIVAmountAndTaxAmount();
     }
 }

@@ -31,6 +31,15 @@ public class GlobalVariables {
     private static String invoiceSubType;
     private static String SuppierinvoiceNum;
     private static Map<String, String> randomChargeDetails;
+    private static String writeOffAmount;
+
+    public static String getWriteOffAmount() {
+        return writeOffAmount;
+    }
+
+    public static void setWriteOffAmount(String writeOffAmount) {
+        GlobalVariables.writeOffAmount = writeOffAmount;
+    }
 
     public static Map<String, String> getRandomChargeDetails() {
         return randomChargeDetails;

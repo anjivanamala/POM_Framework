@@ -656,7 +656,9 @@ public class PIVSteps extends FinancialSteps {
             chargesToSelect = getPositiveOrNegativeCharges("Negative");
         }
         for (WebElement charge : chargesToSelect) {
-            charge.findElement(By.xpath(".//input[@role='checkbox']")).click();
+            if (charge.getAttribute("aria-selected").equalsIgnoreCase("false")) {
+                charge.findElement(By.xpath(".//input[@role='checkbox']")).click();
+            }
         }
     }
 
@@ -668,7 +670,8 @@ public class PIVSteps extends FinancialSteps {
         String taxRate = charges.get(randomNum).findElement(By.xpath("./td[contains(@aria-describedby,'t_VatRatePer')]")).getText();
         String taxCode = charges.get(randomNum).findElement(By.xpath("./td[contains(@aria-describedby,'t_VatCode')]//input")).getAttribute("value");
         String totalAmount = charges.get(randomNum).findElement(By.xpath("./td[contains(@aria-describedby,'t_FinalNetAmountB')]")).getText();
-
+        String chargeName = charges.get(randomNum).findElement(By.xpath("./td[contains(@aria-describedby,'t_ChargeName')]")).getText();
+        charges.get(randomNum).findElement(By.xpath(".//input[@role='checkbox']")).click();
         charges.get(randomNum).findElement(By.xpath("./td[contains(@aria-describedby,'t_VatCode')]//button")).click();
         SeleniumUtils.waitForPageLoad();
         List<WebElement> taxCodes = driver.findElements(By.xpath("//td[@aria-describedby='grdTaxCodeData_VatRate' and not(@title='" + taxRate.replace("%", "") + "')]/..//a"));
@@ -677,10 +680,6 @@ public class PIVSteps extends FinancialSteps {
         SeleniumUtils.waitForPageLoad();
         String modifiedTaxCode = charges.get(randomNum).findElement(By.xpath("./td[contains(@aria-describedby,'t_VatCode')]//input")).getAttribute("value");
         String modifiedTaxRate = charges.get(randomNum).findElement(By.xpath("./td[contains(@aria-describedby,'t_VatRatePer')]")).getText();
-        System.out.println("Charge Index is :" + randomNum);
-        System.out.println("Random Index is :" + randomTaxCodeIndex);
-        System.out.println("Tax Code is :" + taxCode);
-        System.out.println("Modified Tax Code is :" + modifiedTaxCode);
         Map<String, String> chargeDetails = new HashMap<>();
         chargeDetails.put("index", String.valueOf(randomNum));
         chargeDetails.put("pivAmount", pivAmount);
@@ -691,6 +690,9 @@ public class PIVSteps extends FinancialSteps {
         chargeDetails.put("modifiedTaxRate", modifiedTaxRate);
         chargeDetails.put("totalAmount", totalAmount);
         GlobalVariables.setRandomChargeDetails(chargeDetails);
+        SeleniumUtils.logInfo("Charge Name :" + chargeName);
+        SeleniumUtils.logInfo("Tax Code is :" + taxCode);
+        SeleniumUtils.logInfo("Modified Tax Code is :" + modifiedTaxCode);
 
     }
 
@@ -721,8 +723,11 @@ public class PIVSteps extends FinancialSteps {
     public void modifySupplierTaxAmountForACharge() {
         List<WebElement> jobs = pivPage.jobsListAllocateJobs.findElements(By.xpath(".//table[contains(@id,'grdTagJobsLs')]"));
         List<WebElement> NonZeroTaxRatedCharges = jobs.get(0).findElements(By.xpath(".//tr[not(@class='jqgfirstrow')]//td[contains(@aria-describedby,'t_VatRatePer') and not(@title='0%')]/ancestor::tr[1]"));
-        int randomNum = ThreadLocalRandom.current().nextInt(0, NonZeroTaxRatedCharges.size() - 1);
+        int randomNum = 0;
+        if (NonZeroTaxRatedCharges.size() > 1) {
 
+            randomNum = ThreadLocalRandom.current().nextInt(0, NonZeroTaxRatedCharges.size() - 1);
+        }
         String pivAmount = NonZeroTaxRatedCharges.get(randomNum).findElement(By.xpath("./td[contains(@aria-describedby,'t_NetAmountB')]")).getText();
 
         SeleniumUtils.clearText(NonZeroTaxRatedCharges.get(randomNum).findElement(By.xpath("./td[contains(@aria-describedby,'t_SuppVatAmountB')]/input")));
@@ -764,17 +769,21 @@ public class PIVSteps extends FinancialSteps {
         List<WebElement> charges = getCharges();
         int randomNum = ThreadLocalRandom.current().nextInt(0, charges.size() - 1);
         String pivAmount = charges.get(randomNum).findElement(By.xpath("./td[contains(@aria-describedby,'t_NetAmountB')]")).getText();
+        String chargeName = charges.get(randomNum).findElement(By.xpath("./td[contains(@aria-describedby,'t_ChargeName')]")).getText();
         String taxAmount = charges.get(randomNum).findElement(By.xpath("./td[contains(@aria-describedby,'t_SuppVatAmountB')]/input")).getAttribute("value");
         String totalAmount = charges.get(randomNum).findElement(By.xpath("./td[contains(@aria-describedby,'t_FinalNetAmountB')]")).getText();
         double tobePIVedAmount = performWriteOffForGivenCharge(charges.get(randomNum));
-
+        String taxAmountAfterWriteOff = charges.get(randomNum).findElement(By.xpath("./td[contains(@aria-describedby,'t_SuppVatAmountB')]/input")).getAttribute("value");
         Map<String, String> chargeDetails = new HashMap<>();
         chargeDetails.put("index", String.valueOf(randomNum));
         chargeDetails.put("pivAmount", pivAmount);
         chargeDetails.put("taxAmount", taxAmount);
+        chargeDetails.put("taxAmountAfterWriteOff", String.format("%.2f", Double.parseDouble(taxAmountAfterWriteOff)));
         chargeDetails.put("totalAmount", totalAmount);
         chargeDetails.put("tobePIVedAmount", String.format("%.2f", tobePIVedAmount));
         GlobalVariables.setRandomChargeDetails(chargeDetails);
+        SeleniumUtils.takeScreenshot();
+        SeleniumUtils.logInfo("Charge Name : " + chargeName + "\nTo be PIVed Amount : " + String.format("%.2f", tobePIVedAmount) + "\nSupplier Tax Amount After Write off : " + taxAmountAfterWriteOff);
     }
 
     public double performWriteOffForGivenCharge(WebElement charge) throws InterruptedException {
@@ -790,6 +799,8 @@ public class PIVSteps extends FinancialSteps {
         SeleniumUtils.clearText(pivPage.tobePIVedAmount);
         pivPage.tobePIVedAmount.sendKeys(String.format("%.2f", random) + Keys.TAB);
 
+        GlobalVariables.setWriteOffAmount(pivPage.writeOffAmount.getAttribute("value"));
+
         Select writeOffReasonCode = new Select(pivPage.writeOffReasonCode);
         writeOffReasonCode.selectByVisibleText("Others");
         SeleniumUtils.waitForPageLoad();
@@ -799,13 +810,14 @@ public class PIVSteps extends FinancialSteps {
 
     }
 
-    public void verifyTotalAmountAfterWriteOff() {
-        List<WebElement> jobs = pivPage.jobsListAllocateJobs.findElements(By.xpath(".//table[contains(@id,'grdTagJobsLs')]"));
-        List<WebElement> charges = jobs.get(0).findElements(By.xpath(".//tr[not(@class='jqgfirstrow')]"));
+    public void verifyTotalAmountAfterWriteOff() throws InterruptedException {
+
+        List<WebElement> charges = getCharges();
         int chargeIndex = Integer.parseInt(GlobalVariables.getRandomChargeDetails().get("index"));
         double tobePIVedAmount = Double.parseDouble(GlobalVariables.getRandomChargeDetails().get("tobePIVedAmount"));
         double totalAmount = Double.parseDouble(charges.get(chargeIndex).findElement(By.xpath("./td[contains(@aria-describedby,'t_FinalNetAmountB')]")).getText());
-        Assert.assertEquals("Total Amount Expected :" + tobePIVedAmount + "\nActual :" + totalAmount, tobePIVedAmount, totalAmount, 0.0);
+        double taxAmountAfterWriteOff = Double.parseDouble(GlobalVariables.getRandomChargeDetails().get("taxAmountAfterWriteOff"));
+        Assert.assertEquals("Total Amount Expected :" + (tobePIVedAmount + taxAmountAfterWriteOff) + "\nActual :" + totalAmount, (tobePIVedAmount + taxAmountAfterWriteOff), totalAmount, 0.0);
 
     }
 
@@ -874,7 +886,7 @@ public class PIVSteps extends FinancialSteps {
 
     public void verifyPIVAmountPIVSummaryTable(String pivAmount) throws InterruptedException {
         if (pivAmount.contains("Sum")) {
-            double sumOfPIVAmounts = Double.parseDouble(getAmountsFromAllocatedChargesTable().get("Net PIV Amount"));
+            double sumOfPIVAmounts = Double.parseDouble(getAmountsFromAllocatedChargesTable().get("Cost"));
             double totalPivAmount = Double.parseDouble(getAmountsFromPIVSummaryTable().get("Total PIV Amount"));
             if (sumOfPIVAmounts != totalPivAmount) {
                 SeleniumUtils.logInfo("Total PIV Amount\nExpected :" + sumOfPIVAmounts + "\nActual :" + totalPivAmount);
@@ -895,21 +907,32 @@ public class PIVSteps extends FinancialSteps {
     }
 
     public void verifyWriteOffAmountPIVSummaryTable(String writeOffAmount) throws InterruptedException {
-        double writeOffAmountActual = Double.parseDouble(getAmountsFromPIVSummaryTable().get("Write off Amount"));
-        if (Double.parseDouble(writeOffAmount) != writeOffAmountActual) {
-            SeleniumUtils.logInfo("Write off Amount\nExpected :" + Double.parseDouble(writeOffAmount) + "\nActual :" + writeOffAmountActual);
+        if (writeOffAmount.contains("Written off Amount")) {
+            double writeOffAmountActual = Double.parseDouble(getAmountsFromPIVSummaryTable().get("Write off Amount"));
+            if (Double.parseDouble(GlobalVariables.getWriteOffAmount()) != writeOffAmountActual) {
+                SeleniumUtils.logInfo("Write off Amount\nExpected :" + GlobalVariables.getWriteOffAmount() + "\nActual :" + writeOffAmountActual);
+            }
+            SeleniumUtils.takeScreenshot();
+        } else {
+            double writeOffAmountActual = Double.parseDouble(getAmountsFromPIVSummaryTable().get("Write off Amount"));
+            if (Double.parseDouble(writeOffAmount) != writeOffAmountActual) {
+                SeleniumUtils.logInfo("Write off Amount\nExpected :" + Double.parseDouble(writeOffAmount) + "\nActual :" + writeOffAmountActual);
+            }
         }
-
     }
 
     public void verifyTotalNetAmountPIVSummaryTable(String totalNetAmount) throws InterruptedException {
-        double totalPivAmount = Double.parseDouble(getAmountsFromPIVSummaryTable().get("Total PIV Amount"));
-        double discountAmount = Double.parseDouble(getAmountsFromPIVSummaryTable().get("Discount Value"));
-        double writeOffAmount = Double.parseDouble(getAmountsFromPIVSummaryTable().get("Write off Amount"));
-        double totalNetAmountExp = totalPivAmount - (discountAmount + writeOffAmount);
-        double totalNetAmountActual = Double.parseDouble(getAmountsFromPIVSummaryTable().get("Total Net Amount"));
-        if (totalNetAmountExp != totalNetAmountActual) {
-            SeleniumUtils.logInfo("Total Net Amount\nExpected :" + totalNetAmountExp + "\nActual :" + totalNetAmountActual);
+        if (totalNetAmount.contains("Sum")) {
+            double sumOfPIVAmounts = Double.parseDouble(getAmountsFromAllocatedChargesTable().get("Net PIV Amount"));
+            double totalNetAmountActual = Double.parseDouble(getAmountsFromPIVSummaryTable().get("Total Net Amount"));
+            if (sumOfPIVAmounts != totalNetAmountActual) {
+                SeleniumUtils.logInfo("Total Net Amount\nExpected :" + sumOfPIVAmounts + "\nActual :" + totalNetAmountActual);
+            }
+        } else {
+            double totalNetAmountActual = Double.parseDouble(getAmountsFromPIVSummaryTable().get("Total Net Amount"));
+            if (Double.parseDouble(totalNetAmount) != totalNetAmountActual) {
+                SeleniumUtils.logInfo("Total Net Amount\nExpected :" + totalNetAmount + "\nActual :" + totalNetAmountActual);
+            }
         }
     }
 
@@ -1095,5 +1118,97 @@ public class PIVSteps extends FinancialSteps {
         searchForPurchaseInvoice(supplierName, pivType, pivSubType, supplierInvoiceNumber, entityCode);
         pivPage.editPIVICon(supplierInvoiceNumber).click();
         SeleniumUtils.waitForPageLoad();
+    }
+
+    public Map<String, String> getTotalSummaryTableInfo() throws InterruptedException {
+        expandPanel("Summary Details");
+        Map<String, String> amounts = new HashMap<>();
+        amounts.put("Net Amount", pivPage.totalNetAmountTotalSummaryTable.getText().trim());
+        amounts.put("Currency", pivPage.currencyTotalSummaryTable.getText().trim());
+
+        return amounts;
+    }
+
+    public void verifyCurrencyTotalSummaryTable(String currencyExpected) throws InterruptedException {
+        String currencyActual = getTotalSummaryTableInfo().get("Currency");
+        if (!currencyExpected.equalsIgnoreCase(currencyActual)) {
+            SeleniumUtils.logInfo("Currency\nExpected :" + currencyExpected + "\nActual :" + currencyActual);
+        }
+    }
+
+    public void verifyNetAmountTotalSummaryTable(String netAmountExpected) throws InterruptedException {
+        if (netAmountExpected.contains("Sum")) {
+            double netAmountFromAllocatedCharges = Double.parseDouble(getAmountsFromAllocatedChargesTable().get("Total Amount"));
+            double netAmountActual = Double.parseDouble(getTotalSummaryTableInfo().get("Net Amount"));
+            if (netAmountFromAllocatedCharges != netAmountActual) {
+                SeleniumUtils.logInfo("Net Amount\nExpected :" + netAmountFromAllocatedCharges + "\nActual :" + netAmountActual);
+            }
+        } else {
+            double netAmountActual = Double.parseDouble(getTotalSummaryTableInfo().get("Net Amount"));
+            if (Double.parseDouble(netAmountExpected) != netAmountActual) {
+                SeleniumUtils.logInfo("Net Amount\nExpected :" + netAmountExpected + "\nActual :" + netAmountActual);
+            }
+
+        }
+    }
+
+    public void verifyCurrencyOfTaxSummaryTable(String currency) throws InterruptedException {
+
+        Map<String, Map<String, String>> taxInfoActual = getTaxSummaryTable();
+        Set<String> taxCodesActual = taxInfoActual.keySet();
+        for (String taxCode : taxCodesActual) {
+            if (!taxInfoActual.get(taxCode).get("Currency").equalsIgnoreCase(currency)) {
+                SeleniumUtils.logInfo("Supplier Total Tax Amount for " + taxCode + "\nExpected :" + currency
+                        + "\nActual :" + taxInfoActual.get(taxCode).get("Currency"));
+            }
+        }
+    }
+
+    public void allocateCharges() throws InterruptedException {
+        if (isDialogPopulated("Allocate Jobs for Supplier Invoice number : ")) {
+            selectCharges();
+        } else {
+            clickOnaButton("Allocate to Jobs/ Consol");
+            enterJobNumber(GlobalVariables.getJobNumber());
+            updatedPIVAmountAndTaxAmount();
+            clickOnaButton("Allocate to Jobs/ Consol");
+            enterJobNumber(GlobalVariables.getJobNumber());
+            selectCharges();
+        }
+        clickOnaButton("Allocate");
+        verifyErrorAndUpdateTaxAmount();
+    }
+
+    private void verifyErrorAndUpdateTaxAmount() throws InterruptedException {
+        if (isDialogPopulated("Error")) {
+            if (pivPage.errorMessage.getText().equalsIgnoreCase("Total supplier tax amount should not be greater than header tax amount")) {
+                pivPage.okButtonWarning("Total supplier tax amount should not be greater than header tax amount").click();
+                double taxAmtDiff = Double.parseDouble(getAmountInfoAllocateTable().get("To be Allocated Amount").get("Tax Amount"));
+                List<WebElement> jobs = pivPage.jobsListAllocateJobs.findElements(By.xpath(".//table[contains(@id,'grdTagJobsLs')]"));
+                List<WebElement> nonZeroTaxRatedCharges = jobs.get(0).findElements(By.xpath(".//tr[not(@class='jqgfirstrow') and @aria-selected='true']//td[contains(@aria-describedby,'t_VatRatePer') and not(@title='0%')]/ancestor::tr[1]"));
+                int randomNum = 0;
+                if (nonZeroTaxRatedCharges.size() > 1) {
+                    randomNum = ThreadLocalRandom.current().nextInt(0, nonZeroTaxRatedCharges.size() - 1);
+                }
+                double supplierTaxAmt = Double.parseDouble(nonZeroTaxRatedCharges.get(randomNum).findElement(By.xpath("./td[contains(@aria-describedby,'t_SuppVatAmountB')]/input")).getAttribute("value"));
+                SeleniumUtils.clearText(nonZeroTaxRatedCharges.get(randomNum).findElement(By.xpath("./td[contains(@aria-describedby,'t_SuppVatAmountB')]/input")));
+                nonZeroTaxRatedCharges.get(randomNum).findElement(By.xpath("./td[contains(@aria-describedby,'t_SuppVatAmountB')]/input")).sendKeys(String.format("%.2f", (supplierTaxAmt + taxAmtDiff)));
+                clickOnaButton("Allocate");
+            }
+        }
+    }
+
+    public void partiallyAllocateCharges() throws InterruptedException {
+        if (isDialogPopulated("Allocate Jobs for Supplier Invoice number : ")) {
+            selectCharges();
+        } else {
+            clickOnaButton("Allocate to Jobs/ Consol");
+            enterJobNumber(GlobalVariables.getJobNumber());
+            updatedPIVAmountAndTaxAmount();
+            clickOnaButton("Allocate to Jobs/ Consol");
+            enterJobNumber(GlobalVariables.getJobNumber());
+            selectChargesLessThanPIVAmount();
+        }
+        clickOnaButton("Allocate");
     }
 }
