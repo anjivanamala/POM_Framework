@@ -691,8 +691,9 @@ public class PIVSteps extends FinancialSteps {
         chargeDetails.put("totalAmount", totalAmount);
         GlobalVariables.setRandomChargeDetails(chargeDetails);
         SeleniumUtils.logInfo("Charge Name :" + chargeName);
-        SeleniumUtils.logInfo("Tax Code is :" + taxCode);
-        SeleniumUtils.logInfo("Modified Tax Code is :" + modifiedTaxCode);
+        SeleniumUtils.logInfo("\nTax Code is :" + taxCode);
+        SeleniumUtils.logInfo("\nModified Tax Code is :" + modifiedTaxCode);
+        SeleniumUtils.takeScreenshot();
 
     }
 
@@ -720,25 +721,44 @@ public class PIVSteps extends FinancialSteps {
         Assert.assertTrue("Total Code Expected :" + taxCodeOld + "\nActual :" + taxCode, taxCodeOld.equalsIgnoreCase(taxCode));
     }
 
-    public void modifySupplierTaxAmountForACharge() {
-        List<WebElement> jobs = pivPage.jobsListAllocateJobs.findElements(By.xpath(".//table[contains(@id,'grdTagJobsLs')]"));
+    public void modifySupplierTaxAmountForACharge() throws InterruptedException {
+        List<WebElement> jobs;
+        if (isDialogPopulated("Allocate Jobs for Supplier Invoice number : ")) {
+            jobs = pivPage.jobsListAllocateJobs.findElements(By.xpath(".//table[contains(@id,'grdTagJobsLs')]"));
+        } else {
+            jobs = pivPage.jobsList.findElements(By.xpath(".//table[contains(@id,'grdSavedPIVDetails')]"));
+        }
+
         List<WebElement> NonZeroTaxRatedCharges = jobs.get(0).findElements(By.xpath(".//tr[not(@class='jqgfirstrow')]//td[contains(@aria-describedby,'t_VatRatePer') and not(@title='0%')]/ancestor::tr[1]"));
         int randomNum = 0;
         if (NonZeroTaxRatedCharges.size() > 1) {
-
             randomNum = ThreadLocalRandom.current().nextInt(0, NonZeroTaxRatedCharges.size() - 1);
         }
         String pivAmount = NonZeroTaxRatedCharges.get(randomNum).findElement(By.xpath("./td[contains(@aria-describedby,'t_NetAmountB')]")).getText();
+        String chargeName = NonZeroTaxRatedCharges.get(randomNum).findElement(By.xpath("./td[contains(@aria-describedby,'t_ChargeName')]")).getText();
+        String supplierTaxAmount = NonZeroTaxRatedCharges.get(randomNum).findElement(By.xpath("./td[contains(@aria-describedby,'t_SuppVatAmountB')]/input")).getAttribute("value");
+        double randomSupplierTaxAmt;
+        if (supplierTaxAmount.contains("-")) {
+            randomSupplierTaxAmt = ThreadLocalRandom.current().nextDouble(Double.parseDouble(supplierTaxAmount), 0.00);
+        } else {
+            randomSupplierTaxAmt = ThreadLocalRandom.current().nextDouble(0.00, Double.parseDouble(supplierTaxAmount));
+        }
 
         SeleniumUtils.clearText(NonZeroTaxRatedCharges.get(randomNum).findElement(By.xpath("./td[contains(@aria-describedby,'t_SuppVatAmountB')]/input")));
-        NonZeroTaxRatedCharges.get(randomNum).findElement(By.xpath("./td[contains(@aria-describedby,'t_SuppVatAmountB')]/input")).sendKeys("6.00" + Keys.TAB);
+        NonZeroTaxRatedCharges.get(randomNum).findElement(By.xpath("./td[contains(@aria-describedby,'t_SuppVatAmountB')]/input")).sendKeys(String.format("%.2f", randomSupplierTaxAmt) + Keys.TAB);
 
-        Assert.assertTrue("User is not able to modify Supplier Tax Amounts", NonZeroTaxRatedCharges.get(randomNum).findElement(By.xpath("./td[contains(@aria-describedby,'t_SuppVatAmountB')]/input")).getAttribute("value").equalsIgnoreCase("6.00"));
+        Assert.assertTrue("User is not able to modify Supplier Tax Amounts", NonZeroTaxRatedCharges.get(randomNum).findElement(By.xpath("./td[contains(@aria-describedby,'t_SuppVatAmountB')]/input")).getAttribute("value").equalsIgnoreCase(String.format("%.2f", randomSupplierTaxAmt)));
 
         Map<String, String> chargeDetails = new HashMap<>();
         chargeDetails.put("pivAmount", pivAmount);
         chargeDetails.put("index", String.valueOf(randomNum));
+        chargeDetails.put("modifiedSupplierTaxAmt", String.format("%.2f", randomSupplierTaxAmt));
         GlobalVariables.setRandomChargeDetails(chargeDetails);
+        SeleniumUtils.logInfo("Charge Name : " + chargeName);
+        SeleniumUtils.logInfo("\nIndex of the Charge : " + randomNum);
+        SeleniumUtils.logInfo("\nSupplier Tax Amount : " + supplierTaxAmount);
+        SeleniumUtils.logInfo("\nModified Supplier Tax Amount : " + String.format("%.2f", randomSupplierTaxAmt));
+        SeleniumUtils.takeScreenshot();
     }
 
     public void verifyTotalAmountAfterModifyinSupplierTaxAmount() {
@@ -934,6 +954,7 @@ public class PIVSteps extends FinancialSteps {
                 SeleniumUtils.logInfo("Total Net Amount\nExpected :" + totalNetAmount + "\nActual :" + totalNetAmountActual);
             }
         }
+        SeleniumUtils.takeScreenshot();
     }
 
     public void verifyCurrencyPIVSummaryTable(String currency) throws InterruptedException {
@@ -988,7 +1009,7 @@ public class PIVSteps extends FinancialSteps {
                     taxInfoRows.put("Total Charge Amount", chargeAmount);
                     taxInfoRows.put("Tax Rate", String.format("%.2f", Double.parseDouble(taxRate)));
                     taxInfoRows.put("Total Tax Amount", taxAmount);
-                    taxInfoRows.put("Supplier Total Tax Amount", supplierTaxAmount);
+                    taxInfoRows.put("Supplier Total Tax Amount", String.format("%.2f", Double.parseDouble(supplierTaxAmount)));
                     taxInfo.put(VATcode, updateTaxInfo(taxInfo, VATcode, taxInfoRows));
                 }
             } else {
@@ -1001,7 +1022,7 @@ public class PIVSteps extends FinancialSteps {
                 taxInfoRows.put("Total Charge Amount", chargeAmount);
                 taxInfoRows.put("Tax Rate", String.format("%.2f", Double.parseDouble(taxRate)));
                 taxInfoRows.put("Total Tax Amount", taxAmount);
-                taxInfoRows.put("Supplier Total Tax Amount", supplierTaxAmount);
+                taxInfoRows.put("Supplier Total Tax Amount", String.format("%.2f", Double.parseDouble(supplierTaxAmount)));
                 taxInfo.put(VATcode, updateTaxInfo(taxInfo, VATcode, taxInfoRows));
             }
         }

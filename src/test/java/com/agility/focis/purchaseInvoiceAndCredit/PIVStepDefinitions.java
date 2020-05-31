@@ -23,7 +23,7 @@ public class PIVStepDefinitions {
     @When("Creates PIV Header with below details")
     public void creates_PIV_Header_with_below_details(List<Map<String, String>> pivHeaderInfo) throws InterruptedException {
         pivSteps.navigateToManagePIVPage();
-        GlobalVariables.setJobNumber("100151429");
+//        GlobalVariables.setJobNumber("100151429");
         for (Map<String, String> pivHeaderDetails : pivHeaderInfo) {
             pivSteps.createPIVHeader(pivHeaderDetails);
         }
@@ -240,7 +240,7 @@ public class PIVStepDefinitions {
     }
 
     @Then("User is able to modify Supplier Tax Amount")
-    public void userIsAbleToModifySupplierTaxAmount() {
+    public void userIsAbleToModifySupplierTaxAmount() throws InterruptedException {
         pivSteps.modifySupplierTaxAmountForACharge();
 
     }
@@ -268,6 +268,7 @@ public class PIVStepDefinitions {
     @And("Allocates Charges")
     public void allocatesCharges() throws InterruptedException {
         pivSteps.allocateCharges();
+        SeleniumUtils.takeScreenshot();
 
     }
 
@@ -412,5 +413,10 @@ public class PIVStepDefinitions {
         pivSteps.clickOnaButton("Allocate to Jobs/ Consol");
         pivSteps.enterJobNumber(GlobalVariables.getJobNumber());
         pivSteps.updatedPIVAmountAndTaxAmount();
+    }
+
+    @And("modifies Supplier Tax Amount for a Charge")
+    public void modifiesSupplierTaxAmountForACharge() throws InterruptedException {
+        pivSteps.modifySupplierTaxAmountForACharge();
     }
 }

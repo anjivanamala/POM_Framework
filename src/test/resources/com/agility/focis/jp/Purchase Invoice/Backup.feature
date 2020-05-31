@@ -1,4 +1,3 @@
-@PIVRegression @Regression @PIV
 Feature: Purchase Invoice - Header
 
   Scenario Outline: Process Purchase Invoice Or Purchase Credit
@@ -16,17 +15,15 @@ Feature: Purchase Invoice - Header
       | Job Number | Invoice Type | Invoice SubType | Entity Code | Supplier Name | Supplier Invoice Date |
       | 100149759  | <PIVType>    | <PIVSubType>    | <D_Entity>  | <D_Haulier>   | <PIVInvoiceDate>      |
 
-    @GeneratePIV
     Examples:
       | DataRow | MenuOption | ChildMenuOption | ChildSubMenuOption | Product     | ProductType | JobScope | OriginStakeholder | DestinationStakeholder | IncoTerm | Origin_Country | Origin_NetworkComponent | Origin_Department | Origin_Type | Origin_IsLive | O_Entity | Destination_Country | Destination_NetworkComponent | Destination_Department | Destination_Type | Destination_IsLive | D_Entity | Carrier | FlightNumber | AOD | AOA | ETD | ETDTime | ETA | ETATime | Supplier          | Cost | Revenue | O_Haulier         | O_Coll_Date | O_Del_Date | D_Haulier                   | D_Coll_Date | D_Del_Date | PIVType          | PIVSubType | PIVInvoiceDate    | PIVAmount | TaxAmount | Currency |
       | DR1     | Job        | Job Booking     |                    | Air Freight | Expedited   | E2E      | STK20016776       | STK20016775            | DAT      | US             | Chicago                 | Air Export        | Branch      | Yes           | 1200     | IN                  | Mumbai                       | Air Import             | Branch           | Yes                | 5910     | EK      | EK123        | ORD | BOM | 7   | 12      | 14  | 12      | BESTWAY TRANSPORT | 1    | 2       | BESTWAY TRANSPORT | 1           | 3          | Garrisons Logistics Pvt Ltd | 15          | 16         | Purchase Invoice | Freight    | Current Date - 31 | 150.00    | 0.00      | INR      |
 
-    @GeneratePIVCredit
     Examples:
       | DataRow | MenuOption | ChildMenuOption | ChildSubMenuOption | Product     | ProductType | JobScope | OriginStakeholder | DestinationStakeholder | IncoTerm | Origin_Country | Origin_NetworkComponent | Origin_Department | Origin_Type | Origin_IsLive | O_Entity | Destination_Country | Destination_NetworkComponent | Destination_Department | Destination_Type | Destination_IsLive | D_Entity | Carrier | FlightNumber | AOD | AOA | ETD | ETDTime | ETA | ETATime | Supplier          | Cost | Revenue | O_Haulier         | O_Coll_Date | O_Del_Date | D_Haulier                   | D_Coll_Date | D_Del_Date | PIVType         | PIVSubType | PIVInvoiceDate | PIVAmount | TaxAmount | Currency |
       | DR1     | Job        | Job Booking     |                    | Air Freight | Expedited   | E2E      | STK20016776       | STK20016775            | DAT      | US             | Chicago                 | Air Export        | Branch      | Yes           | 1200     | IN                  | Mumbai                       | Air Import             | Branch           | Yes                | 5910     | EK      | EK123        | ORD | BOM | 7   | 12      | 14  | 12      | BESTWAY TRANSPORT | 1    | 2       | BESTWAY TRANSPORT | 1           | 3          | Garrisons Logistics Pvt Ltd | 15          | 16         | Purchase Credit | Freight    | Today          | -100      | 0.00      | INR      |
 
-  @GenerateSales @GenerateSalesCredit
+
   Scenario Outline: Process Sales Invoice Or Sales Credit
 
     Given User is logged into FOCiS Application
@@ -48,7 +45,6 @@ Feature: Purchase Invoice - Header
       | DataRow | MenuOption | ChildMenuOption | ChildSubMenuOption | Product     | ProductType | JobScope | OriginStakeholder | DestinationStakeholder | IncoTerm | Origin_Country | Origin_NetworkComponent | Origin_Department | Origin_Type | Origin_IsLive | O_Entity | Destination_Country | Destination_NetworkComponent | Destination_Department | Destination_Type | Destination_IsLive | D_Entity | Carrier | FlightNumber | AOD | AOA | ETD | ETDTime | ETA | ETATime | Supplier          | Cost | Revenue | O_Haulier         | O_Coll_Date | O_Del_Date | D_Haulier                   | D_Coll_Date | D_Del_Date | PIVType          | PIVSubType | PIVInvoiceDate | PIVAmount | TaxAmount | Currency | NumberOfChargesForSales |
       | DR1     | Job        | Job Booking     |                    | Air Freight | Expedited   | E2E      | Smatbot- US       | STK20016775            | DAT      | US             | Chicago                 | Air Export        | Branch      | Yes           | 1200     | IN                  | Mumbai                       | Air Import             | Branch           | Yes                | 5910     | EK      | EK123        | ORD | BOM | 7   | 12      | 14  | 12      | BESTWAY TRANSPORT | 1    | 2       | BESTWAY TRANSPORT | 1           | 3          | Garrisons Logistics Pvt Ltd | 15          | 16         | Purchase Invoice | Freight    | Today          | 150.00    | 0.00      | INR      | Random                  |
 
-  @PIVReg
   Scenario Outline: Validate all the field in header after Creating the PIV Header
 
     Given User is logged into FOCiS Application
