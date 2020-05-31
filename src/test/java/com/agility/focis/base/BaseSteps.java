@@ -335,7 +335,7 @@ public class BaseSteps extends DriverInstantiation {
         }
     }
 
-    public void collapsePane(String panelName) throws InterruptedException {
+    public void collapsePanel(String panelName) throws InterruptedException {
         if (basePage.expandOrCollapsePanelBody(panelName).getAttribute("style").contains("display: table-row;")) {
             basePage.expandOrCollapsePanelIcon(panelName).click();
             SeleniumUtils.waitForPageLoad();

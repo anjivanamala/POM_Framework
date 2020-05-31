@@ -188,4 +188,29 @@ public class PIVPage extends BasePage {
 
     @FindBy(id = "grdSavedPIVDetails")
     public WebElement jobsList;
+
+    @FindBy(xpath = "//*[@id='grdSavedPIVDetails']//span[contains(@class,'trash')]")
+    public WebElement deleteCharges;
+
+    @FindBy(xpath = "//table[@id='grdPIVSummaryLs']//td[contains(@aria-describedby,'TotalInvoiceAmount')]")
+    public WebElement totalPIVAmountPIVSummaryTable;
+
+    @FindBy(xpath = "//table[@id='grdPIVSummaryLs']//td[contains(@aria-describedby,'DiscountValue')]")
+    public WebElement discountValuePIVSummaryTable;
+
+    @FindBy(xpath = "//table[@id='grdPIVSummaryLs']//td[contains(@aria-describedby,'WOffAmount')]")
+    public WebElement writeOffAmountPIVSummaryTable;
+
+    @FindBy(xpath = "//table[@id='grdPIVSummaryLs']//td[contains(@aria-describedby,'NetAmount')]")
+    public WebElement totalNetAmountPIVSummaryTable;
+
+    @FindBy(xpath = "//table[@id='grdPIVSummaryLs']//td[contains(@aria-describedby,'Currency')]")
+    public WebElement currencyPIVSummaryTable;
+
+    @FindBy(id = "grdVATSummaryLs")
+    public WebElement taxSummaryTable;
+
+    public WebElement editPIVICon(String invoiceNumber) {
+        return driver.findElement(By.xpath("//*[text()='" + invoiceNumber + "']/ancestor::tr[1]//*[@title='Edit PIV']"));
+    }
 }

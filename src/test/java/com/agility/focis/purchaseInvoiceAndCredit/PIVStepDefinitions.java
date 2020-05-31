@@ -23,7 +23,7 @@ public class PIVStepDefinitions {
     @When("Creates PIV Header with below details")
     public void creates_PIV_Header_with_below_details(List<Map<String, String>> pivHeaderInfo) throws InterruptedException {
         pivSteps.navigateToManagePIVPage();
-//        GlobalVariables.setJobNumber("100149975");
+        GlobalVariables.setJobNumber("100151340");
         for (Map<String, String> pivHeaderDetails : pivHeaderInfo) {
             pivSteps.createPIVHeader(pivHeaderDetails);
         }
@@ -283,5 +283,111 @@ public class PIVStepDefinitions {
 
     @And("Updates PIV Amount and Tax Amount as per Tax Code modification")
     public void updatesPIVAmountAndTaxAmountAsPerTaxCodeModification() {
+    }
+
+    @And("Partially Allocates Charges")
+    public void partiallyAllocatesCharges() throws InterruptedException {
+        pivSteps.clickOnaButton("Allocate to Jobs/ Consol");
+        pivSteps.enterJobNumber(GlobalVariables.getJobNumber());
+        pivSteps.updatedPIVAmountAndTaxAmount();
+        pivSteps.clickOnaButton("Allocate to Jobs/ Consol");
+        pivSteps.enterJobNumber(GlobalVariables.getJobNumber());
+        pivSteps.selectChargesLessThanPIVAmount();
+        pivSteps.clickOnaButton("Allocate");
+
+    }
+
+    @Then("user should be able to delete random charges")
+    public void userShouldBeAbleToDeleteRandomCharges() throws InterruptedException {
+        pivSteps.deleteRandomAllocatedCharges();
+    }
+
+    @Then("user should be able to delete all Allocated Charges")
+    public void userShouldBeAbleToDeleteAllAllocatedCharges() throws InterruptedException {
+        pivSteps.deleteAllAllocatedCharges();
+    }
+
+    @Then("user should be able to add charges")
+    public void userShouldBeAbleToAddCharges() throws InterruptedException {
+        pivSteps.enterJobNumber(GlobalVariables.getJobNumber());
+        selectsCharges();
+        pivSteps.clickOnaButton("Allocate");
+    }
+
+    @Then("Total PIV Amount of PIV Summary Table should be populated as {string}")
+    public void totalPIVAmountOfPIVSummaryTableShouldBePopulatedAs(String pivAmount) throws InterruptedException {
+        pivSteps.verifyPIVAmountPIVSummaryTable(pivAmount);
+        if (SeleniumUtils.getMessageToPrint().length() > 0) {
+            Assert.fail("Total PIV Amount Populated Incorrectly");
+        }
+    }
+
+    @And("Discount Value of PIV Summary Table should be populated as {string}")
+    public void discountValueOfPIVSummaryTableShouldBePopulatedAs(String discountValue) throws InterruptedException {
+        pivSteps.verifyDiscountValuePIVSummaryTable(discountValue);
+        if (SeleniumUtils.getMessageToPrint().length() > 0) {
+            Assert.fail("Discount Value Populated Incorrectly");
+        }
+    }
+
+    @And("Write of Amount of PIV Summary Table should be populated as {string}")
+    public void writeOfAmountOfPIVSummaryTableShouldBePopulatedAs(String writeOffAmount) throws InterruptedException {
+        pivSteps.verifyWriteOffAmountPIVSummaryTable(writeOffAmount);
+        if (SeleniumUtils.getMessageToPrint().length() > 0) {
+            Assert.fail("Write Off Amount Populated Incorrectly");
+        }
+    }
+
+    @And("Total Net Amount of PIV Summary Table should be populated as {string}")
+    public void totalNetAmountOfPIVSummaryTableShouldBePopulatedAs(String totalNetAmount) throws InterruptedException {
+        pivSteps.verifyTotalNetAmountPIVSummaryTable(totalNetAmount);
+        if (SeleniumUtils.getMessageToPrint().length() > 0) {
+            Assert.fail("Total Net Amount Populated Incorrectly");
+        }
+    }
+
+    @And("Currency of PIV Summary Table should populated as {string}")
+    public void currencyOfPIVSummaryTableShouldPopulatedAs(String currency) throws InterruptedException {
+        pivSteps.verifyCurrencyPIVSummaryTable(currency);
+        if (SeleniumUtils.getMessageToPrint().length() > 0) {
+            Assert.fail("Currency Populated Incorrectly");
+        }
+    }
+
+    @Then("Total Charge Amount of Tax Summary Table for a Tax Code should be populated as {string}")
+    public void totalChargeAmountOfTaxSummaryTableForATaxCodeShouldBePopulatedAs(String totalChargeAmount) throws InterruptedException {
+        pivSteps.verifyTotalChargeAmountOfTaxSummaryTable(totalChargeAmount);
+        if (SeleniumUtils.getMessageToPrint().length() > 0) {
+            Assert.fail("Tax Summary Details Populated Incorrectly");
+        }
+    }
+
+    @And("Tax Rate of Tax Summary Table should be populated correctly")
+    public void taxRateOfTaxSummaryTableShouldBePopulatedCorrectly() throws InterruptedException {
+        pivSteps.verifyTaxRateTaxSummaryTable();
+        if (SeleniumUtils.getMessageToPrint().length() > 0) {
+            Assert.fail("Tax Summary Details Populated Incorrectly");
+        }
+    }
+
+    @And("Total Tax Amount of Tax Summary Table should be populated as {string}")
+    public void totalTaxAmountOfTaxSummaryTableShouldBePopulatedAs(String totalTaxAmount) throws InterruptedException {
+        pivSteps.verifyTotalTaxAmountOfTaxSummaryTable(totalTaxAmount);
+        if (SeleniumUtils.getMessageToPrint().length() > 0) {
+            Assert.fail("Tax Summary Details Populated Incorrectly");
+        }
+    }
+
+    @And("Supplier Total Tax Amount of Tax Summary Table should be populated as {string}")
+    public void supplierTotalTaxAmountOfTaxSummaryTableShouldBePopulatedAs(String supplierTaxAmount) throws InterruptedException {
+        pivSteps.verifySupplierTotalTaxAmountOfTaxSummaryTable(supplierTaxAmount);
+        if (SeleniumUtils.getMessageToPrint().length() > 0) {
+            Assert.fail("Tax Summary Details Populated Incorrectly");
+        }
+    }
+
+    @And("Edits PIV with Supplier Invoice Number {string}")
+    public void editsPIVWithSupplierInvoiceNumber(String invoiceNum) throws InterruptedException {
+        pivSteps.editPIV("", "", "", invoiceNum, "");
     }
 }
