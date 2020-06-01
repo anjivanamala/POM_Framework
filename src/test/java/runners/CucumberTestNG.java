@@ -35,11 +35,11 @@ public class CucumberTestNG extends AbstractTestNGCucumberTests {
 
     }
 
-//    @AfterMethod
-//    public void killDriver() {
-//        driver = DriverInstantiation.getDriver();
-//        driver.quit();
-//        System.out.println("I quit the Driver");
-//    }
+    @AfterMethod
+    public void killDriver() {
+        driver = DriverInstantiation.getDriver();
+        driver.quit();
+        System.out.println("I quit the Driver");
+    }
 
 }
