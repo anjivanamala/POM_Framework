@@ -4,10 +4,7 @@ import com.agility.focis.financial.FinancialSteps;
 import com.agility.focis.globalVariables.GlobalVariables;
 import com.agility.focis.utilities.testObject.*;
 import org.junit.Assert;
-import org.openqa.selenium.By;
-import org.openqa.selenium.Keys;
-import org.openqa.selenium.WebDriver;
-import org.openqa.selenium.WebElement;
+import org.openqa.selenium.*;
 import org.openqa.selenium.support.ui.Select;
 
 import java.io.IOException;
@@ -151,8 +148,18 @@ public class PIVSteps extends FinancialSteps {
         String currency = pivHeaderDetails.get("Currency");
 
         if (!driver.getCurrentUrl().contains("managepivfrpg")) {
-            SeleniumUtils.waitForElementToBeClickable(pivPage.createNewPIVButton);
-            pivPage.createNewPIVButton.click();
+            try {
+
+                SeleniumUtils.waitForElementToBeClickable(pivPage.createNewPIVButton);
+                pivPage.createNewPIVButton.click();
+
+            } catch (Exception e) {
+
+                JavascriptExecutor executor = (JavascriptExecutor) driver;
+                executor.executeScript("arguments[0].click();", pivPage.createNewPIVButton);
+
+            }
+
         }
 
         selectEntityCode(entityCode);
